@@ -1,0 +1,176 @@
+%!TEX encoding = UTF8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SELF MADE COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%
+% tcolor environments VS clean environments
+%%
+
+\newcommand{\thm}[3]{\begin{theorem}[#1]\label{#3}#2\end{theorem}}
+\newcommand{\cor}[3]{\begin{corollaire}[#1]\label{#3}#2\end{corollaire}}
+\newcommand{\lem}[3]{\begin{lemme}[#1]\label{#3}#2\end{lemme}}
+\newcommand{\mprop}[3]{\begin{proposition}[#1]\label{#3}#2\end{proposition}}
+\newcommand{\ex}[3]{\begin{exemple}[#1]\label{#3}#2\end{exemple}}
+\newcommand{\dfn}[3]{\begin{definition}[#1]\label{#3}#2\end{definition}}
+\newcommand{\qs}[2]{\begin{question}[#1]#2\end{question}}
+\newcommand{\pf}[2]{\begin{preuve}[#1]#2\end{preuve}}
+\newcommand{\nt}[1]{\begin{remarque}#1\end{remarque}}
+\newcommand{\str}[1]{\begin{strategie}#1\end{strategie}}
+\newcommand{\mth}[1]{\begin{methode}#1\end{methode}}
+\newcommand{\ax}[3]{\begin{axiome}[#1]\label{#3}#2\end{axiome}}
+\newcommand{\notations}[1]{\begin{notation}#1 \end{notation}}
+\newcommand{\nomen}[1]{\begin{nomenclature}#1 \end{nomenclature}}
+\newcommand{\heur}[1]{\begin{heuristique}#1\end{heuristique}}
+
+\newcommand{\exe}[4]{
+	\begin{Exercise}[title=#1, label=#3]
+		%\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+		#2
+	\end{Exercise}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}
+
+\newcommand{\exemulticols}[5]{
+	%\begin{multicols}{2}
+	\begin{Exercise}[title=#1, label=#4]
+	\begin{multicols}{2}
+		%\marginnote{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+		#2
+	\columnbreak
+		#3
+	\end{multicols}
+	\end{Exercise}
+	%\end{multicols}
+	\begin{Answer}[ref=#4]
+		#5
+	\end{Answer}
+}
+
+%%
+
+% deliminators
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+%\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\round}{\lfloor}{\rceil}
+
+\newsavebox\diffdbox
+\newcommand{\slantedromand}{{\mathpalette\makesl{d}}}
+\newcommand{\makesl}[2]{%
+\begingroup
+\sbox{\diffdbox}{$\mathsurround=0pt#1\mathrm{#2}$}%
+\pdfsave
+\pdfsetmatrix{1 0 0.2 1}%
+\rlap{\usebox{\diffdbox}}%
+\pdfrestore
+\hskip\wd\diffdbox
+\endgroup
+}
+\newcommand{\dd}[1][]{\ensuremath{\mathop{}\!\ifstrempty{#1}{%
+\slantedromand\@ifnextchar^{\hspace{0.2ex}}{\hspace{0.1ex}}}%
+{\slantedromand\hspace{0.2ex}^{#1}}}}
+\ProvideDocumentCommand\dv{o m g}{%
+  \ensuremath{%
+    \IfValueTF{#3}{%
+      \IfNoValueTF{#1}{%
+        \frac{\dd #2}{\dd #3}%
+      }{%
+        \frac{\dd^{#1} #2}{\dd #3^{#1}}%
+      }%
+    }{%
+      \IfNoValueTF{#1}{%
+        \frac{\dd}{\dd #2}%
+      }{%
+        \frac{\dd^{#1}}{\dd #2^{#1}}%
+      }%
+    }%
+  }%
+}
+\providecommand*{\pdv}[3][]{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
+%  - others
+\DeclareMathOperator{\Lap}{\mathcal{L}}
+\DeclareMathOperator{\Var}{Var} % variance
+\DeclareMathOperator{\Cov}{Cov} % covariance
+
+% Since the amsthm package isn't loaded
+
+% I prefer the slanted \leq
+\let\oldleq\leq % save them in case they're every wanted
+\let\oldgeq\geq
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% tel que
+\newcommand{\tqs}{\text{ tels que }}
+\newcommand{\tq}{\text{ tq. }}
+\newcommand{\et}{\text{ et }}
+\newcommand{\ou}{\text{ ou }}
+\newcommand{\pourtout}{\text{ pour tout }}
+\newcommand{\sct}{\text{ sachant }}
+
+% Lois
+\newcommand{\Bern}{\text{Bern}}
+\newcommand{\Binom}{\text{Binom}}
+
+% ensemble avec bigl et bigr
+\newcommand{\bigset}[1]{\bigl\{ #1 \bigr\}}
+\newcommand{\Bigset}[1]{\Bigl\{ #1 \Bigr\}}
+\newcommand{\bigpar}[1]{\bigl( #1 \bigr)}
+\newcommand{\Bigpar}[1]{\Bigl( #1 \Bigr)}
+
+% PLUS INFTY AND MINUS INFTY WITH NO SPACE
+\newcommand{\pinfty}{{+}\infty}
+\newcommand{\minfty}{{-}\infty}
+
+% vecteur flèche
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+% vecteur pmatrix
+\newcommand{\pvec}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+
+% vecteur norme
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+
+% point plan
+\newcommand{\point}[3]{
+	#1\left(#2 ; #3 \right)
+}
+
+% \smash avant \underline pour coller la ligne au mot
+\let\oldunderline\underline
+\renewcommand{\underline}[1]{\oldunderline{\smash{#1}}}
+
+% emph + index
+\newcommand{\emphindex}[1]{\emph{#1}\index{#1}}
+
+% tableau croisé
+\newcommand{\tableaucroise}[4]{
+\begin{tabular}{|c|c|c|c|}
+	\cline{2-4}
+	\multicolumn{1}{c|}{} & #1 \\ \hline
+	#2 \\ \hline
+	#3  \\ \hline
+	#4  \\ \hline
+\end{tabular}
+}
+
+% python minted
+\newcommand{\python}[1]{
+\inputminted[
+		linenos,
+		gobble=0,
+		breaklines=true, % otherwise it breaks for no apparent reason?
+		breakafter=,,
+		fontsize=\normalsize,
+		numbersep=8pt,
+		tabsize=4, % tab ident = 4 spaces
+		fontfamily=courier, %important pour les signes <, >
+]{python}{python/#1.py}
+}

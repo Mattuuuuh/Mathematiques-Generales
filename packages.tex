@@ -1,0 +1,64 @@
+%!TEX encoding = UTF8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGE IMPORTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+	margin=2cm,
+	right=2.2cm,
+	footskip=1.5cm,
+]{geometry}
+
+%ams
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+\usepackage{bookmark}
+\usepackage{enumitem}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{varwidth,etoolbox}
+\usepackage[makeroom]{cancel}
+\usepackage{xcolor}
+\usepackage{multicol,array}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+\usepackage{caption, subcaption}
+
+\usepackage{marginnote}
+
+\usepackage{makecell} % pour \thead 
+
+%index
+\usepackage[texindy]{imakeidx}
+\makeindex[
+	columns=2, 
+	title=Index, 
+	options= -L french,
+	%intoc,
+]
+\indexsetup{level=\chapter}
+
+%virgules
+\usepackage{icomma}
+
+% for striked out implies sign (\centernot\implies)
+\usepackage{centernot}
+
+% roman numerals for \section
+\renewcommand{\thesection}{\Roman{section}} 
+
+% tikz
+\usepackage{tikz}
+
+% package systeme pour les systèmes d'équations bien alignés
+\usepackage{systeme}
+%\sysalign{r,r}
+%\syseqspace{3pt}
+%\syssignspace{3pt}
+
+\newcommand{\sys}[2]{\systeme{#1{,}, #2.}}

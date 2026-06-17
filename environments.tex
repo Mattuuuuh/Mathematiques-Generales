@@ -1,0 +1,255 @@
+%!TEX encoding = UTF8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CLEAN SETUPS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+
+\newtheorem{theorem}{Théorème}[chapter]
+\newtheorem{corollaire}[theorem]{Corollaire}
+\newtheorem{lemme}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{exercice}[theorem]{Exercice}
+\newtheorem{exemple}[theorem]{Exemple}
+\newtheorem{definition}[theorem]{Définition}
+\newtheorem*{question}{Question}
+\newtheorem*{preuve}{Preuve}
+\newtheorem*{remarque}{Remarque}
+\newtheorem*{strategie}{Stratégie}
+\newtheorem*{methode}{Méthode}
+\newtheorem*{notation}{Notation}
+\newtheorem*{nomenclature}{Nomenclature}
+\newtheorem{axiome}[theorem]{Axiome}
+\newtheorem*{heuristique}{Heuristique}
+
+\newtheorem*{definition*}{Définition}
+\newtheorem*{lemme*}{Lemme}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{theorem*}{Théorème}
+\newtheorem*{corollaire*}{Corollaire}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CLEAN SETUPS : MDFRAMED SURROUND
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifclean
+
+\usepackage[framemethod=pgf]{mdframed}
+% def
+\mdfdefinestyle{definition}{
+	hidealllines=true,
+	leftline=true,
+	innerrightmargin=0,
+	innertopmargin=-4pt,
+}
+\surroundwithmdframed[
+	style=definition,
+]{definition}
+\surroundwithmdframed[
+	style=definition,
+]{definition*}
+
+% thm
+\mdfdefinestyle{theorem}{
+	leftline=true,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=theorem,
+]{theorem}
+\surroundwithmdframed[
+	style=theorem,
+]{theorem*}
+
+% prop
+\mdfdefinestyle{proposition}{
+	leftline=true,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=proposition,
+]{proposition}
+\surroundwithmdframed[
+	style=proposition,
+]{proposition*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLOURFUL SETUPS : MDFRAMED SURROUND
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\else
+
+\usepackage[framemethod=pgf]{mdframed}
+% def
+\mdfdefinestyle{definition}{
+	hidealllines=true,
+	leftline=true,
+	linecolor=BLUE_E,
+	linewidth=2pt,
+	innertopmargin=-4pt,
+	innerrightmargin=0,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=definition,
+]{definition}
+\surroundwithmdframed[
+	style=definition,
+]{definition*}
+
+% thm
+\mdfdefinestyle{theorem}{
+	linecolor=MAROON_C,
+	linewidth=2pt,
+	roundcorner=4pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=theorem,
+]{theorem}
+\surroundwithmdframed[
+	style=theorem,
+]{theorem*}
+
+% prop
+\mdfdefinestyle{proposition}{
+	linecolor=GREEN_E,
+	linewidth=2pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=proposition,
+]{proposition}
+\surroundwithmdframed[
+	style=proposition,
+]{proposition*}
+
+% lemme
+\mdfdefinestyle{lemme}{
+	linecolor=TEAL_E,
+	linewidth=1pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=lemme,
+]{lemme}
+\surroundwithmdframed[
+	style=lemme,
+]{lemme*}
+
+% corollaire
+\mdfdefinestyle{corollaire}{
+	linecolor=YELLOW_E,
+	linewidth=2pt,
+	roundcorner=4pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+}
+\surroundwithmdframed[
+	style=corollaire,
+]{corollaire}
+\surroundwithmdframed[
+	style=corollaire,
+]{corollaire*}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCISES 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% delays answers
+% answers are from last exercise if no label is provided
+%\usepackage[answerdelayed, exercisedelayed, lastexercise]{exercise}
+\usepackage[answerdelayed, lastexercise]{exercise}
+
+% reset counter each chapter
+\renewcounter{Exercise}[chapter]
+
+% change head to hyperlink to answer
+\renewcommand{\ExerciseHeader}{
+	\textbf{
+	%\ref{\ExerciseLabel-Answer}.
+	\refAnswer{\ExerciseLabel}.
+	}
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
+}
+\renewcommand{\DifficultyMarker}{$\star$}
+% old solutions not per chapter
+%\renewcommand{\AnswerHeader}{
+%	% if exercise title is "1" then announce new chapter
+%	\if\ExerciseTitle1
+%		\hrule\vspace{1cm}
+%		{\LARGE
+%		\textbf{Exercices du chapitre \thechapter}\newline\newline
+%		}
+%	\fi
+%	
+%	\centerline{\textbf{
+%	Exercice \ExerciseHeaderNB
+%	}}
+%}
+\renewcommand{\AnswerHeader}{
+	\textbf{
+	\theExercise.
+	}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MINTED FOR PYTHON ALGORITHMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,breakable,xparse,skins}
+\definecolor{bg}{gray}{0.95}
+\DeclareTCBListing{mintedbox}{O{}m!O{}}{%
+  breakable=true,
+  listing engine=minted,
+  listing only,
+  minted language=#2,
+  minted style=default,
+  minted options={%
+    linenos,
+    gobble=0,
+    breaklines=false, % otherwise it breaks for no apparent reason?
+    breakafter=,,
+    fontsize=\small,
+    numbersep=8pt,
+    tabsize=4, % tab ident = 4 spaces
+    fontfamily=courier, %important pour les signes <, >
+    #1},
+  boxsep=0pt,
+  left skip=0pt,
+  right skip=0pt,
+  left=25pt,
+  right=0pt,
+  top=3pt,
+  bottom=3pt,
+  arc=5pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  colback=bg,
+  colframe=orange!70,
+  enhanced,
+  overlay={%
+    \begin{tcbclipinterior}
+    \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
+    \end{tcbclipinterior}},
+  #3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TCOLORBOX SETUPS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
