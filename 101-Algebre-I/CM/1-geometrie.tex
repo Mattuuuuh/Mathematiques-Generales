@@ -1,0 +1,199 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\chapter{Géométrie du plan et de l'espace}
+\label{chap:geometrie}
+
+\section{Espaces vectoriels et affines}
+
+
+\section{Norme}
+
+\exe{}{
+	Calculer la distance entre les points $P(3;4)$ et $Q(-2;2)$ dans un repère orthonormé.
+}{exe:dist-2d}{
+	todo
+}
+
+
+\section{Produit scalaire}
+
+\thm{}{
+	Soient $u = \pvec{u_1}{u_2}$ et $v = \pvec{v_1}{v_2}$ deux vecteurs non nuls.
+	Alors $u$ et $v$ sont orthogonaux si et seulement si
+		\[ u_1v_1 + u_2v_2 = 0. \]
+}{thm:orth-d2}
+
+\pf{}{
+	
+}
+
+\exe{}{
+	Les paires de vecteurs suivantes sont-elles orthogonales ?
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\pvec12$ et $\pvec{-1}{-2}$
+		\item $\pvec12$ et $\pvec{-2}{1}$
+		\item $\pvec{-6}{-3}$ et $\pvec{1}{-2}$
+		\item $\pvec{-6}{-3}$ et $\pvec{-1}{2}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:is-orth}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $a\in\R$. Donner un vecteur orthogonal à $\pvec1a$.
+}{exe:vec-orth}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Si $u, v\in\R^2$ sont orthogonaux, montrer que $u$ et $-v$ le sont aussi puis que $u$ et $\lambda v$ le sont aussi pour tout $\lambda\in\R$.
+	Interpréter géométriquement.
+}{exe:vec-orth-lin}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Considérons la droite $(d) : 3x-2y = 5$ du plan cartésien.
+	Trouver l'équation d'une droite $(d')$ perpendiculaire à $(d)$.
+}{exe:droite-perp}{
+	todo
+}
+
+\dfn{produit scalaire}{
+	Soient $u = \begin{pmatrix}u_1 \\ u_2 \\ \vdots \\ u_n \end{pmatrix}, v = \begin{pmatrix}v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$
+	deux vecteurs de $\R^n$.
+	Le \emphindex{produit scalaire} entre $u$ et $v$ est donné par
+		\[ \sum_{i=1}^n u_iv_i =  u_1 v_1 + u_2v_2 + \dots + u_nv_n. \]
+}{dfn:produit-scalaire}
+
+\notation{
+	Le produit scalaire entre $u$ et $v$ est lu « $u$ scalaire $v$ » et admet plusieurs notations :
+	%\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		$u \cdot v$, d'où le \emph{dot product} ;
+		\item
+		$\scal{u, v}$, utilisée pour les produits bilinéaires ;
+		\item
+		$u^T v$, produit matriciel ;
+		\item
+		$u_iv_i$, convention de sommation d'Einstein.
+	\end{enumerate}
+	%\end{multicols}
+}
+
+\nt{
+	Le produit scalaire d'un vecteur $u$ avec lui-même égale le carré de sa norme.
+		\[ \scal{u, u} = \norm{u}^2. \]
+}
+
+\thm{bilinéarité du produit scalaire}{
+	Le produit scalaire $\scal{. , .}$ est un \emph{produit bilinéaire}.
+}{thm:bilinearite-scalaire}
+
+\exe{}{
+	Soient $u, v$ deux vecteurs de $\R^n$. Montrer l'identité remarquable
+		\[ \norm{u+v}^2 = \norm{u}^2 + \norm{v}^2 + 2\scal{u, v}. \]
+}{exe:id-rem-scal}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soient $u, v$ deux vecteurs non nuls de $\R^2$ et $\theta$ l'angle dirigé de $u$ vers $v$.
+	En adaptant la preuve du théorème \ref{thm:orth-d2}, montrer que
+		\[ \scal{u, v} = \norm{u}\norm{v}\cos(\theta). \]
+}{exe:prod-scal-2d}{
+	todo
+}
+
+\dfn{orthogonalité}{
+	Deux vecteurs de $\R^n$ sont dits \emphindex{vecteurs orthogonaux} dès que $\scal{u, v} = 0$.
+}{dfn:orthogonalite}
+
+
+
+\exe{difficulty=1}{
+	Soit $u_1, \dots, u_n$ une famille orthonormée de $\R^n$.
+	\begin{enumerate}
+		\item
+		Montrer que la famille est libre.
+		\item
+		Montrer l'identité de Pythagore :
+			\[ \norm{u_1 + \cdots + u_n}^2 = \norm{u_1}^2 + \cdots + \norm{u_n}^2. \]
+	\end{enumerate}
+}{exe:ortho-is-free}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $M\in\R^{n\times n}$ une matrice dont les colonnes forment une base orthonormale.
+	Montrer que $M^T M = I$ puis que $M M^T = I$ et en déduire que les lignes de $M$ forment également une base orthonormale.
+}{exe:ortho-matrix}{
+	todo
+}
+
+
+\dfn{projection orthogonale}{
+	$\proj_u(v)$.
+}{dfn:proj-orth}
+
+\thm{}{
+	Soient $u$ et $v$ deux vecteurs non nuls de $\R^n$.
+	Alors $\proj_u(v)$ est le vecteur le plus proche de $v$ appartenant à $\scal{u}$.
+}{thm:orth-proj-closest}
+
+\thm{}{
+	Soient $u$ et $v$ deux vecteurs non nuls de $\R^n$.
+	Alors 	
+		\[ \proj_u(v) = \frac{\scal{u, v}}{\scal{v, v}} v. \]
+	L'application $\proj_u$ est donc linéaire.
+}{thm:proj-orth-formula}
+
+\exe{}{
+	Soient $u = \pvec12$ et $v = \pvec{-3}{-2}$ dans $\R^2$.
+	Calculer $\proj_u(v)$.
+	Calculer la matrice $P$ de l'application $\proj_u$ dans la base canonique.
+	Calculer $P^2$ et $P^n$ pour tout $n\in\N$.
+}{exe:proj-to-matrix}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Soit $P\in\R^{2\times2}$ vérifiant $P^2 = P$.
+	Est-ce que $P$ est la matrice d'une application $\proj_u$ dans la base canonique ?
+	Si oui, donner $u$ explicitement.
+}{exe:matrix-to-proj}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Soient $u$ et $v$ deux vecteurs non nuls de $\R^n$.
+	Comment calculer $\sym_u(v)$, le symétrique de $v$ par rapport à $\scal{u}$ ?
+	Montrer que $\sym_u$ est linéaire et qu'elle vérifie $\sym_u^2 = \id$.
+}{exe:matrix-to-proj}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Gram-Schmidt
+}{exe:gram-schmidt}{
+	todo
+}
+
+\section{Produit vectoriel}
+
+%\section*{Exercices}
+%\addcontentsline{toc}{section}{Exercices}
+%
+%\shipoutExercise
+
+\section*{Solutions}
+\addcontentsline{toc}{section}{Solutions}
+
+\shipoutAnswer
+
+
+
