@@ -8,7 +8,8 @@
 
 % deliminators
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-%\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\scal}{\langle}{\rangle}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
@@ -19,8 +20,10 @@
 \DeclareMathOperator{\Lap}{\mathcal{L}}
 \DeclareMathOperator{\Var}{Var} % variance
 \DeclareMathOperator{\Cov}{Cov} % covariance
+\DeclareMathOperator{\proj}{proj} % projection
+\DeclareMathOperator{\sym}{sym} % symétrique
 
-% Since the amsthm package isn't loaded
+\DeclareMathOperator{\pgcd}{pgcd}
 
 % I prefer the slanted \leq
 \let\oldleq\leq % save them in case they're every wanted
@@ -35,6 +38,7 @@
 \newcommand{\ou}{\text{ ou }}
 \newcommand{\pourtout}{\text{ pour tout }}
 \newcommand{\sct}{\text{ sachant }}
+\newcommand{\id}{\text{id}}
 
 % Lois
 \newcommand{\Bern}{\text{Bern}}
@@ -57,7 +61,7 @@
 \newcommand{\pvec}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 
 % vecteur norme
-\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+%\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
 
 % point plan
 \newcommand{\point}[3]{
