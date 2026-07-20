@@ -35,6 +35,12 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \exe{}{
+	Donner l'ensemble des éléments inversibles de $\K[x]$.
+}{exe:k-star}{
+	$\bigpar{ \K[x] }^{x} = \K^{x}$.
+}
+
+\exe{}{
 	Montrer que $\K_n[x]$ est un $\K$-espace vectoriel.
 	Donner une base et sa dimension.
 }{exe:kn-sur-k}{
@@ -68,7 +74,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Il est important de préciser dans quel anneau polynomial la division s'opère.
 	Il peut s'avérer utile d'agrandir le corps dans lequel nous travaillons pour étudier la divisibilité.
 	Par exemple, tout polynôme de $\R[x]$ admet une racine sur $\C$, et donc voir ce même polynôme comme appartenant à $\C[x]$ permet de dégager un diviseur.
-	Le polynôme réel est vu comme un polynôme complexe par \emphindex{plongement} dans $\R$ dans $\C$.
+	Le polynôme réel est vu comme un polynôme complexe par \emphindex{plongement} de $\R$ dans $\C$.
 }
 
 \exe{}{
@@ -124,9 +130,9 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \pf{}{
 	Notons qu'un argument du minimum n'est pas nécessairement unique \apriori.
 	Montrons donc d'abord qu'il l'est en prenant $p$ et $p'$ deux arguments du minimum.
-	Les deux polynômes $p$ et $p'$ sont dont combinaisons linéaires de $a$ et $b$, non nuls, unitaires, et de degré minimal égal à $d\in\N$.
+	Les deux polynômes $p$ et $p'$ sont donc combinaisons linéaires de $a$ et $b$, non nuls, unitaires, et de degré minimal égal à $d\in\N$.
 	La différence $p-p'$ est de degré strictement inférieur à $d$ et est combinaison linéaire de $a$ et $b$.
-	Par minimalité de $d$, cette différence est nulle et $p=p'$.
+	Par minimalité de $d$, cette différence est multiple de 0 et est donc nulle : $p=p'$.
 	
 	Notons ainsi $p$ l'argument du minimum et soit $d$ un PGCD de $a$ et $b$. 
 	D'après l'exercice \ref{exe:d-div-comb-lin}, $d$ divise $p$ car c'est une combinaison linéaire de $a$ et de $b$.
@@ -137,7 +143,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 		\item $p$ est unitaire.
 	\end{enumerate}
 	La condition 1 se démontre classiquement comme suit.
-	En prenant $a = pq + r, \deg(r) < \deg(p)$ la division euclidienne de$a$ par $p$ dans $\K[x]$, nous obtenons que $r = a-pq$ est combinaison linéaire de $a$ et $b$ et est donc nul par minimalité du degré de $p$.
+	En prenant $a = pq + r, \deg(r) < \deg(p)$ la division euclidienne de $a$ par $p$ dans $\K[x]$, nous obtenons que $r = a-pq$ est combinaison linéaire de $a$ et $b$ et est donc nul par minimalité du degré de $p$.
 	La condition 2 est analogue et la condition 3 est vérifiée par construction de $p$.
 
 	En conclusion, nous avons d'abord montré que $d$ divise $p$ puis que $\deg(p) \leq \deg(d)$ par définition de $d$ et de $p$.
@@ -156,7 +162,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \cor{}{
 	Soient $a, b \in\K[x]$. Alors
-		\[ (a, b) = \bigl( \pgcd(a, b) \bigr). \]
+		\[ (a, b) = \bigpar{ \pgcd(a, b) }. \]
 	En particulier, si $d\in\K[x]$ divise à la fois $a$ et $b$, alors $d$ divise $\pgcd(a, b)$.
 }{cor:pgcd-ideal}
 
@@ -164,6 +170,14 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Montrer le corollaire \ref{cor:pgcd-ideal}.
 }{exe:cor:pgcd-ideal}{
 	todo
+}
+
+\nt{
+	Une définition plus abstraite mais plus générale du PGCD est donc la suivante, et s'applique à tous les anneaux principaux.
+	Pour $a, b\in\R$ deux éléments d'un anneau $R$ principal, nous avons
+		\[ (a, b) = \bigpar{ \pgcd(a, b) }, \]
+	ce qui définit $\pgcd(a, b)$ à élément inversible de $R$ près.
+	Dans notre cas, les éléments inversibles de $\K[x]$ sont les constantes non nulles, et le caractère unitaire du PGCD permet de le rendre unique.
 }
 
 \subsection{Anneau factoriel}
@@ -187,30 +201,36 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \exe{}{
 	Montrer le corollaire \ref{cor:Gauss-arithm}.
-}{exe:cor:Gauss}{
+}{exe:cor:Gauss-arithm}{
 	todo
 }
 
 \lem{d'Euclide}{
 	Soit $a\in\K[x]$ un polynôme irréductible divisant un produit $bc$ de polynômes de $\K[x]$.
 	Alors soit $a$ divise $b$, soit $a$ divise $c$.
-}{lem:euclide}
+}{lem:Euclide}
 
 \exe{}{
 	Montrer le lemme \ref{lem:Euclide}.
-}{exe:lem:euclide}{
+}{exe:lem:Euclide}{
 	todo
 }
 
 \nt{
 	Les polynômes irréductibles sont les équivalents des nombres premiers.
+	Il est donc naturel de vouloir trouver un analogue au théorème fondamental de l'arithmétique dans l'anneau des polynômes.
+	Pour cela, il convient de se demander : quels polynômes sont irréductibles ? 
+	La réponse à cette question dépend du corps choisi. 
+	Sur $\C$, seuls les polynômes de degré 1 sont irréductibles. 
+	Sur $\R$, des polynômes de degré 2 peuvent l'être, comme $x^2 + 1$, mais pas de degré 3 car le théorème des valeurs intermédiaires implique l'existence d'une racine réelle.
+	Sur $\Z$ et les corps finis, il existe des polynômes irréductibles de degrés aussi grands que voulu.
 }
 
 \pf{}{
 	Notons $d = \pgcd(a, b)$.
 	Comme $d$ divise $a$ qui est irréductible, nous avons deux alternatives : soit $d = a$, soit $d=1$.
 	Si $d=a$, alors $a$ divise $b$, première possibilité du théorème.
-	Sinon, $d=1$ et donc $a$ divise $b$ d'après le lemme de Gauss (arithmétique) \ref{lem:Euclide}.
+	Sinon, $d=1$ et donc $a$ divise $b$ d'après le lemme de Gauss (arithmétique) \ref{lem:Gauss-arithm}.
 }
 
 \thm{}{
@@ -426,7 +446,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 		\begin{center}
 		$\ev_{\sqrt2}$ :
 		\begin{tabular}{ccc}
-			$\Q[x]$ & $\longrightarrow$ & $\Q[\sqrt2]$ \\
+			$\Q[x]$ & $\longrightarrow$ & $\Q\left[\sqrt2\right]$ \\
 			$f$ & $\longmapsto$ & $f\bigpar{\sqrt2}$
 		\end{tabular}
 		\end{center}
@@ -445,14 +465,14 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \exe{difficulty=2}{
 	Montrer le \emphindex{critère d'Eisenstein} :
-	soit $f(x) = a_0 + a_1x + \cdots + a_nx^n \in\Z[x]$ et $p$ un nombre premier vérifiant les conditions
+	soient $f(x) = a_0 + a_1x + \cdots + a_nx^n \in\Z[x]$ et $p$ un nombre premier vérifiant les conditions
 	\begin{enumerate}
 		\item $a_n = 1$ ; et
 		\item $p$ divise $a_0, a_1, \hdots, a_{n-1}$ ; et
 		\item $p^2$ ne divise pas $a_0$.
 	\end{enumerate}
 	Alors $f(x)$ est irréductible sur $\Q[x]$.
-}{exe:xppm1-irr}{
+}{exe:eisenstein}{
 	Comme $f$ est unitaire à coefficients entiers, le lemme de Gauss \ref{lem:Gauss} implique que l'irréducibilité dans $\Q[x]$ est équivalente à l'irréducibilité dans $\Z[x]$.
 	Supposons donc, par contradiction, que $f$ soit réductible sur $\Z[x]$.
 	
@@ -476,8 +496,8 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \exe{}{
-	Soit $z\in\C$ une racine $p-1$-ième de l'unité où $p$ est un nombre premier.
-	Alors le polynôme minimal annulateur de $z$ est $\frac{x^p - 1}{x-1}$.
+	Soit $z\in\C$ une racine $p$-ième de l'unité où $p$ est un nombre premier.
+	Montrer que le polynôme minimal annulateur de $z$ est $\frac{x^p - 1}{x-1}$.
 }{exe:pmin-unit-root}{
 	todo
 }
@@ -485,14 +505,14 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 
 \exe{}{
-	Montrer que $\U$ est un sous-groupe de $(\C^*, \times)$.
+	Montrer que $\U$ est un sous-groupe de $\bigpar{\C^*, \times}$.
 }{exe:U-sous-groupe}{
 	todo
 }
 
 \exe{}{
 	Soit $n\in\N^*$.
-	Montrer que $(\U_n, \times)$ est le seul sous-groupe d'ordre $n$ de $\U$.
+	Montrer que $\bigpar{\U_n, \times}$ est le seul sous-groupe d'ordre $n$ de $\U$.
 }{exe:Un-sous-groupe-unique}{
 	todo
 }
@@ -508,7 +528,9 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \exe{difficulty=2}{
 	Soit $n\in\N^*$.
 	Pour $d\in\N, d|n$ diviseur de $n$, posons
-		\[ \phi_d = \prod_{z \in \mu_d} \bigpar{ x-z }. \]
+		\begin{align*}
+		\mu_d = \bigset{ e^{2\pi i \frac{k}d} \tq 1 \leq k \leq d \et \pgcd(k, d) = 1} && \et && \phi_d = \prod_{z \in \mu_d} \bigpar{ x-z }.
+		\end{align*}
 	\begin{enumerate}
 		\item
 		Montrer que 
@@ -518,7 +540,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 		\item
 		Montrer que si $n$ est \emphindex{semi-premier}, c'est-à-dire que $n=pq$ avec $p, q$ premiers, alors
 			\[ \phi_n(x) = \frac{x^n-1}{\phi_p(x) \phi_q(x) (x-1)} \]
-		est une division dans $\C[x]$ et donc dans $\Q[x]$ et donc dans $\Z[x]$.
+		est une division dans $\C[x]$ et donc dans $\Q[x]$. Est-ce une division dans $\Z[x]$ ? Justifier.
 		\item
 		Généraliser pour montrer que $\phi_n \in \Z[x]$ pour tout $n\in\N^*$.
 	\end{enumerate}
