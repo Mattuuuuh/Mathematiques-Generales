@@ -11,11 +11,29 @@
 Penser d'abord à $\K = \R$ puis à $\C$ : il est possible d'ajouter/soustraitre et de multiplier/diviser les nombres ensembles.
 Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
+
+\section{Anneau $\K[x]$}
+
+
 \dfn{polynôme à coefficients dans $\K$}{
 	Un \emphindex{polynôme} à coefficients dans $\K$ est une expression du type
 		\[ a_0 + a_1x + a_2x^2 + \dots + a_d x^d, \]
 	où $d$ est le \emphindex{degré} du polynôme, les $a_i\in\K$ sont ses \emphindex{coefficients}, et $x$ est une \emphindex{indéterminée} abstraite (pas nécessairement un nombre de $\K$ !).
 }{dfn:polynome}
+
+\nt{
+	Pour pouvoir évaluer un polynôme, il suffit que l'objet substitué à $x$ appartienne à une $\K$-algèbre
+	(et c'est un bon moyen de se souvenir de la structure de l'algèbre).
+	En effet, 
+	\begin{enumerate}
+		\item il faut pouvoir multiplier $x$ avec lui-même pour calculer ses puissances ; 
+		\item multiplier $x$ avec un élément de $\K$ ; et
+		\item additionner les résultats. 
+	\end{enumerate}
+	Dans ce cas nous verrons $a_0$ comme $a_0\times 1$, où $1$ est l'élément neutre de l'algèbre.
+	
+	Par exemple, il est possible d'évaluer un polynôme en une matrice en voyant $a_0$ comme $a_0 I$.
+}
 
 \notation{
 	L'ensemble des polynômes à coefficients dans $\K$ est noté $\K[x]$.
@@ -24,7 +42,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \nomen{
-	Le polynôme $a_0 + a_1x + a_2x^2 + \dots + a_d x^d$ est \emphindex{unitaire} dès que son \emphindex{coefficient dominant} $a_d$ est égal à 1.
+	Le polynôme $a_0 + a_1x + a_2x^2 + \dots + a_d x^d$ est \emphindex{polynôme unitaire} dès que son \emphindex{coefficient dominant} $a_d$ est égal à 1.
 }
 
 \exe{}{
@@ -55,9 +73,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Elle peut le devenir en munissant l'espace d'un produit interne adéquat.
 }
 
-\section{Divisibilité}
-
-\subsection{Cas général}
+\subsection{Divisibilité}
 
 \dfn{divisiblité dans {$\K[x]$}}{
 	Soient deux polynômes $a, b\in\K[x]$.
@@ -118,7 +134,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	todo
 }
 
-\subsection{Anneau euclidien}
+\subsection{L'anneau $\K[x]$ est euclidien}
 
 \thm{de Bézout}{
 	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$ et $d\in\K[x]$ un PGCD de $a$ et $b$.
@@ -157,7 +173,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	todo
 }
 
-\subsection{Anneau principal}
+\subsection{L'anneau $\K[x]$ est principal}
 
 
 \cor{}{
@@ -180,7 +196,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Dans notre cas, les éléments inversibles de $\K[x]$ sont les constantes non nulles, et le caractère unitaire du PGCD permet de le rendre unique.
 }
 
-\subsection{Anneau factoriel}
+\subsection{L'anneau $\K[x]$ est factoriel}
 
 \lem{de Gauss (arithmétique)}{
 	Soit $a, b, c\in\K[x]$ trois polynômes à coefficients dans $K$. Les divisions sont comprises dans $\K[x]$.
@@ -234,32 +250,56 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \thm{}{
-	Soit $a\in\K[x]$ un polynôme quelconque.
-	Alors $a$ se décompose dans $\K[x]$ de façon unique (à permutation des facteurs près) comme produit de facteurs irréductibles.
+	Soit $f\in\K[x]$ un polynôme quelconque.
+	Alors $f$ se décompose dans $\K[x]$ de façon unique comme produit de facteurs irréductibles.
+	L'unicité est à permutation des facteurs et à multiplication de chaque facteur par une constante près.
 }{thm:decomp-Kx}
+
+\nt{
+	Il est possible de décomposer $x^2 - 1$ dans $\Q[x]$ comme
+		\[ x^2 -1 = \left( \frac12 x - \frac12 \right) (2x + 2) = (x+1)(x-1), \]
+	qui sont deux décompositions identiques à permutation des facteurs et à multiplication de chaque facteur par une constante près.
+}
 
 \pf{}{
 	L'existence est claire : un polynôme est soit irréductible, soit il se décompose en deux facteurs de degrés strictement inférieurs. 
 	Ce processus se termine nécessairement, les degrés étant des entiers positifs ou nuls.
 	
-	Considérons désormais deux décompositions en produits de facteurs irréductibles de $a$.
+	Considérons désormais deux décompositions en produits de facteurs irréductibles de $f$.
 	Il suffit de montrer que chaque facteur de la première décomposition apparaît dans la seconde.
 	Par symétrie, chaque facteur de la seconde apparaît dans la première, et ceci conclut.
 	
 	Soit donc $p$ un facteur de la première décomposition. 
-	Comme $p$ divise la deuxième décomposition, le lemme d'Euclide \ref{lem:euclide} implique que $p$ divise un de ses facteurs irréductibles.
+	Comme $p$ divise la deuxième décomposition, le lemme d'Euclide \ref{lem:Euclide} implique que $p$ divise un de ses facteurs irréductibles.
 	$p$ est donc égal à ce facteur.
 }
 
-\subsection{Décomposition de polynômes à coefficients entiers}
+\subsection{L'anneau $\Z[x]$}
+
+\nt{
+	L'anneau $\Z[x]$ n'a pas de division euclidienne interne car $\Z$ n'est pas un corps.
+	En effet, comment procéder à la division de $x^5 - 3x + 2$ par $2x^2 + 6$ sur $\Z$ ?
+	
+	C'est pour cela qu'il est utile de supposer les polynômes unitaires : la division euclidienne devient alors momentanément possible.
+	En revanche, le reste de la division euclidienne ne reste pas forcément unitaire.
+	C'est le cas, par exemple, de la division euclidienne de $x^5 + x^3 - 3x^2 + 2x - 2$ par $x^2 + 1$ qui donne
+		\[ x^5 + x^3 - 3x^2 + 2x - 2 = (x^2 + 1)(x^3 - 3) + (2x + 1). \]
+	Notons cependant que le quotient de la division euclidienne, lui, est nécessairement unitaire, car le produit des coefficients dominants vaut 1.
+}
 
 \lem{de Gauss (polynômes)}{
-	Soit $a\in\Z[x]$ un polynôme à coefficients entiers.
-	D'après le théorème \ref{thm:decomp-Kx}, $a$ se décompose dans $\Q[x]$ de façon unique comme produit de facteurs irréductibles.
+	Soit $f\in\Z[x]$ un polynôme à coefficients entiers.
+	D'après le théorème \ref{thm:decomp-Kx}, $f$ se décompose dans $\Q[x]$ de façon unique comme produit de facteurs irréductibles.
 	
-	Si $a$ est unitaire, alors la décomposition dans $\Q[x]$ est une décomposition dans $\Z[x]$ : tous les facteurs sont unitaires à coefficients entiers.
+	Si $f$ est unitaire et que les facteurs de la décomposition le sont aussi, alors la décomposition dans $\Q[x]$ est une décomposition dans $\Z[x]$ : tous les facteurs sont unitaires à coefficients entiers.
 }{lem:Gauss}
 
+\nt{
+	Il est possible de décomposer $x^2 - 1$ dans $\Q[x]$ comme
+		\[ x^2 -1 = \left( \frac12 x - \frac12 \right) (2x + 2), \]
+	qui n'est pas une décomposition dans $\Z[x]$,
+	mais les facteurs ne sont pas unitaires ici.
+}
 
 \pf{}{
 	todo
@@ -278,12 +318,12 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \cor{}{
 	Soit $f\in\C[x]$ un polynôme à coefficients complexes de coefficient dominant $a\in\C$.
 	Alors $f$ se décompose comme produit de ces racines.
-		\[ f(x) = \prod_{z | f(z) = 0} (x-z)^{m(z)}, \]
+		\[ f(x) = a\prod_{z | f(z) = 0} (x-z)^{m(z)}, \]
 	où $m(z)\in\N$ est la \emphindex{multiplicité} de la racine $z$ dans $f$.
 }{cor:decomp-C}
 
 
-\subsection{Décomposition de polynômes réels}
+\subsection{L'anneau $\R[x]$}
 
 \lem{}{
 	Soit $f\in\R[x]$ un polynôme à coefficients réels.
@@ -317,24 +357,119 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	todo
 }
 
-\subsection{Relations racines et coefficients}
+\subsection{Relations entre racines et coefficients}
 
 \prop{}{
+	Soit $\Lambda$ un ensemble fini d'éléments de $\K$.
+	Considérons le produit 
+		\[ f(x) = \prod_{\lambda \in \Lambda} (x+\lambda), \]
+	polynôme de $\K[x]$.
+	Alors $f(x)$ se développe en prenant le produit de soit $x$, soit $\lambda$ dans chaque monôme $x-\lambda$, et en sommant ces produits.
 	
+		\[  \prod_{\lambda \in \Lambda} (x+\lambda) = \sum_{k=0}^{|\Lambda|} x^k \sum_{\substack{I \subset \Lambda, \\ |I| = |\Lambda|-k}} \prod_{\lambda \in I} \lambda. \]
 }{prop:expand-product}
 
+\ex{}{
+	Considérons le polynôme de $\R[x]$
+		\[ f(x) = (x+2)(x+6)(x-1) \]
+	qu'on souhaite développer.
+	
+	\begin{enumerate}[leftmargin=100pt, label=\bf \underline{Terme en $x^{\arabic*}$ :}, start=0]
+		\item
+		Pour obtenir un terme sans $x$, il faut choisir la constante dans chaque terme du produit.
+		Celle-ci est donc $2\times6\times(-1) = -12$.
+		Nous pouvons nous rassurer que c'est vrai en calculant $f(0)$.
+		
+		\item
+		Pour obtenir un terme en $x$, il faut choisir un seul $x$ parmis les trois facteurs.
+		Les trois possibilités sont $x\times6\times(-1)$, $2\times x\times (-1)$, et $2\times6\times x$, qu'on somme pour obtenir $-6x-2x+12x = 4x$.
+		
+		\item
+		Pour obtenir un terme en $x^2$, il faut choisir deux $x$ parmis les trois facteurs.
+		Les trois possibilités sont $2\times x \times x$, $x \times 6 \times x$, et $x \times x \times (-1)$, qu'on somme pour obtenir
+		$2x^2 + 6x^2 - x^2 = 7x^2$.
+		
+		\item
+		Pour obtenir un terme en $x^3$, il faut choisir trois $x$, et la seule façon de faire est bien sûr $x\times x \times x = x^3$.
+	\end{enumerate}
+	
+	Par conséquent, 
+		\[ (x+2)(x+6)(x-1) = x^3 + 7x^2 + 4x - 12. \]
+}{exe:dev-deg-3}
+
+
+\exe{}{
+	Soit $n, k\in\N$ deux entiers avec $k\leq n$. 
+	Rappelons la notation ${n \choose k}$, lue « $k$ parmi $n$ », donnant le nombre de façons de choisir $k$ objets parmi $n$ objets indistinguables.
+	
+	Montrer que
+		\[ (1+x)^n = \sum_{k=0}^n {n \choose k} x^k. \]
+}{exe:binom-Newton}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $n\in\N$. En comparant les termes en $x^n$ de l'identité
+		$(1+x)^{2n} = (1+x)^n \cdot (1+x)^n, $
+	montrer que
+		\[ \sum_{k=0}^{n} {n \choose k} {n \choose n-k} = {2n \choose n}. \]
+}{exe:id-newton}{
+	todo
+}
+
 \cor{}{
-
-
+	Soit $f\in\K[x]$ un polynôme unitaire de degré $n$ se scindant sur $\K$ :
+		\[ f(x) = \prod_{\lambda \in \Lambda} (x-\lambda), \]
+	avec $\Lambda$ un $n$-tuple des racines de $f$ comptées avec multiplicités.
+	
+	Alors la forme développée de $f$ vérifie
+		\[ f(x) = a_n x^n + a_{n-1}x^{n-1} + \hdots + a_1 x + a_0, \]
+	où
+	\begin{enumerate}
+		\item $a_n = 1$ car $f$ est unitaire ;
+		\item $a_0 = (-1)^n  \prod_{\lambda \in \Lambda} \lambda$ le produit des racines ;
+		\item $a_{n-1} = -  \sum_{\lambda \in \Lambda} \lambda$ la somme des racines.
+	\end{enumerate}
 }{cor:rel-racine-coeff}
 
+\exe{}{
+	Dans les notations du corollaire \ref{cor:rel-racine-coeff},
+	exprimer $a_2$ et $a_{n-2}$ en fonction des racines $\lambda$.
+}{exe:a2}{
+	todo
+}
 
 
-% relation racines/coeff
-% pchar(A) = x^n - trace(A) x^(n-1) + ... + det(A)
-% Vieta jump !?
+\exe{difficulty=2}{
+	Soit $a, b\in\N^*$ deux entiers naturels tels que $ab+1$ divise $a^2 + b^2$.
+	Montrer que $\frac{a^2 +b^2}{ab+1}$ est un carré parfait.
+}{exe:Vieta-jump}{
+	IMO 1988.
+}
 
 
+\exe{difficulty=1}{
+	Soient $\Lambda \subset \K$ \underline{toutes} les valeurs propres d'une matrice $A \in \K^{n\times n}$, comptées avec multiplicités.
+	Ainsi, le polynôme caractéristique
+	$\det(x I - A) = x^n + \alpha_{n-1} x^{n-1} + \dots + \alpha_1 x + \alpha_0$
+	est unitaire et se scinde comme produit
+		\[\det(x I - A) = \prod_{\lambda\in\Lambda}(x - \lambda). \]
+	\begin{enumerate}
+		\item
+		Montrer d'abord que le déterminant d'une matrice est égal au produit de ses valeurs propres
+		 	\[ \det(A) = \prod_{\lambda \in \Lambda} \lambda. \]
+	\end{enumerate}
+	À l'aide de la formule de Leibniz, 
+		\[ \det(M) = \sum_{\sigma \in S_n} \sgn(\sigma) \prod_{i=1}^{n} M_{i, \sigma(i)}, \]
+	montrer ensuite que
+	\begin{enumerate}[resume]	
+		\item $\alpha_{n-1} = (-1)^{n-1} \tr (A)$ ; et que
+		\item La trace d'une matrice est égale à la somme de ses valeurs propres
+			\[ \tr(A) = \sum_{\lambda \in \Lambda} \lambda. \]
+	\end{enumerate}
+}{exe:det-trace-val-p}{
+	todo
+}
 
 \subsection{Racines $n$-ièmes de l'unité}
 
