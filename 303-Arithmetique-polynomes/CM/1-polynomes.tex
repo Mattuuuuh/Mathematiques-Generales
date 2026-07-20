@@ -4,39 +4,530 @@
 \chapter{Algèbre des polynômes}
 \label{chap:polynomes}
 
+\notation{
+	Dans tout ce chapitre, $\K$ désigne un corps et $n\in\N$ un entier naturel.
+}
 
-% dfns K[x] et K_n[x]
+Penser d'abord à $\K = \R$ puis à $\C$ : il est possible d'ajouter/soustraitre et de multiplier/diviser les nombres ensembles.
+Penser aussi à $\F_p$ ou $\Qsqrt2$.
+
+\dfn{polynôme à coefficients dans $\K$}{
+	Un \emphindex{polynôme} à coefficients dans $\K$ est une expression du type
+		\[ a_0 + a_1x + a_2x^2 + \dots + a_d x^d, \]
+	où $d$ est le \emphindex{degré} du polynôme, les $a_i\in\K$ sont ses \emphindex{coefficients}, et $x$ est une \emphindex{indéterminée} abstraite (pas nécessairement un nombre de $\K$ !).
+}{dfn:polynome}
+
+\notation{
+	L'ensemble des polynômes à coefficients dans $\K$ est noté $\K[x]$.
+	
+	Pour $n\in\N$, l'ensemble des polynômes à coefficients dans $\K$ de degré inférieur ou égal à $n$ est noté $\K_n[x]$.
+}
+
+\nomen{
+	Le polynôme $a_0 + a_1x + a_2x^2 + \dots + a_d x^d$ est \emphindex{unitaire} dès que son \emphindex{coefficient dominant} $a_d$ est égal à 1.
+}
+
+\exe{}{
+	Est-ce que $\K[x]$ est un anneau ?
+	Est-ce que $\K_n[x]$ est un anneau ?
+}{exe:k-ring}{
+	todo
+}
+
+\exe{}{
+	Montrer que $\K_n[x]$ est un $\K$-espace vectoriel.
+	Donner une base et sa dimension.
+}{exe:kn-sur-k}{
+	todo
+}
+
+\nt{
+	$\K_n[x]$ est un $\K$-espace vectoriel dans lequel il est possible de multiplier les vecteurs : c'est une $\K$-algèbre.
+	Il faut toutefois que la multiplication soit cohérente avec l'addition dans l'espace (distributivité et associativité).
+	
+	$\K^n$ est un $\K$-espace vectoriel qui n'est pas \emph{a priori} une $\K$-algèbre.
+	Elle peut le devenir en munissant l'espace d'un produit interne adéquat.
+}
 
 \section{Divisibilité}
 
-% théorème de Bézout, algo Euclide étendu
+\subsection{Cas général}
 
-% attention à la définition donnée du pgcd et ppcm. Celle des idéaux est plus générale mais pas celle donnée a priori.
+\dfn{divisiblité dans {$\K[x]$}}{
+	Soient deux polynômes $a, b\in\K[x]$.
+	Le polynôme $a$ divise le polynôme $b$ \underline{dans $\K[x]$} dès que
+		\[ b = a\cdot q, \]
+	où $q\in\K[x]$.
+}{dfn:divisibilite}
 
-% pgcd(a,b) = arg min { deg(f) | f combinaison non nulle de a et b }
-% pgcd, ppcm en termes d'idéaux
+\notation{
+	La relation « $a$ divise $b$ » est notée $a | b$.
+}
 
-% lemme de Gauss
+\nt{
+	Il est important de préciser dans quel anneau polynomial la division s'opère.
+	Il peut s'avérer utile d'agrandir le corps dans lequel nous travaillons pour étudier la divisibilité.
+	Par exemple, tout polynôme de $\R[x]$ admet une racine sur $\C$, et donc voir ce même polynôme comme appartenant à $\C[x]$ permet de dégager un diviseur.
+	Le polynôme réel est vu comme un polynôme complexe par \emphindex{plongement} dans $\R$ dans $\C$.
+}
 
-% décomposition irréductible
-% cas poly réel car racines conjuguées !
+\exe{}{
+	Soient $a, b\in\R[x]$ deux polynômes à coefficients réels.
+	Montrer que si $a|b$ dans $\R[x]$, alors $a|b$ dans $\C[x]$.
+}{exe:divis-R-to-C}{
+	todo
+}
+
+\exe{, difficulty=1}{
+	Soient $a, b\in\R[x]$ deux polynômes à coefficients réels.
+	Montrer que si $a|b$ dans $\C[x]$, alors $a|b$ dans $\R[x]$.
+}{exe:divis-C-to-R}{
+	Notons $b = aq +r, \deg(r)<\deg(a)$, la division euclidienne de $b$ par $a$ dans $\R[x]$.
+	Or, par hypothèse, nous avons $b = az$, avec $z\in\C[x]$.
+	Dans $\C[x]$ toujours, nous obtenons donc $az = aq + r \iff r = a(z-q)$.
+	Or comme $\deg(r)<\deg(a)$, il suit nécessairement que $z-q=r=0$.
+	Par conséquent, $b$ divise $a$ dans $\R[x]$.
+}
+
+\nt{
+	Le \emphindex{lemme de Gauss (polynômes)} énonce le fait suivant :
+	si $a\in\Q[x]$ divise $b\in\Z[x]$, deux polynômes unitaires, dans $\Q[x]$, alors $a\in\Z[x]$ est à coefficients entiers et $a$ divise $b$ dans $\Z[x]$.
+	
+	Ce résultat semble facile à démontrer en utilisant la même stratégie de preuve qu'à l'exercice \ref{exe:divis-C-to-R}, mais la division euclidienne sort de $\Z[x]$ en général : le polynôme $3(x+1)$ divise $x^2 - 1$ dans $\Q[x]$ mais pas dans $\Z[x]$. (Notons que le premier n'est pas unitaire !)
+}
+
+\dfn{PGCD}{
+	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
+	Un plus grand diviseur commun (PGCD) et $a$ et $b$ dans $\K[x]$ est un polynôme $d\in\K[x]$ de degré maximal vérifiant
+	\begin{enumerate}
+		\item $d$ divise $a$ dans $\K[x]$ ; et
+		\item $d$ divise $b$ dans $\K[x]$ ; et
+		\item $d$ est unitaire.
+	\end{enumerate}
+}{dfn:pgcd}
+
+\exe{}{
+	Montrer que si $d|a$ et $d|b$ dans $\K[x]$, alors $d$ divise toutes les combinaisons linéaires $au + bv$ avec $u, v\in\K[x]$ également.
+}{exe:d-div-comb-lin}{
+	todo
+}
+
+\subsection{Anneau euclidien}
+
+\thm{de Bézout}{
+	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$ et $d\in\K[x]$ un PGCD de $a$ et $b$.
+	
+	Alors $d$ est unique et est égal à
+		\[ d = \arg\min\bigset{ \deg(p) \tq p = au + bv \et u, v \in \K[x] \et p \text{ unitaire non nul} }. \]
+}{thm:bezout-K}
+
+\pf{}{
+	Notons qu'un argument du minimum n'est pas nécessairement unique \apriori.
+	Montrons donc d'abord qu'il l'est en prenant $p$ et $p'$ deux arguments du minimum.
+	Les deux polynômes $p$ et $p'$ sont dont combinaisons linéaires de $a$ et $b$, non nuls, unitaires, et de degré minimal égal à $d\in\N$.
+	La différence $p-p'$ est de degré strictement inférieur à $d$ et est combinaison linéaire de $a$ et $b$.
+	Par minimalité de $d$, cette différence est nulle et $p=p'$.
+	
+	Notons ainsi $p$ l'argument du minimum et soit $d$ un PGCD de $a$ et $b$. 
+	D'après l'exercice \ref{exe:d-div-comb-lin}, $d$ divise $p$ car c'est une combinaison linéaire de $a$ et de $b$.
+	Montrons que $p$ vérifie les trois conditions suivantes, ce qui nous permettra de dire que $\deg(p) \leq \deg(d)$ par définition du PGCD pour enfin conclure.
+	\begin{enumerate}
+		\item $p$ divise $a$ dans $\K[x]$ ; et
+		\item $p$ divise $b$ dans $\K[x]$ ; et
+		\item $p$ est unitaire.
+	\end{enumerate}
+	La condition 1 se démontre classiquement comme suit.
+	En prenant $a = pq + r, \deg(r) < \deg(p)$ la division euclidienne de$a$ par $p$ dans $\K[x]$, nous obtenons que $r = a-pq$ est combinaison linéaire de $a$ et $b$ et est donc nul par minimalité du degré de $p$.
+	La condition 2 est analogue et la condition 3 est vérifiée par construction de $p$.
+
+	En conclusion, nous avons d'abord montré que $d$ divise $p$ puis que $\deg(p) \leq \deg(d)$ par définition de $d$ et de $p$.
+	Comme les deux polynômes sont unitaires, nous obtenons $p=d$ d'après l'exercice \ref{exe:div-deg-eq}.
+}
+
+\exe{}{
+	Soient $a, b\in\K[x]$ deux polynômes unitaires.
+	Montrer que si $a$ divise $b$ dans $\K[x]$ et que $\deg(b) \leq \deg(a)$, alors $a=b$.
+}{exe:div-deg-eq}{
+	todo
+}
+
+\subsection{Anneau principal}
+
+
+\cor{}{
+	Soient $a, b \in\K[x]$. Alors
+		\[ (a, b) = \bigl( \pgcd(a, b) \bigr). \]
+	En particulier, si $d\in\K[x]$ divise à la fois $a$ et $b$, alors $d$ divise $\pgcd(a, b)$.
+}{cor:pgcd-ideal}
+
+\exe{}{
+	Montrer le corollaire \ref{cor:pgcd-ideal}.
+}{exe:cor:pgcd-ideal}{
+	todo
+}
+
+\subsection{Anneau factoriel}
+
+\lem{de Gauss (arithmétique)}{
+	Soit $a, b, c\in\K[x]$ trois polynômes à coefficients dans $K$. Les divisions sont comprises dans $\K[x]$.
+	
+	Si $a$ divise le produit $bc$, et que $a$ et $b$ sont premiers entre eux, alors $a$ divise $c$.
+}{lem:Gauss-arithm}
+
+\cor{}{
+	Soit $p\in\K[x]$ un polynôme quelconque. Les divisions et PGCD sont compris dans $\K[x]$.
+	
+	Si $a, b\in\K[x]$ divisent tous les deux $p$ et que $\pgcd(a,b) = 1$, alors leur produit $ab$ divise également $p$.
+}{cor:Gauss-arithm}
+
+\nt{
+	Ce corollaire est utile pour justifier immédiatement que si $p$ admet plusieurs racines distinctes $r_1, r_2, \dots, r_k$, alors le produit $\prod_{i=1}^k (x-r_i)$ divise $p$.
+	En particulier, dans $\C$
+}
+
+\exe{}{
+	Montrer le corollaire \ref{cor:Gauss-arithm}.
+}{exe:cor:Gauss}{
+	todo
+}
+
+\lem{d'Euclide}{
+	Soit $a\in\K[x]$ un polynôme irréductible divisant un produit $bc$ de polynômes de $\K[x]$.
+	Alors soit $a$ divise $b$, soit $a$ divise $c$.
+}{lem:euclide}
+
+\exe{}{
+	Montrer le lemme \ref{lem:Euclide}.
+}{exe:lem:euclide}{
+	todo
+}
+
+\nt{
+	Les polynômes irréductibles sont les équivalents des nombres premiers.
+}
+
+\pf{}{
+	Notons $d = \pgcd(a, b)$.
+	Comme $d$ divise $a$ qui est irréductible, nous avons deux alternatives : soit $d = a$, soit $d=1$.
+	Si $d=a$, alors $a$ divise $b$, première possibilité du théorème.
+	Sinon, $d=1$ et donc $a$ divise $b$ d'après le lemme de Gauss (arithmétique) \ref{lem:Euclide}.
+}
+
+\thm{}{
+	Soit $a\in\K[x]$ un polynôme quelconque.
+	Alors $a$ se décompose dans $\K[x]$ de façon unique (à permutation des facteurs près) comme produit de facteurs irréductibles.
+}{thm:decomp-Kx}
+
+\pf{}{
+	L'existence est claire : un polynôme est soit irréductible, soit il se décompose en deux facteurs de degrés strictement inférieurs. 
+	Ce processus se termine nécessairement, les degrés étant des entiers positifs ou nuls.
+	
+	Considérons désormais deux décompositions en produits de facteurs irréductibles de $a$.
+	Il suffit de montrer que chaque facteur de la première décomposition apparaît dans la seconde.
+	Par symétrie, chaque facteur de la seconde apparaît dans la première, et ceci conclut.
+	
+	Soit donc $p$ un facteur de la première décomposition. 
+	Comme $p$ divise la deuxième décomposition, le lemme d'Euclide \ref{lem:euclide} implique que $p$ divise un de ses facteurs irréductibles.
+	$p$ est donc égal à ce facteur.
+}
+
+\subsection{Décomposition de polynômes à coefficients entiers}
+
+\lem{de Gauss (polynômes)}{
+	Soit $a\in\Z[x]$ un polynôme à coefficients entiers.
+	D'après le théorème \ref{thm:decomp-Kx}, $a$ se décompose dans $\Q[x]$ de façon unique comme produit de facteurs irréductibles.
+	
+	Si $a$ est unitaire, alors la décomposition dans $\Q[x]$ est une décomposition dans $\Z[x]$ : tous les facteurs sont unitaires à coefficients entiers.
+}{lem:Gauss}
+
+
+\pf{}{
+	todo
+}
 
 \section{Racines}
 
+\subsection{Théorème fondamental de l'algèbre}
+
 % thm fondamental
+\thm{fondamental de l'algèbre, de d'Alembert}{
+	Soit $f\in\C[x]$ un polynôme non constant à coefficients complexes.
+	Alors $f$ admet une racine dans $\C$.
+}{thm:fond-alg}
+
+\cor{}{
+	Soit $f\in\C[x]$ un polynôme à coefficients complexes de coefficient dominant $a\in\C$.
+	Alors $f$ se décompose comme produit de ces racines.
+		\[ f(x) = \prod_{z | f(z) = 0} (x-z)^{m(z)}, \]
+	où $m(z)\in\N$ est la \emphindex{multiplicité} de la racine $z$ dans $f$.
+}{cor:decomp-C}
+
+
+\subsection{Décomposition de polynômes réels}
+
+\lem{}{
+	Soit $f\in\R[x]$ un polynôme à coefficients réels.
+	Si $z\in\C\setminus\R$ est une racine de $f$, alors $\overline{z}$ aussi, et le polynôme 
+		\[ (x - z)(x-\overline{z}) \]
+	divise $f$ dans $\R[x]$.
+}{lem:racines-conjuguees}
+
+\pf{}{
+ 	D'abord, comme $f$ est à coefficients réels, $0 = \overline{f(z)} = f\left(\overline{z}\right)$, et $\overline{z}$ est bien une racine de $f$.
+ 	De plus, $x-z$ et $x-\overline{z}$ sont premiers entre eux sur $\C[x]$ car $z \neq \overline{z}$.
+ 	Il suit donc que $(x-z)(x-\overline{z})$ divise $f$ dans $\C[x]$.
+ 	
+ 	Or, $p(x) = (x-z)(x-\overline{z}) = x^2 - (z+\overline{z}) x + |z|^2$ est un polynôme à coefficients réels.
+ 	Montrons que $p$ divise $f$ dans $\R[x]$ également.
+ 	Considérons la division euclidienne $f = pq + r, \deg(r) < \deg(p)=2$ dans $\R[x]$.
+ 	Vu comme élément de $\C[x]$, le reste $r = f-pq$ s'annule en $z$ et en $\overline{z}$, il est donc divisible par $p$.
+ 	Comme son degré est strictement inférieur à celui de $p$, le reste $r$ doit être nul.
+}
+
+\cor{}{
+	Soit $f\in\R[x]$ un polynômes à coefficients réels.
+	D'après le théorème \ref{thm:decomp-Kx}, $f$ se décompose dans $\R[x]$ de façon unique comme produit de facteurs irréductibles.
+	
+	Chaque facteur est de degré 1 ou 2.
+}{cor:decomp-Rx}
+
+\exe{}{
+	Montrer le corollaire \ref{cor:decomp-Rx}.
+}{exe:cor:decomp-Rx}{
+	todo
+}
+
+\subsection{Relations racines et coefficients}
+
+\prop{}{
+	
+}{prop:expand-product}
+
+\cor{}{
+
+
+}{cor:rel-racine-coeff}
+
+
 
 % relation racines/coeff
-% produit (x + y xi^n) = x^n  + y^n à généraliser
 % pchar(A) = x^n - trace(A) x^(n-1) + ... + det(A)
 % Vieta jump !?
 
-% Racines n-ièmes
-% x^(p-1) - 1 est irréductible avec Eisenstein
 
-%\section*{Exercices}
-%\addcontentsline{toc}{section}{Exercices}
-%
-%\shipoutExercise
+
+\subsection{Racines $n$-ièmes de l'unité}
+
+\dfn{racine $n$-ième de l'unité}{
+	Soit $z\in\C$ un nombre complexe et $n\in\N^*$.
+	Le nombre $z$ est \emphindex{racine $n$-ième de l'unité} dès que $z^n = 1$.
+}{dfn:racine-unite}
+
+\notation{
+	L'ensemble des nombres complexes de module 1 est noté	
+		\[ \U = \bigset{ z\in\C \tq |z| = 1}. \]
+	
+	Pour $n\in\N^*$, l'ensemble des nombres racines $n$-ièmes de l'unité est noté 
+		\[ \U_n = \bigset{ z \in \C \tq z^n = 1 }. \]
+}
+
+\exe{}{
+	Soit $z\in\C$.
+	Montrer l'implication suivante. La réciproque est-elle vraie ?
+	\begin{center}
+	\begin{tabular}{ccc}
+		$\Bigpar{ \exists n\in\N^* \tq z\in\U_n }$ &  $\implies$ & $\Bigpar{ |z| = 1}$
+	\end{tabular}
+	\end{center}
+}{exe:root-is-unit}{
+	todo
+}
+
+
+\exe{difficulty=1}{
+	Soit $n\in\N$ impair et $\zeta = e^{\frac{2 \pi i}n}$.
+	Montrer l'identité suivante dans $\C[x,y]$.
+		\[ x^n + y^n = \prod_{k=0}^{n-1} \bigpar{x + \zeta^k y} \]
+	Est-elle vraie pour $n\in\N^*$ pair ?
+}{exe:split-xn-p-yn}{
+	todo
+}
+
+\exe{}{
+	Soit $n\in\N^*$.
+	Montrer que $\bigpar{\U_n, \times}$ est un groupe isomorphe à $\bigpar{ \Z/n\Z, +}$ en explicitant l'isomorphisme.
+}{exe:Un-sous-groupe}{
+	todo
+}
+
+
+\section*{Exercices supplémentaires}
+\addcontentsline{toc}{section}{Exercices supplémentaires}
+
+
+\exe{difficulty=1}{
+	Soient $a, b\in\R[x]$ deux polynômes à coefficients réels.
+	Montrer les équivalences suivantes.
+	\begin{enumerate}[label=(\roman*)]
+		\item $\pgcd(a, b) \neq 1$ dans $\R[x]$
+		\item $\pgcd(a, b) \neq 1$ dans $\C[x]$
+		\item $a$ et $b$ admettent au moins une racine complexe en commun
+	\end{enumerate}
+}{exe:gcd-roots-R-C}{
+	\underline{Implication (i) $\implies$ (ii).}
+	
+	Si $d\in\R[x]$ non 1 divise $a$ et $b$ dans $\R[x]$, alors $d$ divise également $a$ et $b$ dans $\C[x]$.
+	
+	\underline{Implication (ii) $\implies$ (iii).}
+	
+	Soit $d=\pgcd(a,b) \in \C[x]$. Comme $d$ est non constant par hypothèse, $d$ admet une racine complexe $z\in\C$ d'après le théorème fondamental de l'algèbre.
+	Ainsi $d(z) = 0$ et donc $a(z) = 0$ et $b(z) = 0$ car $d$ divise $a$ et $b$.
+	
+	\underline{Implication (iii) $\implies$ (i).}
+	
+	Notons $z\in\C$ une racine complexe en commun à $a$ et $b$.
+	Par contradiction, si $\pgcd(a, b) = 1$ dans $\R[x]$, le théorème de Bézout impliquerait l'existence de polynômes $u, v \in\R[x]$ tels que $au + bv = 1$.
+	En plongeant cette égalité dans $\C[x]$, évaluer en $x=z$ aboutit à la contradiction $0=1$. \Lightning
+}
+
+\exe{difficulty=1}{
+	Soient $a, b\in\K[x]$.
+	Montrer que
+		\[ (a) \cap (b) = \bigl( \ppcm(a, b) \bigr). \]
+}{exe:ppcm}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Montrer que $\K[x]$ est un anneau principal : tout idéal de l'anneau est généré par un unique élément.
+}{exe:Kx-is-PID}{
+	todo
+}
+
+
+\exe{difficulty=1}{
+	Soit $z\in\C$ un \emphindex{nombre algébrique}, c'est-à-dire une racine d'un polynôme sur $\Q[x]$.
+	\begin{enumerate}
+		\item Montrer que l'ensemble 
+			\[ N = \bigset{ f \in \Q[x] \tq f(z) = 0 } \]
+		est un idéal de $\Q[x]$.
+		\item
+		Soit $m_z \in \Q[x]$ le \emphindex{polynôme minimal annulateur} de $z$ : c'est le polynôme de $\Q[x]$ annulant $z$ et de degré minimal.
+		Montrer que $m_z$ est bien unique et qu'il est irréductible dans $\Q[x]$.
+		\item
+		Montrer que $N = (m_z)$. C'est-à-dire que tout polynôme annulateur de $z$ est divisible par $m_z$ dans $\Q[x]$.
+	\end{enumerate}
+}{exe:poly-min}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Considérons $\Q[\sqrt2] = \bigset{ r + s\sqrt2 \tq r, s \in \Q}$ ainsi que l'application \mbox{« évaluation en $\sqrt2$ »}
+		\begin{center}
+		$\ev_{\sqrt2}$ :
+		\begin{tabular}{ccc}
+			$\Q[x]$ & $\longrightarrow$ & $\Q[\sqrt2]$ \\
+			$f$ & $\longmapsto$ & $f\bigpar{\sqrt2}$
+		\end{tabular}
+		\end{center}
+	Montrer que $\ker(\ev_{\sqrt2}) = ( x^2 - 2 )$ et que l'idéal est un \emphindex{idéal maximal} : il ne contient pas de sous-idéal propre qui n'est pas $\Q[x]$ tout entier.
+}{exe:Qsqrt2}{
+	todo
+}
+
+
+\exe{}{
+	Soit $p\in\K[x]$ un polynôme.
+	Montrer que $p$ est irréductible si et seulement si $p(x+c)$ est irréductible, où $c\in\K$ est un nombre quelconque.
+}{exe:irr-shift}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Montrer le \emphindex{critère d'Eisenstein} :
+	soit $f(x) = a_0 + a_1x + \cdots + a_nx^n \in\Z[x]$ et $p$ un nombre premier vérifiant les conditions
+	\begin{enumerate}
+		\item $a_n = 1$ ; et
+		\item $p$ divise $a_0, a_1, \hdots, a_{n-1}$ ; et
+		\item $p^2$ ne divise pas $a_0$.
+	\end{enumerate}
+	Alors $f(x)$ est irréductible sur $\Q[x]$.
+}{exe:xppm1-irr}{
+	Comme $f$ est unitaire à coefficients entiers, le lemme de Gauss \ref{lem:Gauss} implique que l'irréducibilité dans $\Q[x]$ est équivalente à l'irréducibilité dans $\Z[x]$.
+	Supposons donc, par contradiction, que $f$ soit réductible sur $\Z[x]$.
+	
+	Alors $f = ab$ avec $a, b\Z[x]$ unitaires non constants.
+	En prenant la relation modulo $p$, le polynôme $f$ devient réductible sur $\F_p[x]$.
+	Or, par hypothèses sur les coefficients de $f$, nous avons que $f = x^n \mod p$.
+	Comme $x$ est irréductible dans $\F_p[x]$, la seule manière de réduire $f$ dans $\F_p[x]$ est de le décomposer comme $x^k \cdot x^{n-k}$.
+	Ainsi, les deux facteurs $a$ et $b$ sont congrus à une puissance de $x$ modulo $p$, non constante car $a$ et $b$ sont unitaires non constants.
+	Il suit donc que $p$ divise le coefficient constant $a(0)$ et $b(0)$, et donc que $p^2$ divise le coefficient constant $a_0 = f(0) = a(0)b(0)$.
+	Ceci contredit la troisième condition imposée à $f$. \Lightning
+}
+
+\exe{difficulty=1}{
+	Considérons la fonction rationnelle $f(x) = \frac{x^p - 1}{x-1}$ avec $p$ un premier.
+	\begin{enumerate}
+		\item Montrer que $f$ appartient à $\Z[x]$.
+		\item Montrer que $f$ est irréductible en montrant que $g(x) = f(x+1)$ vérifie le critère d'Eisenstein de l'exercice \ref{exe:xppm1-irr}.
+	\end{enumerate}
+}{exe:xppm1-irr}{
+	todo
+}
+
+\exe{}{
+	Soit $z\in\C$ une racine $p-1$-ième de l'unité où $p$ est un nombre premier.
+	Alors le polynôme minimal annulateur de $z$ est $\frac{x^p - 1}{x-1}$.
+}{exe:pmin-unit-root}{
+	todo
+}
+
+
+
+\exe{}{
+	Montrer que $\U$ est un sous-groupe de $(\C^*, \times)$.
+}{exe:U-sous-groupe}{
+	todo
+}
+
+\exe{}{
+	Soit $n\in\N^*$.
+	Montrer que $(\U_n, \times)$ est le seul sous-groupe d'ordre $n$ de $\U$.
+}{exe:Un-sous-groupe-unique}{
+	todo
+}
+
+\exe{}{
+	Soit $n\in\N^*$.
+	Décrire explicitement l'ensemble $\mu_n$ des éléments d'ordre $n$ du groupe $\U$.
+}{exe:U-ordre-n}{
+	todo
+}
+
+
+\exe{difficulty=2}{
+	Soit $n\in\N^*$.
+	Pour $d\in\N, d|n$ diviseur de $n$, posons
+		\[ \phi_d = \prod_{z \in \mu_d} \bigpar{ x-z }. \]
+	\begin{enumerate}
+		\item
+		Montrer que 
+			\[ x^n - 1 = \prod_{d|n} \phi_d(x). \]
+		\item
+		En déduire que si $p$ est premier, alors $\phi_p(x) = \frac{x^p - 1}{x-1}$ et conclure qu'il est irréductible dans $\Z[x]$.
+		\item
+		Montrer que si $n$ est \emphindex{semi-premier}, c'est-à-dire que $n=pq$ avec $p, q$ premiers, alors
+			\[ \phi_n(x) = \frac{x^n-1}{\phi_p(x) \phi_q(x) (x-1)} \]
+		est une division dans $\C[x]$ et donc dans $\Q[x]$ et donc dans $\Z[x]$.
+		\item
+		Généraliser pour montrer que $\phi_n \in \Z[x]$ pour tout $n\in\N^*$.
+	\end{enumerate}
+}{exe:phin-integer}{
+	todo
+}
+
+
+\shipoutExercise
 
 \section*{Solutions}
 \addcontentsline{toc}{section}{Solutions}
