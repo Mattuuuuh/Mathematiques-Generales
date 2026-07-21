@@ -9,18 +9,27 @@
 \nt{
 	L'anneau $\Z$ n'est pas un corps car il n'est pas possible de diviser à l'interieur de celui-ci.
 	Quel est le plus petit sur-ensemble de $\Z$ dans lequel il est possible de diviser ?
+	La réponse est bien sûr $\Q$, ensemble dans lequel les éléments sont notés $\frac{a}{b}$ avec $a\in\Z$ et $b\in\Z^*$.
 	
-	De plus, en ajoutant $ab^{-1}$ à $cd^{-1}$, nous obtenons nécessairement
-		\[ ab^{-1} + cd^{-1} = add^{-1}b^{-1} + cd^{-1}b^{-1}b. \]
-	En supposant que l'anneau et le corps soient commutatifs, nous retrouvons la formule de la somme de fractions
-		\[ ab^{-1} + cd^{-1} = (ad + cb)(bd)^{-1}. \]
-	Notons qu'il n'est pas souhaitable que $b$ divise zéro, auquel cas nous pourrions imposer $bd = 0$ et serions forcés de diviser par zéro.
-	L'anneau doit donc nécessairement être intègre.
+	Bien sûr, $\frac{a}b = ab^{-1}$, donc l'ajout d'un inverse multiplicatif de chaque élément non nul de $\Z$ est nécessaire et suffisant à créer $\Q$.
+	De plus, cette notation fractionnelle nécessite que l'anneau $\Z$ soit commutatif, sans quoi nous ne pourrions pas savoir si $b$ divise $a$ à gauche ou à droite.
+	
+	Notons en outre qu'il n'est pas souhaitable que $b$ divise zéro, auquel cas, si $bx = 0$ avec $x\neq0$, alors $\frac{a}{b} \times \frac{1}x = \frac{a}0$.
+	Ceci n'arrive bien sûr pas dans $\Z$ qui est un \emphindex{anneau intègre}.
+}
+
+\exe{}{
+	Montrer que $\Q$ est le plus petit corps commutatif, pour l'inclusion et à isomorphisme près, contenant $\Z$.
+}{exe:Q-smallest-field}{
+	Notons $F$ un corps commutatif contenant $\Z$.
+	L'application $\iota : \frac{a}{b} \mapsto ab^{-1}$ est une injection de $\Q$ dans $F$.
+	Sa bonne définition est due au fait que $\iota\left(\frac{ac}{bc}\right) = (ac)(bc)^{-1} = a(cc^{-1})b^{-1} = \iota\left(\frac{a}{b}\right)$.
 }
 
 \dfn{Corps des fractions}{
-	Soit $R$ un anneau intègre.
-
+	Soit $R$ un anneau intègre et commutatif.
+	Alors le \emphindex{corps des fractions} de $R$ est donné par
+		\[ \Frac(R) = \Bigset{ \frac{a}{b} \tq a \in R \et b \in R^* }. \]
 }{dfn:corps-frac}
 
 \section{Décomposition en éléments simples}
