@@ -23,12 +23,6 @@
 	todo
 }
 
-\exe{difficulty=2}{
-	Montrer que la famille polynomiale $\bigset{1 ; x ; \dots ; x^n}$ est indépendante sur $\R$.
-}{exe:1xn-indep}{
-	todo
-}
-
 \section{Division euclidienne}
 
 \exe{}{
@@ -60,6 +54,25 @@
 }{dfn:racine}
 
 
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			22x^2 - 125x + 22  = 0. \label{eq:1}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
+	\end{enumerate}
+}{exe:7}{
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe par double distributivité :
+			\[ (2x - 11)(11x - 2) = 22x^2 - 4x - 121x + 22 = 22x^2 - 125x + 22. \]
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
+		L'ensemble des solutions de \eqref{eq:1} est donc $\left\{ \dfrac{11}2 ; \dfrac2{11} \right\}$.
+	\end{enumerate}
+}
+
 \exe{}{
 	Soit $f(x) = x^2 - x - 1$ une fonction quadratique sur $\R$.
 	
@@ -85,7 +98,7 @@
 }
 
 \exe{}{
-	Pour chaque propriété, donner une fonction $f$ sur $\R$ non identiquement nulle la vérifiant.
+	Pour chaque propriété, donner un polynôme $f$ sur $\R$ non identiquement nulle la vérifiant.
 	\begin{multicols}{2}
 	\begin{enumerate}
 		\item $f$ s'annule en $1$.
@@ -96,7 +109,7 @@
 	\end{enumerate}
 	\end{multicols}
 }{exe:6}{
-	La fonction identiquement nulle $f(x) = 0$ n'est bien sûr pas autorisée sinon l'exercice n'a pas d'intérêt !
+	Le polynôme identiquement nul $f(x) = 0$ n'est bien sûr pas autorisé sinon l'exercice n'a pas d'intérêt !
 	\begin{enumerate}
 		\item $f(x) = x-1$ fonctionne ainsi que $f(x) = 3(x-1)$, ou $f(x) = -(x-1) = 1-x$.
 		\item $f(x) = x+10$ fonctionne, ainsi que $f(x) = (x+10)(x-1)$, et tous ses multiples.
@@ -108,24 +121,96 @@
 }
 
 
+\thm{fondamental de l'algèbre}{
+	Soit $f\in\R[x]$ un polynôme non constant à coefficients réels.
+	Alors $f$ admet une racine dans $\C$.
+}{thm:fond-algebre}
+
 \exe{}{
-	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
-		\begin{align}
-			22x^2 - 125x + 22  = 0. \label{eq:1}
-		\end{align}
-	\begin{enumerate}
-		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
-		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
-	\end{enumerate}
-}{exe:7}{
-	\begin{enumerate}
-		\item On part toujours de la forme factorisée qu'on développe par double distributivité :
-			\[ (2x - 11)(11x - 2) = 22x^2 - 4x - 121x + 22 = 22x^2 - 125x + 22. \]
-		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
-		L'ensemble des solutions de \eqref{eq:1} est donc $\left\{ \dfrac{11}2 ; \dfrac2{11} \right\}$.
-	\end{enumerate}
+	Supposons que $z\in\C$ soit racine du polynôme $f\in\R[x]$ à coefficients réels.
+	Montrer que son conjugué complexe $\overline{z}$ est également racine.
+}{exe:Galois2}{
+	todo
 }
 
+\lem{}{
+	Soit $f\in\R[x]$ un polynôme non constant à coefficients réels et $z\in\C$ une de ses racines complexes.
+	Alors le polynôme $(x-z)(x-\overline{z})$ est un polynôme à coefficients réels qui divise $f$.
+}{lem:conjugate-roots}
+
+
+\thm{}{
+	Soit $f\in\R[x]$ un polynôme à coefficients réels et $r\in\C$ une racine.
+	Alors $(x-r)$ divise $f$ dans $\C[x]$.
+	Si $r\in\R$ est réelle, alors $(x-r)$ divise $f$ dans $\R[x]$.
+}{thm:facteur-lin}
+
+\dfn{multiplicité}{
+	Soit $f\in\R[x]$ un polynôme à coefficients réels et $r\in\C$ une racine.
+	La \emphindex{multiplicité} $m(r)$ de la racine $r$ est l'entier tel que $(x-r)^{m(r)}$ divise $f$ dans $\C[x]$ mais pas $(x-r)^{m(r)+1}$.
+}{dfn:multiplicite}
+
+\thm{}{
+	Soit $f\in\R[x]$ un polynôme à coefficients réels.
+	Alors 
+		\[ f(x) = a_d \prod_{\text{$r$ racine de $f$}} (x-r)^{m(r)}. \]
+}{thm:scinde}
+
+\section{Dérivation formelle}
+
+\dfn{dérivation formelle}{
+	$f$ et $f'$ et $f^{IV}$ et $f^{(k)}$
+}{dfn:derivation}
+
+\thm{de Taylor polynomial}{
+	Soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$.
+	Alors
+		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(0)}{k!} x^k.\]
+}{thm:taylor-poly}
+
+\nt{
+	Une connaissance locale d'une fonction polynomiale et de ses dérivées permet donc de la connaître partout.
+	Ce théorème ce généralise : sous certaines conditions moins fortes qu'être polynomiale,
+		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(0)}{k!} x^k + o(x^d), \]
+	où $o(x^d)$ désigne une fonction dominée par $x^d$ autour de 0, comme par exemple $x^{d+1}$ dont le ratio $\frac{x^{d+1}}{x^d}$ tend vers 0 lors que $x$ tend vers 0.
+}
+
+\exe{difficulty=1}{
+	Montrer le théorème de Taylor bis : 
+	soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $a\in\R$ un réel quelconque.
+	Alors
+		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(a)}{k!} (x-a)^k.\]
+}{exe:taylor-poly-2}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $a\in\R$ un réel quelconque.
+	Montrer que $a$ est une racine de multiplicité $m$ si et seulement si $f(a) = f'(a) = \cdots = f^{(m-1)}(a) = 0$.
+}{exe:mult-from-diff}{
+	todo
+}
+
+\thm{}{
+	Soit $f$ un polynôme. Alors $\pgcd(f, f') = 1$ si et seulement si toutes les racines de $f$ sont simples.
+}{thm:derivative-test}
+
+\exe{difficulty=1}{
+	Démontrer le théorème \ref{thm:derivative-test}.
+}{exe:derivative-test}{
+	todo
+}
+
+\section*{Exercices supplémentaires}
+\addcontentsline{toc}{section}{Exercices supplémentaires}
+
+
+
+\exe{difficulty=2}{
+	Montrer que la famille polynomiale $\bigset{1 ; x ; \dots ; x^n}$ est indépendante sur $\R$.
+}{exe:1xn-indep}{
+	todo
+}
 
 \exe{}{
 	On souhaite connaître les solutions de l'équation du troisième degré d'inconnue $x\in\R$ :
@@ -223,19 +308,6 @@
 
 }
 
-
-\thm{fondamental de l'algèbre}{
-	Soit $f\in\R[x]$ un polynôme à coefficients réels.
-	Alors $f$ admet une racine dans $\C$.
-}{thm:fond-algebre}
-
-\exe{}{
-	Supposons que $z\in\C$ soit racine du polynôme $f\in\R[x]$ à coefficients réels.
-	Montrer que son conjugué complexe $\overline{z}$ est également racine.
-}{exe:Galois2}{
-	
-}
-
 \exe{difficulty=2}{
 	Supposons que $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$ non carré parfait, soit racine de l'équation $ax^2 + bx + c = 0$ où $a, b, c\in\Q$.
 	Montrer que son conjugué $r-s\sqrt{d}$ est également racine.
@@ -271,54 +343,6 @@
 	
 }
 
-\thm{}{
-	Soit $f\in\R[x]$ un polynôme à coefficients réels et $r\in\C$ une racine.
-	Alors $(x-r)$ divise $f$ dans $\C[x]$.
-	Si $r\in\R$ est réelle, alors $(x-r)$ divise $f$ dans $\R[x]$.
-}{thm:facteur-lin}
-
-\dfn{multiplicité}{
-	Soit $f\in\R[x]$ un polynôme à coefficients réels et $r\in\C$ une racine.
-	La \emphindex{multiplicité} $m(r)$ de la racine $r$ est l'entier tel que $(x-r)^{m(r)}$ divise $f$ dans $\C[x]$ mais pas $(x-r)^{m(r)+1}$.
-}{dfn:multiplicite}
-
-\thm{}{
-	Soit $f\in\R[x]$ un polynôme à coefficients réels.
-	Alors 
-		\[ f(x) = a_d \prod_{\text{$r$ racine de $f$}} (x-r)^{m(r)}. \]
-}{thm:scinde}
-
-\section{Dérivation formelle}
-
-\dfn{dérivation formelle}{
-	$f$ et $f'$ et $f^{IV}$ et $f^{(k)}$
-}{dfn:derivation}
-
-\thm{de Taylor polynomial}{
-	Soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$.
-	Alors
-		\[ f(x) = \sum_{i=0}^{d} \frac{f^{(i)}(0)}{i!} x^i.\]
-}{thm:taylor-poly}
-
-\nt{
-	Une connaissance locale d'une fonction polynomiale et de ses dérivées permet donc de la connaître partout.
-	Ce théorème ce généralise : sous certaines conditions moins fortes qu'être polynomiale,
-		\[ f(x) = \sum_{i=0}^{d} \frac{f^{(i)}(0)}{i!} x^i + o(x^d), \]
-	où $o(x^d)$ désigne une fonction dominée par $x^d$ autour de 0, comme par exemple $x^{d+1}$ dont le ratio $\frac{x^{d+1}}{x^d}$ tend vers 0 lors que $x$ tend vers 0.
-}
-
-\exe{difficulty=1}{
-	Montrer le théorème de Taylor bis : 
-	soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $a\in\R$ un réel quelconque.
-	Alors
-		\[ f(x) = \sum_{i=0}^{d} \frac{f^{(i)}(a)}{i!} (x-a)^i.\]
-}{exe:taylor-poly-2}{
-	todo
-}
-
-\thm{}{
-	Soit $f$ un polynôme. Alors $\pgcd(f, f') = 1$ si et seulement si toutes les racines de $f$ sont simples.
-}{thm:derivative-test}
 
 \exe{difficulty=2}{
 	Algorithme du factor refinement.
@@ -326,10 +350,7 @@
 	todo
 }
 
-%\section*{Exercices}
-%\addcontentsline{toc}{section}{Exercices}
-%
-%\shipoutExercise
+\shipoutExercise
 
 \section*{Solutions}
 \addcontentsline{toc}{section}{Solutions}
