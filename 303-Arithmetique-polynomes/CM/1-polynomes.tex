@@ -55,7 +55,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \exe{}{
 	Donner l'ensemble des éléments inversibles de $\K[x]$.
 }{exe:k-star}{
-	$\bigpar{ \K[x] }^{x} = \K^{x}$.
+	$\bigpar{ \K[x] }^{\times} = \K^{\times}$.
 }
 
 \exe{}{
@@ -66,7 +66,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \nt{
-	$\K_n[x]$ est un $\K$-espace vectoriel dans lequel il est possible de multiplier les vecteurs : c'est une $\K$-algèbre.
+	$\K[x]$ est un $\K$-espace vectoriel dans lequel il est possible de multiplier les vecteurs : c'est une $\K$-algèbre.
 	Il faut toutefois que la multiplication soit cohérente avec l'addition dans l'espace (distributivité et associativité).
 	
 	$\K^n$ est un $\K$-espace vectoriel qui n'est pas \emph{a priori} une $\K$-algèbre.
@@ -111,12 +111,55 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Par conséquent, $b$ divise $a$ dans $\R[x]$.
 }
 
-\nt{
-	Le \emphindex{lemme de Gauss (polynômes)} énonce le fait suivant :
-	si $a\in\Q[x]$ divise $b\in\Z[x]$, deux polynômes unitaires, dans $\Q[x]$, alors $a\in\Z[x]$ est à coefficients entiers et $a$ divise $b$ dans $\Z[x]$.
-	
-	Ce résultat semble facile à démontrer en utilisant la même stratégie de preuve qu'à l'exercice \ref{exe:divis-C-to-R}, mais la division euclidienne sort de $\Z[x]$ en général : le polynôme $3(x+1)$ divise $x^2 - 1$ dans $\Q[x]$ mais pas dans $\Z[x]$. (Notons que le premier n'est pas unitaire !)
+\dfn{polynôme irréductible}{
+	Un polynôme $f\in\K[x]$ est un \emphindex{polynôme irréductible} dès que
+		\begin{enumerate}
+			\item $f$ n'est pas constant ; et
+			\item si $f$ se scinde $f=ab$ dans $\K[x]$, alors soit $a$ soit $b$ est constant.
+		\end{enumerate}
+}{dfn:irreductible}
+
+\exe{}{
+	Le polynôme $f(x) = x^4+x^3+x^2+x+1$ est-il irréductible dans $\F_5[x]$ ?
+}{exe:irreductible}{
+
 }
+
+\exe{}{
+	Soit $f\in\Z[x]$ et $p$ un premier. 
+	Montrer que si $f$ est irréductible sur $\F_p[x]$, alors $f$ est irréductible dans $\Z[x]$.
+	
+	Est-ce que la réciproque est vraie ?
+}{exe:irreductible-Z-to-Fp}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Montrer que le polynôme $ax^2 + bx + c$ est réductible dans $\F_p[x]$ si et seulement si le discriminant $\Delta = b^2 - 4ac$ est un carré parfait modulo $p$.
+	
+	En déduire un polynôme irréductible dans $\F_5[x]$ mais réductible dans $\F_7[x]$.
+}{exe:discr-Fp}{
+	Les carrés parfaits de $\F_5$ sont $\bigset{ 0 ; 1 ; 4 }$.
+	Ceux de $\F_7$ sont $\bigset{ 0 ; 1 ; 4 ; 2 }$.
+	Obtenir $\Delta = 2$ est donc notre unique chance et le polynôme $x^2 - 2$ un candidat évident.
+	Celui-ci est irréductible dans $\F_5[x]$ mais se décompose comme $(x-3)(x+3)$ dans $\F_7[x]$.
+	
+	Il existe des tables de polynômes irréductibles pour chaque corps fini, dans lesquelles nous pouvons trouver 
+	\begin{itemize}[label=$\bullet)$]
+		\item $x^2 + x + 1$, de discriminant 2 dans $\F_5$ (irréductible) et 3 dans $\F_7$ (irréductible) ;
+		\item $x^2 + x + 2$, de discriminant 3 dans $\F_5$ (irréductible) et 0 dans $\F_7$ (réductible) ;
+		\item $x^2 + 4x + 1$, de discriminant 2 dans $\F_5$ (irréductible) et 5 dans $\F_7$ (irréductible) ;
+		\item etc...
+	\end{itemize}
+}
+
+
+%\nt{
+%	Le \emphindex{lemme de Gauss (polynômes)} énonce le fait suivant :
+%	si $a\in\Q[x]$ divise $b\in\Z[x]$, deux polynômes unitaires, dans $\Q[x]$, alors $a\in\Z[x]$ est à coefficients entiers et $a$ divise $b$ dans $\Z[x]$.
+%	
+%	Ce résultat semble facile à démontrer en utilisant la même stratégie de preuve qu'à l'exercice \ref{exe:divis-C-to-R}, mais la division euclidienne sort de $\Z[x]$ en général : le polynôme $3(x+1)$ divise $x^2 - 1$ dans $\Q[x]$ mais pas dans $\Z[x]$. (Notons que le premier n'est pas unitaire !)
+%}
 
 \dfn{PGCD}{
 	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
@@ -171,6 +214,40 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Montrer que si $a$ divise $b$ dans $\K[x]$ et que $\deg(b) \leq \deg(a)$, alors $a=b$.
 }{exe:div-deg-eq}{
 	todo
+}
+
+\exe{}{
+	Soit $f\in\K[x]$ un polynôme non constant.
+	Montrer que si $r\in\K$ est une racine de $f$, c'est-à-dire si $f(r) = 0$, alors $x-r$ divise $f$ dans $\K[x]$.
+}{exe:root-factor}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Soit $f\in\K[x]$ un polynôme non constant de degré $n\in\N$.
+	Montrer l'équivalence suivante.
+	\begin{center}
+	\begin{tabular}{ccc}
+		$\Bigpar{ \text{ $f$ est réductible } }$ & $\iff$ & $\Bigpar{\text{ il existe $a, b\in\K[x]$ non nuls avec $\deg(a), \deg(b) < n$ tels que $f|(ab)$ }}$
+	\end{tabular}
+	\end{center}
+}{exe:red-div-prod}{
+	\underline{Direction $\implies$.}
+	
+	Si $f = ab$ avec $a, b$ non constants, alors $f$ divise trivialement $ab$ et $\deg(a) + \deg(b) = n$ implique que $\deg(a), \deg(b) < n$.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Considérons l'ensemble $E$ des couples $(a, b)$ de polynômes \underline{non nuls} vérifiant $\deg(a), \deg(b) < n$ et $f|(ab)$.
+	Cet ensemble n'est pas vide par hypothèse.
+	Choisissons un couple de $E$ pour lequel $\deg(a)$ est minimal et montrons que $a$ divise $f$.
+	
+	La division euclidienne de $f$ par $a$ dans $\K[x]$ s'écrit
+		\[ f = aq + r, \]
+	avec $\deg(r) < \deg(a)$.
+	Comme $r = f -aq$, le polynôme $f$ divise $rb = rf - (ab)q$.
+	
+	Par le choix de $a$, $r = 0$ et nous avons trouvé un diviseur propre de $f$.
 }
 
 \subsection{L'anneau $\K[x]$ est principal}
@@ -272,6 +349,59 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Soit donc $p$ un facteur de la première décomposition. 
 	Comme $p$ divise la deuxième décomposition, le lemme d'Euclide \ref{lem:Euclide} implique que $p$ divise un de ses facteurs irréductibles.
 	$p$ est donc égal à ce facteur.
+}
+
+\exe{}{
+	Montrer qu'un polynôme $f$ de $\K[x]$ de degré 2 ou 3 est réductible si et seulement s'il admet une racine dans $\K$.
+}{exe:irr-deg23}{
+	\underline{Direction $\implies$.}
+	
+	Si se scinde comme $f=ab$ avec ni $a$ ni $b$ constants, alors soit $a$ soit $b$ est de degré 1 car $\deg(a) + \deg(b) = \deg(f)$.
+	Le facteur de degré 1 implique donc l'existence d'une racine dans le corps.
+	
+	 
+	\underline{Direction $\impliedby$.}
+	
+	Si $r\in\K$ vérifie $f(r) = 0$, alors $x-r$ divise $f$ dans $\K[x]$ d'après l'exercice \ref{exe:root-factor}.
+	Le polynôme $f$ est donc réductible.
+}
+
+\exe{}{
+	Trouver la décomposition de chaque polynôme suivant dans les anneaux $\C[x] ; \R[x] ; \Q[x] ; \F_3[x]$.
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $x^2 + 2$
+		\item $x^2 - 1$
+		\item $x^2 - 2$
+		\item $x^3 + x^2 + 2x + 2$
+	\end{enumerate}
+	\end{multicols}
+}{exe:UFD-examples}{
+	Chaque polynôme est réductible si et seulement si nous pouvons trouver une racine dans le corps, d'après l'exercice \ref{exe:irr-deg23}.
+	\begin{enumerate}
+		\item $x^2 + 2$.
+		\begin{enumerate}[leftmargin=80pt]
+			\item[Dans {$\C[x]$} :] $x^2 + 2 = (x + \sqrt2i)(x-\sqrt2i)$.
+			\item[Dans {$\R[x]$} :] $x^2 + 2$ est irréductible.
+			\item[Dans {$\Q[x]$} :] $x^2 + 2$ est irréductible.
+			\item[Dans {$\F_3[x]$} :] $x^2 + 2 = x^2 - 1 = (x+1)(x-1)$.
+		\end{enumerate}
+		\item $x^2 - 1 = (x+1)(x-1)$ dans chaque anneau.
+		\item $x^2 - 2$.
+		\begin{enumerate}[leftmargin=80pt]
+			\item[Dans {$\C[x]$} :] $x^2 - 2 = (x+\sqrt2)(x-\sqrt2)$.
+			\item[Dans {$\R[x]$} :] $x^2 - 2 = (x+\sqrt2)(x-\sqrt2)$.
+			\item[Dans {$\Q[x]$} :] $x^2-2$ est irréductible.
+			\item[Dans {$\F_3[x]$} :] $x^2-2$ est irréductible.
+		\end{enumerate}
+		\item $x^3 + x^2 + 2x + 2$ dont $-1$ est une racine et qui se factorise donc par $x+1$ dans chaque anneau.
+		\begin{enumerate}[leftmargin=80pt]
+			\item[Dans {$\C[x]$} :]  $x^3 + x^2 + 2x + 2 = (x+1)(x^2+2) = (x+1)(x+\sqrt2i)(x-\sqrt2i)$
+			\item[Dans {$\R[x]$} :] $x^3 + x^2 +2x +2 = (x+1)(x^2 + 2)$
+			\item[Dans {$\Q[x]$} :] $x^3 + x^2 + 2x + 2 = (x+1)(x^2 + 2)$
+			\item[Dans {$\F_3[x]$} :] $x^3 + x^2 + 2x + 2 = (x+1)(x^2 -1) = (x+1)^2(x-1)$
+		\end{enumerate}
+	\end{enumerate}
 }
 
 \subsection{L'anneau $\Z[x]$}
