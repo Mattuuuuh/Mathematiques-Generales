@@ -6,7 +6,22 @@
 
 \section{Corps des fractions}
 
-%dfn générale
+\nt{
+	L'anneau $\Z$ n'est pas un corps car il n'est pas possible de diviser à l'interieur de celui-ci.
+	Quel est le plus petit sur-ensemble de $\Z$ dans lequel il est possible de diviser ?
+	
+	De plus, en ajoutant $ab^{-1}$ à $cd^{-1}$, nous obtenons nécessairement
+		\[ ab^{-1} + cd^{-1} = add^{-1}b^{-1} + cd^{-1}b^{-1}b. \]
+	En supposant que l'anneau et le corps soient commutatifs, nous retrouvons la formule de la somme de fractions
+		\[ ab^{-1} + cd^{-1} = (ad + cb)(bd)^{-1}. \]
+	Notons qu'il n'est pas souhaitable que $b$ divise zéro, auquel cas nous pourrions imposer $bd = 0$ et serions forcés de diviser par zéro.
+	L'anneau doit donc nécessairement être intègre.
+}
+
+\dfn{Corps des fractions}{
+	Soit $R$ un anneau intègre.
+
+}{dfn:corps-frac}
 
 \section{Décomposition en éléments simples}
 
