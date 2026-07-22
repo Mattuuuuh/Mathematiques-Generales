@@ -181,7 +181,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \thm{division euclidienne}{
 	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
-	Il existe deux polynômes $q, r\in\K[x]$ vérifiant
+	Il existe deux uniques polynômes $q, r\in\K[x]$ vérifiant
 	\begin{enumerate}
 		\item $a = bq + r$ ; et
 		\item $\deg(r) < \deg(b)$
@@ -190,10 +190,33 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }{thm:div-euclidienne}
 
 \exe{}{
-	Démontrer le théorème \ref{thm:div-euclidienne}.
-	Est-ce qu'il est toujours vrai si on remplace le corps $\K$ par un anneau $\R$ ?
+	Démontrer le théorème \ref{thm:div-euclidienne}, sans oublier l'unicité de $q$ et $r$.
+	Est-ce qu'il est toujours vrai si on remplace le corps $\K$ par un anneau $R$ ?
 }{exe:thm:div-euclidienne}{
-	todo
+	\underline{Existence.}
+
+	Si $\deg(a) < \deg(b)$, alors il suffit de prendre $q=0$ et $r=a$.
+	Sinon, $\deg(a) \geq \deg(b)$ et nous construisons $q$ en annulant le degré le plus haut de $a$ itérativement.
+	
+	\begin{enumerate}
+		\item
+		Initialiser $q = 0$.
+		\item
+		Tant que $\deg(a-bq) \geq \deg(b)$, 
+		\item
+		Ajouter un multiple de $x^{\deg(a-bq) - \deg(b)}$ à $q$ de telle sorte que le degré de $a-bq$ diminue d'au moins 1.
+		\item
+		Fin Tant que
+		\item
+		Renvoyer $q$ et $r=a-bq$.
+	\end{enumerate}
+
+	\underline{Unicité.}
+	
+	Si $a = bq + r = bq' + r'$ avec $\deg(r), \deg(r') < \deg(b)$, alors
+		\[ b(q-q') = r' - r, \]
+	et donc $q-q'=0$ car $\deg(r'-r) < \deg(b)$.
+	Il suit que $q=q'$ et donc que $r=r'$.
 }
 
 \nt{
@@ -290,6 +313,13 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	L'anneau $\K[x]$ est donc un \emphindex{anneau principal} : l'élément de degré (ou norme, plus généralement) minimal de chaque idéal génère entièrement cet idéal.
 }
 
+\exe{}{
+	Soit $f\in\K[x]$ irréductible et $a\in\K[x]$.
+	Montrer que $\pgcd(f,a) = 1$ ou $f$.
+}{exe:gcd-irr}{
+	todo
+}
+
 \nt{
 	Une définition plus abstraite mais plus générale du PGCD est donc la suivante, et s'applique à tous les anneaux principaux.
 	Pour $a, b\in\R$ deux éléments d'un anneau $R$ principal, nous avons
@@ -313,8 +343,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }{cor:Gauss-arithm}
 
 \nt{
-	Ce corollaire est utile pour justifier immédiatement que si $p$ admet plusieurs racines distinctes $r_1, r_2, \dots, r_k$, alors le produit $\prod_{i=1}^k (x-r_i)$ divise $p$.
-	En particulier, dans $\C$
+	Ce corollaire est utile pour justifier immédiatement que si $p$ admet plusieurs racines distinctes $r_1, r_2, \dots, r_k$, alors le produit $\prod_{i=1}^k (x-r_i)$ divise $p$ dès qu'il appartient à l'anneau.
 }
 
 \exe{}{
@@ -893,7 +922,18 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	todo
 }
 
+\exe{}{
+	Soit $n\in\N^*$.
+	En étudiant $(1+x)^n + (1-x)^n$, montrer que
+		\[ \sum_{\substack{k=0 \\ \text{$k$ pair}}}^n {n \choose k} =  \sum_{\substack{k=0 \\ \text{$k$ impair}}}^n {n \choose k} =  2^{n-1}. \]
+	Quelle partie du raisonnement échoue lorsque $n=0$ ?
+}{exe:Newton-even-odd}{
+	Les termes pairs sont doublés et les termes impairs disparaissent.
+	Évaluer en $x=1$ conclut pour la première somme.
+	La deuxième somme est déduite de la première en utilisant que $2^n - 2^{n-1} = 2^{n-1}$.
 
+	Lorsque $n=0$, l'identité $(1-x)^0 = 1$ semble vraie mais elle ne l'est pas précisément en $x=1$.
+}
 
 \exe{}{
 	Montrer que $\U$ est un sous-groupe de $\bigpar{\C^*, \times}$.
@@ -927,7 +967,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 		Montrer que 
 			\[ x^n - 1 = \prod_{d|n} \phi_d(x). \]
 		\item
-		En déduire que si $p$ est premier, alors $\phi_p(x) = \frac{x^p - 1}{x-1}$ et conclure qu'il est irréductible dans $\Z[x]$.
+		En déduire que si $p$ est premier, alors $\phi_p(x) = \frac{x^p - 1}{x-1}$ et qu'il est irréductible dans $\Z[x]$.
 		\item
 		Montrer que si $n$ est \emphindex{semi-premier}, c'est-à-dire que $n=pq$ avec $p, q$ premiers, alors
 			\[ \phi_n(x) = \frac{x^n-1}{\phi_p(x) \phi_q(x) (x-1)} \]
