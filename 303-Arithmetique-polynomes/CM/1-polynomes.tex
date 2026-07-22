@@ -73,7 +73,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Elle peut le devenir en munissant l'espace d'un produit interne adéquat.
 }
 
-\subsection{Divisibilité}
+\subsection{Divisibilité, irréductibilité}
 
 \dfn{divisiblité dans {$\K[x]$}}{
 	Soient deux polynômes $a, b\in\K[x]$.
@@ -135,7 +135,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \exe{difficulty=1}{
-	Montrer que le polynôme $ax^2 + bx + c$ est réductible dans $\F_p[x]$ si et seulement si le discriminant $\Delta = b^2 - 4ac$ est un carré parfait modulo $p$.
+	Montrer que le polynôme $ax^2 + bx + c \in \Z[x]$ est réductible dans $\F_p[x]$ si et seulement si le discriminant $\Delta = b^2 - 4ac$ est un carré parfait modulo $p$.
 	
 	En déduire un polynôme irréductible dans $\F_5[x]$ mais réductible dans $\F_7[x]$.
 }{exe:discr-Fp}{
@@ -178,6 +178,29 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \subsection{L'anneau $\K[x]$ est euclidien}
+
+\thm{division euclidienne}{
+	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
+	Il existe deux polynômes $q, r\in\K[x]$ vérifiant
+	\begin{enumerate}
+		\item $a = bq + r$ ; et
+		\item $\deg(r) < \deg(b)$
+	\end{enumerate}
+	C'est la \emphindex{division euclidienne} de $a$ par $b$.
+}{thm:div-euclidienne}
+
+\exe{}{
+	Démontrer le théorème \ref{thm:div-euclidienne}.
+	Est-ce qu'il est toujours vrai si on remplace le corps $\K$ par un anneau $\R$ ?
+}{exe:thm:div-euclidienne}{
+	todo
+}
+
+\nt{
+	Le concept d'\emphindex{anneau euclidien} se généralise sans peine en remplaçant le degré par une norme sur l'anneau $R$ qui prend ses valeurs dans $\N$.
+}
+
+\subsection{L'anneau $\K[x]$ est principal}
 
 \thm{de Bézout}{
 	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$ et $d\in\K[x]$ un PGCD de $a$ et $b$.
@@ -250,8 +273,6 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Par le choix de $a$, $r = 0$ et nous avons trouvé un diviseur propre de $f$.
 }
 
-\subsection{L'anneau $\K[x]$ est principal}
-
 
 \cor{}{
 	Soient $a, b \in\K[x]$. Alors
@@ -263,6 +284,10 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Montrer le corollaire \ref{cor:pgcd-ideal}.
 }{exe:cor:pgcd-ideal}{
 	todo
+}
+
+\nt{
+	L'anneau $\K[x]$ est donc un \emphindex{anneau principal} : l'élément de degré (ou norme, plus généralement) minimal de chaque idéal génère entièrement cet idéal.
 }
 
 \nt{
@@ -437,6 +462,36 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \section{Racines}
 
+\dfn{racine}{
+	Soit $f\in\K[x]$ un polynôme non constant à coefficients dans $\K$.
+	Le nombre $r\in\K$ est appelé \emphindex{racine} ou \emphindex{zéro} de $f$ dès que
+		\[ f(r) = 0. \]
+}{dfn:racine}
+
+% taken from exe:root-factor
+% maybe talk about roots before... need refactor.
+\exe{}{
+	Soit $f\in\K[x]$ un polynôme non constant.
+	Montrer que si $r\in\K$ est une racine de $f$ si et seulement si  $x-r$ divise $f$ dans $\K[x]$.
+}{exe:root-factor2}{
+	todo
+}
+
+\exe{}{
+	Est-ce que $x^3 - 2x + x -2$ est divisible par $x-2$ dans $\Z[x]$ ?
+	
+	Est-ce que $x^2 -4x + 3$ est divisible par $x+1$ dans $\Q[x]$ ?
+}{exe:divisible-root}{
+	todo
+}
+
+\exe{}{
+	Soit $f\in\K[x]$.
+	Montrer que si $a|f$ dans $\K[x]$, alors les racines de $a$ sont des racines de $f$.
+}{exe:root-factor3}{
+	todo
+}
+
 \subsection{Théorème fondamental de l'algèbre}
 
 % thm fondamental
@@ -447,11 +502,43 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \cor{}{
 	Soit $f\in\C[x]$ un polynôme à coefficients complexes de coefficient dominant $a\in\C$.
-	Alors $f$ se décompose comme produit de ces racines.
+	Alors $f$ se décompose comme produit de monômes
 		\[ f(x) = a\prod_{z | f(z) = 0} (x-z)^{m(z)}, \]
 	où $m(z)\in\N$ est la \emphindex{multiplicité} de la racine $z$ dans $f$.
 }{cor:decomp-C}
 
+\dfn{algébriquement clos}{
+	Le corps $\C$ est \emphindex{algébriquement clos} car chaque polynôme non constant de $\C[x]$ admet une racine dans $\C$.
+	De façon équivalente, chaque polynôme de $\C[x]$ se scinde en produit de monômes.
+}{dfn:alg-clos}
+
+\thm{clôture algébrique}{
+	Pour tout corps $\K$, il existe un sur-corps $\overline{\K}$ qui est algébriquement clos.
+}{thm:cloture-algebrique}
+	
+\nt{
+	Une démonstration constructive du théorème \ref{thm:cloture-algebrique} fonctionne comme suit :
+	pour chaque polynôme de $\K[x]$, ajouter une racine au corps $\K$, et continuer le processus.
+	La construction de la clôture de $\Q$ peut donc se faire en raisonnant par récurrence car l'ensemble $\Q[x]$ est dénombrable comme union dénombrable d'ensembles dénombrables.
+	
+	En revanche, le nombre de polynômes de $\K[x]$ étant indénombrable en général, une récurrence classique ne suffit pas, il faut une \emphindex{récurrence transfinie}.
+	Une démonstration du théorème \ref{thm:cloture-algebrique} nécessite donc l'axiome du choix.
+}
+
+
+\exe{difficulty=1}{
+	Soient $a, f\in\K[x]$ et $\overline{\K}$ la clôture algébrique de $\K$.
+	Montrer que $a|f$ dans $\K[x]$ si et seulement si pour chaque racine de $a$, sa multiplicité dans $a$ est inférieure ou égale à celle dans $f$.
+}{exe:root-factor4}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $f\in\K[x]$ et $f'$ sa dérivée formelle.
+	Montrer que $\pgcd(f,f') = 1$ si et seulement si $f$ n'admet que des racines simples.
+}{exe:gcd-simple-roots}{
+	todo
+}
 
 \subsection{L'anneau $\R[x]$}
 
@@ -494,7 +581,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Considérons le produit 
 		\[ f(x) = \prod_{\lambda \in \Lambda} (x+\lambda), \]
 	polynôme de $\K[x]$.
-	Alors $f(x)$ se développe en prenant le produit de soit $x$, soit $\lambda$ dans chaque monôme $x-\lambda$, et en sommant ces produits.
+	Alors $f(x)$ se développe en prenant le produit de soit $x$, soit $\lambda$ dans chaque monôme $x+\lambda$, et en sommant ces produits.
 	
 		\[  \prod_{\lambda \in \Lambda} (x+\lambda) = \sum_{k=0}^{|\Lambda|} x^k \sum_{\substack{I \subset \Lambda, \\ |I| = |\Lambda|-k}} \prod_{\lambda \in I} \lambda. \]
 }{prop:expand-product}
@@ -579,7 +666,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 
 \exe{difficulty=1}{
-	Soient $\Lambda \subset \K$ \underline{toutes} les valeurs propres d'une matrice $A \in \K^{n\times n}$, comptées avec multiplicités.
+	Soient $\Lambda \in \K^n$ \underline{toutes} les valeurs propres d'une matrice $A \in \K^{n\times n}$, comptées avec multiplicités.
 	Ainsi, le polynôme caractéristique
 	$\det(x I - A) = x^n + \alpha_{n-1} x^{n-1} + \dots + \alpha_1 x + \alpha_0$
 	est unitaire et se scinde comme produit
@@ -602,6 +689,12 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \subsection{Racines $n$-ièmes de l'unité}
+
+\nt{
+	Soit $n\in\N^*$.
+	Le polynôme $x^n - 1 \in\C[x]$ admet pour dérivée formelle $nx^{n-1}$, dont la seule racine est 0.
+	Ainsi, $x^n -1$ est premier avec son polynôme dérivé, et il admet donc $n$ racines complexes distinctes.
+}
 
 \dfn{racine $n$-ième de l'unité}{
 	Soit $z\in\C$ un nombre complexe et $n\in\N^*$.
@@ -754,10 +847,43 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Considérons la fonction rationnelle $f(x) = \frac{x^p - 1}{x-1}$ avec $p$ un premier.
 	\begin{enumerate}
 		\item Montrer que $f$ appartient à $\Z[x]$.
-		\item Montrer que $f$ est irréductible en montrant que $g(x) = f(x+1)$ vérifie le critère d'Eisenstein de l'exercice \ref{exe:xppm1-irr}.
+		\item Montrer que $f$ est irréductible en montrant que $g(x) = f(x+1)$ vérifie le critère d'Eisenstein de l'exercice \ref{exe:eisenstein}.
 	\end{enumerate}
 }{exe:xppm1-irr}{
 	todo
+}
+
+\exe{difficulty=1}{
+	Soit $n\in\N$ et $p\neq2$ un nombre premier.
+	Le but de cet exercice est de démontrer que le polynôme $f(x) = x^n + x + p$ est irréductible dans $\Q[x]$.
+	\begin{enumerate}
+		\item
+		Justifier qu'il suffit de démontrer que $f$ est irréductible dans $\Z[x]$.
+		\item
+		En voyant $f$ comme polynôme de $\C[x]$, montrer que toutes ses racines $z\in\C$ sont de module strictement supérieur à 1.
+		\item
+		En déduire que si $f=ab$ dans $\Z[x]$, alors $|a(0)|, |b(0)| > 1$.
+		\item
+		Conclure.
+	\end{enumerate}
+}{exe:xn-n-p-irr}{
+	\begin{enumerate}
+		\item
+		Si $f$ est réductible dans $\Q[x]$, alors, comme $f$ est unitaire de $\Z[x]$, le lemme de Gauss (polynômes) \ref{lem:Gauss} garantit que $f$ est réductible dans $\Z[x]$.
+		\item
+		Soit $z\in\C$ tel que $f(z) = 0$.
+		Alors $z^n + z + p = 0$, et donc $2 < |p| \leq |z| + |z|^n$.
+		Il suit donc naturellement que $|z|>1$ car, dans le cas contraire, nous aurions la contradiction $2 < |z|+|z|^n \leq 2$.
+		\item
+		Le coefficient constant de $a$ vu comme polynôme de $\C[x]$, $a(0)$, est égal au produit de ses racines.
+		Or, les racines de $a$ sont exactement des racines de $f$, dont le module est strictement supérieur à 1.
+		Il suit donc que $|a(0)| > 1$.
+		Le cas pour $b$ est identitque.
+		\item
+		Supposons que $f$ se réduise comme $f=ab$ dans $\Z[x]$.
+		Alors $f(0) = p = a(0)\cdot b(0)$, égalité dans $\Z$.
+		Comme $p$ est premier, soit $a(0)$, soit $b(0)$ est une unité de $\Z$, ce qui contredit que $|a(0)|, |b(0)| > 1$.
+	\end{enumerate}
 }
 
 \exe{}{
