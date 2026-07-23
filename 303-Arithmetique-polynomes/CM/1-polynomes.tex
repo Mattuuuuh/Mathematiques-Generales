@@ -88,9 +88,9 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \exe{}{
 	Soient $f, g\in\K[x]$ deux polynômes.
-	Montrer que si $f|g$ et $g|f$, alors $f$ et $g$ sont multiples l'un de l'autre.
+	Montrer que si $f|g$ et $g|f$, alors $f = c \cdot g$ avec $c\in\K$.
 	
-	Montrer que si $f$ et $g$ sont unitaires, alors $f=g$.
+	En déduire que si $f$ et $g$ sont unitaires, alors $f=g$.
 }{exe:f-div-g-div-f}{
 	todo
 }
@@ -235,6 +235,13 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Soient $f\in\K[x]$ irréductible et $g\in\K[x]$ non nul tel que $\deg(g) < \deg(f)$.
 	Montrer que $\pgcd(f,g) = 1$.
 }{exe:irr-coprime}{
+	todo
+}
+
+\exe{}{
+	Soit $f\in\K[x]$ irréductible et $a\in\K[x]$.
+	Montrer que $\pgcd(f,a) = 1$ ou $f$.
+}{exe:gcd-irr}{
 	todo
 }
 
@@ -423,13 +430,6 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \nt{
 	L'anneau $\K[x]$ est donc un \emphindex{anneau principal} : l'élément de degré (ou norme, plus généralement) minimal de chaque idéal génère entièrement cet idéal.
-}
-
-\exe{}{
-	Soit $f\in\K[x]$ irréductible et $a\in\K[x]$.
-	Montrer que $\pgcd(f,a) = 1$ ou $f$.
-}{exe:gcd-irr}{
-	todo
 }
 
 \nt{
@@ -797,6 +797,20 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	todo
 }
 
+\exe{}{
+	L'objectif de l'exercice est de démontrer le \emphindex{théorème de Wilson} qui énonce que $(n-1)! = -1 \mod n$ si et seulement si $n$ est premier.
+	\begin{enumerate}
+		\item
+		Montrer que si $n$ n'est pas premier, alors $(n-1)! = 0 \mod n$.
+		\item
+		Supposons $n$ premier.
+		Montrer que le polynôme $x^n - x$ admet $n$ racines distinctes dans $\F_n[x]$.
+		\item
+		Conclure en étudiant le coefficient constant de $x^{n-1} - 1$.
+	\end{enumerate}
+}{exe:Wilson}{
+	todo
+}
 
 \exe{difficulty=2}{
 	Soit $a, b\in\N^*$ deux entiers naturels tels que $ab+1$ divise $a^2 + b^2$.
@@ -1071,6 +1085,18 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Décrire explicitement l'ensemble $\mu_n$ des éléments d'ordre $n$ du groupe $\U$.
 }{exe:U-ordre-n}{
 	todo
+}
+
+\exe{difficulty=1}{
+	Soit $p>3$ un nombre premier. Montrer l'égalité suivante.
+		\[ \prod_{1 \leq i < j \leq p-1} ij = 0 \mod p. \]
+	Vérifier l'égalité pour $p=5$ et montrer qu'elle n'est pas vraie pour $p=3$.
+}{exe:Wilson-bis}{
+	En reprenant le raisonnement de l'exercice \ref{exe:Wilson} et le résultat de l'exercice \ref{exe:a2}, étudions le coefficient en $x^{p-2}$ du polynôme $x^{p-1} -1$ qui se scinde comme suit sur $\F_p[x]$.
+		\[ x^{p-1} - 1 = \prod_{i=1}^{p-1} (x- i) \]
+	Comme $p>3$, le coefficient en $x^{p-2}$ de $x^{p-1}-1$ est nul, et donc
+		\[ \prod_{1 \leq i < j \leq p-1} (-i)(-j) = 0 \]
+	dans $\F_p$.
 }
 
 
