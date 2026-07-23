@@ -135,12 +135,23 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \exe{}{
-	Soit $f\in\Z[x]$ et $p$ un premier. 
-	Montrer que si $f$ est irréductible sur $\F_p[x]$, alors $f$ est irréductible dans $\Z[x]$.
+	Soit $f\in\Z[x]$ unitaire et $p$ un premier. 
+	Montrer que si $(f\mod p)$ est irréductible sur $\F_p[x]$, alors $f$ est irréductible dans $\Z[x]$.
+	
+	Montrer que le résultat devient faux si $f$ n'est pas supposé unitaire.
 	
 	Est-ce que la réciproque est vraie ?
 }{exe:irreductible-Z-to-Fp}{
-	todo
+	Par contraposition, supposons $f$ réductible dans $\Z[x]$ : $f = ab$, avec $a, b\in\Z[x]$ non constants.
+	Comme $f$ est unitaire, $a$ et $b$ le sont aussi.
+	En prenant l'égalité modulo $p$, nous obtenons donc
+		\[ (f \mod p) = (a \mod p)(b \mod p), \]
+	égalité dans $\F_p[x]$.
+	Les facteurs $(a \mod p)$ et $(b\mod p)$ sont unitaires dans $\F_p[x]$ est donc non constants.
+	
+	Si $f$ n'est pas supposé unitaire, alors le polynôme de Clamme $\text{Cl}(x) = px^2 + x$ fournit un contre-exemple.
+	
+	La réciproque est fausse, car $x^2 +1$ est irréductible dans $\Z[x]$ mais se réduit dans $\F_2[x]$ comme $x^2 + 1 = (x+1)^2$.
 }
 
 \exe{difficulty=1}{
