@@ -86,6 +86,15 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	La relation « $a$ divise $b$ » est notée $a | b$.
 }
 
+\exe{}{
+	Soient $f, g\in\K[x]$ deux polynômes.
+	Montrer que si $f|g$ et $g|f$, alors $f$ et $g$ sont multiples l'un de l'autre.
+	
+	Montrer que si $f$ et $g$ sont unitaires, alors $f=g$.
+}{exe:f-div-g-div-f}{
+	todo
+}
+
 \nt{
 	Il est important de préciser dans quel anneau polynomial la division s'opère.
 	Il peut s'avérer utile d'agrandir le corps dans lequel nous travaillons pour étudier la divisibilité.
@@ -161,19 +170,60 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 %	Ce résultat semble facile à démontrer en utilisant la même stratégie de preuve qu'à l'exercice \ref{exe:divis-C-to-R}, mais la division euclidienne sort de $\Z[x]$ en général : le polynôme $3(x+1)$ divise $x^2 - 1$ dans $\Q[x]$ mais pas dans $\Z[x]$. (Notons que le premier n'est pas unitaire !)
 %}
 
+%\dfn{PGCD}{
+%	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
+%	Un plus grand diviseur commun (PGCD) et $a$ et $b$ dans $\K[x]$ est un polynôme $d\in\K[x]$ de degré maximal vérifiant
+%	\begin{enumerate}
+%		\item $d$ divise $a$ dans $\K[x]$ ; et
+%		\item $d$ divise $b$ dans $\K[x]$ ; et
+%		\item $d$ est unitaire.
+%		\item $(\star)$ les diviseurs de $a$ et de $b$ 
+%	\end{enumerate}
+%}{dfn:pgcd}
+
 \dfn{PGCD}{
-	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
-	Un plus grand diviseur commun (PGCD) et $a$ et $b$ dans $\K[x]$ est un polynôme $d\in\K[x]$ de degré maximal vérifiant
+	Soient $a, b\in \K[x]$ deux polynômes à coefficients dans $\K$.
+	Un plus grand diviseur commun (PGCD) et $a$ et $b$ dans $\K[x]$ est un élément $d\in\K[x]$ vérifiant
 	\begin{enumerate}
-		\item $d$ divise $a$ dans $\K[x]$ ; et
-		\item $d$ divise $b$ dans $\K[x]$ ; et
+		\item $d$ divise $a$ et $b$ ; et
+		\item les diviseurs de $a$ et de $b$ divisent $d$ ; et
 		\item $d$ est unitaire.
 	\end{enumerate}
 }{dfn:pgcd}
 
+\nt{
+	L'existence du PGCD n'est \apriori~pas claire : il se pourrait que, pour chaque candidat de PGCD $d$, il existe un diviseur de $a$ et de $b$ ne divisant pas $d$.
+	Nous verrons dans la suite que le PGCD existe bien dans $\K[x]$.
+	L'anneau $\Z[\sqrt5i]$ est un exemple classique d'anneau sans PGCD.
+	
+	L'unicité, elle, est garantie par l'exercice \ref{exe:unicite-pgcd} suivant.
+}
+
+\exe{}{
+	Montrer que le PGCD, s'il existe, est unique.
+}{exe:unicite-pgcd}{
+	Soient $d, d'$ deux PGCD de $a$ et $b$ dans $\K[x]$.
+	Comme $d$ divise à la fois $a$ et $b$, il divise $d'$.
+	Symétriquement, $d'$ divise $d$.
+	Par conséquent, $d$ et $d'$ sont multiples l'un de l'autre, d'après l'exercice \ref{exe:f-div-g-div-f}.
+	Leur caractère unitaire permet de conclure que $d=d'$.
+}
+
+
+\dfn{coprimalité}{
+	Deux polynômes $f, g\in\K[x]$ sont \emphindex{premiers entre eux} dès que $\pgcd(f, g) = 1$.
+}{dfn:coprimalite}
+
 \exe{}{
 	Montrer que si $d|a$ et $d|b$ dans $\K[x]$, alors $d$ divise toutes les combinaisons linéaires $au + bv$ avec $u, v\in\K[x]$ également.
 }{exe:d-div-comb-lin}{
+	todo
+}
+
+\exe{}{
+	Soient $f\in\K[x]$ irréductible et $g\in\K[x]$ non nul tel que $\deg(g) < \deg(f)$.
+	Montrer que $\pgcd(f,g) = 1$.
+}{exe:irr-coprime}{
 	todo
 }
 
@@ -183,11 +233,15 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
 	Il existe deux uniques polynômes $q, r\in\K[x]$ vérifiant
 	\begin{enumerate}
-		\item $a = bq + r$ ; et
-		\item $\deg(r) < \deg(b)$
+		\item $b = aq + r$ ; et
+		\item $\deg(r) < \deg(a)$
 	\end{enumerate}
-	C'est la \emphindex{division euclidienne} de $a$ par $b$.
+	C'est la \emphindex{division euclidienne} de $b$ par $a$.
 }{thm:div-euclidienne}
+
+\nt{
+	Il suit naturellement que $a$ divise $b$ dans $\K[x]$ si et seulement si le reste $r$ de la division euclidienne de $b$ par $a$ est nul.
+}
 
 \exe{}{
 	Démontrer le théorème \ref{thm:div-euclidienne}, sans oublier l'unicité de $q$ et $r$.
@@ -195,27 +249,27 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }{exe:thm:div-euclidienne}{
 	\underline{Existence.}
 
-	Si $\deg(a) < \deg(b)$, alors il suffit de prendre $q=0$ et $r=a$.
-	Sinon, $\deg(a) \geq \deg(b)$ et nous construisons $q$ en annulant le degré le plus haut de $a$ itérativement.
+	Si $\deg(b) < \deg(a)$, alors il suffit de prendre $q=0$ et $r=b$.
+	Sinon, $\deg(b) \geq \deg(a)$ et nous construisons $q$ en annulant le degré le plus haut de $b$ itérativement.
 	
 	\begin{enumerate}
 		\item
 		Initialiser $q = 0$.
 		\item
-		Tant que $\deg(a-bq) \geq \deg(b)$, 
+		Tant que $\deg(b-aq) \geq \deg(a)$, 
 		\item
-		Ajouter un multiple de $x^{\deg(a-bq) - \deg(b)}$ à $q$ de telle sorte que le degré de $a-bq$ diminue d'au moins 1.
+		Ajouter un multiple de $x^{\deg(b-aq) - \deg(a)}$ à $q$ de telle sorte que le degré de $b-aq$ diminue d'au moins 1.
 		\item
 		Fin Tant que
 		\item
-		Renvoyer $q$ et $r=a-bq$.
+		Renvoyer $q$ et $r=b-aq$.
 	\end{enumerate}
 
 	\underline{Unicité.}
 	
-	Si $a = bq + r = bq' + r'$ avec $\deg(r), \deg(r') < \deg(b)$, alors
-		\[ b(q-q') = r' - r, \]
-	et donc $q-q'=0$ car $\deg(r'-r) < \deg(b)$.
+	Si $b = aq + r = aq' + r'$ avec $\deg(r), \deg(r') < \deg(a)$, alors
+		\[ a(q-q') = r' - r, \]
+	et donc $q-q'=0$ car $\deg(r'-r) < \deg(a)$.
 	Il suit que $q=q'$ et donc que $r=r'$.
 }
 
@@ -223,44 +277,6 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Le concept d'\emphindex{anneau euclidien} se généralise sans peine en remplaçant le degré par une norme sur l'anneau $R$ qui prend ses valeurs dans $\N$.
 }
 
-\subsection{L'anneau $\K[x]$ est principal}
-
-\thm{de Bézout}{
-	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$ et $d\in\K[x]$ un PGCD de $a$ et $b$.
-	
-	Alors $d$ est unique et est égal à
-		\[ d = \arg\min\bigset{ \deg(p) \tq p = au + bv \et u, v \in \K[x] \et p \text{ unitaire non nul} }. \]
-}{thm:bezout-K}
-
-\pf{}{
-	Notons qu'un argument du minimum n'est pas nécessairement unique \apriori.
-	Montrons donc d'abord qu'il l'est en prenant $p$ et $p'$ deux arguments du minimum.
-	Les deux polynômes $p$ et $p'$ sont donc combinaisons linéaires de $a$ et $b$, non nuls, unitaires, et de degré minimal égal à $d\in\N$.
-	La différence $p-p'$ est de degré strictement inférieur à $d$ et est combinaison linéaire de $a$ et $b$.
-	Par minimalité de $d$, cette différence est multiple de 0 et est donc nulle : $p=p'$.
-	
-	Notons ainsi $p$ l'argument du minimum et soit $d$ un PGCD de $a$ et $b$. 
-	D'après l'exercice \ref{exe:d-div-comb-lin}, $d$ divise $p$ car c'est une combinaison linéaire de $a$ et de $b$.
-	Montrons que $p$ vérifie les trois conditions suivantes, ce qui nous permettra de dire que $\deg(p) \leq \deg(d)$ par définition du PGCD pour enfin conclure.
-	\begin{enumerate}
-		\item $p$ divise $a$ dans $\K[x]$ ; et
-		\item $p$ divise $b$ dans $\K[x]$ ; et
-		\item $p$ est unitaire.
-	\end{enumerate}
-	La condition 1 se démontre classiquement comme suit.
-	En prenant $a = pq + r, \deg(r) < \deg(p)$ la division euclidienne de $a$ par $p$ dans $\K[x]$, nous obtenons que $r = a-pq$ est combinaison linéaire de $a$ et $b$ et est donc nul par minimalité du degré de $p$.
-	La condition 2 est analogue et la condition 3 est vérifiée par construction de $p$.
-
-	En conclusion, nous avons d'abord montré que $d$ divise $p$ puis que $\deg(p) \leq \deg(d)$ par définition de $d$ et de $p$.
-	Comme les deux polynômes sont unitaires, nous obtenons $p=d$ d'après l'exercice \ref{exe:div-deg-eq}.
-}
-
-\exe{}{
-	Soient $a, b\in\K[x]$ deux polynômes unitaires.
-	Montrer que si $a$ divise $b$ dans $\K[x]$ et que $\deg(b) \leq \deg(a)$, alors $a=b$.
-}{exe:div-deg-eq}{
-	todo
-}
 
 \exe{}{
 	Soit $f\in\K[x]$ un polynôme non constant.
@@ -291,11 +307,81 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	La division euclidienne de $f$ par $a$ dans $\K[x]$ s'écrit
 		\[ f = aq + r, \]
 	avec $\deg(r) < \deg(a)$.
-	Comme $r = f -aq$, le polynôme $f$ divise $rb = rf - (ab)q$.
 	
-	Par le choix de $a$, $r = 0$ et nous avons trouvé un diviseur propre de $f$.
+	Comme $r = f -aq$, le polynôme $f$ divise $rb = rf - (ab)q$.
+	Si $r\neq0$, l'appartenance $(r,b) \in E$ contredit le choix de $a$.
+	Il suit donc que $r = 0$ et nous avons trouvé un diviseur propre de $f$.
+	En effet, $a$ ne peut pas être constant car $\deg(b) < n$ et $\deg(ab) \geq n$.
 }
 
+
+\subsection{L'anneau $\K[x]$ est principal}
+
+\thm{de Bézout}{
+	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
+	% et $d\in\K[x]$ un PGCD de $a$ et $b$.
+	
+	Alors le PGCD de $a$ et $b$ existe est égal à
+		\[ \pgcd(a, b) = \arg\min\bigset{ \deg(p) \tq p = au + bv \et u, v \in \K[x] \et p \text{ unitaire non nul} }. \]
+}{thm:bezout-K}
+
+\pf{}{
+	Notons qu'un argument du minimum n'est pas nécessairement unique \apriori.
+	Montrons donc d'abord qu'il l'est en prenant $p$ et $p'$ deux arguments du minimum.
+	Les deux polynômes $p$ et $p'$ sont donc combinaisons linéaires de $a$ et $b$, non nuls, unitaires, et de degré minimal égal à $d\in\N$.
+	La différence $p-p'$ est de degré strictement inférieur à $p$ et est combinaison linéaire de $a$ et $b$.
+	Par minimalité de $p$, cette différence est multiple de 0 et est donc nulle : $p=p'$.
+	
+	Notons ainsi $p$ l'unique argument du minimum et montrons qu'il est un PGCD de $a$ et $b$,
+	c'est-à-dire qu'il vérifie les trois conditions suivantes.
+	\begin{enumerate}
+		\item $p$ divise $a$ et $b$ dans $\K[x]$ ; et
+		\item les diviseurs de $a$ et de $b$ divisent $p$ ; et
+		\item $p$ est unitaire ; 
+	\end{enumerate}
+	\begin{enumerate}[label=\underline{Condition \arabic*.}]
+		\item
+		%La condition 1 se démontre classiquement comme suit.
+		En prenant $a = pq + r, \deg(r) < \deg(p)$ la division euclidienne de $a$ par $p$ dans $\K[x]$, nous obtenons que $r = a-pq$ est combinaison linéaire de $a$ et $b$ et est donc nul par minimalité du degré de $p$.
+		Il suit que $p$ divise $a$ dans $\K[x]$, et que $p$ divise également $b$ de façon analogue.
+		
+		\item
+		D'après l'exercice \ref{exe:d-div-comb-lin}, un diviseur $d\in\K[x]$ de $a$ et de $b$ divise $p$ car c'est une combinaison linéaire de $a$ et de $b$.
+		%La condition 2 est donc vérifiée.
+		
+		\item		
+		%La condition 3 est vérifiée par construction de $p$.
+		Vérifiée par construction de $p$.
+	\end{enumerate}
+}
+
+\exe{}{
+	Soient $a, b\in\K[x]$ deux polynômes unitaires.
+	Montrer que si $a$ divise $b$ dans $\K[x]$ et que $\deg(b) \leq \deg(a)$, alors $a=b$.
+}{exe:div-deg-eq}{
+	todo
+}
+
+\exe{}{
+	Dans cet exercice, nous considérons une autre définition du PGCD, dont l'existence est claire, mais l'unicité ne l'est pas.
+	
+	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
+	Un plus grand diviseur commun prime (PGCD') et $a$ et $b$ dans $\K[x]$ est un polynôme $d\in\K[x]$ de degré maximal vérifiant
+	\begin{enumerate}
+		\item $d$ divise $a$ et $b$ dans $\K[x]$ ; et
+		\item $d$ est unitaire.
+	\end{enumerate}
+	
+	Montrer que $\pgcd'(a,b)$ est unique et qu'il est égal à $\pgcd(a,b)$.
+}{exe:pgcd-other-def}{
+	Notons $p = \pgcd(a,b)$ et $p'=\pgcd'(a,b)$.
+	
+	D'abord, comme $p'$ divise $a$ et $b$ dans $\K[x]$, alors $p'$ divise $p$, par définitions.
+	
+	Ensuite, comme $p$ divise $a$ et $b$ dans $\K[x]$, alors $\deg(p) \leq \deg(p')$, à nouveau par définitions.
+	
+	Il suit donc que $p=p'$ en utilisant leur caractère unitaire et l'exercice \ref{exe:div-deg-eq}.
+}
 
 \cor{}{
 	Soient $a, b \in\K[x]$. Alors
@@ -307,6 +393,21 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Montrer le corollaire \ref{cor:pgcd-ideal}.
 }{exe:cor:pgcd-ideal}{
 	todo
+}
+
+\exe{difficulty=1}{
+	Soient $\K$ un corps de caractéristique nulle, $f\in\K[x]$ quelconque, et $g\in\K[x]$ irréductible.
+	Supposons que $g$ divise $f$ et $f'$, la dérivée formelle de $f$.
+	Montrer que $g^2 | f$.
+	
+	Donner un contre-exemple en caractéristique finie.
+}{exe:g2-div-f}{
+	Comme $g$ divise $f$, nous avons $f=qg$ et $f' = q'g + qg'$.
+	De plus, $g$ divise $f'$ et donc $f'-q'g = qg'$.
+	Or, $g$ est irréductible, donc il est premier avec $g'$ car de degré inférieur et non nul (on utilise ici que $\K$ est de caractéristique nulle).
+	Le lemme d'Euclide \ref{lem:Euclide} 
+	
+	En caractéristique $p$, le polynôme $x^p$ divise lui-même et sa dérivée, mais son carré ne le divise pas.
 }
 
 \nt{
@@ -870,6 +971,12 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Ainsi, les deux facteurs $a$ et $b$ sont congrus à une puissance de $x$ modulo $p$, non constante car $a$ et $b$ sont unitaires non constants.
 	Il suit donc que $p$ divise le coefficient constant $a(0)$ et $b(0)$, et donc que $p^2$ divise le coefficient constant $a_0 = f(0) = a(0)b(0)$.
 	Ceci contredit la troisième condition imposée à $f$. \Lightning
+}
+
+\exe{}{
+	Montrer que le polynôme $f(x) = x^5 - 10x^3 + 50x - 20$ est irréductible dans $\Q[x]$.
+}{exe:Eisenstein-example}{
+	Le critère d'Eisenstein de l'exercice \ref{exe:eisenstein} avec $p=5$ permet de conclure.
 }
 
 \exe{difficulty=1}{
