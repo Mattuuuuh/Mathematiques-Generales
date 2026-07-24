@@ -86,6 +86,13 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	La relation « $a$ divise $b$ » est notée $a | b$.
 }
 
+\prop{}{
+	Soient $a, b\in\K[x]$. Alors
+		\begin{align*}
+			a | b && \iff && (b) \subseteq (a)
+		\end{align*}
+}{prop:incl-is-div}
+
 \exe{}{
 	Soient $f, g\in\K[x]$ deux polynômes.
 	Montrer que si $f|g$ et $g|f$, alors $f = c \cdot g$ avec $c\in\K$.
@@ -123,10 +130,15 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \dfn{polynôme irréductible}{
 	Un polynôme $f\in\K[x]$ est un \emphindex{polynôme irréductible} dès que
 		\begin{enumerate}
-			\item $f$ n'est pas constant ; et
-			\item si $f$ se scinde $f=ab$ dans $\K[x]$, alors soit $a$ soit $b$ est constant.
+			\item $f$ n'est pas inversible ; et
+			\item si $f$ se scinde $f=ab$ dans $\K[x]$, alors soit $a$ soit $b$ est inversible.
 		\end{enumerate}
 }{dfn:irreductible}
+
+\nt{
+	La définition parle de « polynôme inversible » au lieu de « constante » de sorte qu'elle se généralise aux anneaux $R[x]$ où $R$ est un anneau, non nécessairement un corps.
+	Dans $\K[x]$, les éléments inversibles sont exactement les constantes (hormis 0), comme vu à l'exercice \ref{exe:k-star}.
+}
 
 \exe{}{
 	Le polynôme $f(x) = x^4+x^3+x^2+x+1$ est-il irréductible dans $\F_5[x]$ ?
@@ -155,10 +167,23 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \exe{difficulty=1}{
-	Montrer que le polynôme $ax^2 + bx + c \in \Z[x]$ est réductible dans $\F_p[x]$ si et seulement si le discriminant $\Delta = b^2 - 4ac$ est un carré parfait modulo $p$.
+	Soit $p\in\N$ un premier impair.
+	Montrer que le polynôme $x^2 + bx + c \in \Z[x]$ est réductible dans $\F_p[x]$ si et seulement si le discriminant $\Delta = b^2 - 4c$ est un carré parfait modulo $p$.
 	
 	En déduire un polynôme irréductible dans $\F_5[x]$ mais réductible dans $\F_7[x]$.
+	
+	Montrer que $x^2 + x + 1$ est irréductible dans $\F_2[x]$.
 }{exe:discr-Fp}{
+	Le polynôme est de degré 2 et est donc réductible si et seulement s'il admet une racine dans $\F_p$.
+	Les équations suivantes sont équivalentes et admettent une solution si et seulement si $\Delta$ est un carré parfait.
+	\begin{align*}
+		x^2 + bx + c = 0 \\
+		4x^2 + 4bx + 4c = 0 \\
+		(2x+b)^2 - b^2 + 4c = 0 \\
+		(2x+b)^2 = \Delta
+	\end{align*}
+	Nous avons utilisé ici que $p\neq2$ pour avoir que $4$ est inversible dans $\F_p$.
+
 	Les carrés parfaits de $\F_5$ sont $\bigset{ 0 ; 1 ; 4 }$.
 	Ceux de $\F_7$ sont $\bigset{ 0 ; 1 ; 4 ; 2 }$.
 	Obtenir $\Delta = 2$ est donc notre unique chance et le polynôme $x^2 - 2$ un candidat évident.
@@ -205,7 +230,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \nt{
 	L'existence du PGCD n'est \apriori~pas claire : il se pourrait que, pour chaque candidat de PGCD $d$, il existe un diviseur de $a$ et de $b$ ne divisant pas $d$.
 	Nous verrons dans la suite que le PGCD existe bien dans $\K[x]$.
-	L'anneau $\Z[\sqrt5i]$ est un exemple classique d'anneau sans PGCD.
+	%L'anneau $\Z[\sqrt5i]$ est un exemple classique d'anneau sans PGCD.
 	
 	L'unicité, elle, est garantie par l'exercice \ref{exe:unicite-pgcd} suivant.
 }
@@ -247,8 +272,51 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \subsection{L'anneau $\K[x]$ est euclidien}
 
+\dfn{degré}{
+	Soit $f(x) = a_0 + a_1x + \dots + a_dx^d\in\K[x]$ un polynôme à coefficients dans $\K$.
+	Le \emphindex{degré} de $f$ est défini par
+	\begin{itemize}
+		\item
+		$\deg(f) = d$ si $a_d \neq 0$ ; ou
+		\item
+		$\deg(f) = \minfty$ si $f = 0$ et le polynôme nul.
+	\end{itemize}
+}{dfn:degre}
+
+\nt{
+	La convention $\deg(0) = \minfty$ est utile pour préserver le premier point de la proposition \ref{prop:deg-div} suivante dans le cas $g=0$.
+}
+
+\prop{}{
+	Soient $f, g\in\K[x]$. Alors
+	\begin{enumerate}
+		\item
+		$\deg(fg) = \deg(f) + \deg(g)$
+		\item
+		Si $\K$ est de caractéristique nulle, alors
+		$\deg(f+g) = \max\{\deg(f) ; \deg(g)\}$
+		\item
+		Si $f|g$ et $g\neq0$, alors $\deg(f) \leq \deg(g)$
+	\end{enumerate}
+}{prop:deg-div}
+
+\pf{}{
+	Si $f = 0$ ou $g=0$, alors il n'y a rien à démontrer.
+	
+	Sinon, notons $f(x) = f_i x^i$ et $g(x) = g_i x^i$ de degrés $m$ et $n$ respectivement.
+	D'après le corollaire \ref{cor:corps-integre}, le corps $\K$ est intègre.
+	Ainsi, $(fg)(x)= f_mg_nx^{m+n} + \dots$ et $\deg(fg) = m+n$ car $f_m g_n \neq 0$.
+}
+
+\exe{}{
+	Montrer que l'identité $\deg(f+g) = \max\{\deg(f) ; \deg(g)\}$ n'est pas vraie dans $\F_p[x]$ ($p$ premier).
+}{exe:deg-sum-Fp}{
+	Prendre $f(x) = 1$ et $g(x) = p-1$.
+	Alors $\deg(f) = \deg(g) = 1$ mais $\deg(f+g) = \minfty$.
+}
+
 \thm{division euclidienne}{
-	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
+	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$ avec $a\neq0$.
 	Il existe deux uniques polynômes $q, r\in\K[x]$ vérifiant
 	\begin{enumerate}
 		\item $b = aq + r$ ; et
@@ -259,6 +327,8 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \nt{
 	Il suit naturellement que $a$ divise $b$ dans $\K[x]$ si et seulement si le reste $r$ de la division euclidienne de $b$ par $a$ est nul.
+	
+	Remarquons que si $a=0$, alors la division euclidienne de $b$ par $a$ soit n'existe pas ($b\neq0$), soit n'est pas unique ($b=0$).
 }
 
 \exe{}{
@@ -287,7 +357,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	
 	Si $b = aq + r = aq' + r'$ avec $\deg(r), \deg(r') < \deg(a)$, alors
 		\[ a(q-q') = r' - r, \]
-	et donc $q-q'=0$ car $\deg(r'-r) < \deg(a)$.
+	et donc $q-q'=0$ car $\deg(r'-r) < \deg(a)$ et que $a\neq0$.
 	Il suit que $q=q'$ et donc que $r=r'$.
 }
 
@@ -295,6 +365,26 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Le concept d'\emphindex{anneau euclidien} se généralise sans peine en remplaçant le degré par une norme sur l'anneau $R$ qui prend ses valeurs dans $\N$.
 }
 
+\exe{difficulty=1}{
+	Soient $a, b \in\Z[i]$.
+	Montrer qu'il existe $q, r\in\Z[i]$ vérifiant $b = aq+r$ et $|r| < |a|$.
+}{exe:Zi-euclidien}{
+	todo
+}
+
+\nt{
+	L'interprétation de l'exercice \ref{exe:Zi-euclidien} est la suivante.
+	L'anneau des \emphindex{entiers de Gauss} $\Z[i]$ est euclidien avec la norme $|·|$ car c'est un réseau de $\C$ suffisamment fin pour que tout élément de $\Q[i]$ admette un élément de $\Z[i]$ dans sa boule unité.
+	
+	Ainsi, en élargissant le réseau, il est naturel que l'anneau perde sa division euclidienne.
+	Il s'avère alors que $\Z[i\sqrt2]$ est toujours euclidien, mais pas $\Z[i\sqrt3]$.
+}
+
+\exe{difficulty=2}{
+	Montrer que la division euclidienne de $1+i\sqrt3$ par 2 n'existe pas dans $\Z[i\sqrt3]$.
+}{exe:Zsqrt3i-noneuclidien}{
+	todo
+}
 
 \exe{}{
 	Soit $f\in\K[x]$ un polynôme non constant.
@@ -357,7 +447,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 		\item les diviseurs de $a$ et de $b$ divisent $p$ ; et
 		\item $p$ est unitaire ; 
 	\end{enumerate}
-	\begin{enumerate}[label=\underline{Condition \arabic*.}]
+	\begin{enumerate}[label=\underline{Condition \arabic*.}, leftmargin=80pt]
 		\item
 		%La condition 1 se démontre classiquement comme suit.
 		En prenant $a = pq + r, \deg(r) < \deg(p)$ la division euclidienne de $a$ par $p$ dans $\K[x]$, nous obtenons que $r = a-pq$ est combinaison linéaire de $a$ et $b$ et est donc nul par minimalité du degré de $p$.
@@ -432,21 +522,47 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	L'anneau $\K[x]$ est donc un \emphindex{anneau principal} : l'élément de degré (ou norme, plus généralement) minimal de chaque idéal génère entièrement cet idéal.
 }
 
-\nt{
-	Une définition plus abstraite mais plus générale du PGCD est donc la suivante, et s'applique à tous les anneaux principaux.
-	Pour $a, b\in\R$ deux éléments d'un anneau $R$ principal, nous avons
-		\[ (a, b) = \bigpar{ \pgcd(a, b) }, \]
-	ce qui définit $\pgcd(a, b)$ à élément inversible de $R$ près.
-	Dans notre cas, les éléments inversibles de $\K[x]$ sont les constantes non nulles, et le caractère unitaire du PGCD permet de le rendre unique.
+\exe{}{
+	Montrer que l'idéal $(2, x)$ de $\Z[x]$ n'est pas principal : il n'existe pas de polynômes $f\in\Z[x]$ tel que $(2, x) = (f)$.
+}{exe:Zx-non-principal}{
+	todo
 }
+
+%\nt{
+%	Une définition plus abstraite mais plus générale du PGCD est donc la suivante, et s'applique à tous les anneaux principaux.
+%	Pour $a, b\in\R$ deux éléments d'un anneau $R$ principal, nous avons
+%		\[ (a, b) = \bigpar{ \pgcd(a, b) }, \]
+%	ce qui définit $\pgcd(a, b)$ à élément inversible de $R$ près.
+%	Dans notre cas, les éléments inversibles de $\K[x]$ sont les constantes non nulles, et le caractère unitaire du PGCD permet de le rendre unique.
+%}
 
 \subsection{L'anneau $\K[x]$ est factoriel}
 
-\lem{de Gauss (arithmétique)}{
-	Soit $a, b, c\in\K[x]$ trois polynômes à coefficients dans $K$. Les divisions sont comprises dans $\K[x]$.
+% eh, not sure it's needed
+%\lem{de Gauss (arithmétique)}{
+%	Soit $a, b, c\in\K[x]$ trois polynômes à coefficients dans $K$. Les divisions sont comprises dans $\K[x]$.
+%	
+%	Si $a$ divise le produit $bc$, et que $a$ et $b$ sont premiers entre eux, alors $a$ divise $c$.
+%}{lem:Gauss-arithm}
+
+\lem{d'Euclide}{
+	Soit $p\in\K[x]$ un polynôme irréductible, et $a, b\in\K[x]$ deux polynômes. 
 	
-	Si $a$ divise le produit $bc$, et que $a$ et $b$ sont premiers entre eux, alors $a$ divise $c$.
-}{lem:Gauss-arithm}
+	Si $p|(ab)$, alors $p|a$ ou $p|b$.
+}{lem:Euclide}
+
+\pf{}{
+	Si $p$ divise $a$, il n'y a rien à démontrer.
+	Supposons donc que $p$ ne divise pas $a$ et montrons que $p$ divise $b$.
+	
+	Le PGCD $d = \pgcd(p, a)$ divise $p$, qui est irréductible. Ainsi, $d = 1$ ou $d=p$, la deuxième alternative n'étant pas possible car $p$ ne divise pas $a$ par hypothèse.
+	
+	Alors $\pgcd(p,a) = 1$ et le théorème de Bézout \ref{thm:bezout-K} implique l'existence de $u, v\in\K[x]$ vérifiant
+		\[ pu + av = 1. \]
+	En multipliant par $b$, nous obtenons
+		\[ p(ub) + (ab)v = b, \]
+	divisible par $p$ car $p|(ab)$, ce qui conclut.
+}
 
 \cor{}{
 	Soit $p\in\K[x]$ un polynôme quelconque. Les divisions et PGCD sont compris dans $\K[x]$.
@@ -464,17 +580,6 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	todo
 }
 
-\lem{d'Euclide}{
-	Soit $a\in\K[x]$ un polynôme irréductible divisant un produit $bc$ de polynômes de $\K[x]$.
-	Alors soit $a$ divise $b$, soit $a$ divise $c$.
-}{lem:Euclide}
-
-\exe{}{
-	Montrer le lemme \ref{lem:Euclide}.
-}{exe:lem:Euclide}{
-	todo
-}
-
 \nt{
 	Les polynômes irréductibles sont les équivalents des nombres premiers.
 	Il est donc naturel de vouloir trouver un analogue au théorème fondamental de l'arithmétique dans l'anneau des polynômes.
@@ -485,17 +590,10 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Sur $\Z$ et les corps finis, il existe des polynômes irréductibles de degrés aussi grands que voulu.
 }
 
-\pf{}{
-	Notons $d = \pgcd(a, b)$.
-	Comme $d$ divise $a$ qui est irréductible, nous avons deux alternatives : soit $d = a$, soit $d=1$.
-	Si $d=a$, alors $a$ divise $b$, première possibilité du théorème.
-	Sinon, $d=1$ et donc $a$ divise $b$ d'après le lemme de Gauss (arithmétique) \ref{lem:Gauss-arithm}.
-}
-
 \thm{}{
 	Soit $f\in\K[x]$ un polynôme quelconque.
 	Alors $f$ se décompose dans $\K[x]$ de façon unique comme produit de facteurs irréductibles.
-	L'unicité est à permutation des facteurs et à multiplication de chaque facteur par une constante près.
+	L'unicité est à permutation des facteurs et à multiplication de chaque facteur par une unité près.
 }{thm:decomp-Kx}
 
 \nt{
@@ -570,20 +668,55 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	\end{enumerate}
 }
 
+
+\exe{}{
+	Montrer que l'anneau $\sfrac{\Z}{8\Z}[x]$ n'est pas factoriel en décomposant le polynôme $x^2 -1$ de deux façons différentes.
+}{exe:Zo8Zx-non-factoriel}{
+	L'élément 1 admet quatre racines carrés dans $\Z/8\Z$ !
+	Celles-ci sont $\pm1$ et $\pm3$.
+	Ainsi $x^2 - 1 = (x+1)(x-1) = (x+3)(x-3)$ dans l'anneau.
+}
+
 \subsection{L'anneau $\Z[x]$}
 
 \nt{
 	L'anneau $\Z[x]$ n'a pas de division euclidienne interne car $\Z$ n'est pas un corps.
 	En effet, comment procéder à la division de $x^5 - 3x + 2$ par $2x^2 + 6$ sur $\Z$ ?
-	
-	C'est pour cela qu'il est utile de supposer les polynômes unitaires : la division euclidienne devient alors momentanément possible.
-	En revanche, le reste de la division euclidienne ne reste pas forcément unitaire.
-	C'est le cas, par exemple, de la division euclidienne de $x^5 + x^3 - 3x^2 + 2x - 2$ par $x^2 + 1$ qui donne
-		\[ x^5 + x^3 - 3x^2 + 2x - 2 = (x^2 + 1)(x^3 - 3) + (2x + 1). \]
-	Notons cependant que le quotient de la division euclidienne, lui, est nécessairement unitaire, car le produit des coefficients dominants vaut 1.
 }
 
-\lem{de Gauss (polynômes)}{
+\nt{
+	Alors que dans $\K[x]$, les constantes sont toutes des unités, ce n'est pas le cas dans $\Z[x]$.
+	Par conséquent, 2 est un irréductible dans $\Z[x]$ (voir exercice \ref{exe:k-star} et la définition \ref{def:irreductible}).
+	
+	Le polynôme 
+		\[ 2x+2 = 2(x+1) \]
+	est donc irréductible dans $\Q[x]$ car $2$ est une unité de $\Q$,
+	mais n'est pas irréductible dans $\Z[x]$ car $2$ n'est pas une unité de $\Z$.
+	
+	Nous verrons que l'irréducibilité d'un polynôme de $\Z[x]$ est garantie par le fait qu'il ne puisse se factoriser par aucune constante.
+	Ces polynômes ont donc des coefficients à PGCD 1, et sont dits \emphindex{primitifs}.
+}
+
+\dfn{polynôme primitif}{
+	Un polynôme $f\in\Z[x]$ est un \emphindex{polynôme primitif} dès que
+		\begin{align*}
+			f(x) = a_0 + a_1 x + \dots a_n x^n, && \pgcd(a_0, \dots, a_n) = 1, && \et && a_n > 0.
+		\end{align*}
+}{dfn:primitif}
+
+\lem{}{
+	Chaque polynôme rationnel $f\in\Q[x]$ s'écrit \underline{de façon unique} comme
+		\[ f(x) = c f_0(x), \]
+	avec $f\in\Z[x]$ primitif et $c\in\Q^\times$.
+	
+	De plus, $f \in \Z[x] \iff c \in \Z$.
+}{lem:primitif}
+
+\nomen{
+	La constante $c$ du lemme \ref{lem:primitif} s'appelle le \emphindex{contenu} de $f$.
+}
+
+\lem{de Gauss}{
 	Soit $f\in\Z[x]$ un polynôme à coefficients entiers.
 	D'après le théorème \ref{thm:decomp-Kx}, $f$ se décompose dans $\Q[x]$ de façon unique comme produit de facteurs irréductibles.
 	
@@ -600,6 +733,11 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \pf{}{
 	todo
 }
+
+\cor{}{
+	Soit $f\in\Z[x]$ un polynôme à coefficients entiers.
+	$f$ est irréductible dans $\Z[x]$ si et seulement si $f$ est irréductible dans $\Q[x]$.
+}{cor:irr-Zx-Qx}
 
 \section{Racines}
 
@@ -980,20 +1118,20 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Montrer le \emphindex{critère d'Eisenstein} :
 	soient $f(x) = a_0 + a_1x + \cdots + a_nx^n \in\Z[x]$ et $p$ un nombre premier vérifiant les conditions
 	\begin{enumerate}
-		\item $a_n = 1$ ; et
+		\item $p$ ne divise pas $a_n$ ; et
 		\item $p$ divise $a_0, a_1, \hdots, a_{n-1}$ ; et
 		\item $p^2$ ne divise pas $a_0$.
 	\end{enumerate}
-	Alors $f(x)$ est irréductible sur $\Q[x]$.
+	Alors $f(x)$ est irréductible dans $\Q[x]$.
 }{exe:eisenstein}{
-	Comme $f$ est unitaire à coefficients entiers, le lemme de Gauss \ref{lem:Gauss} implique que l'irréducibilité dans $\Q[x]$ est équivalente à l'irréducibilité dans $\Z[x]$.
+	Comme $f$ est à coefficients entiers, le lemme de Gauss \ref{lem:Gauss} implique que l'irréducibilité dans $\Q[x]$ est équivalente à l'irréducibilité dans $\Z[x]$.
 	Supposons donc, par contradiction, que $f$ soit réductible sur $\Z[x]$.
 	
-	Alors $f = ab$ avec $a, b\Z[x]$ unitaires non constants.
+	Alors $f = ab$ avec $a, b\Z[x]$ non constants de coefficients dominants ne divisant pas $p$.
 	En prenant la relation modulo $p$, le polynôme $f$ devient réductible sur $\F_p[x]$.
-	Or, par hypothèses sur les coefficients de $f$, nous avons que $f = x^n \mod p$.
-	Comme $x$ est irréductible dans $\F_p[x]$, la seule manière de réduire $f$ dans $\F_p[x]$ est de le décomposer comme $x^k \cdot x^{n-k}$.
-	Ainsi, les deux facteurs $a$ et $b$ sont congrus à une puissance de $x$ modulo $p$, non constante car $a$ et $b$ sont unitaires non constants.
+	Or, par hypothèses sur les coefficients de $f$, nous avons que $f = a_n x^n \mod p$ avec $a_n$ une unité de $\F_p$.
+	Comme $x$ est irréductible dans $\F_p[x]$, la seule manière de réduire $f$ dans $\F_p[x]$ est de le décomposer comme $a_n \cdot x^k \cdot x^{n-k}$.
+	Ainsi, les deux facteurs $a$ et $b$ sont congrus à un multiple d'une puissance de $x$ modulo $p$, non constante car $a$ et $b$ sont unitaires non constants.
 	Il suit donc que $p$ divise le coefficient constant $a(0)$ et $b(0)$, et donc que $p^2$ divise le coefficient constant $a_0 = f(0) = a(0)b(0)$.
 	Ceci contredit la troisième condition imposée à $f$. \Lightning
 }
