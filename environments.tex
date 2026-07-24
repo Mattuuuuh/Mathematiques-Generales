@@ -158,6 +158,18 @@
 	style=corollaire,
 ]{corollaire*}
 
+%% preuve
+%\mdfdefinestyle{preuve}{
+%	linecolor=GREY,
+%	linewidth=1pt,
+%	innertopmargin=-4pt,
+%	nobreak=true,
+%}
+%\surroundwithmdframed[
+%	style=preuve,
+%]{preuve}
+
+
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -261,7 +273,10 @@
 \newcommand{\ex}[3]{\begin{exemple}[#1]\label{#3}#2\end{exemple}}
 \newcommand{\dfn}[3]{\begin{definition}[#1]\label{#3}#2\end{definition}}
 \newcommand{\qs}[2]{\begin{question}[#1]#2\end{question}}
-\newcommand{\pf}[2]{\begin{preuve}[#1]#2\end{preuve}}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\pf}[2]{\begin{preuve}[#1]#2\hfill\qedsymbol\end{preuve}}
+
 \newcommand{\nt}[1]{\begin{remarque}#1\end{remarque}}
 \newcommand{\str}[1]{\begin{strategie}#1\end{strategie}}
 \newcommand{\mth}[1]{\begin{methode}#1\end{methode}}
