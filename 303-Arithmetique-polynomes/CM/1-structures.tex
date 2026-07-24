@@ -7,15 +7,374 @@
 % useful for U and U_n
 \section{Groupe}
 
-\section{Anneau}
+\dfn{groupe}{
+	Un \emphindex{groupe} $\bigpar{G, \cdot}$ est un ensemble muni d'une loi satisfaisant les axiomes suivants.
+	\begin{enumerate}[label={\bf A\arabic*.}]
+		\item
+		\textbf{La loi est interne.} Pour tout $g, h\in G$, $g\cdot h \in G$.
+		\item
+		\textbf{La loi est associative.} Pour tout $g, h, k \in G$, $(g\cdot h)\cdot k = g \cdot (h \cdot k)$.
+		\item
+		\textbf{Élément neutre.} Il existe un élément $e\in G$ neutre pour la loi : pour tout $g\in G$, $g \cdot e = e \cdot g = g$.
+		\item
+		\textbf{Inverse.} Tout élément est inversible : pour tout $g\in G$, il existe $g^{-1} \in G$ tel que $g \cdot g^{-1} = e = g^{-1} \cdot g$.
+	\end{enumerate}
+}{dfn:groupe}
+
+\nt{
+	Dans un groupe, l'inverse à gauche est égal à l'inverse à droite.
+}
+
+\notation{
+	Il est fréquent d'omettre la loi dans un groupe, celle-ci étant unique. 
+	Le produit $g \cdot h$ sera alors noté $gh$.
+}
+
+\dfn{commutativité}{
+	Une loi $\cdot$ sur un ensemble $E$ est \emphindex{commutative} dès que
+		\[ a \cdot b = b \cdot a \]
+	pour tous les éléments $a, b \in E$.
+}{dfn:commutativite}
+
+\nomen{
+	Une loi $\cdot$ commutative est généralement notée $+$, par analogie à l'addition qui est toujours commutative, alors que la multiplication ne l'est parfois pas (dans le cas des matrices, par exemple).
+}
+
+\exe{}{
+	Montrer que $\bigpar{ Z ,+}$ est un groupe mais que $\bigpar{Z, \cdot}$ n'en est pas un.
+}{exe:Z-group}{
+
+}
+
+\section{Anneau et corps}
+
+\subsection{Anneau}
+
+\dfn{anneau}{
+	Un \emphindex{anneau} $\bigpar{ R, +, \cdot} $ est un ensemble ayant deux opérations satisfaisant les axiomes suivants.
+	\begin{enumerate}
+		\item
+		$\bigpar{R, +}$ est un groupe abélien.
+		\item
+		La loi $\cdot$ est associative : pour tout $a, b, c\in R$, $a \cdot (b \cdot c) = (a \cdot b) \cdot c$.
+		\item
+		La loi $\cdot$ se distribue sur la loi $+$ : pour tout $a, b, c\in R$, 
+		\begin{itemize}[label=$\bullet$]
+			\item $(a+b) \cdot c = a \cdot c + b \cdot c$ ; et
+			\item $a \cdot (b+c) = a \cdot b + a \cdot c$.
+		\end{itemize}
+	\end{enumerate}
+}{dfn:anneau}
+
+\nt{
+	Attention : la structure $\bigpar{ R, \cdot}$ n'est pas forcément un monoïde : elle n'admet pas forcément d'élément neutre.
+}
+
+\nomen{
+	Un anneau $R$ est dit
+	\begin{enumerate}[leftmargin=80pt]
+		\item[\emphindex{Unitaire}] s'il existe $1\in R$ élément neutre de la loi  $\cdot$.
+		$1 \cdot u = u \cdot 1 = u$ pour tout $u\in R$.
+		\item[\emphindex{Commutatif}] si la loi $\cdot$ est commutative.
+		$a \cdot b = b \cdot a$ pour tout $a, b\in R$.
+	\end{enumerate}
+}
+
+\ex{}{
+	\begin{enumerate}
+		\item
+		$R = \Z$ est un anneau commutatif unitaire.
+		\item
+		$R = 2\Z$ est un anneau commutatif non unitaire.
+		\item
+		$R = \{ 0 \}$ est un anneau commutatif unitaire en identifiant $1=0$.
+		\item
+		$R = \Z[i] = \bigset{ a + bi \tq a, b\in\Z}$, les \emphindex{entiers de Gauss}, est un anneau commutatif unitaire.
+		\item
+		$R = \Z^{n \times n}$ et $\R^{n\times n}$ sont des anneaux unitaires non commutatifs.
+		\item
+		$R = C^{0}(\R) = \bigset{ f : \R \rightarrow \R \tq \text{$f$ continue} }$ est un anneau commutatif unitaire.
+	\end{enumerate}
+}{ex:anneaux}
+
+\nt{
+	L'élément 0 étant défini pour l'addition, il n'est pas clair \apriori~ que multiplier par 0 donne 0.
+	L'élément 1 étant défini pour la multiplication, il n'est pas clair que multiplier par son inverse additif aboutit à l'inverse additif du facteur.
+	
+	La proposition suivante permet de déduire des axiomes de l'anneau unitaire les propriétés intuitives de 0 et de 1.
+}
+
+\prop{propriétés de $0$ et $1$}{
+	Soit $R$ un anneau unitaire. Alors, pour tout $u\in R$,
+	\begin{enumerate}
+		\item $u \cdot 0 = 0 \cdot u = 0$ ; et
+		\item $u \cdot (-1) = (-1) \cdot u = -u$.
+	\end{enumerate}
+}{prop:prop-0-1}
+
+\exe{}{
+	Montrer que $u \cdot 0 = 0$ pour tout $u$ élément d'un anneau unitaire $R$.
+}{exe:utimes0}{
+	Nous avons la suite d'égalités suivantes.
+		\begin{align*}
+			u \cdot 0 &= u \cdot (0+0)  && \text{car $\bigpar{R, +}$ est un groupe d'élément neutre $0$} \\
+				&= u \cdot 0 + u \cdot 0 && \text{par associativité de $ \cdot $ sur $+$} \\
+			0 &= u \cdot 0 && \text{en soustrayant $u \cdot 0$}
+		\end{align*}
+}
+
+\exe{}{
+	Montrer que $u \cdot (-1) = -u$ pour tout $u$ élément d'un anneau unitaire $R$.
+}{exe:utimes-1}{
+	Nous avons la suite d'égalités suivantes.
+		\begin{align*}
+			u \cdot (-1) + u &= u \cdot (-1+1) && \text{par associativité de $ \cdot $ sur $+$} \\
+				&= u \cdot 0 && \\
+				&= 0 &&
+		\end{align*}
+}
+
+\dfn{unité, ensemble des unités}{
+	Un élément $u\in R$ est dit \emphindex{unité} de l'anneau $R$ unitaire s'il existe $v\in R$ tel que
+		\[ u \cdot v = 1 = v \cdot u. \]
+	L'\emphindex{ensemble des unités} est donné par
+		\[ R^\times = \bigset{ u \in R \tq \text{$u$ est unité} }. \]
+}{dfn:unite}
+
+\nomen{
+	Une unité est aussi appelé un élément \emphindex{inversible}.
+}
+
+\exe{}{
+	Montrer que $\bigpar{ R^\times,  \cdot  }$ est un groupe.
+}{exe:units-group}{
+	todo
+}
+
+\subsection{Corps}
+
+\dfn{corps}{
+	Soit $R$ un anneau commutatif unitaire dans lequel on suppose $1\neq0$.
+	$R$ est un \emphindex{corps} si $R^\times = R-\{0\}$.
+	Chaque élément du corps, hormis 0, est inversible.
+}{dfn:corps}
+
+\notation{
+	Nous noterons $\K$ les corps dans la suite.
+}
+
+\exe{}{
+	Montrer que si $1=0$ dans un anneau $R$ commutatif unitaire, alors $R = \bigset{ 0 }$.
+	
+	Montrer que si $0$ est inversible, alors $1=0$.
+}{exe:1-is-0}{
+	Tout élément $u$ de $R$ vérifie $u = u \cdot 1 = u \cdot 0 = 0$.
+	
+	Si $0$ est inversible, alors $0 = 0 \cdot 0^{-1} = 1$.
+}
+
+\exe{}{
+	Soit $p\in\N$ premier.
+	Montrer que $\F_p = \bigpar{ \Z/p\Z, +, \cdot }$ est un corps.
+}{exe:Fp-field}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $R$ un anneau commutatif unitaire et $\circ$ la loi définie par
+		\[ a \circ b = a + b - ab. \]
+	\begin{enumerate}
+		\item 
+		Montrer que $\circ$ est associative d'élément neutre 0.
+		\item
+		Montrer que $\bigpar{R-\{1\}, \circ}$ est un groupe si et seulement si $R$ est un corps.
+	\end{enumerate}
+}{exe:circle-op}{
+
+}
+
+\dfn{corps gauche}{
+	Soit $R$ un anneau unitaire non commutatif dans lequel on suppose $1\neq0$.
+	$R$ est un \emphindex{corps gauche} si $R^\times = R-\{0\}$.
+	Chaque élément du corps, hormis 0, est inversible.
+}{dfn:corps-gauche}
+
+\ex{}{
+	L'ensemble $\H$ des \emphindex{quaternions} défini par
+		\[ \H = \bigset{ a+bi+cj+dk \tq a, b, c, d \in \R, i^2 = j^2 = k^2 = -1, \et ij = k, jk = i, ki = j} \]
+	est un corps gauche.
+	
+	En effet, $(a+bi+cj+dk)^{-1} = \frac{a-bi-cj-dk}{a^2 + b^2 + c^2 + d^2}$ si $(a,b,c,d)\neq(0,0,0,0)$
+	et $ij = (jk)(ki) = jk^2 i = -ji$.
+	
+	Il s'avère que les quaternions traduisent des rotations dans $\R^3$ et s'identifient à un ensemble de matrices $3\times3$.
+	Leur non commutativité n'est donc pas surprenante.
+}{ex:quaternions}
+
+\subsection{Anneau intègre}
+
+\nomen{
+	Un élément non nul $u\in R-\{0\}$ d'un anneau $R$ est un \emphindex{diviseur de zéro} s'il existe $v\in R-\{0\}$ non nul également tel que $u \cdot v = 0$.
+}
+
+\exe{}{
+	Soit $n\in\N^*$ et $R = \Z/n\Z$ l'anneau des entiers modulo $n$.
+	Donner l'ensemble des diviseurs de zéro et l'ensemble des éléments inversibles de $R$.
+}{exe:ZnZ-div-zero}{
+	Nous allons montrer que $R$ se partionne comme
+		\[ R = \{ 0 \} \sqcup R^\times \sqcup \bigset{ \text{ diviseurs de zéro } }. \]
+	D'abord, un élément $x\in R-\{0\}$ est diviseur de zéro si et seulement si $d = \pgcd(x,n) \neq 1$ dans $\Z$.
+	En effet, si $x$ divise zéro, alors il existe un $y \in R-\{0\}$ tel que $xy = 0$.
+	Ainsi, $n$ divise le produit $xy$ mais $n$ ne divise pas $y$.
+	Ainsi $d\neq1$, sinon le lemme d'Euclide impliqerait $n|y$.
+	
+	Réciproquement, si $d \neq 1$, alors $x \times \frac{n}d = \frac{x}d n = 0$ dans $R$, et $\frac{n}d \neq 0$.
+	
+	D'abord, un élément $x\in R-\{0\}$ est inversible si et seulement si $d = \pgcd(x,n) = 1$ dans $\Z$.
+	Si $x$ est inversible, il existe $y\in R$ tel que $xy = 1$.
+	Nous obtenons une identité de Bézout : $xy + un = 1$ pour un certain $u\in\Z$.
+	Comme le PGCD $d$ divise $x$ et $n$ dans $\Z$, il divise donc aussi 1, et $d=1$.
+	
+	Réciproquement, si $d=1$. alors l'identité de Bézout $xu + nv = 1$ avec $u, v \in \Z$ implique que $xu = 1$ dans $R$ et que $x$ est unité.
+}
+
+\exe{}{
+	Considérons $R = \bigset{ f : \R \rightarrow \R }$ l'ensemble des applications de  $\R$ dans $\R$.
+	\begin{enumerate}
+		\item Donner les éléments neutres pour l'addition et la multiplication dans l'anneau $\bigpar{R, +, \cdot}$.
+		\item Décrire les diviseurs de zéro de $R$.
+		\item Montrer que chaque élément non nul est soit un diviseur de zéro, soit inversible.
+	\end{enumerate}
+}{exe:ring-of-maps}{
+	todo
+}
+
+\prop{}{
+	Soit $R$ un anneau unitaire et $u\in R$ une unité.
+	Alors $u$ ne divise pas zéro.
+}{prop:unit-dont-divide-zero}
+
+\pf{}{
+	Si $u$ divise zéro, alors il existe $v\neq0$ tel que $u\cdot v = 0$.
+	Comme $u$ est unité, nous avons $v = (u^{-1} u) v = u^{-1} (uv) = u^{-1} 0 = 0$.
+	Ceci est contradictoire.
+}
+
+\nomen{
+	Un anneau $R$ commutatif unitaire est $\emphindex{intègre}$ dès qu'il n'admet aucun diviseur de zéro.
+}
+
+\exe{}{
+	Montrer que la réciproque de la proposition \ref{prop:unit-dont-divide-zero} est fausse.
+	Au regard de l'exercice \ref{exe:ZnZ-div-zero}, considérer un anneau de caractéristique nulle.
+}{exe:notunit-nordivzero}{
+	L'élément 2 de l'anneau $\Z$ n'est pas une unité ni un diviseur de zéro.
+}
+
+\cor{}{
+	Tout corps $\K$ est intègre : si $u \cdot v = 0$ dans $\K$, alors $u = 0$ ou $v = 0$.
+}{cor:corps-integre}
 
 \subsection{Idéal}
 
-\subsection{Anneau principal}
+\dfn{idéal}{
+	Soit $R$ un anneau et $I\subset R$ un ensemble.
+	\begin{enumerate}
+		\item
+		$I$ est un \emphindex{idéal à gauche} si
+		\begin{enumerate}
+			\item
+			$\bigpar{I, +}$ est un groupe abélien ; et
+			\item
+			$r \cdot  I \subset I$ pour tout $r\in R$.
+		\end{enumerate}
+		\item
+		$I$ est un \emphindex{idéal à droite} si
+		\begin{enumerate}
+			\item
+			$\bigpar{I, +}$ est un groupe abélien ; et
+			\item
+			$I \cdot r \subset I$ pour tout $r\in R$.
+		\end{enumerate}
+		\item
+		$I$ est un \emphindex{idéal} ou \emphindex{idéal bilatère} s'il est un idéal à gauche et à droite.
+	\end{enumerate}
+}{dfn:ideal}
 
-\section{Corps}
+\nt{
+	Attention : lorsque non précisé « à gauche » ou « à droite », un idéal est donc un idéal bilatère.
+}
+
+\nt{
+	Un idéal est un sous-anneau non unitaire qui est stable par multiplication extérieure.
+}
+
+\notation{
+	L'expression « $I$ est un idéal de $R$ » est notée $I \lhd R$.
+}
+
+\exe{}{
+	Soit $I, J \subseteq R$ deux idéaux d'un anneau $R$.
+	Montrer que les ensembles suivants sont également des idéaux de $R$ et que chaque ensemble est inclus dans le suivant.
+	\begin{enumerate}
+		\item l'idéal produit $I\cdot J = \bigset{ a_1 b_1 + \dots + a_n b_n \tq a_i \in I, b_i \in J, n\in\N^* }$ ;
+		\item l'idéal intersection $I\cap J$ ;
+		\item l'idéal somme $I+J = \bigset{ a + b \tq a\in I, b\in J}$.
+	\end{enumerate}
+}{exe:somme-produit-inter-ideaux}{
+	todo
+}
+
+\prop{}{
+	Soit $I\lhd R$ un idéal d'un anneau. Alors
+	\begin{enumerate}[label=(\roman*)]
+		\item
+		$I=R$ si et seulement si $I$ contient une unité.
+		\item
+		si $R$ est commutatif, $R$ est un corps si et seulement si ses seuls idéaux sont $\{ 0 \}$ et $R$.
+	\end{enumerate}
+	L'étude des idéaux n'est donc pas très intéressante dans un corps !
+}{prop:ideaux-corps}
+
+
+\dfn{idéal généré par un ensemble}{
+	Soit $R$ un anneau et $A \subseteq R$ un sous-ensemble.
+	L'\emphindex{idéal engendré par $A$}, noté $\japb{A}$, est le plus petit idéal de $R$ contenant $A$.
+}{dfn:ideal-gen}
+
+\prop{}{
+	Soit $R$ un anneau et $A \subseteq R$ un sous-ensemble.
+	Alors
+		\[ \japb{A} = \Bigset{ \sum_{i=1}^n r_i a_i r_i' \tq r_i, r_i' \in R, a_i \in A, n\in\N^*}. \]
+	Si $R$ est commutatif, alors
+		\[ \japb{A} = \Bigset{ \sum_{i=1}^n r_i a_i \tq r_i \in R, a_i \in A, n\in\N^*}. \]
+}{prop:ideal-gen}
+
+\nomen{
+	Un idéal est de \emphindex{type fini} s'il est généré par un ensemble fini.
+	Un idéal généré par un unique élément est \emphindex{principal} et noté $I = \japb{a} = (a)$.
+}
+
+\exe{}{
+	Soit $a, b\in\Z$ deux entiers relatifs.
+	Montrer l'équivalence suivante.
+		\begin{align*}
+			(a) \subseteq (b) \iff b | a
+		\end{align*}
+}{exe:incl-div}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $I \lhd \Z$ un idéal et $d \in I$ élément de l'idéal de valeur absolue minimale.
+	Montrer que $d$ divise tous les éléments de $I$ et donc que $I = \japb{d}$.
+}{exe:Z-principal}{
+	todo
+}
 
 \section{Algèbre sur un corps}
+
+% for  poly(x)
 
 \section*{Exercices}
 \addcontentsline{toc}{section}{Exercices}
