@@ -494,7 +494,9 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \cor{}{
 	Soient $a, b \in\K[x]$. Alors
 		\[ (a, b) = \bigpar{ \pgcd(a, b) }. \]
-	En particulier, si $d\in\K[x]$ divise à la fois $a$ et $b$, alors $d$ divise $\pgcd(a, b)$.
+	%En particulier, si $d\in\K[x]$ divise à la fois $a$ et $b$, alors $d$ divise $\pgcd(a, b)$.
+	En particulier, il existe $u, v\in\K[x]$ tels que
+		\[ \pgcd(a,b) = au + bv. \]
 }{cor:pgcd-ideal}
 
 \exe{}{
@@ -564,10 +566,23 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	divisible par $p$ car $p|(ab)$, ce qui conclut.
 }
 
-\cor{}{
-	Soit $p\in\K[x]$ un polynôme quelconque. Les divisions et PGCD sont compris dans $\K[x]$.
+\exe{}{
+	Montrer le \emphindex{lemme de Gauss (arithmétique)} suivant.
 	
-	Si $a, b\in\K[x]$ divisent tous les deux $p$ et que $\pgcd(a,b) = 1$, alors leur produit $ab$ divise également $p$.
+	Soit $a, b, c\in\K[x]$ trois polynômes.
+	Si $a|(bc)$ et $\pgcd(a,b) = 1$, alors $a|c$.
+}{exe:lem:Gauss}{
+	Or, come $\pgcd(a,b)=1$, il existe $u, v\in\K[x]$ tels que
+		\[ au + bv = 1. \]
+	En multipliant par $c$, nous obtenons que
+		\[ c = a(uc) + (bc)v \]
+	est divisible par $a$.
+}
+ 
+\cor{de l'exercice \ref{exe:lem:Gauss}}{
+	Soit $f\in\K[x]$ un polynôme quelconque. Les divisions et PGCD sont compris dans $\K[x]$.
+	
+	Si $p, q\in\K[x]$ divisent tous les deux $f$ et que $\pgcd(p,q) = 1$, alors leur produit $pq$ divise également $f$.
 }{cor:Gauss-arithm}
 
 \nt{
@@ -577,7 +592,10 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \exe{}{
 	Montrer le corollaire \ref{cor:Gauss-arithm}.
 }{exe:cor:Gauss-arithm}{
-	todo
+	Comme $p$ divise $f$, nous avons $f=ap$ avec $a\in\K[x]$.
+	Par suite, $q$ divise le produit $ap$ et est premier avec $p$ par hypothèse.
+	Le lemme de Gauss (arithmétique) de l'exercice \ref{exe:lem:Gauss} conclut que $q$ divise $a$.
+	Dès lors, $a = bq$ et donc $f = bqp$ comme voulu.
 }
 
 \nt{
@@ -686,14 +704,16 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \nt{
 	Alors que dans $\K[x]$, les constantes sont toutes des unités, ce n'est pas le cas dans $\Z[x]$.
-	Par conséquent, 2 est un irréductible dans $\Z[x]$ (voir exercice \ref{exe:k-star} et la définition \ref{def:irreductible}).
+	Par conséquent, 2 est un irréductible dans $\Z[x]$ (voir exercice \ref{exe:k-star} et la définition \ref{dfn:irreductible}).
 	
 	Le polynôme 
 		\[ 2x+2 = 2(x+1) \]
 	est donc irréductible dans $\Q[x]$ car $2$ est une unité de $\Q$,
 	mais n'est pas irréductible dans $\Z[x]$ car $2$ n'est pas une unité de $\Z$.
 	
-	Nous verrons que l'irréducibilité d'un polynôme de $\Z[x]$ est garantie par le fait qu'il ne puisse se factoriser par aucune constante.
+	Il existe donc des polynômes de degré 1 non irréductible dans $\Z[x]$.
+	
+	Sous condition d'irréductibilité dans $\Q[x]$, nous verrons que l'irréducibilité d'un polynôme de $\Z[x]$ dans $\Z[x]$ est garantie par le fait qu'il ne puisse se factoriser par aucune constante.
 	Ces polynômes ont donc des coefficients à PGCD 1, et sont dits \emphindex{primitifs}.
 }
 
@@ -706,7 +726,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \lem{}{
 	Chaque polynôme rationnel $f\in\Q[x]$ s'écrit \underline{de façon unique} comme
-		\[ f(x) = c f_0(x), \]
+		\[ f(x) = c \cdot f_0(x), \]
 	avec $f\in\Z[x]$ primitif et $c\in\Q^\times$.
 	
 	De plus, $f \in \Z[x] \iff c \in \Z$.
@@ -717,27 +737,120 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \lem{de Gauss}{
-	Soit $f\in\Z[x]$ un polynôme à coefficients entiers.
-	D'après le théorème \ref{thm:decomp-Kx}, $f$ se décompose dans $\Q[x]$ de façon unique comme produit de facteurs irréductibles.
-	
-	Si $f$ est unitaire et que les facteurs de la décomposition le sont aussi, alors la décomposition dans $\Q[x]$ est une décomposition dans $\Z[x]$ : tous les facteurs sont unitaires à coefficients entiers.
+	\begin{enumerate}
+		\item
+		Le produit de deux polynômes primitifs est primitif.
+		\item
+		Soit $f$ un polynôme primitif et $g \in \Z[x]$.
+		Si $f|g$ dans $\Q[x]$, alors $f|g$ dans $\Z[x]$.
+	\end{enumerate}
+%	Soit $f\in\Z[x]$ un polynôme à coefficients entiers.
+%	D'après le théorème \ref{thm:decomp-Kx}, $f$ se décompose dans $\Q[x]$ de façon unique comme produit de facteurs irréductibles.
+%	
+%	Si $f$ est unitaire et que les facteurs de la décomposition le sont aussi, alors la décomposition dans $\Q[x]$ est une décomposition dans $\Z[x]$ : tous les facteurs sont unitaires à coefficients entiers.
 }{lem:Gauss}
 
-\nt{
-	Il est possible de décomposer $x^2 - 1$ dans $\Q[x]$ comme
-		\[ x^2 -1 = \left( \frac12 x - \frac12 \right) (2x + 2), \]
-	qui n'est pas une décomposition dans $\Z[x]$,
-	mais les facteurs ne sont pas unitaires ici.
-}
+%\nt{
+%	Il est possible de décomposer $x^2 - 1$ dans $\Q[x]$ comme
+%		\[ x^2 -1 = \left( \frac12 x - \frac12 \right) (2x + 2), \]
+%	qui n'est pas une décomposition dans $\Z[x]$,
+%	mais les facteurs ne sont pas unitaires ici.
+%}
 
 \pf{}{
-	todo
+	\begin{enumerate}
+		\item
+		$\mod p$.
+		\item
+		$g = f\cdot q$ avec $q\in\Q[x]$.
+		Montrons que le contenu de $q$ est égal au contenu de $g$.
+		D'après le lemme \ref{lem:primitif}, 
+		le contenu d'un polynôme étant dans $\Z$ si et seulement si celui-ci est dans $\Z[x]$, ceci concluera.
+		
+		Décomposons $g = c_g \cdot g_0$ et $q = c_q \cdot q_0$.
+		Alors l'identité
+			\[ c_g g_0 = c_q (fq_0) \]
+		implique que $c_g = c_q$, par unicité du contenu et car $fq_0$ est primitif d'après le point 1.
+	\end{enumerate}
 }
 
-\cor{}{
-	Soit $f\in\Z[x]$ un polynôme à coefficients entiers.
-	$f$ est irréductible dans $\Z[x]$ si et seulement si $f$ est irréductible dans $\Q[x]$.
-}{cor:irr-Zx-Qx}
+\cor{classification des irréductibles de {$\Z[x]$}}{
+	Les polynômes irréductibles de $\Z[x]$ sont exactement, plus ou moins
+	\begin{enumerate}
+		\item
+		les nombres premiers $p$ ; et
+		\item
+		les polynômes primitifs et irréductibles dans $\Q[x]$.
+	\end{enumerate}
+}{cor:irr-Zx}
+
+\pf{}{
+	\underline{Inclusion $\subseteq$.}
+	
+	Soit $f\in\Z[x]$ irréductible dans $\Z[x]$.
+	\begin{enumerate}
+		\item
+		Si $f$ est constant, il est nécessairement de la forme $\pm p$ avec $p$ premier, sinon il se scinde en produit de deux facteurs non unités.
+		
+		\item
+		Si $f$ n'est pas constant, la décomposition $f = c \cdot f_0$ du lemme \ref{lem:primitif} n'est une réduction de $f$.
+		Dès lors, $c = \pm1$ et $\pm f$ est primitif.
+		
+		Montrons que $f$ est irréductible dans $\Q[x]$ par contradiction.
+		Si $f=ab$ se réduit dans $\Q[x]$, alors les facteurs $a$ et $b$ sont non constants.
+		En notant $a = c_a\cdot a_0$ et $b = c_b\cdot b_0$ la décomposition du lemme \ref{lem:primitif}, nous avons
+			\[ \pm f = (c_a c_b)\cdot  a_0 b_0. \]
+		Le lemme de Gauss \ref{lem:Gauss} implique que $a_0b_0$ est primitif et l'unicité du lemme \ref{lem:primitif} que $c_ac_b = \pm 1$.
+		Ainsi $f = \pm a_0 b_0$, décomposition de $f$ dans $\Z[x]$ contredisant l'hypothèse de départ.
+	\end{enumerate}
+	
+	\underline{Inclusion $\supseteq$.}
+	
+	\begin{enumerate}
+		\item
+		Soit $f= \pm p$ avec $p$ premier. 
+		Alors toute décomposition $f=ab$ implique bien sûr que $a$ ou $b$ est unité.
+		Le polynôme $f$ est donc bien irréductible.
+		
+		\item
+		Soit $f\in\Z[x]$ est primitif et irréductible dans $\Q[x]$.
+		Si $f$ se réduit dans $\Z[x]$, alors la décomposition $f=ab$ dans $\Z[x]$ contredit l'irréducibilité dans $\Q[x]$ sauf dans le cas où $a$ ou $b$ est constant non unité de $\Z$.
+		Dans ce cas, $f$ n'est pas primitif car il se factorise par une constante non unité.
+	\end{enumerate}
+}
+
+\lem{d'Euclide dans {$\Z[x]$}}{
+	Le lemme d'Euclide reste vrai dans $\Z[x]$ :
+	si $a$ est irréductible et $a|(bc)$, alors $a$ divise $b$ ou $a$ divise $c$.
+	
+	L'anneau $\Z[x]$ est donc factoriel. Tout polynôme $f \in \Z[x]$ se décompose comme
+		\[ f = \pm p_1 \cdot p_2 \cdot p_3 \cdot \cdots \]
+	où les $p_i$ sont les irréductibles décrits dans le corollaire \ref{cor:irr-Zx}.
+}{lem:Euclide-Zx}
+
+\pf{}{
+	Le polynôme $a\in\Z[x]$ est irréductible. 
+	La classification \ref{cor:irr-Zx} donne donc les deux alternatives suivantes.
+	\begin{enumerate}
+		\item
+		Si $a = p$ un nombre premier, alors $p|bc$ donne $bc = 0$ dans $\F_p[x]$.
+		Par suite, $b =0$ ou $c=0$ dans $\F_p[x]$,
+		d'où $p|b$ ou $p|c$.
+		\item
+		Si $a$ est primitif et irréductible dans $\Q[x]$,
+		alors le lemme d'Euclide dit que $a|b$ ou $a|c$ dans $\Q[x]$.
+		Les trois polynômes étant à coefficients entiers, et $a$ étant primitif, le lemme de Gauss \ref{lem:Gauss} implique que $a|b$ ou $a|c$ dans $\Z[x]$.
+	\end{enumerate}
+
+	S'agissant de l'unicité de la décomposition,
+	la preuve du théorème \ref{thm:decomp-Kx} peut être reprise telle quelle.
+}
+
+\nt{
+	Le lemme d'Euclide donne en fait l'implication « irréductible $\implies$ premier ».
+	Une décomposition en facteurs irréductibles est toujours garantie tant qu'il n'existe pas de suite infinie croissante d'idéaux dans l'anneau considéré (c'est-à-dire, l'algorithme d'Euclide aboutit).
+	L'unicitié, elle, ne peut qu'uniquement découler du fait que cette décomposition est en facteurs premiers.
+}
 
 \section{Racines}
 
