@@ -1,0 +1,385 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\chapter{Racines}
+
+\dfn{racine}{
+	Soit $f\in\K[x]$ un polynôme non constant à coefficients dans $\K$.
+	Le nombre $r\in\K$ est appelé \emphindex{racine} ou \emphindex{zéro} de $f$ dès que
+		\[ f(r) = 0. \]
+}{dfn:racine}
+
+% taken from exe:root-factor
+% maybe talk about roots before... need refactor.
+\exe{}{
+	Soit $f\in\K[x]$ un polynôme non constant.
+	Montrer que si $r\in\K$ est une racine de $f$ si et seulement si  $x-r$ divise $f$ dans $\K[x]$.
+}{exe:root-factor2}{
+	todo
+}
+
+\exe{}{
+	Est-ce que $x^3 - 2x + x -2$ est divisible par $x-2$ dans $\Z[x]$ ?
+	
+	Est-ce que $x^2 -4x + 3$ est divisible par $x+1$ dans $\Q[x]$ ?
+}{exe:divisible-root}{
+	todo
+}
+
+\exe{}{
+	Soit $f\in\K[x]$.
+	Montrer que si $a|f$ dans $\K[x]$, alors les racines de $a$ sont des racines de $f$.
+}{exe:root-factor3}{
+	todo
+}
+
+\subsection{Théorème fondamental de l'algèbre}
+
+% thm fondamental
+\thm{fondamental de l'algèbre, de d'Alembert}{
+	Soit $f\in\C[x]$ un polynôme non constant à coefficients complexes.
+	Alors $f$ admet une racine dans $\C$.
+}{thm:fond-alg}
+
+\cor{}{
+	Soit $f\in\C[x]$ un polynôme à coefficients complexes de coefficient dominant $a\in\C$.
+	Alors $f$ se décompose comme produit de monômes
+		\[ f(x) = a\prod_{z | f(z) = 0} (x-z)^{m(z)}, \]
+	où $m(z)\in\N$ est la \emphindex{multiplicité} de la racine $z$ dans $f$.
+}{cor:decomp-C}
+
+\dfn{algébriquement clos}{
+	Le corps $\C$ est \emphindex{algébriquement clos} car chaque polynôme non constant de $\C[x]$ admet une racine dans $\C$.
+	De façon équivalente, chaque polynôme de $\C[x]$ se scinde en produit de monômes.
+}{dfn:alg-clos}
+
+\thm{clôture algébrique}{
+	Pour tout corps $\K$, il existe un sur-corps $\overline{\K}$ qui est algébriquement clos.
+}{thm:cloture-algebrique}
+	
+\nt{
+	Une démonstration constructive du théorème \ref{thm:cloture-algebrique} fonctionne comme suit :
+	pour chaque polynôme de $\K[x]$, ajouter une racine au corps $\K$, et continuer le processus.
+	La construction de la clôture de $\Q$ peut donc se faire en raisonnant par récurrence car l'ensemble $\Q[x]$ est dénombrable comme union dénombrable d'ensembles dénombrables.
+	
+	En revanche, le nombre de polynômes de $\K[x]$ étant indénombrable en général, une récurrence classique ne suffit pas, il faut une \emphindex{récurrence transfinie}.
+	Une démonstration du théorème \ref{thm:cloture-algebrique} nécessite donc l'axiome du choix.
+}
+
+
+\exe{difficulty=1}{
+	Soient $a, f\in\K[x]$ et $\overline{\K}$ la clôture algébrique de $\K$.
+	Montrer que $a|f$ dans $\K[x]$ si et seulement si pour chaque racine de $a$, sa multiplicité dans $a$ est inférieure ou égale à celle dans $f$.
+}{exe:root-factor4}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $f\in\K[x]$ et $f'$ sa dérivée formelle.
+	Montrer que $\pgcd(f,f') = 1$ si et seulement si $f$ n'admet que des racines simples.
+}{exe:gcd-simple-roots}{
+	todo
+}
+
+\subsection{L'anneau $\R[x]$}
+
+\lem{}{
+	Soit $f\in\R[x]$ un polynôme à coefficients réels.
+	Si $z\in\C\setminus\R$ est une racine de $f$, alors $\overline{z}$ aussi, et le polynôme 
+		\[ (x - z)(x-\overline{z}) \]
+	divise $f$ dans $\R[x]$.
+}{lem:racines-conjuguees}
+
+\pf{}{
+ 	D'abord, comme $f$ est à coefficients réels, $0 = \overline{f(z)} = f\left(\overline{z}\right)$, et $\overline{z}$ est bien une racine de $f$.
+ 	De plus, $x-z$ et $x-\overline{z}$ sont premiers entre eux sur $\C[x]$ car $z \neq \overline{z}$.
+ 	Il suit donc que $(x-z)(x-\overline{z})$ divise $f$ dans $\C[x]$.
+ 	
+ 	Or, $p(x) = (x-z)(x-\overline{z}) = x^2 - (z+\overline{z}) x + |z|^2$ est un polynôme à coefficients réels.
+ 	Montrons que $p$ divise $f$ dans $\R[x]$ également.
+ 	Considérons la division euclidienne $f = pq + r, \deg(r) < \deg(p)=2$ dans $\R[x]$.
+ 	Vu comme élément de $\C[x]$, le reste $r = f-pq$ s'annule en $z$ et en $\overline{z}$, il est donc divisible par $p$.
+ 	Comme son degré est strictement inférieur à celui de $p$, le reste $r$ doit être nul.
+}
+
+\cor{}{
+	Soit $f\in\R[x]$ un polynômes à coefficients réels.
+	D'après le théorème \ref{thm:decomp-Kx}, $f$ se décompose dans $\R[x]$ de façon unique comme produit de facteurs irréductibles.
+	
+	Chaque facteur est de degré 1 ou 2.
+}{cor:decomp-Rx}
+
+\exe{}{
+	Montrer le corollaire \ref{cor:decomp-Rx}.
+}{exe:cor:decomp-Rx}{
+	todo
+}
+
+\subsection{Relations entre racines et coefficients}
+
+\prop{}{
+	Soit $\Lambda$ un ensemble fini d'éléments de $\K$.
+	Considérons le produit 
+		\[ f(x) = \prod_{\lambda \in \Lambda} (x+\lambda), \]
+	polynôme de $\K[x]$.
+	Alors $f(x)$ se développe en prenant le produit de soit $x$, soit $\lambda$ dans chaque monôme $x+\lambda$, et en sommant ces produits.
+	
+		\[  \prod_{\lambda \in \Lambda} (x+\lambda) = \sum_{k=0}^{|\Lambda|} x^k \sum_{\substack{I \subset \Lambda, \\ |I| = |\Lambda|-k}} \prod_{\lambda \in I} \lambda. \]
+}{prop:expand-product}
+
+\ex{}{
+	Considérons le polynôme de $\R[x]$
+		\[ f(x) = (x+2)(x+6)(x-1) \]
+	qu'on souhaite développer.
+	
+	\begin{enumerate}[leftmargin=100pt, label=\bf \underline{Terme en $x^{\arabic*}$ :}, start=0]
+		\item
+		Pour obtenir un terme sans $x$, il faut choisir la constante dans chaque terme du produit.
+		Celle-ci est donc $2\times6\times(-1) = -12$.
+		Nous pouvons nous rassurer que c'est vrai en calculant $f(0)$.
+		
+		\item
+		Pour obtenir un terme en $x$, il faut choisir un seul $x$ parmis les trois facteurs.
+		Les trois possibilités sont $x\times6\times(-1)$, $2\times x\times (-1)$, et $2\times6\times x$, qu'on somme pour obtenir $-6x-2x+12x = 4x$.
+		
+		\item
+		Pour obtenir un terme en $x^2$, il faut choisir deux $x$ parmis les trois facteurs.
+		Les trois possibilités sont $2\times x \times x$, $x \times 6 \times x$, et $x \times x \times (-1)$, qu'on somme pour obtenir
+		$2x^2 + 6x^2 - x^2 = 7x^2$.
+		
+		\item
+		Pour obtenir un terme en $x^3$, il faut choisir trois $x$, et la seule façon de faire est bien sûr $x\times x \times x = x^3$.
+	\end{enumerate}
+	
+	Par conséquent, 
+		\[ (x+2)(x+6)(x-1) = x^3 + 7x^2 + 4x - 12. \]
+}{exe:dev-deg-3}
+
+
+\exe{}{
+	Soit $n, k\in\N$ deux entiers avec $k\leq n$. 
+	Rappelons la notation ${n \choose k}$, lue « $k$ parmi $n$ », donnant le nombre de façons de choisir $k$ objets parmi $n$ objets indistinguables.
+	
+	Montrer que
+		\[ (1+x)^n = \sum_{k=0}^n {n \choose k} x^k. \]
+}{exe:binom-Newton}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $n\in\N$. En comparant les termes en $x^n$ de l'identité
+		$(1+x)^{2n} = (1+x)^n \cdot (1+x)^n, $
+	montrer que
+		\[ \sum_{k=0}^{n} {n \choose k} {n \choose n-k} = {2n \choose n}. \]
+}{exe:id-newton}{
+	todo
+}
+
+\cor{}{
+	Soit $f\in\K[x]$ un polynôme unitaire de degré $n$ se scindant sur $\K$ :
+		\[ f(x) = \prod_{\lambda \in \Lambda} (x-\lambda), \]
+	avec $\Lambda$ un $n$-tuple des racines de $f$ comptées avec multiplicités.
+	
+	Alors la forme développée de $f$ vérifie
+		\[ f(x) = a_n x^n + a_{n-1}x^{n-1} + \hdots + a_1 x + a_0, \]
+	où
+	\begin{enumerate}
+		\item $a_n = 1$ car $f$ est unitaire ;
+		\item $a_0 = (-1)^n  \prod_{\lambda \in \Lambda} \lambda$ le produit des racines ;
+		\item $a_{n-1} = -  \sum_{\lambda \in \Lambda} \lambda$ la somme des racines.
+	\end{enumerate}
+}{cor:rel-racine-coeff}
+
+\exe{}{
+	Dans les notations du corollaire \ref{cor:rel-racine-coeff},
+	exprimer $a_2$ et $a_{n-2}$ en fonction des racines $\lambda$.
+}{exe:a2}{
+	todo
+}
+
+\exe{}{
+	L'objectif de l'exercice est de démontrer le \emphindex{théorème de Wilson} qui énonce que $(n-1)! = -1 \mod n$ si et seulement si $n$ est premier.
+	\begin{enumerate}
+		\item
+		Montrer que si $n$ n'est pas premier, alors $(n-1)! = 0 \mod n$.
+		\item
+		Supposons $n$ premier.
+		Montrer que le polynôme $x^n - x$ admet $n$ racines distinctes dans $\F_n[x]$.
+		\item
+		Conclure en étudiant le coefficient constant de $x^{n-1} - 1$.
+	\end{enumerate}
+}{exe:Wilson}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Soit $a, b\in\N^*$ deux entiers naturels tels que $ab+1$ divise $a^2 + b^2$.
+	Montrer que $\frac{a^2 +b^2}{ab+1}$ est un carré parfait.
+}{exe:Vieta-jump}{
+	IMO 1988.
+}
+
+
+\exe{difficulty=1}{
+	Soient $\Lambda \in \K^n$ \underline{toutes} les valeurs propres d'une matrice $A \in \K^{n\times n}$, comptées avec multiplicités.
+	Ainsi, le polynôme caractéristique
+	$\det(x I - A) = x^n + \alpha_{n-1} x^{n-1} + \dots + \alpha_1 x + \alpha_0$
+	est unitaire et se scinde comme produit
+		\[\det(x I - A) = \prod_{\lambda\in\Lambda}(x - \lambda). \]
+	\begin{enumerate}
+		\item
+		Montrer d'abord que le déterminant d'une matrice est égal au produit de ses valeurs propres
+		 	\[ \det(A) = \prod_{\lambda \in \Lambda} \lambda. \]
+	\end{enumerate}
+	À l'aide de la formule de Leibniz, 
+		\[ \det(M) = \sum_{\sigma \in S_n} \sgn(\sigma) \prod_{i=1}^{n} M_{i, \sigma(i)}, \]
+	montrer ensuite que
+	\begin{enumerate}[resume]	
+		\item $\alpha_{n-1} = (-1)^{n-1} \tr (A)$ ; et que
+		\item La trace d'une matrice est égale à la somme de ses valeurs propres
+			\[ \tr(A) = \sum_{\lambda \in \Lambda} \lambda. \]
+	\end{enumerate}
+}{exe:det-trace-val-p}{
+	todo
+}
+
+\subsection{Racines $n$-ièmes de l'unité}
+
+\nt{
+	Soit $n\in\N^*$.
+	Le polynôme $x^n - 1 \in\C[x]$ admet pour dérivée formelle $nx^{n-1}$, dont la seule racine est 0.
+	Ainsi, $x^n -1$ est premier avec son polynôme dérivé, et il admet donc $n$ racines complexes distinctes.
+}
+
+\dfn{racine $n$-ième de l'unité}{
+	Soit $z\in\C$ un nombre complexe et $n\in\N^*$.
+	Le nombre $z$ est \emphindex{racine $n$-ième de l'unité} dès que $z^n = 1$.
+}{dfn:racine-unite}
+
+\notation{
+	L'ensemble des nombres complexes de module 1 est noté	
+		\[ \U = \bigset{ z\in\C \tq |z| = 1}. \]
+	
+	Pour $n\in\N^*$, l'ensemble des nombres racines $n$-ièmes de l'unité est noté 
+		\[ \U_n = \bigset{ z \in \C \tq z^n = 1 }. \]
+}
+
+\exe{}{
+	Soit $z\in\C$.
+	Montrer l'implication suivante. La réciproque est-elle vraie ?
+	\begin{center}
+	\begin{tabular}{ccc}
+		$\Bigpar{ \exists n\in\N^* \tq z\in\U_n }$ &  $\implies$ & $\Bigpar{ |z| = 1}$
+	\end{tabular}
+	\end{center}
+}{exe:root-is-unit}{
+	todo
+}
+
+
+\exe{difficulty=1}{
+	Soit $n\in\N$ impair et $\zeta = e^{\frac{2 \pi i}n}$.
+	Montrer l'identité suivante dans $\C[x,y]$.
+		\[ x^n + y^n = \prod_{k=0}^{n-1} \bigpar{x + \zeta^k y} \]
+	Est-elle vraie pour $n\in\N^*$ pair ?
+}{exe:split-xn-p-yn}{
+	todo
+}
+
+\exe{}{
+	Soit $n\in\N^*$.
+	Montrer que $\bigpar{\U_n, \times}$ est un groupe isomorphe à $\bigpar{ \Z/n\Z, +}$ en explicitant l'isomorphisme.
+}{exe:Un-sous-groupe}{
+	todo
+}
+
+
+\section*{Exercices supplémentaires}
+\addcontentsline{toc}{section}{Exercices supplémentaires}
+
+\exe{}{
+	Soit $z\in\C$ une racine $p$-ième de l'unité où $p$ est un nombre premier.
+	Montrer que le polynôme minimal annulateur de $z$ est $\frac{x^p - 1}{x-1}$.
+}{exe:pmin-unit-root}{
+	todo
+}
+
+\exe{}{
+	Soit $n\in\N^*$.
+	En étudiant $(1+x)^n + (1-x)^n$, montrer que
+		\[ \sum_{\substack{k=0 \\ \text{$k$ pair}}}^n {n \choose k} =  \sum_{\substack{k=0 \\ \text{$k$ impair}}}^n {n \choose k} =  2^{n-1}. \]
+	Quelle partie du raisonnement échoue lorsque $n=0$ ?
+}{exe:Newton-even-odd}{
+	Les termes pairs sont doublés et les termes impairs disparaissent.
+	Évaluer en $x=1$ conclut pour la première somme.
+	La deuxième somme est déduite de la première en utilisant que $2^n - 2^{n-1} = 2^{n-1}$.
+
+	Lorsque $n=0$, l'identité $(1-x)^0 = 1$ semble vraie mais elle ne l'est pas précisément en $x=1$.
+}
+
+\exe{}{
+	Montrer que $\U$ est un sous-groupe de $\bigpar{\C^*, \times}$.
+}{exe:U-sous-groupe}{
+	todo
+}
+
+\exe{}{
+	Soit $n\in\N^*$.
+	Montrer que $\bigpar{\U_n, \times}$ est le seul sous-groupe d'ordre $n$ de $\U$.
+}{exe:Un-sous-groupe-unique}{
+	todo
+}
+
+\exe{}{
+	Soit $n\in\N^*$.
+	Décrire explicitement l'ensemble $\mu_n$ des éléments d'ordre $n$ du groupe $\U$.
+}{exe:U-ordre-n}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $p>3$ un nombre premier. Montrer l'égalité suivante.
+		\[ \prod_{1 \leq i < j \leq p-1} ij = 0 \mod p. \]
+	Vérifier l'égalité pour $p=5$ et montrer qu'elle n'est pas vraie pour $p=3$.
+}{exe:Wilson-bis}{
+	En reprenant le raisonnement de l'exercice \ref{exe:Wilson} et le résultat de l'exercice \ref{exe:a2}, étudions le coefficient en $x^{p-2}$ du polynôme $x^{p-1} -1$ qui se scinde comme suit sur $\F_p[x]$.
+		\[ x^{p-1} - 1 = \prod_{i=1}^{p-1} (x- i) \]
+	Comme $p>3$, le coefficient en $x^{p-2}$ de $x^{p-1}-1$ est nul, et donc
+		\[ \prod_{1 \leq i < j \leq p-1} (-i)(-j) = 0 \]
+	dans $\F_p$.
+}
+
+
+\exe{difficulty=2}{
+	Soit $n\in\N^*$.
+	Pour $d\in\N, d|n$ diviseur de $n$, posons
+		\begin{align*}
+		\mu_d = \bigset{ e^{2\pi i \frac{k}d} \tq 1 \leq k \leq d \et \pgcd(k, d) = 1} && \et && \phi_d = \prod_{z \in \mu_d} \bigpar{ x-z }.
+		\end{align*}
+	\begin{enumerate}
+		\item
+		Montrer que 
+			\[ x^n - 1 = \prod_{d|n} \phi_d(x). \]
+		\item
+		En déduire que si $p$ est premier, alors $\phi_p(x) = \frac{x^p - 1}{x-1}$ et qu'il est irréductible dans $\Z[x]$.
+		\item
+		Montrer que si $n$ est \emphindex{semi-premier}, c'est-à-dire que $n=pq$ avec $p, q$ premiers, alors
+			\[ \phi_n(x) = \frac{x^n-1}{\phi_p(x) \phi_q(x) (x-1)} \]
+		est une division dans $\C[x]$ et donc dans $\Q[x]$. Est-ce une division dans $\Z[x]$ ? Justifier.
+		\item
+		Généraliser pour montrer que $\phi_n \in \Z[x]$ pour tout $n\in\N^*$.
+	\end{enumerate}
+}{exe:phin-integer}{
+	todo
+}
+
+
+\shipoutExercise
+
+\section*{Solutions}
+\addcontentsline{toc}{section}{Solutions}
+
+\shipoutAnswer
+
+
+
