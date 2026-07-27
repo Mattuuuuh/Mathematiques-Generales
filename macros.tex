@@ -81,7 +81,8 @@
 \renewcommand{\underline}[1]{\oldunderline{\smash{#1}}}
 
 % emph + index
-\newcommand{\emphindex}[1]{\emph{#1}\index{#1}}
+% i add underline just for now
+\newcommand{\emphindex}[1]{\emph{\underline{#1}}\index{#1}}
 
 % tableau croisé
 \newcommand{\tableaucroise}[4]{
