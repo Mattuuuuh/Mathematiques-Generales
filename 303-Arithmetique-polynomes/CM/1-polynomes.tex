@@ -22,19 +22,20 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	où $d$ est le \emphindex{degré} du polynôme, les $a_i\in\K$ sont ses \emphindex{coefficients}, et $x$ est une \emphindex{indéterminée} abstraite (pas nécessairement un nombre de $\K$ !).
 }{dfn:polynome}
 
-\nt{
-	Pour pouvoir évaluer un polynôme, il suffit que l'objet substitué à $x$ appartienne à une $\K$-algèbre
-	(et c'est un bon moyen de se souvenir de la structure de l'algèbre).
-	En effet, 
-	\begin{enumerate}
-		\item il faut pouvoir multiplier $x$ avec lui-même pour calculer ses puissances ; 
-		\item multiplier $x$ avec un élément de $\K$ ; et
-		\item additionner les résultats. 
-	\end{enumerate}
-	Dans ce cas nous verrons $a_0$ comme $a_0\times 1$, où $1$ est l'élément neutre de l'algèbre.
-	
-	Par exemple, il est possible d'évaluer un polynôme en une matrice en voyant $a_0$ comme $a_0 I$.
-}
+% in depth discussion moved to structures
+%\nt{
+%	Pour pouvoir évaluer un polynôme, il suffit que l'objet substitué à $x$ appartienne à une $\K$-algèbre
+%	(et c'est un bon moyen de se souvenir de la structure de l'algèbre).
+%	En effet, 
+%	\begin{enumerate}
+%		\item il faut pouvoir multiplier $x$ avec lui-même pour calculer ses puissances ; 
+%		\item multiplier $x$ avec un élément de $\K$ ; et
+%		\item additionner les résultats. 
+%	\end{enumerate}
+%	Dans ce cas nous verrons $a_0$ comme $a_0\times 1$, où $1$ est l'élément neutre de l'algèbre.
+%	
+%	Par exemple, il est possible d'évaluer un polynôme en une matrice en voyant $a_0$ comme $a_0 I$.
+%}
 
 \notation{
 	L'ensemble des polynômes à coefficients dans $\K$ est noté $\K[x]$.
@@ -396,6 +397,23 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \subsection{L'anneau $\K[x]$ est principal}
 
 
+\dfn{anneau principal}{
+	Un anneau intègre $R$ est un \emphindex{anneau principal} dès que tout idéal de $R$ est généré par un unique élément.
+}{dfn:anneau-principal}
+
+
+\exe{difficulty=1}{
+	Montrer que $\K[x]$ est un anneau principal : tout idéal de l'anneau est généré par l'élément de degré minimal.
+}{exe:Kx-is-PID}{
+	todo
+}
+
+\exe{}{
+	Montrer que l'anneau $\Z[x]$ n'est pas principal : il n'existe pas de polynôme $f\in\Z[x]$ tel que $(2, x) = (f)$.
+}{exe:Zx-non-principal}{
+	todo
+}
+
 \dfn{PGCD}{
 	Soient $a, b\in \K[x]$ deux polynômes à coefficients dans $\K$.
 	Un plus grand diviseur commun (PGCD) et $a$ et $b$ dans $\K[x]$ est un élément $d\in\K[x]$ vérifiant
@@ -455,7 +473,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	% et $d\in\K[x]$ un PGCD de $a$ et $b$.
 	
 	Alors le PGCD de $a$ et $b$ existe est égal à
-		\[ \pgcd(a, b) = \arg\min\bigset{ \deg(p) \tq p = au + bv \et u, v \in \K[x] \et p \text{ unitaire non nul} }. \]
+		\[ \pgcd(a, b) = \arg\min\bigset{ \deg(p) \tq p = au + bv \text{ avec } u, v \in \K[x], \et p \text{ unitaire non nul} }. \]
 }{thm:bezout-K}
 
 \pf{}{
@@ -545,15 +563,9 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	En caractéristique $p$, le polynôme $x^p$ divise lui-même et sa dérivée, mais son carré ne le divise pas.
 }
 
-\nt{
-	L'anneau $\K[x]$ est donc un \emphindex{anneau principal} : l'élément de degré (ou norme, plus généralement) minimal de chaque idéal génère entièrement cet idéal.
-}
-
-\exe{}{
-	Montrer que l'idéal $(2, x)$ de $\Z[x]$ n'est pas principal : il n'existe pas de polynômes $f\in\Z[x]$ tel que $(2, x) = (f)$.
-}{exe:Zx-non-principal}{
-	todo
-}
+%\nt{
+%	L'anneau $\K[x]$ est donc un \emphindex{anneau principal} : l'élément de degré (ou norme, plus généralement) minimal de chaque idéal génère entièrement cet idéal.
+%}
 
 %\nt{
 %	Une définition plus abstraite mais plus générale du PGCD est donc la suivante, et s'applique à tous les anneaux principaux.
@@ -621,6 +633,31 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Par suite, $q$ divise le produit $ap$ et est premier avec $p$ par hypothèse.
 	Le lemme de Gauss (arithmétique) de l'exercice \ref{exe:lem:Gauss} conclut que $q$ divise $a$.
 	Dès lors, $a = bq$ et donc $f = bqp$ comme voulu.
+}
+
+\exe{difficulty=1}{
+	Soient $a, b\in\K[x]$.
+	Le PPCM est défini comme le polynôme unitaire vérifiant
+		\[ (a) \cap (b) = \bigl( \ppcm(a, b) \bigr). \]
+	Son existence est garantie car $(a) \cap (b)$ est un idéal de $\K[x]$ qui est principal.
+	\begin{enumerate}
+		\item
+		Montrer que le PPCM est l'unique polynôme unitaire $p\in\K[x]$ vérifiant
+		\begin{enumerate}
+			\item $a|p$ et $b|p$ ; et
+			\item si $a|d$ et $b|d$, alors $p|d$.
+		\end{enumerate}
+		\item
+		Montrer que $ab = \ppcm(a,b)\cdot\pgcd(a,b)$.
+	\end{enumerate}
+}{exe:ppcm}{
+	$au + bv = \pgcd(a,b)$
+	$aq = d$
+	$du + bqv = \pgcd(a,b)q$
+	$b|\pgcd(a,b)q$
+	$db = p \pgcd(a,b)q$
+	$d = p q'$
+	$p|d$.
 }
 
 \nt{
@@ -944,20 +981,6 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	En plongeant cette égalité dans $\C[x]$, évaluer en $x=z$ aboutit à la contradiction $0=1$. \Lightning
 }
 
-\exe{difficulty=1}{
-	Soient $a, b\in\K[x]$.
-	Montrer que
-		\[ (a) \cap (b) = \bigl( \ppcm(a, b) \bigr). \]
-}{exe:ppcm}{
-	todo
-}
-
-\exe{difficulty=1}{
-	Montrer que $\K[x]$ est un anneau principal : tout idéal de l'anneau est généré par un unique élément.
-}{exe:Kx-is-PID}{
-	todo
-}
-
 
 \exe{difficulty=1}{
 	Soit $z\in\C$ un \emphindex{nombre algébrique}, c'est-à-dire une racine d'un polynôme sur $\Q[x]$.
@@ -989,6 +1012,12 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	todo
 }
 
+\exe{}{
+	Soit $p\in\K[x]$ un polynôme premier, c'est-à-dire non nul et vérifiant, pour tout $a, b\in\K[x]$, $p|(ab) \implies p|a$ ou $p|b$.
+	Montrer que $p$ est irréductible.
+}{exe:prime-implies-irr}{
+
+}
 
 \exe{}{
 	Soit $p\in\K[x]$ un polynôme.
