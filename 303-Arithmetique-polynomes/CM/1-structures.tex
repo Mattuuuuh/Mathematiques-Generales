@@ -99,15 +99,15 @@
 
 \nomen{
 	Un anneau $R$ est dit
-	\begin{enumerate}[leftmargin=80pt]
-		\item[\emphindex{Unitaire}] s'il existe $1\in R$ élément neutre de la loi  $\cdot$.
+	\begin{enumerate}%[leftmargin=80pt]
+		\item[\emphindex{unitaire}] s'il existe $1\in R$ élément neutre de la loi  $\cdot$.
 		$1 \cdot u = u \cdot 1 = u$ pour tout $u\in R$.
-		\item[\emphindex{Commutatif}] si la loi $\cdot$ est commutative.
+		\item[\emphindex{commutatif}] si la loi $\cdot$ est commutative.
 		$a \cdot b = b \cdot a$ pour tout $a, b\in R$.
 	\end{enumerate}
 }
 
-\ex{}{
+\ex{}{\leavevmode
 	\begin{enumerate}
 		\item
 		$R = \Z$ est un anneau commutatif unitaire.
@@ -433,7 +433,7 @@
 
 \dfn{divisiblité}{
 	Soient deux éléments $a, b \in R$ d'un anneau intègre (donc commutatif, unitaire, et sans diviseur de zéro).
-	L'élément $a$ divise $b$ dans $R$ dès que
+	L'élément $a$ \emphindex{divise} $b$ dans $R$ dès que
 		\[ b = a\cdot q, \]
 	où $q\in R$.
 }{dfn:divisibilite}
@@ -523,12 +523,12 @@
 
 \pf{}{
 	Le plan classique de la démonstration est décrit ici.
-	Chaque étape est essentielle et découle de l'étape précédente.
+	Chaque propriété est essentielle et découle de la propriété précédente.
 	Ce plan fera l'objet de la même considération dans l'anneau $\K[x]$ section \ref{sec:Kx} du chapitre \ref{chap:polynomes}.
 	
-	Dans l'anneau $\Z[x]$ étudié section \ref{sec:Zx} du chapitre \ref{chap:polynomes}, seules les deux dernières étapes sont accessibles et nécessitent donc une stratégie particulière.
+	Dans l'anneau $\Z[x]$ étudié section \ref{sec:Zx} du chapitre \ref{chap:polynomes}, seules les deux dernières propriétés sont accessibles et nécessitent donc une stratégie particulière.
 	
-	\begin{enumerate}[label=\bf\underline{Étape \arabic*.}, leftmargin=50pt]
+	\begin{enumerate}[label=\bf\underline{Propriété \arabic*.}]
 		\item
 		L'anneau $\Z$ est équipé d'une division euclidienne.
 			\[ \forall a, b\in\Z, \exists q, r\in\Z \tq b = aq + r, \et |r| < |a|. \]
@@ -543,7 +543,7 @@
 			\[ p|(ab) \implies p|a \ou p|b. \]
 	\end{enumerate}
 	
-	Considérons $n\in\Z$ et démontrons le théorème \ref{thm:decomp-premiers} en admettant la véracité de chaque étape. 
+	Considérons $n\in\Z$ et démontrons le théorème \ref{thm:decomp-premiers} en admettant la véracité de chaque propriété. 
 	
 	\underline{Existence.}
 	
@@ -568,6 +568,93 @@
 }
 
 \section{Algèbre sur un corps}
+
+Considérons le polynôme $p(x) = x^3 + x^2 - 3x + 1 \in \R[x]$ et demandons-nous : pour quel objet $a$ est-ce que l'évaluation $p(a)$ a un sens ?
+Notons $A$ l'ensemble des objets et étudions ce que $A$ doit admettre comme structure.
+Il faut pouvoir
+\begin{enumerate}
+	\item
+	multiplier des objets de $A$ ensemble, car $a^2 =a \times a$ doit avoir un sens ;
+	\item
+	additionner des objets de $A$ ensemble, car $a^3 + a^2$ doit avoir un sens ;
+	\item
+	multiplier chaque objet de $A$ par un nombre réel du corps $\R$, car $-3x = (-3)\cdot a$ doit avoir un sens.
+\end{enumerate}
+Remarquons que nous devons avoir trois loi.
+Deux lois sont internes à $A$, $+$ et $\times$, et une loi est externe de $\R$ sur $A$.
+Les deux premières rappellent la structure de l'anneau, et la deuxième celle de l'espace vectoriel !
+
+Pour bien évaluer le polynôme $x^3 + x^2 - 3x + 1\in\R[x]$ en un objet $a$ de $A$, il conviendra alors de voir $1$ comme $1\cdot1$, où le premier $1$ est dans $\R$, et le deuxième $1$ dans $A$.
+
+Il est en outre souhaitable que $p(x) + q(x) = (p+q)(x)$ et que $p(x)\times q(x) = (p\cdot q)(x)$.
+Pour ce faire, les lois de $A$ doivent être assiociatives, la multiplication ($\cdot$ ou $\times$) doit se distribuer sur l'addition $+$, et les loi $\cdot$ et $\times$ doivent être compatibles : $(k\cdot x)\times(k' \cdot x') = (kk')(x\cdot x')$.
+
+Nous avons caché ici une quatrième et une cinquième loi, celles de l'addition et de la multiplication internes au corps $\K$.
+
+\ex{}{
+	Considérons $p(x) = x^3 + x^2 - 3x + 1\in\R[x]$.
+	Pour chaque ensemble $A$ et élément $a\in A$ suivants, nous décrivons trois lois $+, \cdot, \times$ sur $\R$ et calculons $p(a)$.
+	\begin{enumerate}
+		\item 
+		$A = \R, a = 3$. Munissons $A$ des loi d'addition et de multiplication usuelles.
+		Alors 
+			\[ p(a) = 3^3 + 3^2 - 3\cdot 3 + 1\cdot1 = 28. \]
+		\item
+		$A = \C, a = 1+i$. Munissons $\C$ des lois $+$ et $\cdot$ usuelles comme $\R$-espace vectoriel :
+			\begin{align*}
+				(a+bi) + (c+di) = (a+b) + (c+d)i && \et &&  k\cdot (a+bi) = (ka) + (kb) i.
+			\end{align*}
+		Ajoutons la multiplication interne usuelle des nombres complexes
+			\[ (a+bi) \times (c+di) = (ac - bd) + (ad + bc)i. \]
+		Alors 
+			\[ p(a) = (1+i)^3 + (1+i)^2 - 3\cdot(1+i) + 1\cdot1 = -4 + i. \]
+		\item
+		$A = \R^{2\times2}, a = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$.
+		Munissons $\R^{2\times2}$ des lois $+$ et $\cdot$ usuelles comme $\R$-espace vectoriel :
+			\begin{align*}
+				\begin{pmatrix} a & b \\ c & d\end{pmatrix} + \begin{pmatrix} a' & b' \\ c' & d'\end{pmatrix}  = \begin{pmatrix} a+a' & b+b' \\ c+c' & d+d' \end{pmatrix}  && \et &&  k\cdot\begin{pmatrix} a & b \\ c & d\end{pmatrix}  = \begin{pmatrix} ka & kb \\ kc & kd \end{pmatrix}.
+			\end{align*}
+		Ajoutons la multiplication interne usuelle des matrices
+			\[ \begin{pmatrix} a & b \\ c & d\end{pmatrix} \times \begin{pmatrix} a' & b' \\ c' & d'\end{pmatrix}  = \begin{pmatrix} aa' + bc' & ab'+bd' \\ ca'+dc' & cb'+dd' \end{pmatrix}.\]
+		Alors
+			\[ p(a) = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}^3 + \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}^2 - 3\cdot\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} + 1\cdot\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 42 & 87 \\ 58 & 129 \end{pmatrix} \]
+	\end{enumerate}
+}{ex:algebres}
+
+\dfn{algèbre sur un corps}{
+	Une \emphindex{algèbre sur un corps} $\bigpar{A, +, \cdot, \times}$ est un ensemble muni de deux lois satisfaisant les axiomes suivants.
+	\begin{enumerate}
+		\item
+		$\bigpar{A, +, \times}$ est un anneau non nécessairement associatif : il est possible d'ajouter et de multiplier dans $A$. La loi $\times$ se distribue sur la loi $+$.
+		\item
+		$\bigpar{A, +}$ est un $\K$-espace vectoriel : il est possible de multiplier avec la loi $\cdot$ chaque élément de $A$ par un nombre de $\K$.
+		Les lois sont associatives et se distribuent.
+		\item Les loi $\times$ et $\cdot$ sont compatibles :
+		pour $a, b \in A$ et $x, y\in \K$, $(x\cdot a) \times (y\cdot b) = (xy)( a \times b)$.
+	\end{enumerate}
+% true but boring?
+%	\begin{enumerate}
+%		\item $\bigpar{A, +}$ est un $\K$-espace vectoriel ;
+%		\item La loi $\cdot$ est interne et $\K$-bilinéaire :
+%		\begin{enumerate}
+%			\item
+%			Pour $a, b, c \in A$, $(a+b)\cdot c = a\cdot c + b \cdot c$ ;
+%			\item
+%			Pour $a, b, c \in A$, $a\cdot (b+c) = a\cdot b + a\cdot c$ ;
+%			\item
+%			Pour $a, b \in A$ et $x, y\in \K$, $(xa) \cdot (yb) = (xy)( a \cdot b)$
+%		\end{enumerate}
+%	\end{enumerate}
+}{dfn:algebre-corps}
+
+\nt{
+	Pour évaluer $p(x) \in \K[x]$ en $x\in A$, une algèbre sur $\K$, il conviendra alors que $\bigpar{A, +, \times}$ soit un anneau associatif (comme l'est un anneau par définition), commutatif, et unitaire.
+	C'est le cas de tous les exemples de \ref{ex:algebres}.
+	
+	L'algèbre $\R^3$ vue comme $\R$-espace vectoriel et munie du produit vectoriel interne $\times = \land$ où
+		\[ u \land v = \begin{pmatrix} u_1 \\ u_2 \\ u_3 \end{pmatrix} \land \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} u_2v_3 - u_3v_2\\ u_3v_1-u_1v_3 \\ u_1v_2-u_2v_1 \end{pmatrix} \]
+	n'est ni associative ($u\land(v\land w) \neq (u\land v)\land w$), ni commutative ($u\land v = -v\land u$), ni unitaire ($\not\exists e \tq u\land e = u \forall u\in\R^3$).
+}
 
 % for  poly(x)
 
