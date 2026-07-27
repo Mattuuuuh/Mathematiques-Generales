@@ -36,7 +36,7 @@
 \section{Théorème fondamental de l'algèbre}
 
 % thm fondamental
-\thm{fondamental de l'algèbre, de d'Alembert}{
+\thm{de d'Alembert, \emphindex{théorème fondamental de l'algèbre}}{
 	Soit $f\in\C[x]$ un polynôme non constant à coefficients complexes.
 	Alors $f$ admet une racine dans $\C$.
 }{thm:fond-alg}
@@ -118,13 +118,17 @@
 \section{Relations entre racines et coefficients}
 
 \prop{}{
-	Soit $\Lambda$ un ensemble fini d'éléments de $\K$.
+	Soit $n\in\N^*$ et $\Lambda\in\K^n$ un $n$-tuple de $\K$ d'éléments non nécessairement distincts.
 	Considérons le produit 
 		\[ f(x) = \prod_{\lambda \in \Lambda} (x+\lambda), \]
 	polynôme de $\K[x]$.
-	Alors $f(x)$ se développe en prenant le produit de soit $x$, soit $\lambda$ dans chaque monôme $x+\lambda$, et en sommant ces produits.
 	
-		\[  \prod_{\lambda \in \Lambda} (x+\lambda) = \sum_{k=0}^{|\Lambda|} x^k \sum_{\substack{I \subset \Lambda, \\ |I| = |\Lambda|-k}} \prod_{\lambda \in I} \lambda. \]
+	%Alors $f(x)$ se développe en prenant le produit de soit $x$, soit $\lambda$ dans chaque monôme $x+\lambda$, et en sommant ces produits.
+	Alors $f(x)$ se développe en multipliant, dans chaque monôme $x+\lambda$,  soit la quantité $x$, soit la quantité $\lambda$.
+	Un choix de $d$ fois la quantité $x$ aboutira à un terme en $x^d$.
+	Chaque choix est sommé pour obtenir $f(x)$. 
+	
+		\[  \prod_{\lambda \in \Lambda} (x+\lambda) = \sum_{d=0}^{n} x^d \sum_{\substack{I \subset \Lambda, \\ |I| = n-d}} \prod_{\lambda \in I} \lambda. \]
 }{prop:expand-product}
 
 \ex{}{
@@ -132,7 +136,7 @@
 		\[ f(x) = (x+2)(x+6)(x-1) \]
 	qu'on souhaite développer.
 	
-	\begin{enumerate}[leftmargin=100pt, label=\bf \underline{Terme en $x^{\arabic*}$ :}, start=0]
+	\begin{enumerate}[label=\bf \underline{Terme en $x^{\arabic*}$.}, start=0]
 		\item
 		Pour obtenir un terme sans $x$, il faut choisir la constante dans chaque terme du produit.
 		Celle-ci est donc $2\times6\times(-1) = -12$.
@@ -178,15 +182,15 @@
 \cor{}{
 	Soit $f\in\K[x]$ un polynôme unitaire de degré $n$ se scindant sur $\K$ :
 		\[ f(x) = \prod_{\lambda \in \Lambda} (x-\lambda), \]
-	avec $\Lambda$ un $n$-tuple des racines de $f$ comptées avec multiplicités.
+	avec $\Lambda\in\K^n$ un $n$-tuple des racines de $f$ non nécessairement distinctes.
 	
 	Alors la forme développée de $f$ vérifie
-		\[ f(x) = a_n x^n + a_{n-1}x^{n-1} + \hdots + a_1 x + a_0, \]
+		\[ f(x) = x^n + a_{n-1}x^{n-1} + \hdots + a_1 x + a_0, \]
 	où
 	\begin{enumerate}
-		\item $a_n = 1$ car $f$ est unitaire ;
-		\item $a_0 = (-1)^n  \prod_{\lambda \in \Lambda} \lambda$ le produit des racines ;
-		\item $a_{n-1} = -  \sum_{\lambda \in \Lambda} \lambda$ la somme des racines.
+		%\item $a_n = 1$ car $f$ est unitaire ;
+		\item $a_0 = (-1)^n  \prod_{\lambda \in \Lambda} \lambda$ est le \emphindex{produit des racines} ;
+		\item $a_{n-1} = -  \sum_{\lambda \in \Lambda} \lambda$ est la \emphindex{somme des racines}.
 	\end{enumerate}
 }{cor:rel-racine-coeff}
 
@@ -262,6 +266,22 @@
 	
 	Pour $n\in\N^*$, l'ensemble des nombres racines $n$-ièmes de l'unité est noté 
 		\[ \U_n = \bigset{ z \in \C \tq z^n = 1 }. \]
+}
+
+\prop{}{
+	Soit $z\in\C$ un nombre complexe et $n\in\N^*$.
+	Le nombre $z$ est {racine $n$-ième de l'unité} si et seulement si
+		\[ z = e^{2\pi i \frac{k}n} = \cos\left(2\pi \frac{k}n\right) + i \sin\left(2\pi \frac{k}n\right) \]
+	pour un certain $k \in \bigset{0 ; 1 ; 2 ; \dots ; n-1}$.
+	
+	Par conséquent,
+		\[ x^n - 1 = \prod_{k=0}^{n-1} \left(x - e^{2 \pi i \frac{k}n}\right). \]
+}{prop:racine-unite}
+
+\pf{}{
+	Ces $z$ forment un ensemble de $n$ racines de l'unité car $e^{2\pi i} = 1$.
+	Ces racines sont distinctes par unicité de la représentation polaire.
+	Ce sont donc les $n$ racines du polynôme $x^n - 1$ qui est unitaire.
 }
 
 \exe{}{
