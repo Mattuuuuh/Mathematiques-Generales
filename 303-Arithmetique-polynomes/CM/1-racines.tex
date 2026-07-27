@@ -328,11 +328,24 @@
 \section*{Exercices supplémentaires}
 \addcontentsline{toc}{section}{Exercices supplémentaires}
 
-\exe{}{
+\exe{difficulty=1}{
 	Soit $z\in\C$ une racine $p$-ième de l'unité où $p$ est un nombre premier.
-	Montrer que le polynôme minimal annulateur de $z$ est $\frac{x^p - 1}{x-1}$.
+	Montrer que le polynôme annulateur de $z$ de degré minimal est $\frac{x^p - 1}{x-1}$.
 }{exe:pmin-unit-root}{
 	todo
+}
+
+\exe{}{
+	Considérons le \emphindex{symbole de Pochhammer} défini par
+		\begin{align*}
+			(x)_0 = 1, && \et && (x)_n = x(x-1)(x-2)\cdots(x-n+1) \text{ pour $n\in\N^*$, }
+		\end{align*}
+	ainsi que l'opérateur de différence $\Delta$ qui associe à chaque $f\in\K[x]$ le polynôme $f(x+1)-f(x)$.
+	
+	Montrer que, pour tout $n\in\N^*$, l'identité suivante est vraie dans $\K[x]$.
+		\[ \Delta(x)_n = n(x)_{n-1} \]
+}{exe:Pochhammer}{
+
 }
 
 \exe{}{
@@ -371,7 +384,7 @@
 \exe{difficulty=1}{
 	Soit $p>3$ un nombre premier. Montrer l'égalité suivante.
 		\[ \prod_{1 \leq i < j \leq p-1} ij = 0 \mod p. \]
-	Vérifier l'égalité pour $p=5$ et montrer qu'elle n'est pas vraie pour $p=3$.
+	Vérifier l'égalité par le calcul pour $p=5$ et montrer qu'elle n'est pas vraie pour $p=3$.
 }{exe:Wilson-bis}{
 	En reprenant le raisonnement de l'exercice \ref{exe:Wilson} et le résultat de l'exercice \ref{exe:a2}, étudions le coefficient en $x^{p-2}$ du polynôme $x^{p-1} -1$ qui se scinde comme suit sur $\F_p[x]$.
 		\[ x^{p-1} - 1 = \prod_{i=1}^{p-1} (x- i) \]
