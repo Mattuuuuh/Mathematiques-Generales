@@ -41,6 +41,11 @@
 	Alors $f$ admet une racine dans $\C$.
 }{thm:fond-alg}
 
+\pf{}{
+	Arrive.
+	\vspace{5cm}
+}
+
 \cor{}{
 	Soit $f\in\C[x]$ un polynôme à coefficients complexes de coefficient dominant $a\in\C$.
 	Alors $f$ se décompose comme produit de monômes
@@ -216,13 +221,6 @@
 	todo
 }
 
-\exe{difficulty=2}{
-	Soit $a, b\in\N^*$ deux entiers naturels tels que $ab+1$ divise $a^2 + b^2$.
-	Montrer que $\frac{a^2 +b^2}{ab+1}$ est un carré parfait.
-}{exe:Vieta-jump}{
-	IMO 1988.
-}
-
 
 \exe{difficulty=1}{
 	Soient $\Lambda \in \K^n$ \underline{toutes} les valeurs propres d'une matrice $A \in \K^{n\times n}$, comptées avec multiplicités.
@@ -330,7 +328,8 @@
 
 \exe{difficulty=1}{
 	Soit $z\in\C$ une racine $p$-ième de l'unité où $p$ est un nombre premier.
-	Montrer que le polynôme annulateur de $z$ de degré minimal est $\frac{x^p - 1}{x-1}$.
+	Montrer que le polynôme annulateur de $z$ de degré minimal est $x^{p-1} + x^{p-2} + \dots + 1$.
+	%$\frac{x^p - 1}{x-1}$.
 }{exe:pmin-unit-root}{
 	todo
 }
@@ -342,10 +341,17 @@
 		\end{align*}
 	ainsi que l'opérateur de différence $\Delta$ qui associe à chaque $f\in\K[x]$ le polynôme $f(x+1)-f(x)$.
 	
-	Montrer que, pour tout $n\in\N^*$, l'identité suivante est vraie dans $\K[x]$.
+	Montrer que, pour tout $n\in\N^*$, l'identité suivante est vraie dans $\Z[x]$.
 		\[ \Delta(x)_n = n(x)_{n-1} \]
 }{exe:Pochhammer}{
 
+}
+
+\exe{}{
+	Soit $p \in \Z[x]$ un polynôme à coefficients entiers et $a, b \in\Z$ deux entiers.
+	Montrer que $b-a$ divise $p(b)-p(a)$ dans $\Z$.
+}{exe:pb-pa}{
+	todo
 }
 
 \exe{}{
@@ -359,6 +365,13 @@
 	La deuxième somme est déduite de la première en utilisant que $2^n - 2^{n-1} = 2^{n-1}$.
 
 	Lorsque $n=0$, l'identité $(1-x)^0 = 1$ semble vraie mais elle ne l'est pas précisément en $x=1$.
+}
+
+\exe{difficulty=2}{
+	Soit $a, b\in\N^*$ deux entiers naturels tels que $ab+1$ divise $a^2 + b^2$.
+	Montrer que $\frac{a^2 +b^2}{ab+1}$ est un carré parfait.
+}{exe:Vieta-jump}{
+	IMO 1988.
 }
 
 \exe{}{
