@@ -374,6 +374,18 @@
 	IMO 1988.
 }
 
+
+\exe{difficulty=1}{
+	Résoudre le système suivant pour $a, b, c \in\C$.
+	\[\begin{cases*}
+		abc = 3,  \\
+		a+b+c = 4, \\
+		ab+ac+bc = 6. \\
+	\end{cases*}\]
+}{exe:systeme-units}{
+	$(x-a)(x-b)(x-c) = x^3 - (a+b+c)x^2 + (ab+ac+bc)x - abc = x^3 -4x^2 + 6x -3 = (x-1)(x^2 - 3x+3) = (x-1)\left(x-\frac32 + \frac{\sqrt3}2i\right)\left(x-\frac32 - \frac{\sqrt3}2i\right)$.
+}
+
 \exe{}{
 	Montrer que $\U$ est un sous-groupe de $\bigpar{\C^*, \times}$.
 }{exe:U-sous-groupe}{
