@@ -68,7 +68,7 @@
 		Décrire la loi de composition de $G$ à l'aide d'une table de multiplication.
 	\end{enumerate}
 	
-	Remarque : un groupe $G$ est entièrement décrit par sa table de multiplication.
+	\emph{Remarque : un groupe $G$ est entièrement décrit par sa table de multiplication.}
 }{exe:D6}{
 	todo
 }
@@ -240,7 +240,7 @@
 		Montrer que $\bigpar{R-\{1\}, \circ}$ est un groupe si et seulement si $R$ est un corps.
 	\end{enumerate}
 }{exe:circle-op}{
-
+	todo
 }
 
 \dfn{corps gauche}{
@@ -257,9 +257,17 @@
 	En effet, $(a+bi+cj+dk)^{-1} = \frac{a-bi-cj-dk}{a^2 + b^2 + c^2 + d^2}$ si $(a,b,c,d)\neq(0,0,0,0)$
 	et $ij = (jk)(ki) = jk^2 i = -ji$.
 	
-	Il s'avère que les quaternions traduisent des rotations dans $\R^3$ et s'identifient à un ensemble de matrices $3\times3$.
+	Il s'avère que les quaternions traduisent des rotations dans $\R^4$ et s'identifient à un ensemble de matrices $4\times4$.
 	Leur non commutativité n'est donc pas surprenante.
 }{ex:quaternions}
+
+\exe{difficulty=1}{
+	Considérons le sous-ensemble $E$ des matrices réelles $2\times2$ suivant.
+		\[ E = \left\{ \begin{pmatrix} a & -b \\ b & a \end{pmatrix} \tq a, b \in \R \right\}. \]
+	Montrer que $E$ est un corps lorsque muni de l'addition et de la multiplication usuelles des matrices.
+}{exe:C-as-matrix}{
+	todo
+}
 
 \subsection{Anneau intègre}
 
@@ -569,27 +577,32 @@
 
 \section{Algèbre sur un corps}
 
-Considérons le polynôme $p(x) = x^3 + x^2 - 3x + 1 \in \R[x]$ et demandons-nous : pour quel objet $a$ est-ce que l'évaluation $p(a)$ a un sens ?
-Notons $A$ l'ensemble des objets et étudions ce que $A$ doit admettre comme structure.
-Il faut pouvoir
-\begin{enumerate}
-	\item
-	multiplier des objets de $A$ ensemble, car $a^2 =a \times a$ doit avoir un sens ;
-	\item
-	additionner des objets de $A$ ensemble, car $a^3 + a^2$ doit avoir un sens ;
-	\item
-	multiplier chaque objet de $A$ par un nombre réel du corps $\R$, car $-3x = (-3)\cdot a$ doit avoir un sens.
-\end{enumerate}
-Remarquons que nous devons avoir trois loi.
-Deux lois sont internes à $A$, $+$ et $\times$, et une loi est externe de $\R$ sur $A$.
-Les deux premières rappellent la structure de l'anneau, et la deuxième celle de l'espace vectoriel !
-
-Pour bien évaluer le polynôme $x^3 + x^2 - 3x + 1\in\R[x]$ en un objet $a$ de $A$, il conviendra alors de voir $1$ comme $1\cdot1$, où le premier $1$ est dans $\R$, et le deuxième $1$ dans $A$.
-
-Il est en outre souhaitable que $p(x) + q(x) = (p+q)(x)$ et que $p(x)\times q(x) = (p\cdot q)(x)$.
-Pour ce faire, les lois de $A$ doivent être assiociatives, la multiplication ($\cdot$ ou $\times$) doit se distribuer sur l'addition $+$, et les loi $\cdot$ et $\times$ doivent être compatibles : $(k\cdot x)\times(k' \cdot x') = (kk')(x\cdot x')$.
-
-Nous avons caché ici une quatrième et une cinquième loi, celles de l'addition et de la multiplication internes au corps $\K$.
+\motiv{
+	Considérons le polynôme $p(x) = x^3 + x^2 - 3x + 1 \in \R[x]$ et demandons-nous : pour quel objet $a$ est-ce que l'évaluation $p(a)$ a un sens ?
+	Notons $A$ l'ensemble des objets et étudions ce que $A$ doit admettre comme structure.
+	Il faut pouvoir
+	\begin{enumerate}
+		\item
+		multiplier des objets de $A$ ensemble, car $a^2 =a \times a$ doit avoir un sens ;
+		\item
+		additionner des objets de $A$ ensemble, car $a^3 + a^2$ doit avoir un sens ;
+		\item
+		multiplier chaque objet de $A$ par un nombre réel du corps $\R$, car $-3x = (-3)\cdot a$ doit avoir un sens.
+	\end{enumerate}
+	Remarquons que nous devons avoir trois loi.
+	Deux lois sont internes à $A$, $+$ et $\times$, et une loi est externe de $\R$ sur $A$.
+	Les deux premières appellent une structure d'anneau, et la deuxième celle d'espace vectoriel.
+	
+	Pour bien évaluer le polynôme $x^3 + x^2 - 3x + 1\in\R[x]$ en un objet $a$ de $A$, il conviendra alors de voir $1$ comme $1\cdot1$, où le premier $1$ est dans $\R$, et le deuxième $1$ dans $A$.
+	
+	Il est en outre souhaitable que $p(x) + q(x) = (p+q)(x)$ et que $p(x)\times q(x) = (p\cdot q)(x)$.
+	Pour ce faire, les lois de $A$ doivent être assiociatives, les multiplications ($\cdot$ et $\times$) doivent se distribuer sur l'addition $+$, et les loi $\cdot$ et $\times$ doivent être compatibles : $(k\cdot x)\times(k' \cdot x') = (kk')(x\cdot x')$.
+	
+	Notons qu'il n'est pas nécessaire que l'algèbre soit commutative pour avoir $p(a)\times q(a) = (p\cdot q)(a)$ car les puissances de $a$ commutent toujours entre elles.
+	Un exemple est fourni à l'exercice \ref{exe:verif-R2-algebra}.
+	
+	Pour alléger les notations, nous avons caché une quatrième et une cinquième loi, celles de l'addition et de la multiplication internes au corps $\K$.
+}
 
 \ex{}{
 	Considérons $p(x) = x^3 + x^2 - 3x + 1\in\R[x]$.
@@ -617,9 +630,32 @@ Nous avons caché ici une quatrième et une cinquième loi, celles de l'addition
 		Ajoutons la multiplication interne usuelle des matrices
 			\[ \begin{pmatrix} a & b \\ c & d\end{pmatrix} \times \begin{pmatrix} a' & b' \\ c' & d'\end{pmatrix}  = \begin{pmatrix} aa' + bc' & ab'+bd' \\ ca'+dc' & cb'+dd' \end{pmatrix}.\]
 		Alors
-			\[ p(a) = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}^3 + \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}^2 - 3\cdot\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} + 1\cdot\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 42 & 87 \\ 58 & 129 \end{pmatrix} \]
+			\[ p(a) = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}^3 + \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}^2 - 3\cdot\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} + 1\cdot\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 42 & 58 \\ 87 & 129 \end{pmatrix} \]
 	\end{enumerate}
 }{ex:algebres}
+
+\exe{}{
+	En reprenant l'exemple \ref{ex:algebres}, vérifier que $q(x) = (x-1)(x^2 + 2x - 1)$ est égal à $p(x)$ dans $\R[x]$ puis qu'on a bien $q(a) = p(a)$ pour $a = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$.
+	
+}{exe:verif-R2-algebra}{
+	En remplaçant le $1$ par l'unité de l'algèbre $I$, nous devons calculer $q(a) = (a-I)(a^2 + 2a - I)$.
+	
+	D'abord, 
+		\[a - I = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} - \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & 2 \\ 3 & 3 \end{pmatrix}.\]
+	Puis 
+		\[ a^2 + 2a - I = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} + 2\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} - \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 8 & 21 \\ 14 & 29 \end{pmatrix}.\]
+	Finalement, 
+		\[ q(a) = (a-I)(a^2 + 2a - I) = \begin{pmatrix} 0 & 2 \\ 3 & 3 \end{pmatrix} \begin{pmatrix} 9 & 21 \\ 14 & 30 \end{pmatrix} = \begin{pmatrix} 42 & 58 \\ 87 & 129 \end{pmatrix}, \]
+	ce qui est égal au $p(a)$ calculé dans l'exemple \ref{ex:algebres}.
+	
+	Remarquons d'ailleurs que la décomposition $p(x) =(x^2 + 2x - 1)(x-1)$ donne \apriori~un résultat différent lorsque évalué en $a$.
+	Cependant, ce n'est pas le cas car les matrices $a-I$ et $a^2 + 2a -I$ commutent en tant que des puissances de $a$.
+}
+
+\nt{
+	La factorisation dans $\R[x]$ garde son utilité lorsque $x$ est remplacé par un élément $a$ d'un anneau, même non commutatif. 
+	Les puissances de $a$ commutent toujours entre elles.
+}
 
 \dfn{algèbre sur un corps}{
 	Une \emphindex{algèbre sur un corps} $\bigpar{A, +, \cdot, \times}$ est un ensemble muni de deux lois satisfaisant les axiomes suivants.
@@ -654,6 +690,7 @@ Nous avons caché ici une quatrième et une cinquième loi, celles de l'addition
 	L'algèbre $\R^3$ vue comme $\R$-espace vectoriel et munie du produit vectoriel interne $\times = \land$ où
 		\[ u \land v = \begin{pmatrix} u_1 \\ u_2 \\ u_3 \end{pmatrix} \land \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} u_2v_3 - u_3v_2\\ u_3v_1-u_1v_3 \\ u_1v_2-u_2v_1 \end{pmatrix} \]
 	n'est ni associative ($u\land(v\land w) \neq (u\land v)\land w$), ni commutative ($u\land v = -v\land u$), ni unitaire ($\not\exists e \tq u\land e = u \forall u\in\R^3$).
+	Géométriquement, le produit vectoriel de deux vecteurs $u, v$ orthogonaux donne un vecteur $u\land v$ tel que $\bigpar{ u, v, u\land v}$ soit une base orthonormée de sens direct ($\det = +1$ ou respectant la règle du tire-bouchon) de $\R^3$.
 }
 
 % for  poly(x)
