@@ -77,12 +77,13 @@
 }
 
 % \smash avant \underline pour coller la ligne au mot
+% attention : ça empêche les line breaks donc c'est pas super...
 \let\oldunderline\underline
 \renewcommand{\underline}[1]{\oldunderline{\smash{#1}}}
 
 % emph + index
 % i add underline just for now
-\newcommand{\emphindex}[1]{\emph{\underline{#1}}\index{#1}}
+\newcommand{\emphindex}[1]{\emph{\uline{#1}}\index{#1}}
 
 % tableau croisé
 \newcommand{\tableaucroise}[4]{
