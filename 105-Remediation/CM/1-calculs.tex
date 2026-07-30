@@ -1,19 +1,11 @@
 %!TEX encoding = UTF8
 %!TEX root = 0-notes.tex
 
-\chapter{Équations}
-\label{chap:équations}
-
-%\section{Cours}
-
 \newpage
-
-\pagestyle{fancy}
-\fancyhead[L]{Université de Mayotte}
-\fancyhead[C]{\textbf{Chapitre 1 — Équations}}
-\fancyhead[R]{\today}
-
-
+\addtocounter{chapter}{1}
+\addcontentsline{toc}{chapter}{Calculs}
+\addcontentsline{toc}{section}{Cours}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Calculs}}
 
 % (un)comment for completion
 \renewcommand{\phantom}[1]{#1}
@@ -77,9 +69,8 @@
 
 
 \newpage
-%\pagestyle{plain}
-
-\section{Exercices}
+\addcontentsline{toc}{section}{Exercices}
+\fancyhead[C]{\textbf{Chapitre 1 — Exercices}}
 
 
 \exe{,difficulty=3}{
@@ -87,13 +78,9 @@
 }{exe:1}{
 	sol1
 }
-
-%\section*{Exercices}
-%\addcontentsline{toc}{section}{Exercices}
-%
-%\shipoutExercise
-
-\section{Solutions}
+\newpage
+\addcontentsline{toc}{section}{Solutions}
+\fancyhead[C]{\textbf{Chapitre 1 — Solutions}}
 
 \shipoutAnswer
 
