@@ -1,85 +1,17 @@
 %!TEX encoding = UTF8
 %!TEX root = 0-notes.tex
 
-\chapter{Équations}
-\label{chap:équations}
-
-%\section{Cours}
-
-\newpage
-
-\pagestyle{fancy}
-\fancyhead[L]{Université de Mayotte}
-\fancyhead[C]{\textbf{Chapitre 1 — Équations}}
-\fancyhead[R]{\today}
-
-
-
-% (un)comment for completion
-\renewcommand{\phantom}[1]{#1}
-
-\dfn{}{
-	Une \emph{fonction affine} est une fonction $f$ vérifiant pour tout $x\in\R$
-		\begin{align*}
-			f(x) = \phantom{ax + b,}
-		\end{align*}
-	où \phantom{\quad$a$\quad} et \phantom{\quad$b$\quad} sont deux paramètres : \phantom{le coefficient directeur et l'ordonnée à l'origine.}
-}{def:affine}
+\unchapter{Équations}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Méthodologie}}
+\addcontentsline{toc}{section}{Méthodologie}
 
 \prop{}{
-	Si $f(x) = ax+b$, alors
-		\begin{multicols}{2}
-		\begin{enumerate}
-			\item $f(0) = \phantom{b ;}$
-			\item $f(1) - f(0) = \phantom{a.}$
-		\end{enumerate}
-		\end{multicols}
-}{prop:Cf-affine}
 
-\prop{}{
-	La courbe représentative d'une fonction affine est \phantom{une droite non verticale.}
-}{prop:Cf-affine}
-
-
-\dfn{équation de droite}{
-	Pour une fonction affine $f(x) = \phantom{\quad ax+b\quad}$, on parle de $\Ccal_f$ comme la « \emph{droite d'équation \phantom{\quad$y=ax+b$\quad}} ».
-}{dfn:eq-droite}
-
-
-\thm{intersection}{
-	Un point $P(x_P ; y_P)$ à l'intersection des courbes $\Ccal_f$ et $\Ccal_g$ vérifie
-		\begin{align*}
-			\phantom{f(x_P) = g(x_P),} && \et && \phantom{y_P = f(x_P) = g(x_P).}
-		\end{align*}
-}{thm:intersection}
-
-
-\thm{variations}{
-	On distingue trois cas de figure.
-		\begin{itemize}
-			\item Si \phantom{\quad$a < 0$\quad}, alors $f$ est \phantom{strictement décroissante.}
-			\item Si \phantom{\quad$a=0$\quad}, alors $f$ est \phantom{constante.}
-			\item Si \phantom{\quad$a>0$\quad}, alors $f$ est \phantom{strictement croissante.}
-		\end{itemize}
-}{thm:affine-var}
-
-\ex{}{\,\\
-%	\begin{center}
-%	\begin{tikzpicture}[scale=1.5]
-%	\begin{axis}[domain=-1.1:2.1, ticks = none, grid=none]
-%		\addplot[GOLD_E, very thick] expression{3*x-2};
-%		\addplot[PURPLE, very thick] expression{3-3*x};
-%		\addplot[GREEN_E, very thick] expression{-4};
-%	\end{axis}
-%	\end{tikzpicture}
-%	\end{center}
-}{}
-
+}{prop:1}
 
 \newpage
-%\pagestyle{plain}
-
-\section{Exercices}
+\addcontentsline{toc}{section}{Exercices}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Exercices}}
 
 
 \exe{,difficulty=3}{
@@ -87,13 +19,9 @@
 }{exe:1}{
 	sol1
 }
-
-%\section*{Exercices}
-%\addcontentsline{toc}{section}{Exercices}
-%
-%\shipoutExercise
-
-\section{Solutions}
+\newpage
+\addcontentsline{toc}{section}{Solutions}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Solutions}}
 
 \shipoutAnswer
 

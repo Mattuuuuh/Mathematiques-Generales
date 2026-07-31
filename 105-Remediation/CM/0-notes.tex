@@ -17,6 +17,18 @@
 \fancyhead[L]{Université de Mayotte}
 \fancyhead[R]{\today}
 
+
+\makeatletter
+\newcommand{\unchapter}[1]{%
+  \begingroup
+  \let\@makechapterhead\@gobble % make \@makechapterhead do nothing
+  \chapter{#1}
+  \endgroup
+}
+\makeatother
+\usepackage{etoolbox}
+%\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
 \begin{document}
 
 \maketitle
