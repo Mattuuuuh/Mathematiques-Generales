@@ -28,12 +28,12 @@
 \makeatother
 \usepackage{etoolbox}
 %\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
-
 \begin{document}
 
 \maketitle
 \newpage
-\tableofcontents
+\renewcommand*\contentsname{}
+\twocolstableofcontents
 \pagebreak
 
 \include{1-preface}

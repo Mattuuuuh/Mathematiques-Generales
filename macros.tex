@@ -1,11 +1,5 @@
 %!TEX encoding = UTF8
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SELF MADE COMMANDS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%
-
 % deliminators
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
@@ -94,6 +88,20 @@
 	#3  \\ \hline
 	#4  \\ \hline
 \end{tabular}
+}
+
+% two columns toc
+\newcommand{\twocolstableofcontents}{
+	\begin{center}  
+		{\Large \bfseries TABLE DES MATIÈRES \bigskip}    
+	\end{center}
+	\begin{multicols}{2}
+		\titleformat{\chapter}{}{}{0pt}{} 
+		\titlespacing*{\chapter}{0pt}
+		{*7} %  % vertical space before the title <<<<<<<<<<
+		{*-15}  %  idem after title (in ex units + glue) <<<<<<<<<<<
+		\tableofcontents
+	\end{multicols}
 }
 
 % python minted
