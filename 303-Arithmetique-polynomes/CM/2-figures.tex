@@ -1,0 +1,37 @@
+\input{../../preamble-fig}
+
+\begin{document}
+%
+	% page 1
+	\begin{tikzpicture}
+		% nodes
+		\draw[thick] (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw[thick] (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw[thick] (10,0) ellipse (2cm and .5cm) node {Valeur finale};
+		
+		% vertices
+		\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
+		
+		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times (m_1\cdot m_2)$};
+	\end{tikzpicture}
+	
+	% page 2
+	\begin{tikzpicture}
+		% nodes
+		\draw[thick] (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		\draw[thick] (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
+		
+		\draw[thick] (10,0) ellipse (2cm and .5cm) node {Valeur initiale};
+		
+		% vertices
+		\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
+		\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times \dfrac{1}{m_1}$};
+		
+		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times \left(m_1\cdot \dfrac{1}{m_1}\right) = \times 1$};
+	\end{tikzpicture}
+%
+\end{document}
