@@ -392,6 +392,27 @@
 }
 
 \exe{}{
+	Développer et réduire le produit suivant dans $\Z[x]$.
+		\[ f(x) = 3(x+1)(x+4)(x-1)(x-2). \]
+}{exe:dev-red}{
+	$f(x) = 3x^4 + 6x^3 -27x^2 -6x + 24$.
+}
+
+
+\exe{}{
+	Écrire les premiers termes du produit de sommes suivant, où $s\in\C$.
+		\[ f(s) = \prod_{p \in \{ 2 ; 3; 5; 7 ; 11\}} \left( 1 + \frac1{p^s} + \frac1{p^{2s}} + \frac1{p^{3s}} + \frac1{p^{4s}} \right). \]
+}{exe:zeta-fini}{
+	Soit $S$ l'ensemble des entiers naturels dont la décomposition en facteurs premiers est composée uniquement de premiers dans $\{2;3;5;7;11\}$ à puissance inférieure ou égal à 4.
+	Alors, comme la décomposition en facteurs premiers est unique, chaque terme de la forme développée est unique, et
+		\[ f(s) = \sum_{n \in S} \frac1{n^s} = 1 + \frac1{2^s} + \frac1{3^s} + \frac1{4^s}+\frac1{5^s}+\frac1{6^s} + \dots. \]
+	Le premier terme qui n'apparait pas dans $f$ est $\frac1{13^s}$.
+	Lorsque l'ensemble des premiers grandit et que les puissances aussi, nous obtenons la forme suivante de la \emphindex{fonction zêta de Riemann}, appelée \emphindex{produit eulérien}.
+		\[ \zeta(s) = \prod_{p \text{ premier}} \left(1-\frac1{p^s}\right)^{-1}. \]
+}
+
+
+\exe{}{
 	Soit $n\in\N^*$.
 	En étudiant $(1+x)^n + (1-x)^n$, montrer que
 		\[ \sum_{\substack{k=0 \\ \text{$k$ pair}}}^n {n \choose k} =  \sum_{\substack{k=0 \\ \text{$k$ impair}}}^n {n \choose k} =  2^{n-1}. \]
