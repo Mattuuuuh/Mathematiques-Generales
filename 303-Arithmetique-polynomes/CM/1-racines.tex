@@ -326,6 +326,43 @@
 \section*{Exercices supplémentaires}
 \addcontentsline{toc}{section}{Exercices supplémentaires}
 
+\exe{}{
+	Vrai ou faux ?
+	\begin{enumerate}[itemsep=10pt]
+		\item
+		Si $f\in\R[x]$ n'admet aucune racine dans $\R$, alors $\deg(f)$ est pair.
+		\item
+		Si $\deg(f)$ est pair, alors $f\in\R[x], f\neq0$ n'admet aucune racine dans $\R$.
+		\item
+		Si $f\in\R[x]$ vérifie $f(z) \neq 0$ pour un $z\in\C$, alors il existe un $a\in\R$ tel que $f(a) \neq 0$.
+		\item
+		Si $\xi$ et $\zeta$ sont deux racines de l'unité, il existe un $n\in\N^*$ tel que $\xi^n = \zeta^n = 1$.
+		\item
+		Si $\zeta$ est une $n$-ième racine de l'unité ($n\in\N^*$), alors pour tout $m\in\N^*$, $\zeta^m = 1 \implies n|m$.
+		\item
+		Si $\xi$ et $\zeta$ sont deux une racine $m$-ième et une racine $n$-ième de l'unité respectivement ($m, n\in\N^*$), alors $\xi \zeta$ est une racine $mn$-ième de l'unité.
+	\end{enumerate}
+}{exe:TF-racines}{
+	\begin{enumerate}
+		\item
+		Vrai. La décomposition en facteurs irréductibles de $f$ sur $\R[x]$ admet au moins un terme linéaire.
+		\item
+		Faux. Prendre $f(x) = x^2$.
+		\item
+		Vrai. En plongeant $f$ dans $\C$, nous voyons qu'il n'est pas le polynôme nul car il ne s'annule pas en $z$.
+		Dès lors, il ne s'annule pas partout sur $\R$.
+		\item
+		Vrai : prendre le produit (ou le PPCM) des ordres des racines.
+		\item
+		Faux : $-1$ est une racine $2$-ième de l'unité, mais aussi une racine $4$-ième, ou une racine $6$-ième de l'unité !
+		Bien sûr, 6 ne divise pas 2.
+		\item
+		Vrai car $(\xi \zeta)^{mn} = \left(\xi^{m}\right)^n \left(\zeta^n\right)^m = 1$.
+	\end{enumerate}
+	
+}
+
+
 \exe{difficulty=1}{
 	Soit $z\in\C$ une racine $p$-ième de l'unité où $p$ est un nombre premier.
 	Montrer que le polynôme annulateur de $z$ de degré minimal est $x^{p-1} + x^{p-2} + \dots + 1$.

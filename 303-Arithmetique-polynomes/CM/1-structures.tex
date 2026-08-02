@@ -41,7 +41,7 @@
 }
 
 \exe{}{
-	Montrer que $\bigpar{ Z ,+}$ est un groupe mais que $\bigpar{Z, \cdot}$ n'en est pas un.
+	Montrer que $\bigpar{ \Z ,+}$ est un groupe mais que $\bigpar{\Z, \cdot}$ n'en est pas un.
 }{exe:Z-group}{
 	Les axiomes sont tous vérifés pour la loi $+$.
 	L'axiome de l'inverse n'est pas vérifé pour la loi $\cdot$.
@@ -695,8 +695,40 @@
 
 % for  poly(x)
 
-\section*{Exercices}
-\addcontentsline{toc}{section}{Exercices}
+\section*{Exercices supplémentaires}
+\addcontentsline{toc}{section}{Exercices supplémentaires}
+
+\exe{}{
+	Vrai ou faux ?
+	\begin{enumerate}[itemsep=10pt]
+		\item
+		Si $p\in\K[x]$ vérifie $p(a) = 0$ pour tout $a\in\K$, alors $p$ est le polynôme nul.
+		\item
+		La division euclidienne existe dans $\F_{11}[x]$.
+		\item
+		La division euclidienne existe dans $\Z[x]$.
+		\item
+		Si $f|g$ dans $\K[x]$, alors $\deg(f) \leq \deg(g)$.
+		\item
+		Si $f'(x) = 0$ dans $\K[x]$, alors $f$ est une constante.
+	\end{enumerate}
+}{exe:TF-structures}{
+	\begin{enumerate}
+		\item
+		Faux sur les corps finis. Prendre $p(x) = x(x-1)$ dans $\F_2[x]$. 
+		\item
+		Vrai car $\F_{11}$ est un corps.
+		\item
+		Faux. La division euclidienne de $x$ par $2$ ne reste pas dans $\Z[x]$.
+		\item
+		Faux uniquement à cause du polynôme nul $g=0$. 
+		Tous les polynômes divisent le polynôme nul. 
+		\item
+		Faux sur les corps finis. Prendre $f(x) = x^{11}$ dans $\F_{11}[x]$.
+	\end{enumerate}
+	
+}
+
 
 \shipoutExercise
 

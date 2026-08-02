@@ -1,5 +1,67 @@
 %!TEX encoding = UTF8
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\thm}[3]{\begin{theorem}[#1]\label{#3}#2\end{theorem}}
+\newcommand{\cor}[3]{\begin{corollaire}[#1]\label{#3}#2\end{corollaire}}
+\newcommand{\lem}[3]{\begin{lemme}[#1]\label{#3}#2\end{lemme}}
+\newcommand{\prop}[3]{\begin{proposition}[#1]\label{#3}#2\end{proposition}}
+\newcommand{\ex}[3]{\begin{exemple}[#1]\label{#3}#2\end{exemple}}
+\newcommand{\dfn}[3]{\begin{definition}[#1]\label{#3}#2\end{definition}}
+\newcommand{\qs}[2]{\begin{question}[#1]#2\end{question}}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\pf}[2]{\begin{preuve}[#1]#2\hfill\qedsymbol\end{preuve}}
+
+\newcommand{\nt}[1]{\begin{remarque}#1\end{remarque}}
+\newcommand{\str}[1]{\begin{strategie}#1\end{strategie}}
+\newcommand{\mth}[1]{\begin{methode}#1\end{methode}}
+\newcommand{\ax}[3]{\begin{axiome}[#1]\label{#3}#2\end{axiome}}
+\newcommand{\notations}[1]{\begin{notation}#1 \end{notation}}
+\newcommand{\nomen}[1]{\begin{nomenclature}#1 \end{nomenclature}}
+\newcommand{\heur}[1]{\begin{heuristique}#1\end{heuristique}}
+\newcommand{\motiv}[1]{\begin{motivation}#1\end{motivation}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCISES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\exe}[4]{
+	\begin{Exercise}[#1, label=#3]
+		%\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+		#2
+	\end{Exercise}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}
+
+\newcommand{\exemulticols}[5]{
+	%\begin{multicols}{2}
+	\begin{Exercise}[#1, label=#4]
+	\begin{multicols}{2}
+		%\marginnote{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+		#2
+	\columnbreak
+		#3
+	\end{multicols}
+	\end{Exercise}
+	%\end{multicols}
+	\begin{Answer}[ref=#4]
+		#5
+	\end{Answer}
+}
+
+\newcommand{\exeTF}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPERATORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % deliminators
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
@@ -26,11 +88,20 @@
 
 \DeclareMathOperator{\Frac}{Frac}
 
+% Lois
+\DeclareMathOperator{\Bern}{\text{Bern}}
+\DeclareMathOperator{\Binom}{\text{Binom}}
+
 % I prefer the slanted \leq
 \let\oldleq\leq % save them in case they're every wanted
 \let\oldgeq\geq
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % tel que
 \newcommand{\tqs}{\text{ tels que }}
@@ -42,9 +113,6 @@
 \newcommand{\id}{\text{id}}
 \newcommand{\apriori}{\emph{a priori}}
 
-% Lois
-\newcommand{\Bern}{\text{Bern}}
-\newcommand{\Binom}{\text{Binom}}
 
 % ensemble avec bigl et bigr
 \newcommand{\bigset}[1]{\bigl\{ #1 \bigr\}}
@@ -90,18 +158,25 @@
 \end{tabular}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % two columns toc
 \newcommand{\twocolstableofcontents}{
+	\renewcommand*\contentsname{}
 	\begin{center}  
 		{\Large \bfseries TABLE DES MATIÈRES \bigskip}    
 	\end{center}
-	\begin{multicols}{2}
+	\hrule
+	\begin{multicols}{2}\setlength{\columnseprule}{1pt}
 		\titleformat{\chapter}{}{}{0pt}{} 
 		\titlespacing*{\chapter}{0pt}
 		{*7} %  % vertical space before the title <<<<<<<<<<
 		{*-15}  %  idem after title (in ex units + glue) <<<<<<<<<<<
 		\tableofcontents
 	\end{multicols}
+	\hrule
 }
 
 % python minted
