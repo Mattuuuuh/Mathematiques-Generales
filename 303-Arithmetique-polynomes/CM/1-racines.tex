@@ -136,6 +136,10 @@
 		\[  \prod_{\lambda \in \Lambda} (x+\lambda) = \sum_{d=0}^{n} x^d \sum_{\substack{I \subset \Lambda, \\ |I| = n-d}} \prod_{\lambda \in I} \lambda. \]
 }{prop:expand-product}
 
+\nt{
+	Pour appliquer ce résultat à un produit de racines $(x-\alpha)$, il suffira de prendre $\lambda = -\alpha$ en faisant attention aux signes.
+}
+
 \ex{}{
 	Considérons le polynôme de $\R[x]$
 		\[ f(x) = (x+2)(x+6)(x-1) \]
@@ -341,6 +345,14 @@
 		Si $\zeta$ est une $n$-ième racine de l'unité ($n\in\N^*$), alors pour tout $m\in\N^*$, $\zeta^m = 1 \implies n|m$.
 		\item
 		Si $\xi$ et $\zeta$ sont deux une racine $m$-ième et une racine $n$-ième de l'unité respectivement ($m, n\in\N^*$), alors $\xi \zeta$ est une racine $mn$-ième de l'unité.
+		\item
+		Si $\pgcd(f, g) = 1$ dans $\K[x]$, alors $f$ et $g$ n'ont pas de racine commune.
+		\item
+		Deux polynômes $f, g\in\R[x]$ sans racine commune sont premiers entre eux.
+		\item
+		La somme des racines complexes (comptées avec multiplicités) de $x^{42} + 13 x^{41} - 1$ est $13$.
+		\item
+		Le produit des racines complexes (comptées avec multiplicités) de $x^{5} + 1312 x^{2} + 12$ est $-12$.
 	\end{enumerate}
 }{exe:TF-racines}{
 	\begin{enumerate}
@@ -358,6 +370,14 @@
 		Bien sûr, 6 ne divise pas 2.
 		\item
 		Vrai car $(\xi \zeta)^{mn} = \left(\xi^{m}\right)^n \left(\zeta^n\right)^m = 1$.
+		\item
+		Vrai car, dans le cas contraire, évaluer $fu + gv = 1$ en cette racine aboutit à une contradiction.
+		\item
+		Faux, prendre $f = g = x^2 + 1$ qui n'ont pas de racine du tout dans $\R$.
+		\item
+		Faux, la somme vaut $-a_{41} = -13$.
+		\item
+		Vrai, le produit vaut $(-1)^5 a_0 = -12$.
 	\end{enumerate}
 	
 }

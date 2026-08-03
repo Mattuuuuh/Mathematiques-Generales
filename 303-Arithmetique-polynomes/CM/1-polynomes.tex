@@ -815,6 +815,9 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \nt{
 	La condition $a_n>0$ permet d'obtenir l'unicité du lemme \ref{lem:primitif} suivant.
 	Sans celle-ci, $2(x+1)= -2(-x-1)$ seraient deux décompositions distinctes du même polynôme de $\Z[x]$.
+	
+	Certaines propositions utiliseront la notation $\pm$, lue « \emphindex{plus ou moins} », pour cette raison.
+	L'exercice \ref{exe:primitive-divisors} est un exemple.
 }
 
 \lem{}{
@@ -842,6 +845,22 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Il suit donc que $f_0 = f_0'$ et $c=c'$.
 	
 	L'équivalence $f \in \Z[x] \iff c \in \Z$ est claire.
+}
+
+\exe{}{
+	Soit $g_0\in\Z[x]$ un polynôme primitif.
+	Montrer que si $f$ divise $g_0$ dans $\Z[x]$, alors $\pm f$ est également primitif.
+}{exe:primitive-divisors}{
+	Notons $g_0 = fq$ la division dans $\Z[x]$ ainsi que $f = c_f f_0$ la factorisation en polynôme primitif du lemme \ref{lem:primitif}.
+	Si un premier $p$ divise $c_f$, alors $p$ divisera $g_0$ ce qui contredit son caractère primitif.
+%	Notons $g_0 = fq$ la division dans $\Z[x]$ ainsi que $f = c_f f_0$ et $q = c_q q_0$ la factorisation en polynômes primitifs du lemme \ref{lem:primitif}.
+%	Les contenus $c_f$ et $c_q$ sont tous les deux des entiers relatifs, et le produit $f_0 q_0$ est primitif d'apèrs le lemme de Gauss \ref{lem:Gauss}.
+%	
+%	Par conséquent, nous avons l'implication suivante
+%		\begin{align*} g_0 = fq && \iff g_0 = (c_f c_q) f_0 q_0 \implies 1 = c_f c_q, \end{align*}
+%	équation dans $\Z$ qui implique $c_f = c_q = \pm 1$ et qui conclut.
+%	
+%	Un autre preuve est la suivante.
 }
 
 \subsection{Classification des irréductibles}
@@ -991,6 +1010,16 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 		Si $f|g$ dans $\K[x]$, alors $\deg(f) \leq \deg(g)$.
 		\item
 		Si $f'(x) = 0$ dans $\K[x]$, alors $f$ est une constante.
+		\item
+		Soient $f, g\in\K[x]$. Alors $\deg(fg) = \deg(f)+\deg(g)$.
+		\item
+		Un polynôme constant de $\K[x]$ est de degré nul.
+		\item
+		$7x$ divise $x$ dans $\C[x]$.
+		\item
+		$x+1$ divise $2x^5 -x^4 - 3x^3 + x^2 -3x - 4$ dans $\Z[x]$.
+		\item
+		$2x-2$ divise $2x^3 + 2x^2 - 5x +1$ dans $\Z[x]$.
 	\end{enumerate}
 }{exe:TF-polynomes}{
 	\begin{enumerate}
@@ -1005,6 +1034,19 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 		Tous les polynômes divisent le polynôme nul. 
 		\item
 		Faux sur les corps finis. Prendre $f(x) = x^{11}$ dans $\F_{11}[x]$.
+		\item
+		Vrai (proposition \ref{prop:deg-div}).
+		\item
+		Faux à cause du polynôme nul de degré $\minfty$ par convention.
+		\item
+		Vrai car $(7x)\cdot\frac17 = x$.
+		C'est faux dans $\Z$, en revanche !
+		\item
+		Vrai car $-1$ est racine du deuxième polynôme et que le premier est primitif.
+		\item
+		Faux. Le premier polynôme divise le deuxième dans $\Q[x]$ car $-1$ est racine du deuxième.
+		En revanche, dans $\Z[x]$, le deuxième polynôme est primitif mais pas le premier.
+		La division dans $\Z[x]$ n'est donc pas possible, d'après l'exercice \ref{exe:primitive-divisors}.
 	\end{enumerate}
 	
 }

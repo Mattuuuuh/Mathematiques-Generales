@@ -94,7 +94,7 @@
 }{dfn:anneau}
 
 \nt{
-	Attention : la structure $\bigpar{ R, \cdot}$ n'est pas forcément un monoïde : elle n'admet pas forcément d'élément neutre.
+	Attention : la structure $\bigpar{ R, \cdot}$ n'admet pas forcément d'élément neutre. Une telle structure avec élément neutre s'appelle un \emphindex{monoïde}.
 }
 
 \nomen{
@@ -702,29 +702,40 @@
 	Vrai ou faux ?
 	\begin{enumerate}[itemsep=10pt]
 		\item
-		Si $p\in\K[x]$ vérifie $p(a) = 0$ pour tout $a\in\K$, alors $p$ est le polynôme nul.
+		L'ensemble $\{ 1 ; -1 \}$ est un groupe lorsque muni de la multiplication usuelle.
 		\item
-		La division euclidienne existe dans $\F_{11}[x]$.
+		Le seul sous-groupe de $\bigpar{\Z, +}$ contenant $1$ est $\Z$ lui-même.
 		\item
-		La division euclidienne existe dans $\Z[x]$.
+		L'ensemble $\R_+$ muni de multiplication usuelle est un groupe.
 		\item
-		Si $f|g$ dans $\K[x]$, alors $\deg(f) \leq \deg(g)$.
+		L'ensemble $\R$ muni de l'addition usuelle est un groupe.
 		\item
-		Si $f'(x) = 0$ dans $\K[x]$, alors $f$ est une constante.
+		L'ensemble des nombres décimaux $\D$ est un anneau muni de l'addition et de la multiplication usuelle.
+		\item
+		L'ensemble des nombres décimaux $\D$ est un corps.
+		\item
+		Si les seuls idéaux de l'anneau $R$ sont $\{ 0 \}$ et $R$ lui-même, alors $R$ est un corps.
+		\item
+		Le demi-plan complexe $\mathcal{H} = \bigset{ z \in \C \tq \RE(z) \geq 0 }$ muni de l'addition et de la multiplication usuelles est un anneau.
 	\end{enumerate}
 }{exe:TF-structures}{
 	\begin{enumerate}
 		\item
-		Faux sur les corps finis. Prendre $p(x) = x(x-1)$ dans $\F_2[x]$. 
+		Vrai.
 		\item
-		Vrai car $\F_{11}$ est un corps.
+		Vrai.
 		\item
-		Faux. La division euclidienne de $x$ par $2$ ne reste pas dans $\Z[x]$.
+		Faux car $0 \in \R_+$ et n'est pas inversible.
 		\item
-		Faux uniquement à cause du polynôme nul $g=0$. 
-		Tous les polynômes divisent le polynôme nul. 
+		Vrai.
 		\item
-		Faux sur les corps finis. Prendre $f(x) = x^{11}$ dans $\F_{11}[x]$.
+		Vrai.
+		\item
+		Faux car $\frac13$ n'est pas décimal et donc non inversible.
+		\item
+		Vrai.
+		\item
+		Faux car la multiplication n'est pas stable : $i^2 = -1 \not\in \mathcal{H}$.
 	\end{enumerate}
 	
 }
