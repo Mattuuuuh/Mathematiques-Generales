@@ -7,91 +7,100 @@
 %
 	% page 1
 	\begin{chart}
-	\grid
+	%\grid
 	% y = 65
-	\reqhalfcoursec 30,65:{Chapitre 1}{Anneau}{}{PURPLE_A}
-	\reqhalfcoursec 10,65:{Chapitre 1}{Corps}{}{PURPLE_A}
-	\reqhalfcoursec 50,65:{Chapitre 1}{Idéal}{}{PURPLE_A}
+	\reqhalfcoursec 10,65:{Chapitre 1}{Corps $\K$}{}{PURPLE_A}
+	\reqhalfcoursec 10,55:{Chapitre 1}{Anneau}{}{PURPLE_A}
+	\reqhalfcoursec 10,45:{Chapitre 1}{Idéal}{}{PURPLE_A}
 	
 	% y = 55
-	\reqhalfcoursec 30,55:{Chapitre 1}{Corps $K$}{}{PURPLE_A}
-	\reqhalfcoursec 10,55:{Chapitre 2}{Anneau $K[x]$}{}{YELLOW_D}
-	\reqhalfcoursec 50,55:{Chapitre 2}{Division euclidienne}{}{GREEN_A}
+	\reqhalfcoursec 30,65:{Chapitre 2}{Anneau $\mathbb{\K}[x]$ \\ {\tiny Degré d'un polynôme} }{}{YELLOW_D}
+	\reqhalfcoursec 50,65:{Chapitre 2}{Division euclidienne \\ {\tiny $a = bq + r$}}{}{GREEN_A}
 	
 	% y = 45
-	\reqhalfcoursec 30,45:{Chapitre 2}{Anneau euclidien \\ {\tiny Existence d'une division euclidienne}}{}{YELLOW_D}
-	\reqhalfcoursec 50,45:{Chapitre 2}{Algorithme d'Euclide \\ {\tiny Existence du PGCD}}{}{GREEN_A}
+	\reqhalfcoursec 30,55:{Chapitre 2}{Anneau euclidien \\ {\tiny Existence d'une division euclidienne}}{}{YELLOW_D}
+	\reqhalfcoursec 50,55:{Chapitre 2}{Algorithme d'Euclide \\ {\tiny Existence du PGCD}}{}{GREEN_A}
 	
 	% y = 35
-	\reqhalfcoursec 10,35:{Chapitre 2}{Anneau principal \\ {\tiny Chaque idéal est principal}}{}{YELLOW_D}
+	\reqhalfcoursec 30,45:{Chapitre 2}{Anneau principal \\ {\tiny Chaque idéal est principal}}{}{YELLOW_D}
 	\reqhalfcoursec 30,35:{Chapitre 2}{Anneau factoriel \\ {\tiny La décomposition en irréductibles est unique}}{}{YELLOW_D}
-	\reqhalfcoursec 50,35:{Chapitre 2}{Lemme d'Euclide \\ {\tiny Chaque irréductible est un premier}}{}{GREEN_A}
 	
 	% y = 25
-	\reqhalfcoursec 30,25:{Chapitre 2}{Anneau $Z[x]$}{}{YELLOW_D}
-	\reqhalfcoursec 50,25:{Chapitre 2}{Lemme de Gauss \\ {\tiny Classification des éléments irréductibles} \\ {\tiny Chaque irréductible est un premier}}{}{GREEN_A}
+	\reqhalfcoursec 50,45:{Chapitre 2}{Lemme d'Euclide \\ {\tiny Chaque irréductible est un premier}}{}{GREEN_A}
+	\reqhalfcoursec 30,25:{Chapitre 2}{Anneau $\Z[x]$}{}{YELLOW_D}
+	\reqhalfcoursec 50,25:{Chapitre 2}{Lemme de Gauss \\ {\tiny Classification des éléments irréductibles}\\ {\tiny Chaque irréductible est un premier}}{}{GREEN_A}
 	
 	% y = 15
-	\reqhalfcoursec 10,15:{Chapitre 3}{Anneau $C[x]$}{}{RED_C}
-	\reqhalfcoursec 30,15:{Chapitre 3}{Théorème fondamental \\ de l'algèbre}{}{RED_C}
+	\reqhalfcoursec 30,15:{Chapitre 3}{Anneaux $\C[x]$ \\ et $\R[x]$}{}{RED_C}
+	\reqhalfcoursec 10,15:{Chapitre 3}{Théorème fondamental \\ de l'algèbre}{}{RED_C}
 	\reqhalfcoursec 50,15:{Chapitre 4}{Corps des fractions}{}{BLUE_B}
 	
 	% y = 5
-	\reqhalfcoursec 10,5:{Chapitre 3}{Relations racines- \\ coefficients}{}{RED_C}
+	\reqhalfcoursec 10,25:{Chapitre 3}{Relations racines- \\ coefficients}{}{RED_C}
 	\reqhalfcoursec 30,5:{Chapitre 3}{Racines de l'unité}{}{RED_C}
 	\reqhalfcoursec 50,5:{Chapitre 4}{Décomposition en \\ facteurs simples}{}{BLUE_B}
 	
+	% plus signs
+	\text 40,60:{\Large$+$}
+	\text 40,50:{\Large$+$}
+	\text 40,40:{\Large$+$}
+	\text 40,30:{\Large$+$}
+	\text 20,20:{\Large$+$}
+	\text 40,10:{\Large$+$}
 	
 	
-%	% RECOMMENDATIONS
-%	% to y = 60
-%	
-%	% to y = 50
-%	
-%	% to y = 40
-%	\recomm 30,40,50,40:
-%	\recommc 10,60,50,40;-2:
-%	\recommc 10,60,10,40;-20:
-%	
-%	%\recommc 10,60,30,40;-70:
-%	
-%	% to y = 30
-%	
-%	% to y = 20
-%	\recommc 30,40,50,20;-20:
-%	
-%	% to y = 10
-%	\recommc 30,40,40,10;-30:
-%	\recommc 50,20,40,10;-30:
-%
-%	% PREREQUISITES
-%	% to y = 60
-%	\prereq 30,60,50,60:
-%	
-%	% to y = 50
-%	\prereq 30,60,20,50:
-%	\prereqc 50,60,20,50;-20:
-%	
-%	\prereq 50,60,40,50:
-%	\prereqc 10,40,40,50;10:
-%	
-%	% to y = 40
-%	\prereq 20,50,30,40:
-%	\prereq 20,50,10,40:
-%	
-%	\prereq 50,60,50,40:
-%	
-%	% to y = 30
-%	\prereq 20,50,20,30:
-%	\prereq 10,40,20,30:
-%	\prereq 30,40,20,30:
-%	
-%	% to y = 20
-%	\prereq 20,30,20,20:
-%	\prereqc 30,40,20,20;-60:
-%	
-%	% to y = 10
-%	\prereq 20,10,40,10:
+	% PREREQUISITES	
+	%PLUS STUFF
+	% to y = 60
+	\prereq 30,65,40,60:
+	\prereq 50,65,40,60:
+	% to y = 55
+	\prereq 40,60,30,55:
+	% to y = 50
+	\prereq 30,55,40,50:
+	\prereq 50,55,40,50:
+	% to y = 45
+	\prereq 40,50,30,45:
+	% to y = 40
+	\prereq 30,45,40,40:
+	\prereq 50,45,40,40:
+	% to y = 35
+	\prereq 40,40,30,35:
+	\prereq 40,30,30,35:
+	% to y = 30
+	\prereq 30,25,40,30:
+	\prereq 50,25,40,30:
+	
+	% to y = 20
+	\prereq 30,35,20,20:
+	\prereq 10,15,20,20:
+	% to y = 15
+	\prereq 20,20,30,15:
+	% to y = 10
+	\prereq 30,15,40,10:
+	\prereq 50,15,40,10:
+	% to y = 5
+	\prereq 40,10,50,5:
+	
+	% OTHER STUFF
+	% to y = 65
+	\prereq 10,65,30,65:
+	\prereq 10,55,10,65:
+	% to y = 55
+	\prereq 10,55,30,55:
+	\prereq 10,55,10,45:
+	% to y = 45
+	\prereq 10,45,30,45:
+	% to y = 25
+	\prereq 30,35,10,25:
+	% to y = 5
+	\prereq 30,15,30,5:
+	
+	% RECOMMENDATIONS
+	% to y = 40
+	%\recomm 30,40,50,40:
+	%\recommc 10,60,50,40;-2:
+	
 	
 	\end{chart}
 %
