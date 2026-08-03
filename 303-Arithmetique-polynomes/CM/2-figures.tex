@@ -1,37 +1,98 @@
 \input{../../preamble-fig}
+\tikzset{
+	every node/.style = {font=\normalsize}
+}
 
 \begin{document}
 %
 	% page 1
-	\begin{tikzpicture}
-		% nodes
-		\draw[thick] (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
-		
-		\draw[thick] (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
-		
-		\draw[thick] (10,0) ellipse (2cm and .5cm) node {Valeur finale};
-		
-		% vertices
-		\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
-		\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_2$};
-		
-		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times (m_1\cdot m_2)$};
-	\end{tikzpicture}
+	\begin{chart}
+	\grid
+	% y = 65
+	\reqhalfcoursec 30,65:{Chapitre 1}{Anneau}{}{PURPLE_A}
+	\reqhalfcoursec 10,65:{Chapitre 1}{Corps}{}{PURPLE_A}
+	\reqhalfcoursec 50,65:{Chapitre 1}{Idéal}{}{PURPLE_A}
 	
-	% page 2
-	\begin{tikzpicture}
-		% nodes
-		\draw[thick] (0,0) ellipse (2cm and .5cm) node {Valeur initiale};
-		
-		\draw[thick] (5,0) ellipse (2cm and .5cm) node {Nouvelle valeur};
-		
-		\draw[thick] (10,0) ellipse (2cm and .5cm) node {Valeur initiale};
-		
-		% vertices
-		\draw[->, very thick, GREEN_E] (1cm,.6cm) arc (105:75:7) node[midway, above] {$\times m_1$};
-		\draw[->, very thick, GREEN_E] (6cm,.6cm) arc (105:75:7) node[midway, above] {$\times \dfrac{1}{m_1}$};
-		
-		\draw[->, very thick, RED_E] (1cm,-.5cm) arc (-105:-75:15) node[midway, below] {$\times \left(m_1\cdot \dfrac{1}{m_1}\right) = \times 1$};
-	\end{tikzpicture}
+	% y = 55
+	\reqhalfcoursec 30,55:{Chapitre 1}{Corps $K$}{}{PURPLE_A}
+	\reqhalfcoursec 10,55:{Chapitre 2}{Anneau $K[x]$}{}{YELLOW_D}
+	\reqhalfcoursec 50,55:{Chapitre 2}{Division euclidienne}{}{GREEN_A}
+	
+	% y = 45
+	\reqhalfcoursec 30,45:{Chapitre 2}{Anneau euclidien \\ {\tiny Existence d'une division euclidienne}}{}{YELLOW_D}
+	\reqhalfcoursec 50,45:{Chapitre 2}{Algorithme d'Euclide \\ {\tiny Existence du PGCD}}{}{GREEN_A}
+	
+	% y = 35
+	\reqhalfcoursec 10,35:{Chapitre 2}{Anneau principal \\ {\tiny Chaque idéal est principal}}{}{YELLOW_D}
+	\reqhalfcoursec 30,35:{Chapitre 2}{Anneau factoriel \\ {\tiny La décomposition en irréductibles est unique}}{}{YELLOW_D}
+	\reqhalfcoursec 50,35:{Chapitre 2}{Lemme d'Euclide \\ {\tiny Chaque irréductible est un premier}}{}{GREEN_A}
+	
+	% y = 25
+	\reqhalfcoursec 30,25:{Chapitre 2}{Anneau $Z[x]$}{}{YELLOW_D}
+	\reqhalfcoursec 50,25:{Chapitre 2}{Lemme de Gauss \\ {\tiny Classification des éléments irréductibles} \\ {\tiny Chaque irréductible est un premier}}{}{GREEN_A}
+	
+	% y = 15
+	\reqhalfcoursec 10,15:{Chapitre 3}{Anneau $C[x]$}{}{RED_C}
+	\reqhalfcoursec 30,15:{Chapitre 3}{Théorème fondamental \\ de l'algèbre}{}{RED_C}
+	\reqhalfcoursec 50,15:{Chapitre 4}{Corps des fractions}{}{BLUE_B}
+	
+	% y = 5
+	\reqhalfcoursec 10,5:{Chapitre 3}{Relations racines- \\ coefficients}{}{RED_C}
+	\reqhalfcoursec 30,5:{Chapitre 3}{Racines de l'unité}{}{RED_C}
+	\reqhalfcoursec 50,5:{Chapitre 4}{Décomposition en \\ facteurs simples}{}{BLUE_B}
+	
+	
+	
+%	% RECOMMENDATIONS
+%	% to y = 60
+%	
+%	% to y = 50
+%	
+%	% to y = 40
+%	\recomm 30,40,50,40:
+%	\recommc 10,60,50,40;-2:
+%	\recommc 10,60,10,40;-20:
+%	
+%	%\recommc 10,60,30,40;-70:
+%	
+%	% to y = 30
+%	
+%	% to y = 20
+%	\recommc 30,40,50,20;-20:
+%	
+%	% to y = 10
+%	\recommc 30,40,40,10;-30:
+%	\recommc 50,20,40,10;-30:
+%
+%	% PREREQUISITES
+%	% to y = 60
+%	\prereq 30,60,50,60:
+%	
+%	% to y = 50
+%	\prereq 30,60,20,50:
+%	\prereqc 50,60,20,50;-20:
+%	
+%	\prereq 50,60,40,50:
+%	\prereqc 10,40,40,50;10:
+%	
+%	% to y = 40
+%	\prereq 20,50,30,40:
+%	\prereq 20,50,10,40:
+%	
+%	\prereq 50,60,50,40:
+%	
+%	% to y = 30
+%	\prereq 20,50,20,30:
+%	\prereq 10,40,20,30:
+%	\prereq 30,40,20,30:
+%	
+%	% to y = 20
+%	\prereq 20,30,20,20:
+%	\prereqc 30,40,20,20;-60:
+%	
+%	% to y = 10
+%	\prereq 20,10,40,10:
+	
+	\end{chart}
 %
 \end{document}

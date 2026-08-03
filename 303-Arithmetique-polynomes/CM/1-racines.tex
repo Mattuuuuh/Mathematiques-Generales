@@ -500,6 +500,30 @@
 	todo
 }
 
+\exe{difficulty=1}{
+	Soient $n\in\N^*$ nombres complexes $\alpha_1, \dots, \alpha_n \in \C$.
+	La \emphindex{matrice de Vandermonde} associée à ces nombres est donnée par
+		\[ V(\alpha_1, \dots, \alpha_n) = \begin{pmatrix}
+			1 & \alpha_1 & \alpha_1^2 & \dots & \alpha_1^{n-1} \\
+			1 & \alpha_2 & \alpha_2^2 & \dots & \alpha_2^{n-1} \\
+			\vdots & \vdots & \vdots & \ddots & \vdots \\
+			1 & \alpha_n & \alpha_n^2 & \dots & \alpha_n^{n-1}
+			\end{pmatrix}
+			\in \C^{n\times n}. \]
+	\begin{enumerate}
+		\item
+		En remplaçant $\alpha_1$ par une indéterminée $x$, montrer que
+			\[ \det\bigl(V(\alpha_1, \dots, \alpha_n)\bigr) = \left(\prod_{i=2}^n (\alpha_i - \alpha_1) \right)\cdot \det\bigl(V(\alpha_2, \dots, \alpha_n)\bigr). \]
+		\item
+		Conclure que
+			\[ \det\bigl(V(\alpha_1, \dots, \alpha_n)\bigr) = \prod_{i<j} (\alpha_j - \alpha_i). \]
+		\item
+		En déduire qu'il existe un unique polynôme de $\C[x]$ de degré $n-1$ avec $n$ antécédents distincts à image fixée.
+	\end{enumerate}
+}{exe:Vandermonde}{
+	todo
+}
+
 
 \shipoutExercise
 
