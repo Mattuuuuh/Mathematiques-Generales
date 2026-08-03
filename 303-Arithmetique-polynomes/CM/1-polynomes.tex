@@ -704,6 +704,21 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \exe{}{
+	Montrer qu'il n'existe pas de drapeau strict infini d'idéaux principaux de $\K[x]$ :
+		\[ I_1 \lhd I_2 \lhd I_3 \lhd \cdots \lhd \K[x]. \]
+	L'anneau $\K[x]$ vérifie donc la \emphindex{condition de chaîne ascendante sur les idéaux principaux}.
+	Cette condition garantie qu'un élément non nul se décompose en facteurs irréductibles, le seul danger de cette décomposition étant de ne jamais se terminer.
+}{exe:Kx-finite-ideal-flag}{
+	Supposons l'existence d'un tel drapeau. Le deuxième idéal n'est pas trivial, et $I_2 = (f)$ pour un certain polynômes $f\in\K[x]$ non nul.
+	Comme 
+	\begin{align*}
+		\{ 0 \} \neq (f) \lhd (g) \text{ stricte} && \implies && g |f \text{ propre} && \implies \deg(g) < \deg(f),
+	\end{align*}
+	où nous avons écarté le cas $f=0$ pour obtenir l'inégalité large des degrés, et où l'inclusion stricte donne la division propre et l'inégalité stricte des degrés.
+	Il suit donc que le drapeau ne peut contenir que $\deg(f) < \infty$ idéaux, le degré d'un polynôme non nul étant nécessairement un entier naturel.
+}
+
+\exe{}{
 	Montrer qu'un polynôme $f$ de $\K[x]$ de degré 2 ou 3 est réductible si et seulement s'il admet une racine dans $\K$.
 }{exe:irr-deg23}{
 	\underline{Direction $\implies$.}
