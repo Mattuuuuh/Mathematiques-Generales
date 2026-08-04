@@ -475,7 +475,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \dfn{suite des restes et quotients}{
 	Soient $a_0, a_1 \in\K[x]$. 
-	La \emphindex{suite des restes} est la suite de polynôme $a_0, a_1, \dots, a_k \in\K[x]$ où, pour $i\geq0$,  
+	Une \emphindex{suite des restes} est la suite de polynôme $a_0, a_1, \dots, a_k \in\K[x]$ où, pour $i\geq0$,  
 	\begin{enumerate}
 		\item
 		$a_{i+2}$, est le reste non nul de la division euclidienne de $a_{i}$ par $a_{i+1}$ ; et
@@ -484,7 +484,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	\end{enumerate}
 	Le polynôme $a_k$ est donc le dernier reste non nul.
 	
-	La \emphindex{suite des quotients} est la suite de polynôme $q_1, q_2, \dots, q_k \in\K[x]$ où, pour $i\geq0$,
+	Une \emphindex{suite des quotients} est la suite de polynôme $q_1, q_2, \dots, q_k \in\K[x]$ où, pour $i\geq0$,
 		\[ a_{i} = q_{i+1} a_{i+1} + a_i. \]
 }{dfn:suite-restes}
 
@@ -539,6 +539,51 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \exe{}{
 	Montrer que si $d|a$ et $d|b$ dans $\K[x]$, alors $d$ divise toutes les combinaisons linéaires $au + bv$ avec $u, v\in\K[x]$ également.
 }{exe:d-div-comb-lin}{
+	todo
+}
+
+\ex{}{
+	Nous cherchons à calculer le PGCD des polynômes $a_0(x) = x^5 + x^4 + x^3 + x^2 + x + 1$ et $a_1(x) = x^4-2x^3+3x^2-x-7$.
+	La première division euclidienne donne
+		\begin{align*}
+			a_0 = q_1a_1 + a_2, && q_1(x) = x+3, && a_2(x) = 4x^3-7x^2+11x+22.
+		\end{align*}
+	La deuxième division euclidienne donne
+		\begin{align*}
+			a_1 = q_2a_2 + a_3 && q_2(x) = \frac1{16}(4x-1) && a_3(x) = -\frac3{16}x^2 - \frac{93}{16}x - \frac{45}8.
+		\end{align*}
+	Pour simplifier la troisième division euclidienne, il peut être utile de normaliser le multiplier le diviseur par une constante intégrée au quotient. Ici, multiplier $a_3$ par $16$ semble pertinent. La simple relation $a_2 = q_3 (16a_3) + a_4 = a_2 = (16q_3)a_3 + a_4$ concluera.
+	La troisième division euclidienne donne alors
+		\begin{align*}
+			a_2 = q_3a_3 + a_4 && q_3(x) = -\frac{16}3(4x - 131) && a_4(x) = 3952x + 3952.
+		\end{align*}
+	Ici, il semble préférable de diviser $a_4$ par $3952$ pour simplifier les calculs.
+	L'équivalence $16a_3 = q_4(a_4/3952) + a_5' \iff a_3 = (1/16/3952 q_4)a_4 + a_5'/16$ aboutit à
+		\begin{align*}
+			a_3 = q_4a_4 + a_5 && q_4(x) = -\frac{1}{16\times3952}(3x+90) && a_5(x) = 0.
+		\end{align*}
+	Nous concluons que le dernier reste non nul est $a_4(x) = 3952x+3952$, multiple de $x+1$, et donc que
+		\[ \pgcd(a_0, a_1) = x+1. \]
+	La relation matricielle s'écrit $M\cdot \begin{pmatrix}a_0\\a_1\end{pmatrix} = \begin{pmatrix}a_4\\0\end{pmatrix}$, avec
+		\begin{align*}
+			M &= 
+			\begin{pmatrix}0&1\\1&-\frac{16}{3952}(3x+90)\end{pmatrix}
+			\begin{pmatrix}0&1\\1&- \frac{16}3(4x - 131) \end{pmatrix}
+			\begin{pmatrix}0&1\\1&- \frac1{16}(4x-1)\end{pmatrix}
+			\begin{pmatrix}0&1\\1&- (x+3)\end{pmatrix}
+			\\ &= 
+			\frac{16}{3} \begin{pmatrix} -x^3 + 33x - 8 & x^3 - 30x^2 - 87x - 107 \\ (*) & (*) \end{pmatrix}
+		\end{align*}
+	La première ligne suffit à déduire l'\emphindex{identité de Bézout} $a_0u + a_1v = \pgcd(a_0,a_1)$ :
+		\begin{align*}
+		a_0 \underbrace{\left[\frac{16}3(-x^3 + 33x - 8)\right]}_{u} + a_1\underbrace{\left[\frac{16}3 (x^3 - 30x^2 - 87x - 107)\right]}_{v}  &= (x+1).
+		\end{align*}
+}{ex:Euclide-etendu}
+
+\exe{}{
+	Trouver $f, g \in\Q[x]$ avec $\deg(f), \deg(g) > 2$ et tels que $\pgcd(f, g) = x^2 +1$.
+	Calculer les polynômes $u, v \in \Q[x]$ de l'identité de Bézout.
+}{exe:Euclide-pgcd-forced}{
 	todo
 }
 
@@ -597,6 +642,12 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Soient $f\in\K[x]$ irréductible et $g\in\K[x]$ non nul tel que $\deg(g) < \deg(f)$.
 	Montrer que $f$ et $g$ sont premiers entre eux.
 }{exe:irr-coprime}{
+	todo
+}
+
+\exe{}{
+	Montrer que $f(x) = x^3 + 2x + 1$ et $g(x) = x^2 +1$ sont premiers entre eux dans $\Q[x]$ et trouver les polynômes $u, v \in \Q[x]$ de l'identité de Bézout.
+}{exe:Euclide-etendu}{
 	todo
 }
 
@@ -892,12 +943,16 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	L'équivalence $f \in \Z[x] \iff c \in \Z$ est claire.
 }
 
-\exe{}{
+\exe{difficulty=1}{
 	Soit $g_0\in\Z[x]$ un polynôme primitif.
 	Montrer que si $f$ divise $g_0$ dans $\Z[x]$, alors $\pm f$ est également primitif.
 }{exe:primitive-divisors}{
 	Notons $g_0 = fq$ la division dans $\Z[x]$ ainsi que $f = c_f f_0$ la factorisation en polynôme primitif du lemme \ref{lem:primitif}.
-	Si un premier $p$ divise $c_f$, alors $p$ divisera $g_0$ ce qui contredit son caractère primitif.
+	Le contenu $c_f$ est un entier relatif car $f$ appartient à $\Z[x]$.
+	
+	%Si un premier $p$ divise $c_f$, alors $p$ divisera $g_0$ ce qui contredit son caractère primitif.
+	Alors $g_0 = c_f (f_0 q)$ est une relation dans $\Z[x]$ qui implique que $c_f$ divise $g_0$ et donc $1$ car ce dernier est primitif.
+	Il suit que $c_f = \pm1$ et donc que $f = \pm f_0$.
 %	Notons $g_0 = fq$ la division dans $\Z[x]$ ainsi que $f = c_f f_0$ et $q = c_q q_0$ la factorisation en polynômes primitifs du lemme \ref{lem:primitif}.
 %	Les contenus $c_f$ et $c_q$ sont tous les deux des entiers relatifs, et le produit $f_0 q_0$ est primitif d'apèrs le lemme de Gauss \ref{lem:Gauss}.
 %	
@@ -948,7 +1003,7 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 		$g = f_0\cdot q$ avec $q\in\Q[x]$.
 		Montrons que le contenu de $q$ est égal au contenu de $g$.
 		D'après le lemme \ref{lem:primitif}, 
-		le contenu d'un polynôme étant dans $\Z$ si et seulement si celui-ci est dans $\Z[x]$, ceci concluera.
+		le contenu d'un polynôme étant dans $\Z$ si et seulement si celui-ci est dans $\Z[x]$, ce qui concluera.
 		
 		Décomposons $g = c_g \cdot g_0$ et $q = c_q \cdot q_0$.
 		Alors l'identité
@@ -1030,6 +1085,7 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 
 	S'agissant de l'unicité de la décomposition,
 	la preuve du théorème \ref{thm:decomp-Kx} peut être reprise telle quelle.
+	
 }
 
 \nt{
@@ -1064,7 +1120,7 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 		\item
 		$x+1$ divise $2x^5 -x^4 - 3x^3 + x^2 -3x - 4$ dans $\Z[x]$.
 		\item
-		$2x-2$ divise $2x^3 + 2x^2 - 5x +1$ dans $\Z[x]$.
+		$2(x-1)$ divise $2x^3 + 2x^2 - 5x +1$ dans $\Z[x]$.
 	\end{enumerate}
 }{exe:TF-polynomes}{
 	\begin{enumerate}
@@ -1089,7 +1145,7 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 		\item
 		Vrai car $-1$ est racine du deuxième polynôme et que le premier est primitif.
 		\item
-		Faux. Le premier polynôme divise le deuxième dans $\Q[x]$ car $-1$ est racine du deuxième.
+		Faux. Le premier polynôme divise le deuxième dans $\Q[x]$ car $1$ est racine du deuxième.
 		En revanche, dans $\Z[x]$, le deuxième polynôme est primitif mais pas le premier.
 		La division dans $\Z[x]$ n'est donc pas possible, d'après l'exercice \ref{exe:primitive-divisors}.
 	\end{enumerate}
@@ -1167,8 +1223,8 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 	todo
 }
 
-\exe{}{
-	Soit $p\in\K[x]$ un polynôme premier, c'est-à-dire non nul et vérifiant, pour tout $a, b\in\K[x]$, $p|(ab) \implies p|a$ ou $p|b$.
+\exe{difficulty=1}{
+	Soit $p\in\K[x]$ un polynôme \emphindex{premier}, c'est-à-dire non nul et vérifiant, pour tout $a, b\in\K[x]$, $p|(ab) \implies p|a$ ou $p|b$.
 	Montrer que $p$ est irréductible.
 }{exe:prime-implies-irr}{
 
@@ -1191,14 +1247,15 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 	\end{enumerate}
 	Alors $f(x)$ est irréductible dans $\Q[x]$.
 }{exe:eisenstein}{
-	Comme $f$ est à coefficients entiers, le lemme de Gauss \ref{lem:Gauss} implique que l'irréducibilité dans $\Q[x]$ est équivalente à l'irréducibilité dans $\Z[x]$.
-	Supposons donc, par contradiction, que $f$ soit réductible sur $\Z[x]$.
+	%Comme $f$ est à coefficients entiers et non constant, le lemme de Gauss \ref{lem:Gauss} implique qu'il suffit de montrer l'irréducibilité dans $\Z[x]$.
+	Supposons, par contradiction, que $f$ soit réductible dans $\Q[x]$.
+	Comme $f$ est à coefficients entiers, le lemme de Gauss \ref{lem:Gauss} implique que la réduction de $f$ peut être restreinte à $\Z[x]$.
+	C'est-à-dire $f = ab$ avec $a, b\Z[x]$ non constants et de coefficients dominants non divisibles par $p$.
 	
-	Alors $f = ab$ avec $a, b\Z[x]$ non constants de coefficients dominants ne divisant pas $p$.
 	En prenant la relation modulo $p$, le polynôme $f$ devient réductible sur $\F_p[x]$.
 	Or, par hypothèses sur les coefficients de $f$, nous avons que $f = a_n x^n \mod p$ avec $a_n$ une unité de $\F_p$.
 	Comme $x$ est irréductible dans $\F_p[x]$, la seule manière de réduire $f$ dans $\F_p[x]$ est de le décomposer comme $a_n \cdot x^k \cdot x^{n-k}$.
-	Ainsi, les deux facteurs $a$ et $b$ sont congrus à un multiple d'une puissance de $x$ modulo $p$, non constante car $a$ et $b$ sont unitaires non constants.
+	Ainsi, les deux facteurs $a$ et $b$ sont congrus à un multiple d'une puissance de $x$ modulo $p$, non constante car $a$ et $b$ sont non constants et de coefficients dominants non divisibles par $p$.
 	Il suit donc que $p$ divise le coefficient constant $a(0)$ et $b(0)$, et donc que $p^2$ divise le coefficient constant $a_0 = f(0) = a(0)b(0)$.
 	Ceci contredit la troisième condition imposée à $f$. \Lightning
 }

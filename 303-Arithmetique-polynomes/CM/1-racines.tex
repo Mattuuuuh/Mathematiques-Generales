@@ -391,7 +391,7 @@
 	todo
 }
 
-\exe{}{
+\exe{difficulty=1}{
 	Considérons le \emphindex{symbole de Pochhammer} défini par
 		\begin{align*}
 			(x)_0 = 1, && \et && (x)_n = x(x-1)(x-2)\cdots(x-n+1) \text{ pour $n\in\N^*$, }
@@ -404,7 +404,7 @@
 
 }
 
-\exe{}{
+\exe{difficulty=1}{
 	Soit $p \in \Z[x]$ un polynôme à coefficients entiers et $a, b \in\Z$ deux entiers.
 	Montrer que $b-a$ divise $p(b)-p(a)$ dans $\Z$.
 }{exe:pb-pa}{
@@ -419,7 +419,7 @@
 }
 
 
-\exe{}{
+\exe{difficulty=1}{
 	Écrire les premiers termes du produit de sommes suivant, où $s\in\C$.
 		\[ f(s) = \prod_{p \in \{ 2 ; 3; 5; 7 ; 11\}} \left( 1 + \frac1{p^s} + \frac1{p^{2s}} + \frac1{p^{3s}} + \frac1{p^{4s}} \right). \]
 }{exe:zeta-fini}{
@@ -432,7 +432,7 @@
 }
 
 
-\exe{}{
+\exe{difficulty=1}{
 	Soit $n\in\N^*$.
 	En étudiant $(1+x)^n + (1-x)^n$, montrer que
 		\[ \sum_{\substack{k=0 \\ \text{$k$ pair}}}^n {n \choose k} =  \sum_{\substack{k=0 \\ \text{$k$ impair}}}^n {n \choose k} =  2^{n-1}. \]
@@ -520,7 +520,7 @@
 	todo
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=2}{
 	Soient $n\in\N^*$ nombres complexes $\alpha_1, \dots, \alpha_n \in \C$.
 	La \emphindex{matrice de Vandermonde} associée à ces nombres est donnée par
 		\[ V(\alpha_1, \dots, \alpha_n) = \begin{pmatrix}
@@ -532,7 +532,7 @@
 			\in \C^{n\times n}. \]
 	\begin{enumerate}
 		\item
-		En remplaçant $\alpha_1$ par une indéterminée $x$, montrer que
+		En remplaçant $\alpha_1$ par une indéterminée $x$ qu'on pourra momentanément assigner à $0$, montrer que
 			\[ \det\bigl(V(\alpha_1, \dots, \alpha_n)\bigr) = \left(\prod_{i=2}^n (\alpha_i - \alpha_1) \right)\cdot \det\bigl(V(\alpha_2, \dots, \alpha_n)\bigr). \]
 		\item
 		Conclure que
