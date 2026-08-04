@@ -295,19 +295,19 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \thm{division euclidienne}{
-	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$ avec $a\neq0$.
+	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$ avec $b\neq0$.
 	Il existe deux uniques polynômes $q, r\in\K[x]$ vérifiant
 	\begin{enumerate}
-		\item $b = aq + r$ ; et
-		\item $\deg(r) < \deg(a)$
+		\item $a = bq + r$ ; et
+		\item $\deg(r) < \deg(b)$
 	\end{enumerate}
-	C'est la \emphindex{division euclidienne} de $b$ par $a$.
+	C'est la \emphindex{division euclidienne} de $a$ par $b$.
 }{thm:div-euclidienne}
 
 \nt{
-	Il suit naturellement que $a$ divise $b$ dans $\K[x]$ si et seulement si le reste $r$ de la division euclidienne de $b$ par $a$ est nul.
+	Il suit naturellement que $b$ divise $a$ dans $\K[x]$ si et seulement si le reste $r$ de la division euclidienne de $a$ par $b$ est nul.
 	
-	Remarquons que si $a=0$, alors la division euclidienne de $b$ par $a$ soit n'existe pas ($b\neq0$), soit n'est pas unique ($b=0$).
+	Remarquons que si $b=0$, alors la division euclidienne de $a$ par $b$ soit n'existe pas ($b\neq0$), soit n'est pas unique ($b=0$).
 }
 
 \exe{}{
@@ -345,8 +345,8 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \exe{difficulty=1}{
-	Soient $a, b \in\Z[i]$.
-	Montrer qu'il existe $q, r\in\Z[i]$ vérifiant $b = aq+r$ et $|r| < |a|$.
+	Soient $a, b \in\Z[i]$, $b\neq0$.
+	Montrer qu'il existe $q, r\in\Z[i]$ vérifiant $a = bq+r$ et $|r| < |b|$.
 }{exe:Zi-euclidien}{
 	todo
 }
@@ -449,49 +449,71 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Leur caractère unitaire permet de conclure que $d=d'$.
 }
 
-
-\dfn{coprimalité}{
-	Deux polynômes $f, g\in\K[x]$ sont \emphindex{premiers entre eux} dès que $\pgcd(f, g) = 1$.
-}{dfn:coprimalite}
-
-\exe{}{
-	Montrer que si $d|a$ et $d|b$ dans $\K[x]$, alors $d$ divise toutes les combinaisons linéaires $au + bv$ avec $u, v\in\K[x]$ également.
-}{exe:d-div-comb-lin}{
-	todo
-}
-
-\exe{}{
-	Soient $f\in\K[x]$ irréductible et $g\in\K[x]$ non nul tel que $\deg(g) < \deg(f)$.
-	Montrer que $\pgcd(f,g) = 1$.
-}{exe:irr-coprime}{
-	todo
-}
-
-\exe{}{
-	Soit $f\in\K[x]$ irréductible et $a\in\K[x]$.
-	Montrer que $\pgcd(f,a) = 1$ ou $f$.
-}{exe:gcd-irr}{
-	todo
-}
-
-
-\thm{de Bézout}{
-	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
-	% et $d\in\K[x]$ un PGCD de $a$ et $b$.
+\lem{}{
+	Soient $a, b\in\K[x]$ avec $b\neq0$.
 	
-	Alors le PGCD de $a$ et $b$ existe est égal à
-		\[ \pgcd(a, b) = \arg\min\bigset{ \deg(p) \tq p = au + bv \text{ avec } u, v \in \K[x], \et p \text{ unitaire non nul} }. \]
-}{thm:bezout-K}
+	L'idéal $(a, b)$ est égal à l'idéal $(b, r)$, où $r$ est le reste de la division euclidienne de $a$ par $b$.
+}{lem:div-euclid-ideal}
 
 \pf{}{
-	Notons qu'un argument du minimum n'est pas nécessairement unique \apriori.
-	Montrons donc d'abord qu'il l'est en prenant $p$ et $p'$ deux arguments du minimum.
-	Les deux polynômes $p$ et $p'$ sont donc combinaisons linéaires de $a$ et $b$, non nuls, unitaires, et de degré minimal égal à $d\in\N$.
-	La différence $p-p'$ est de degré strictement inférieur à $p$ et est combinaison linéaire de $a$ et $b$.
-	Par minimalité de $p$, cette différence est multiple de 0 et est donc nulle : $p=p'$.
+	\underline{Inclusion $(a,b) \subseteq (b,r)$.}
 	
-	Notons ainsi $p$ l'unique argument du minimum et montrons qu'il est un PGCD de $a$ et $b$,
-	c'est-à-dire qu'il vérifie les trois conditions suivantes.
+	Si $f\in(a,b)$, alors $f = ua + vb$ pour certains $u, v\in\K$.
+	Par suite, $f = u(qb+r) + vb = (uq+v)b + ur \in (b,r)$.
+	
+	\underline{Inclusion $(b,r) \subseteq (a,b)$.}
+	
+	Si $f\in(b,r)$, alors $f = ub + vr$ pour certains $u, v\in\K$.
+	Par suite, $f = ub + v(a-bq) = va + (u-qv)b \in (a,b)$.
+}
+
+\nt{
+	En réécrivant l'idéal $(a,b)$ comme l'idéal $(b,r)$, le deuxième polynôme a diminué en degré car $\deg(r) < \deg(b)$.
+	Il est donc naturel de répéter le processus en calculant la division euclidienne de $b$ par $r$, afin de réduire le degré du deuxième polynôme encore davantage.
+	Ce processus se terminera (en temps fini) alors nécessairement par un reste nul car les degrés formeront une suite d'entiers naturels strictement décroissante.
+}
+
+\dfn{suite des restes et quotients}{
+	Soient $a_0, a_1 \in\K[x]$. 
+	La \emphindex{suite des restes} est la suite de polynôme $a_0, a_1, \dots, a_k \in\K[x]$ où, pour $i\geq0$,  
+	\begin{enumerate}
+		\item
+		$a_{i+2}$, est le reste non nul de la division euclidienne de $a_{i}$ par $a_{i+1}$ ; et
+		\item
+		$a_{k+1} = 0$.
+	\end{enumerate}
+	Le polynôme $a_k$ est donc le dernier reste non nul.
+	
+	La \emphindex{suite des quotients} est la suite de polynôme $q_1, q_2, \dots, q_k \in\K[x]$ où, pour $i\geq0$,
+		\[ a_{i} = q_{i+1} a_{i+1} + a_i. \]
+}{dfn:suite-restes}
+
+\nt{
+	%La suite des restes et quotients est finie car les degrés des restes forment une suite d'entiers naturels strictement décroissante.
+	%
+	L'\emphindex{algorithme d'Euclide étendu} suivant démontre l'existence du PGCD en plus de fournir une procédure permettant de le calculer.
+}
+
+\thm{algorithme d'Euclide étendu}{
+	Soient $a_0, a_1 \in\K[x]$.
+	Alors 
+	\begin{enumerate}
+		\item 
+		le dernier reste non nul $a_k$ est un multiple constant de $\pgcd(a_0, a_1)$ ; et
+		\item
+		nous avons l'identité matricielle
+		\begin{align*}
+			\left[\begin{pmatrix}0&1\\1&-q_{k}\end{pmatrix}\cdots\begin{pmatrix}0&1\\1&-q_2\end{pmatrix}\begin{pmatrix}0&1\\1&-q_1\end{pmatrix}\right]\begin{pmatrix}a_{0}\\a_{1}\end{pmatrix}=\begin{pmatrix}a_k\\0\end{pmatrix}
+		\end{align*}
+	\end{enumerate}
+}{thm:alg-Euclide}
+
+\pf{}{
+	D'après le lemme \ref{lem:div-euclid-ideal}, la suite de restes fournit les égalités d'idéaux suivantes.
+		\[ (a_0, a_1) = (a_1, a_2) = (a_2, a_3) = \dots = (a_{k-1}, a_k) = (a_k, 0) = (a_k) \]
+	
+	Démontrons désormais que $p = c\cdot a_k$ est un PGCD de $a_0$ et $a_1$, où $c\in\K$ sert à rendre $c\cdot a_k$ unitaire.
+	C'est-à-dire, $p$ vérifie les trois conditions suivantes.
 	\begin{enumerate}
 		\item $p$ divise $a$ et $b$ dans $\K[x]$ ; et
 		\item les diviseurs de $a$ et de $b$ divisent $p$ ; et
@@ -499,24 +521,50 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	\end{enumerate}
 	\begin{enumerate}[label=\underline{Condition \arabic*.}]
 		\item
-		%La condition 1 se démontre classiquement comme suit.
-		En prenant $a = pq + r, \deg(r) < \deg(p)$ la division euclidienne de $a$ par $p$ dans $\K[x]$, nous obtenons que $r = a-pq$ est combinaison linéaire de $a$ et $b$ et est donc nul par minimalité du degré de $p$.
-		Il suit que $p$ divise $a$ dans $\K[x]$, et que $p$ divise également $b$ de façon analogue.
-		
+		L'égalité $(a_0, a_1) = (a_k) = (p)$ implique que $a_0, a_1 \in (p)$ et donc que $p$ divise à la fois $a_0$ et $a_1$.
 		\item
-		D'après l'exercice \ref{exe:d-div-comb-lin}, un diviseur $d\in\K[x]$ de $a$ et de $b$ divise $p$ car c'est une combinaison linéaire de $a$ et de $b$.
-		%La condition 2 est donc vérifiée.
-		
-		\item		
-		%La condition 3 est vérifiée par construction de $p$.
+		L'égalité $(a_0, a_1) = (a_k) = (p)$ implique que $p\in(a_0, a_1)$ est une combinaison linéaire de $a_0$ et $a_1$.
+		D'après l'exercice \ref{exe:d-div-comb-lin}, un diviseur $d\in\K[x]$ de $a_0$ et de $a_1$ divise donc $p$.
+		\item
 		Vérifiée par construction de $p$.
 	\end{enumerate}
+	
+	L'identité matricielle découle de la relation 
+	\begin{align*}
+		a_{i} = q_{i+1} a_{i+1} + a_{i+2} && \iff && \begin{pmatrix}0&1\\1&-q_{i+1}\end{pmatrix}\begin{pmatrix}a_{i}\\a_{i+1}\end{pmatrix}=\begin{pmatrix}a_{i+1}\\a_{i+2}\end{pmatrix}.
+	\end{align*}
+
 }
 
 \exe{}{
-	Soient $a, b\in\K[x]$ deux polynômes unitaires.
-	Montrer que si $a$ divise $b$ dans $\K[x]$ et que $\deg(b) \leq \deg(a)$, alors $a=b$.
-}{exe:div-deg-eq}{
+	Montrer que si $d|a$ et $d|b$ dans $\K[x]$, alors $d$ divise toutes les combinaisons linéaires $au + bv$ avec $u, v\in\K[x]$ également.
+}{exe:d-div-comb-lin}{
+	todo
+}
+
+\nt{
+	L'algorithme d'Euclide admet comme corollaire direct le \emphindex{théorème de Bachet-Bézout} suivant, d'abord énoncé dans les entiers relatifs par Claude-Gaspard Bachet de Méziriac en 1624, puis dans les polynômes par Étienne Bézout au 18ème siècle.
+}
+
+\cor{de Bachet-Bézout}{
+	Soient $a, b \in\K[x]$. Alors
+		\[ (a, b) = \bigpar{ \pgcd(a, b) }. \]
+	%En particulier, si $d\in\K[x]$ divise à la fois $a$ et $b$, alors $d$ divise $\pgcd(a, b)$.
+	En particulier, il existe $u, v\in\K[x]$ tels que
+		\[ \pgcd(a,b) = au + bv. \]
+}{cor:Bezout}
+
+%\exe{}{
+%	Montrer le corollaire \ref{cor:pgcd-ideal}.
+%}{exe:cor:pgcd-ideal}{
+%	todo
+%}
+
+\exe{}{
+	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
+	Montrer que
+		\[ \pgcd(a, b) = \arg\min\bigset{ \deg(p) \tq p = au + bv \text{ avec } u, v \in \K[x], \et p \text{ unitaire non nul} }. \]
+}{exe:Bezout-no-ideal}{
 	todo
 }
 
@@ -541,33 +589,15 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Il suit donc que $p=p'$ en utilisant leur caractère unitaire et l'exercice \ref{exe:div-deg-eq}.
 }
 
-\cor{}{
-	Soient $a, b \in\K[x]$. Alors
-		\[ (a, b) = \bigpar{ \pgcd(a, b) }. \]
-	%En particulier, si $d\in\K[x]$ divise à la fois $a$ et $b$, alors $d$ divise $\pgcd(a, b)$.
-	En particulier, il existe $u, v\in\K[x]$ tels que
-		\[ \pgcd(a,b) = au + bv. \]
-}{cor:pgcd-ideal}
+\dfn{coprimalité}{
+	Deux polynômes $f, g\in\K[x]$ sont \emphindex{premiers entre eux} dès que $\pgcd(f, g) = 1$.
+}{dfn:coprimalite}
 
 \exe{}{
-	Montrer le corollaire \ref{cor:pgcd-ideal}.
-}{exe:cor:pgcd-ideal}{
+	Soient $f\in\K[x]$ irréductible et $g\in\K[x]$ non nul tel que $\deg(g) < \deg(f)$.
+	Montrer que $f$ et $g$ sont premiers entre eux.
+}{exe:irr-coprime}{
 	todo
-}
-
-\exe{difficulty=1}{
-	Soient $\K$ un corps de caractéristique nulle, $f\in\K[x]$ quelconque, et $g\in\K[x]$ irréductible.
-	Supposons que $g$ divise $f$ et $f'$, la dérivée formelle de $f$.
-	Montrer que $g^2 | f$.
-	
-	Donner un contre-exemple en caractéristique finie.
-}{exe:g2-div-f}{
-	Comme $g$ divise $f$, nous avons $f=qg$ et $f' = q'g + qg'$.
-	De plus, $g$ divise $f'$ et donc $f'-q'g = qg'$.
-	Or, $g$ est irréductible, donc il est premier avec $g'$ car de degré inférieur et non nul (on utilise ici que $\K$ est de caractéristique nulle).
-	Le lemme d'Euclide \ref{lem:Euclide} 
-	
-	En caractéristique $p$, le polynôme $x^p$ divise lui-même et sa dérivée, mais son carré ne le divise pas.
 }
 
 %\nt{
@@ -603,7 +633,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	
 	Le PGCD $d = \pgcd(p, a)$ divise $p$, qui est irréductible. Ainsi, $d = 1$ ou $d=p$, la deuxième alternative n'étant pas possible car $p$ ne divise pas $a$ par hypothèse.
 	
-	Alors $\pgcd(p,a) = 1$ et le théorème de Bézout \ref{thm:bezout-K} implique l'existence de $u, v\in\K[x]$ vérifiant
+	Alors $\pgcd(p,a) = 1$ et le théorème de Bézout \ref{cor:Bezout} implique l'existence de $u, v\in\K[x]$ vérifiant
 		\[ pu + av = 1. \]
 	En multipliant par $b$, nous obtenons
 		\[ p(ub) + (ab)v = b, \]
@@ -621,6 +651,21 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	En multipliant par $c$, nous obtenons que
 		\[ c = a(uc) + (bc)v \]
 	est divisible par $a$.
+}
+
+\exe{difficulty=1}{
+	Soient $\K$ un corps de caractéristique nulle, $f\in\K[x]$ quelconque, et $g\in\K[x]$ irréductible.
+	Supposons que $g$ divise $f$ et $f'$, la dérivée formelle de $f$.
+	Montrer que $g^2 | f$.
+	
+	Donner un contre-exemple en caractéristique finie.
+}{exe:g2-div-f}{
+	Comme $g$ divise $f$, nous avons $f=qg$ et $f' = q'g + qg'$.
+	De plus, $g$ divise $f'$ et donc $f'-q'g = qg'$.
+	Or, $g$ est irréductible, donc il est premier avec $g'$ car de degré inférieur et non nul (on utilise ici que $\K$ est de caractéristique nulle).
+	Le lemme d'Euclide \ref{lem:Euclide} implique donc $g|q$ et donc $f= qg = q'g^2$.
+	
+	En caractéristique $p$, le polynôme $x^p$ divise lui-même et sa dérivée, mais son carré ne le divise pas.
 }
  
 \cor{de l'exercice \ref{exe:lem:Gauss}}{
@@ -1049,6 +1094,20 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 		La division dans $\Z[x]$ n'est donc pas possible, d'après l'exercice \ref{exe:primitive-divisors}.
 	\end{enumerate}
 	
+}
+
+\exe{}{
+	Soit $f\in\K[x]$ irréductible et $a\in\K[x]$.
+	Montrer que $\pgcd(f,a) = 1$ ou $f$.
+}{exe:gcd-irr}{
+	todo
+}
+
+\exe{}{
+	Soient $a, b\in\K[x]$ deux polynômes unitaires.
+	Montrer que si $a$ divise $b$ dans $\K[x]$ et que $\deg(b) \leq \deg(a)$, alors $a=b$.
+}{exe:div-deg-eq}{
+	todo
 }
 
 \exe{difficulty=1}{
