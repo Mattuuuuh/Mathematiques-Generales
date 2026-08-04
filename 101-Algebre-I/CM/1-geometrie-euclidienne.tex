@@ -4,9 +4,6 @@
 \chapter{Géométrie euclidienne}
 \label{chap:geometrie-euclidienne}
 
-\section{Espaces vectoriels et affines}
-
-
 \section{Norme}
 
 \exe{}{
@@ -154,9 +151,16 @@
 
 \exe{}{
 	Soient $u = \pvec12$ et $v = \pvec{-3}{-2}$ dans $\R^2$.
-	Calculer $\proj_u(v)$.
-	Calculer la matrice $P$ de l'application $\proj_u$ dans la base canonique.
-	Calculer $P^2$ et $P^n$ pour tout $n\in\N$.
+	\begin{enumerate}
+		\item
+		Calculer $\proj_u(v)$.
+		\item
+		Calculer la matrice $P$ de l'application $\proj_u$ dans la base $\{ u ; u^\perp \}$ où $u^\perp$ est un vecteur non nul orthogonal à $u$.
+		\item
+		Calculer la matrice $Q$ de l'application $\proj_u$ dans la base canonique.
+		\item
+		Calculer $P^2, Q^2$ et $P^n, Q^n$ pour tout $n\in\N$.
+	\end{enumerate}
 }{exe:proj-to-matrix}{
 	todo
 }
