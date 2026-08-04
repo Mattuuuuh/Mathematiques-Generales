@@ -17,9 +17,9 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 
 \dfn{polynôme à coefficients dans $\K$}{
-	Un \emphindex{polynôme} à coefficients dans $\K$ est une expression du type
+	Soit $d\in\N$. Un \emphindex{polynôme} à coefficients dans $\K$ est une expression du type
 		\[ a_0 + a_1x + a_2x^2 + \dots + a_d x^d, \]
-	où $d$ est le \emphindex{degré} du polynôme, les $a_i\in\K$ sont ses \emphindex{coefficients}, et $x$ est une \emphindex{indéterminée} abstraite (pas nécessairement un nombre de $\K$ !).
+	où $a_d \neq 0$, $d$ est le \emphindex{degré} du polynôme, les $a_i\in\K$ sont ses \emphindex{coefficients}, et $x$ est une \emphindex{indéterminée} abstraite (pas nécessairement un nombre de $\K$ !).
 }{dfn:polynome}
 
 % in depth discussion moved to structures
@@ -252,19 +252,20 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 
 \subsection{L'anneau $\K[x]$ est euclidien}
 
-\dfn{degré}{
-	Soit $f(x) = a_0 + a_1x + \dots + a_dx^d\in\K[x]$ un polynôme à coefficients dans $\K$.
-	Le \emphindex{degré} de $f$ est défini par
-	\begin{itemize}
-		\item
-		$\deg(f) = d$ si $a_d \neq 0$ ; ou
-		\item
-		$\deg(f) = \minfty$ si $f = 0$ est le polynôme nul.
-	\end{itemize}
-}{dfn:degre}
+%\dfn{degré}{
+%	Soit $f(x) = a_0 + a_1x + \dots + a_dx^d\in\K[x]$ un polynôme à coefficients dans $\K$.
+%	Le \emphindex{degré} de $f$ est défini par
+%	\begin{itemize}
+%		\item
+%		$\deg(f) = d$ si $a_d \neq 0$ ; ou
+%		\item
+%		$\deg(f) = \minfty$ si $f = 0$ est le polynôme nul.
+%	\end{itemize}
+%}{dfn:degre}
 
 \nt{
-	La convention $\deg(0) = \minfty$ est utile pour préserver le premier point de la proposition \ref{prop:deg-div} suivante dans le cas $g=0$.
+	Par convention, nous posons $\deg(0) = \minfty$.
+	Cette convention est utile pour préserver le premier point de la proposition \ref{prop:deg-div} suivante dans le cas $g=0$.
 }
 
 \prop{}{
@@ -291,7 +292,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 	Quand est-ce que l'identité $\deg(f+g) = \max\{\deg(f) ; \deg(g)\}$ est vraie ?
 }{exe:deg-sum}{
 	Il faut et il suffit que la somme des coefficients de degré $\max\{\deg(f) ; \deg(g)\}$ soit non nulle.
-	Si $g=-f$ par exemple, même l'inégalité $\deg(f+g) \leq \max\{\deg(f) ; \deg(g)\}$ est fausse.
+	Si $g=-f$ par exemple, alors $\deg(f+g) = \minfty$.
 }
 
 \thm{division euclidienne}{
@@ -307,7 +308,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 \nt{
 	Il suit naturellement que $b$ divise $a$ dans $\K[x]$ si et seulement si le reste $r$ de la division euclidienne de $a$ par $b$ est nul.
 	
-	Remarquons que si $b=0$, alors la division euclidienne de $a$ par $b$ soit n'existe pas ($b\neq0$), soit n'est pas unique ($b=0$).
+	Remarquons que si $b=0$, alors la division euclidienne de $a$ par $b$ soit n'existe pas (si $a\neq0$), soit n'est pas unique (si $a=0$).
 }
 
 \exe{}{
@@ -316,32 +317,32 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }{exe:thm:div-euclidienne}{
 	\underline{Existence.}
 
-	Si $\deg(b) < \deg(a)$, alors il suffit de prendre $q=0$ et $r=b$.
-	Sinon, $\deg(b) \geq \deg(a)$ et nous construisons $q$ en annulant le degré le plus haut de $b$ itérativement.
+	Si $\deg(a) < \deg(b)$, alors il suffit de prendre $q=0$ et $r=a$.
+	Sinon, $\deg(a) \geq \deg(b)$ et nous construisons $q$ en annulant le degré le plus haut de $a$ itérativement.
 	
 	\begin{enumerate}
 		\item
 		Initialiser $q = 0$.
 		\item
-		Tant que $\deg(b-aq) \geq \deg(a)$, 
+		Tant que $\deg(a-bq) \geq \deg(b)$, 
 		\item
-		Ajouter un multiple de $x^{\deg(b-aq) - \deg(a)}$ à $q$ de telle sorte que le degré de $b-aq$ diminue d'au moins 1.
+		Ajouter un multiple de $x^{\deg(a-bq) - \deg(b)}$ à $q$ de telle sorte que le degré de $a-bq$ diminue d'au moins 1.
 		\item
 		Fin Tant que
 		\item
-		Renvoyer $q$ et $r=b-aq$.
+		Renvoyer $q$ et $r=a-bq$.
 	\end{enumerate}
 
 	\underline{Unicité.}
 	
-	Si $b = aq + r = aq' + r'$ avec $\deg(r), \deg(r') < \deg(a)$, alors
-		\[ a(q-q') = r' - r, \]
-	et donc $q-q'=0$ car $\deg(r'-r) < \deg(a)$ et que $a\neq0$.
+	Si $a = bq + r = bq' + r'$ avec $\deg(r), \deg(r') < \deg(b)$, alors
+		\[ b(q-q') = r' - r, \]
+	et donc $q-q'=0$ car $\deg(r'-r) < \deg(b)$ et que $b\neq0$.
 	Il suit que $q=q'$ et donc que $r=r'$.
 }
 
 \nt{
-	Le concept d'\emphindex{anneau euclidien} se généralise sans peine en remplaçant le degré par une norme sur l'anneau $R$ qui prend ses valeurs dans $\N$.
+	Le concept d'\emphindex{anneau euclidien} se généralise sans peine en remplaçant le degré par une \emphindex{norme} (ou  \emphindex{stathme}) sur l'anneau $R$ qui prend ses valeurs dans $\N$.
 }
 
 \exe{difficulty=1}{
