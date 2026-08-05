@@ -48,28 +48,55 @@
 }
 
 \exe{}{
+	Soit $f$ une fonction réelle sur $\R$.
+	Montrer que l'ensemble des périodes de $f$ suivant est un sous-groupe de $\bigpar{\R, +}$.
+		\[ P_f = \bigset{ p \in \R \tq f(x+p) = f(x) \forall x\in\R } \]
+}{exe:groupe-periodes}{
+
+}
+
+\exe{}{
 	Est-ce que l'ensemble $\bigset{ -10 ; -9 ; \dots ; 9 ; 10}$ est un groupe lorsque muni de $+$ ?
 }{exe:loi-non-interne}{
 	Non car la loi n'est pas interne.
 }
 
-\exe{}{
+\exe{difficulty=1}{
 	Considérons $ABC$ un triangle équilatéral dans le plan.
-	Notons $r$ la rotation centrale qui envoie $A$ sur $B$.
-	Notons $s$ la symétrie axiale qui envoie $A$ sur $B$ et qui laisse $C$ invariant.
+	Soit $r$ la rotation centrale qui envoie $A$ sur $B$, $B$ sur $C$, et $C$ sur $A$.
+	Soit $s$ la symétrie axiale qui envoie $A$ sur $B$, $B$ sur $A$, et qui laisse $C$ invariant.
+	Notons les éléments $r$ et $s$ par leur action sur $A, B, C$ comme suit :
+		\begin{align*}
+			r = \begin{pmatrix} A&B&C\\B&C&A\end{pmatrix} && \et && s = \begin{pmatrix}A&B&C\\B&A&C\end{pmatrix}.
+		\end{align*}
 	
 	Soit $G = \japb{r, s}$ le groupe généré par $r$ et par $s$, doté de la loi de composition naturelle des fontions :
 	pour tout $g, h\in G$ et $P$ un point du plan, 
 		\[ (gh)(P) = g(h(P)). \]
 	\begin{enumerate}
 		\item
-		Décrire les éléments du groupe $G$.
+		Nommer et expliciter tous les éléments du groupe $G$.
 		\item
 		Décrire la loi de composition de $G$ à l'aide d'une table de multiplication.
 	\end{enumerate}
 	
 	\emph{Remarque : un groupe $G$ est entièrement décrit par sa table de multiplication.}
 }{exe:D6}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $G$ un sous-groupe de $\bigpar{\R ,+}$.
+	L'ensemble $G$ est dit \emphindex{dense} dans $\R$ toute boule de $\R$ s'intersecte avec $G$. 
+	Autrement dit, pour tout $x\in\R$ et tout $\epsilon>0$, il existe un $g\in G$ à distance $\epsilon$ de $x$ : $|x - g| < \epsilon$.
+	
+	En considérant le plus petit nombre strictement positif de $G$, montrer que $G$ est soit dense, soit de la forme $g\Z$ avec $g\in G$.
+	
+	\emph{
+	Remarque : les nombres représentables par un ordinateur forment un sous-groupe additif de $\bigpar{\R, +}$.
+	Chaque nombre représentable est donc multiple entier du plus petit nombre représentable.
+	}
+}{exe:subgroup-R-p}{
 	todo
 }
 
