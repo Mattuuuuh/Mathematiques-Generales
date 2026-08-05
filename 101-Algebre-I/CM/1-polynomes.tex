@@ -53,6 +53,12 @@
 	Une \emphindex{combinaison linéaire} est une expression de la forme
 		\[ \alpha_1 p_1 + \alpha_2 p_2 + \dots + \alpha_k p_k, \]
 	où les $\alpha_i$ sont des nombres réels pour $i=1, 2, \dots, k$.
+	
+	De plus, 
+	\begin{enumerate}
+		\item si $\alpha_1 p_1 + \alpha_2 p_2 + \dots + \alpha_k p_k = 0$, alors la combinaison est une \emphindex{combinaison linéaire nulle} ; et
+		\item si chaque coefficient $\alpha_i$ est nul, la combinaison est une \emphindex{combinaison linéaire triviale}.
+	\end{enumerate}
 }
 
 \exe{}{
@@ -69,15 +75,19 @@
 
 \dfn{indépendance linéaire}{
 	Soit $d\in\N$. 
-	Les monômes $1, x, x^2, \dots, x^d$ sont \emphindex{linéairement indépendants} car dès que
+	La famille $\{ 1, x, x^2, \dots, x^d \}$ est \emphindex{linéairement indépendante sur $\R$} ou \emphindex{libre} car dès que
 		\[ \alpha_0 + \alpha_1 x + \alpha_2 x^2 + \dots + \alpha_d x^d = 0 \]
-	pour certains nombres réels $\alpha_0,\alpha_1, \alpha_2 \dots, \alpha_d$, alors
+	pour certains nombres réels $\alpha_0,\alpha_1, \alpha_2 \dots, \alpha_d\in\R$, alors
 		\[ \alpha_0 = \alpha_1 = \alpha_2 = \dots = \alpha_d = 0. \]
 	Autrement dit, la seule \emphindex{combinaison linéaire nulle} est la \emphindex{combinaison linéaire triviale}.
 }{dfn:indep-lin}
 
+\nomen{
+	Une famille de polynôme non linéairement indépendante est dite \emphindex{famille liée}.
+}
+
 \nt{
-	Les polynômes $\{ 1 ; x ; x^2 ; \dots \}$ sont indépendants par définition.
+	Les polynômes $\{ 1 ; x ; x^2 ; \dots \}$ sont indépendants sur $\R$ par définition.
 	Les fonctions polynômiales associées, elles, sont indépendantes par démonstration. 
 	L'exercice \ref{exe:1x-indep} traite du cas $\{ 1 ; x \}$ et peut se généraliser.
 	
@@ -90,15 +100,15 @@
 }
 
 \exe{difficulty=1}{
-	Montrer que la famille de fonctions polynomiales $\{1 ; x\}$ est linéairement indépendante. 
-	C'est-à-dire que dès que $\alpha_0 + \alpha_1 x$ est la fonction nulle pour certains nombres réels $\alpha_0, \alpha_1 \in\R$, alors $\alpha_0 = \alpha_1 = 0$.
+	Montrer que la famille de fonctions polynomiales sur $\R$ $\{1 ; x\}$ est linéairement indépendante sur $\R$. 
+	C'est-à-dire que dès que $\alpha_0 + \alpha_1 x$ est la fonction nulle sur $\R$ pour certains nombres réels $\alpha_0, \alpha_1 \in\R$, alors $\alpha_0 = \alpha_1 = 0$.
 }{exe:1x-indep}{
 	todo
 }
 
 \exe{difficulty=2}{
 	Soit $d\in\N$. 
-	Montrer que la famille de fonctions polynomiales $\{1 ; x ; \dots ; x^d\}$ est linéairement indépendante.
+	Montrer que la famille de fonctions polynomiales sur $\R$ $\{1 ; x ; \dots ; x^d\}$ est linéairement indépendante sur $\R$.
 }{exe:1xxd-indep}{
 	todo
 }
@@ -112,6 +122,45 @@
 }{exe:fonction-nulle-S}{
 	Il s'agit de montrer que $f(x) = 0$ pour tout $x\in S$.
 	Ceci se vérifie par le calcul : $f(0) = f(1) = f(-1) = 0$.
+}
+
+\exe{}{
+	Montrer que la famille de polynômes $\{ x+1 ; x+2 \} \subseteq\R[x]$ est linéairement indépendante.
+}{exe:lin-indep1}{
+	todo
+}
+
+\exe{}{
+	Montrer que la famille de polynômes $\{ x^2+4x - 2 ; x+2 ; 50 \} \subseteq\R[x]$ est linéairement indépendante.
+}{exe:lin-indep2}{
+	todo
+}
+
+\exe{}{
+	Est-ce que la famille de polynômes $\{ 2x^2+4x - 2 ; x^2 + x + 1 ; x-2 \} \subseteq\R[x]$ est linéairement indépendante ?
+	Démontrer que oui ou fournir un certificat de non indépendance linéaire : une combinaison linéaire nulle et non triviale.
+}{exe:lin-indep3}{
+	La famille est liée car
+		\[ (2x^2 + 4x - 2) - 2(x^2 + x + 1) - 2(x-2) = 0. \]
+}
+
+\exe{difficulty=1}{
+	Soit $d\in\N$ pas un carré parfait. 
+	Montrer que la famille $\{ 1 ; \sqrt{d} \} \subseteq\R$ est linéairement indépendante sur $\Q$.
+}{exe:lin-indep4}{
+	todo
+}
+
+
+\prop{}{
+	Considérons une famille $\{ f_1, f_2, \dots, f_n\} \subseteq \R[x]$ linéairement indépendante.
+	Alors si $p\in\R[x]$ est combinaison linéaire des $f_i$, cette combinaison est unique.
+}{prop:indep-unicite}
+
+\pf{}{
+	Prenons $p = \alpha_i f_i$ et $p = \beta_i f_i$ deux combinaisons linéaires de $p$.
+	Alors $p-p = 0 = (\alpha_i - \beta_i) f_i$ est la combinaison nulle.
+	Par indépendance linéaire, c'est la combinaison triviale et donc $\alpha_i - \beta_i = 0 \iff \alpha_i = \beta_i$ pour tout $i=1, 2, \dots, n$.
 }
 
 \section{Divisibilité et division euclidienne}
@@ -379,9 +428,35 @@
 
 \section{Dérivation formelle}
 
+\nomen{
+	Un \emphindex{opérateur} est un autre nom pour une fonction. 
+	Typiquement, un opérateur ne prend pas un nombre mais un objet plus complexe, comme un vecteur ou une fonction.
+	Nous considérons dans ce qui suit l'opérateur dérivé qui prendre un polynôme et rend son polynôme dérivé.
+	
+	Lorsqu'une famille $\{ p_1  ; p_2 ; \dots ; p_k \}$ est linéairement indépendante, il est possible de définir un opérateur $T$ uniquement sur ses éléments pour le définir sur toutes les combinaisons linéaires par
+		\[ T\left(\alpha_1p_1 + \alpha_2 p_2 + \dots + \alpha_k p_k\right) = \alpha_1T\left(p_1\right)  + \alpha_2T(p_2)  + \dots + \alpha_k T\left(p_k\right). \]
+	La proposition \ref{prop:indep-unicite} d'unicité des coefficients $\alpha_i$ est clef ici.
+	Sans celle-ci, deux combinaisons distinctes pourraient aboutir à deux images différentes d'un même antécédent.
+}
+
 \dfn{dérivation formelle}{
-	$f$ et $f'$ et $f^{IV}$ et $f^{(k)}$
+	L'\emphindex{opérateur dérivé} est noté $(\cdot)'$ et lu « prime » vérifie
+		\begin{enumerate}
+			\item 
+			$(1)' = 0$ ;
+			\item 
+			$(x^n)' = nx^{n-1}$ pour $n\in\N^*$ ; et
+			\item 
+			est \emphindex{étendu linéairement} par $(\alpha f + g)' = \alpha f' + g'$ pour $\alpha\in\R$ et $f, g \in \R[x]$.
+		\end{enumerate}
+	Autrement dit, le \emphindex{polynôme dérivé} est défini par
+		\[ (a_0 + a_1x + a_2x^2 + \dots + a_d x^d)' = a_1 + 2a_2x + 3a_3x^2 + \dots + da_d x^{d-1}. \]
 }{dfn:derivation}
+
+\notation{
+	Nous notons la double dérivée $(f')'$ par $f''$ et la $k$-ième dérivée par $f^{(k)}$.
+	Ainsi, $f^{(0)} = f$ et $f^{(k+1)} = \left(f^{(k)}\right)'$ pour $k\in\N$.
+}
 
 \notation{
 	La \emphindex{factorielle} d'un entier naturel $n\in\N$, notée $n!$ et lue « $n$ factorielle » ou « factorielle $n$ » est définie par
@@ -395,6 +470,23 @@
 	Montrer que la $k$-ième dérivée de $x^n$ est égale à $0$ si $n<k$ et $k! x^{n-k}$ sinon.
 }{exe:deriv-xn}{
 	todo
+}
+
+\exe{difficulty=1}{
+	Montrer la \emphindex{règle du produit} : pour deux polynômes $f, g\in\R[x]$,
+		\[ (fg)' = f'g + g'f. \]
+}{exe:deriv-prod}{
+	À gauche, le coefficient en $x^n$ de $fg$ est égal à
+		\[ \sum_{i+j=n} f_i g_j. \]
+	Le coefficient en $x^{n-1}$ de $fg$ est donc égal à
+		\[ n\sum_{i+j=n} f_i g_j. \]
+	À droite, le coefficient en $x^{n-1}$ de $f'g$ est égal à
+		\[ \sum_{i+j=n-1} f'_ig_j = \sum_{i+j=n-1} (i+1)f_{i+1}g_j = \sum_{i+j=n} if_ig_j. \]
+	Le coefficient en $x^{n-1}$ de $g'f$ est égal à
+		\[ \sum_{i+j=n-1} f_ig'_j = \sum_{i+j=n-1} f_i (j+1)g_{j+1} = \sum_{i+j=n} f_ijg_j. \]
+	Le coefficient en $x^{n-1}$ de $f'g + g'f$ est donc égal à
+		\[ \sum_{i+j=n} f_ijg_j +  \sum_{i+j=n} if_ig_j = \sum_{i+j=n} (i+j)f_ig_j = n\sum_{i+j=n} f_i g_j. \]
+	Les coefficients de $(fg)'$ et $f'g+g'f$ sont donc égaux et les polynômes sont égaux.
 }
 
 \thm{de Taylor polynomial}{
@@ -416,6 +508,24 @@
 	Le \emphindex{théorème de Taylor} se généralise : sous certaines conditions --- moins fortes qu'être polynomiale --- nous avons
 		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(0)}{k!} x^k + o(x^d), \]
 	où $o(x^d)$ désigne une fonction dominée par $x^d$ autour de 0, comme par exemple $x^{d+1}$ dont le ratio $\frac{x^{d+1}}{x^d}$ tend vers 0 lors que $x$ tend vers 0.
+}
+
+\exe{difficulty=1}{
+	Soit $f\in C^1(\R)$ une fonction continûment dérivable.
+	Montrer que 
+		\[ f(x) = f(0) + f'(0)x + g(x), \]
+	où $g(x) = o(x)$ dans le sens suivant : 
+		\[ \lim_{x \to 0} \frac{g(x)}x = 0. \]
+}{exe:taylor-C1}{
+	Posons $g(x) = f(x) - f(0) - f'(0)x$.
+	Pour $x\neq0$, nous avons
+		\[ \frac{g(x)}x = \frac{f(x) - f(0)}{x-0} - f'(0). \]
+	Lorsque $x$ tend vers $0$,  $\frac{f(x) - f(0)}{x-0}$ tend vers $f'(0)$ par définition de $f'(0)$.
+	Il suit donc que $\frac{g(x)}x$ tend vers 0 comme requis.
+	
+	Remarque : si $f\in C^2(\R)$, il s'avère que $g(x) = \O(x^2)$, c'est-à-dire que $\frac{g(x)}{x^2}$ reste borné lorsque $x$ tend vers $0$ (ce qui est plus fort que $g=o(x)$).
+	Nous aurons en fait 
+		\[ f(x) = f(0) + f'(0)x + \frac{f''(0)}2 x^2 + O(x^2). \]
 }
 
 \exe{difficulty=1}{
@@ -471,16 +581,23 @@
 	Ainsi $f(r) = f'(r) = 0$ et la racine $r$ n'est pas simple.
 }
 
+
+
+\exe{difficulty=1}{
+	Considérons le \emphindex{symbole de Pochhammer} défini par
+		\begin{align*}
+			(x)_0 = 1, && \et && (x)_n = x(x-1)(x-2)\cdots(x-n+1) \text{ pour $n\in\N^*$, }
+		\end{align*}
+	ainsi que l'opérateur de différence $\Delta$ qui associe à chaque $f\in\R[x]$ le polynôme $f(x+1)-f(x)$.
+	
+	Montrer que, pour tout $n\in\N^*$, l'identité suivante est vraie dans $\R[x]$.
+		\[ \Delta(x)_n = n(x)_{n-1} \]
+}{exe:Pochhammer}{
+
+}
+
 \section*{Exercices supplémentaires}
 \addcontentsline{toc}{section}{Exercices supplémentaires}
-
-
-
-\exe{difficulty=2}{
-	Montrer que la famille polynomiale $\bigset{1 ; x ; \dots ; x^n}$ est indépendante sur $\R$.
-}{exe:1xn-indep}{
-	todo
-}
 
 \exe{}{
 	On souhaite connaître les solutions de l'équation du troisième degré d'inconnue $x\in\R$ :
@@ -578,6 +695,16 @@
 
 }
 
+\exe{difficulty=1}{
+	Considérons une famille de polynômes $\{ f_1, f_2, \dots, f_n\} \subseteq \R[x]$ telle que pour tout $i=1, 2, \dots n$, il existe un nombre $r_i\in\R$ qui est racine de $f_j$ pour tout $j\neq i$, mais n'est pas racine de $f_i$.
+	Montrer que la famille est linéairement indépendante.
+	
+	Conclure que la famille $F$ suivante est linéairement indépendante sur $\R$.
+		\[ F = \bigset{ (x-1)(x-2)(x-3) ; x(x-2)(x-3) ; x(x-1)(x-3) ; x(x-1)(x-2) } \]
+}{exe:unique-roots}{
+	todo
+}
+
 \exe{difficulty=2}{
 	Supposons que $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$ non carré parfait, soit racine de l'équation $ax^2 + bx + c = 0$ où $a, b, c\in\Q$.
 	Montrer que son conjugué $r-s\sqrt{d}$ est également racine.
@@ -611,13 +738,6 @@
 		Conclure en appliquant $f$ à l'équation $ax^2 +bx + c = 0$ pour obtenir $af(x)^2 + bf(x) + c = 0$.
 	\end{enumerate}
 	
-}
-
-
-\exe{difficulty=2}{
-	Algorithme du factor refinement.
-}{exe:factor-refinement}{
-	todo
 }
 
 \shipoutExercise
