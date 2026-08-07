@@ -767,6 +767,59 @@
 	
 }
 
+\exe{}{
+	Considérons l'ensemble $\R^*_+$ muni de la loi $\circ$ suivante.
+		\[ x \circ y = x^y. \]
+	Est-ce que $\bigpar{\R^*_+, \circ}$ est un groupe ?
+	
+	Trouver l'ensemble $S\subseteq\R^*_+$ le plus petit possible tel que $\bigpar{S, \circ}$ soit un groupe.
+}{exe:R-pow}{
+	\begin{enumerate}
+		\item
+		La loi est interne.
+		\item
+		Notons $e\in\R^*_+$ un élément neutre candidat.
+		Alors $e$ doit vérifier $e\circ x = x \circ e = x$ pour tout $x\in\R^*_+$.
+		
+		L'égalité $x^e = x$ en $x=2$ implique $e=1$.
+		L'égalité $e^x = x$ devient alors $1 = x$, ce qui n'est bien sûr pas vrai pour tout $x\in\R^*_+$ !
+		
+		La loi n'admet donc pas d'élément neutre.
+		\item
+		L'associativité $x \circ (y \circ z) = (x \circ y) \circ z$ est équivalente à l'identité
+			\[ x^{y^z} = (x^y)^z = x^{yz}, \]
+		qui n'est pas vraie non plus pour tout $x, y, z\in\R^*_+$ (prendre par exemple $x=y=z=10$).
+	\end{enumerate}
+	
+	L'ensemble vide ne peut pas former de groupe car il n'admet pas d'élément neutre.
+	L'ensemble $S = \{ 1 \}$ forme un groupe trivial lorsque muni de l'opération $\circ$.
+}
+
+\exe{difficulty=1}{
+	Soit $\alpha\in\R$ un réel et
+	$H = \japb{1, \alpha}$ le sous-groupe de $\bigpar{\R, +}$ généré par $1$ et $\alpha$.
+	
+	Montrer que $H$ est dense dans $\R$ si et seulement si $\alpha\not\in\Q$.
+}{exe:1alpha-subgroup}{
+	Il y a deux alternatives : soit $H$ est dense dans $\R$, soit $H = r\Z$ avec $r\in\Z$ le plus petit élément strictement positif de $H$.
+	
+	Si $H$ n'est pas dense dans $\R$, alors $\japb{1, \alpha} = r \Z$, et $1 \in r\Z$ qui implique $r\in\Q$.
+	Par suite, $\alpha \in r\Z \subseteq \Q$.
+	
+	Réciproquement, si $\alpha\in\Q$, alors $\alpha = \frac{p}q$ et $H \subseteq \frac1{q}\Z$.
+	$H$ n'est donc pas dense.
+}
+
+\exe{difficulty=2}{
+	Notons $N\in\N^*$ votre entier naturel préféré.
+	
+	Montrer qu'il existe une puissance de 2, c'est-à-dire $2^n$ avec $n\in\Z$, dont l'écriture décimale commence par $N$.
+	
+	\emph{Exemple : pour $N=34$, la puissance $2^{35} = 34~359~738~368$ débute par $34$.}
+}{exe:puissance2}{
+	todo
+}
+
 
 \shipoutExercise
 
