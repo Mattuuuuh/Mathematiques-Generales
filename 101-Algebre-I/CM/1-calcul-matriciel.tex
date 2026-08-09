@@ -77,24 +77,6 @@
 	todo
 }
 
-\exe{difficulty=1}{
-	Soit $M = \begin{pmatrix} a & b \\ c & d\end{pmatrix}\in\R^{2\times2}$ une matrice.
-	
-	\begin{enumerate}
-		\item
-		Montrer que si $ad-bc\neq0$, alors
-			\[ M^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -d & a \end{pmatrix}.  \]
-		\item
-		Montrer que si $ad-bc = 0$, alors
-			\[ M \begin{pmatrix} b \\ -a \end{pmatrix} = 0, \]
-		puis conclure que $M$ n'est pas inversible dans ce cas.
-	\end{enumerate}
-	
-	La quantité $ad-bc$ s'appelle le \emphindex{détérminant} de la matrice $A$.
-}{exe:inv-2x2}{
-	todo
-}
-
 \subsection{Transposition}
 
 \dfn{transposition}{
@@ -156,7 +138,28 @@
 	Montrer par le calcul que
 		\[ A^2 - 5A - 2I = 0 \]
 	puis en déduire l'inverse $A^{-1}$.
+	
+	Vérifier que $A^{-1}$ est bien l'inverse à gauche et à droite de $A$.
 }{exe:p-car-A-inv}{
+	todo
+}
+
+
+\exe{difficulty=1}{
+	Soit $M = \begin{pmatrix} a & b \\ c & d\end{pmatrix}\in\R^{2\times2}$ une matrice.
+	
+	\begin{enumerate}
+		\item
+		Montrer que si $ad-bc\neq0$, alors
+			\[ M^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -d & a \end{pmatrix}.  \]
+		\item
+		Montrer que si $ad-bc = 0$, alors
+			\[ M \begin{pmatrix} b \\ -a \end{pmatrix} = 0, \]
+		puis conclure que $M$ n'est pas inversible dans ce cas.
+	\end{enumerate}
+	
+	La quantité $ad-bc$ s'appelle le \emphindex{détérminant} de la matrice $A$.
+}{exe:inv-2x2}{
 	todo
 }
 
@@ -199,7 +202,7 @@
 	Considérons la \emphindex{forme quadratique} $f(x, y)= 2x^2 + 3xy - y^2$.
 	\begin{enumerate}
 		\item
-		Donner une matrice $M\in\R^{2\times2}$ symétrique telle que, pour tout $x, y \in \R$,
+		Donner la matrice $M\in\R^{2\times2}$ symétrique telle que, pour tout $x, y \in \R$,
 			\[ f(x, y) = \begin{pmatrix} x & y \end{pmatrix} \cdot M \cdot \pvec{x}{y}. \]
 		\item
 		Montrer que la matrice $P^T M P$ est diagonale, où $P = \begin{pmatrix} 1 & -0,75 \\ 0 & 1 \end{pmatrix}$.

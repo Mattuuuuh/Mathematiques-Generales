@@ -10,6 +10,40 @@
 
 \section{Homothéties, translations, symétries, projections}
 
+\subsection{Projection orthogonale}
+
+\dfn{projection orthogonale}{
+	$\proj_u(v)$.
+}{dfn:proj-orth}
+
+\thm{}{
+	Soient $u$ et $v$ deux vecteurs non nuls de $\R^n$.
+	Alors $\proj_u(v)$ est le vecteur le plus proche de $v$ appartenant à $\scal{u}$.
+}{thm:orth-proj-closest}
+
+\thm{}{
+	Soient $u$ et $v$ deux vecteurs non nuls de $\R^n$.
+	Alors 	
+		\[ \proj_u(v) = \frac{\scal{u, v}}{\scal{u, u}} u. \]
+	%L'application $\proj_u$ est donc linéaire.
+}{thm:proj-orth-formula}
+
+\exe{}{
+	Soient $u = \pvec12$ et $v = \pvec{-3}{-2}$ dans $\R^2$.
+	Calculer $\proj_u(v)$.
+}{exe:proj-to-matrix}{
+	todo
+}
+
+\exe{}{
+	Soient $u = \begin{pmatrix}2\\5\\-2\\3\end{pmatrix}$ et $v = \begin{pmatrix}1\\-2\\-1\\3\end{pmatrix}$ dans $\R^4$.
+	Calculer $\proj_u(v)$.
+}{exe:proj-to-matrix}{
+	todo
+}
+
+
+
 \section*{Exercices supplémentaires}
 \addcontentsline{toc}{section}{Exercices supplémentaires}
 
@@ -30,6 +64,65 @@
 	todo
 }
 
+
+
+\exe{difficulty=2}{
+	Soient $u$ et $v$ deux vecteurs non nuls de $\R^n$.
+	Comment calculer $\sym_u(v)$, le symétrique de $v$ par rapport à $\scal{u}$ ?
+	%Montrer que $\sym_u$ est linéaire et qu'elle vérifie $\sym_u^2 = \id$.
+	Vérifier par le calcul que $\sym_u$ vérifie $\sym_u^2(v) = v$.
+}{exe:matrix-to-proj}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soient $b_1^*, b_2, b_3 \in\R^3$ trois vecteurs linéairement indépendants.
+	\begin{enumerate}
+		\item
+		Montrer que 
+			\[ b_2^* = b_2 - \frac{\japb{b_2, b_1^*}}{\japb{b_1^*, b_1^*}} b_1^* \]
+		est orthogonal à $b_1^*$.
+		\item
+		Montrer que 
+			\[ b_3^* = b_3 - \frac{\japb{b_3, b_1^*}}{\japb{b_1^*, b_1^*}} b_1^* - \frac{\japb{b_3, b_2^*}}{\japb{b_2^*, b_2^*}} b_2^* \]
+		est orthogonal à $b_1^*$ et $b_2^*$.
+	\end{enumerate}
+}{exe:gram-schmidt}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $u_1, \dots, u_n$ une famille orthonormée de $\R^n$.
+	\begin{enumerate}
+		\item
+		Montrer que la famille est libre sur $\R$.
+		\item
+		Montrer l'identité de Pythagore :
+			\[ \norm{u_1 + \cdots + u_n}^2 = \norm{u_1}^2 + \cdots + \norm{u_n}^2. \]
+	\end{enumerate}
+}{exe:ortho-is-free}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $u_1, \dots, u_n$ une famille orthonormée de $\R^n$ et $v\in\R^n$ un vecteur quelconque.
+	Nous admettons que $v$ s'écrit comme combinaison linéaire 
+		\[ v = \alpha_1 u_1 + \dots + \alpha_n u_n, \]
+	avec $\alpha_i \in \R$ pour tout $i=1, \dots, n$.
+	
+	\begin{enumerate}
+		\item
+		Montrer que $\alpha_i = \japb{v, u_i}$ pour chaque $i=1, \dots, n$.
+		\item
+		Montrer que $\proj_{u_i}(v) = \alpha_i u_i$.
+	\end{enumerate}
+}{exe:ortho-coefficients}{
+	todo
+}
+
+
+
+
 \exe{difficulty=2}{
 	Soit $P\in\R^{2\times2}$ vérifiant $P^2 = P$.
 	Est-ce que $P$ est la matrice d'une application $\proj_u$ dans la base canonique ?
@@ -37,6 +130,8 @@
 }{exe:matrix-to-proj}{
 	todo
 }
+
+
 
 
 
