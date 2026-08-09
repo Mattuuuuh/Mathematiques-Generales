@@ -10,30 +10,146 @@
 % vecteur = matrice
 % vecteur colonne vs vecteur ligne
 
-\subsection{Addition et multiplication matricielle}
+\subsection{Opérations sur les matrices}
 
 % non commutatif en général
 % opérations par blocs
 
 
-\subsection{Système d'équation $Ax=b$}
+%\subsection{Système $Ax=b$}
 
-\subsection{Exemples}
+\subsection{Matrices diagonales}
 
-% matrice symétrique, diagonale
+% D^n 
+% action sur les colonnes à droites
+% action sur les lignes à gauche
 
 \section{Propriétés des matrices}
 
 \subsection{Associativité}
 
+\prop{}{
+	Le produit matriciel est associatif.
+}{prop:matrix-assoc}
+
+\pf{}{
+	Soient $A\in\R^{m\times n}, B\in\R^{n\times p}, C\in\R^{p\times q}$ trois matrices à coefficients réels.
+	Il s'agit de montrer que $A(BC) = (AB)C$, en tant que matrices $m\times q$.
+	Pour cela, nous allons montrer que $[A(BC)]_{ij} = [(AB)C]_{ij}$ pour tout $i=1, \dots, m$ et $j=1, \dots q$.
+	
+	D'un part,
+	\begin{align*}
+		[A(BC)]_{ij} &= \sum_{k=1}^{n} A_{ik} (BC)_{kj}, \\
+				&= \sum_{k=1}^{n} A_{ik} \sum_{l=1}^{p} B_{kl} C_{lj}, \\
+				&= \sum_{k=1}^{n}\sum_{l=1}^{p} A_{ik} B_{kl} C_{lj}.\\
+	\end{align*}
+	D'autre part,
+	\begin{align*}
+		[(AB)C)]_{ij} &= \sum_{l=1}^{p} (AB)_{il} C_{lj}, \\
+				&= \sum_{l=1}^{p} \sum_{k=1}^{n} A_{ik} B_{kl} C_{lj}, \\
+				&= \sum_{k=1}^{n}\sum_{l=1}^{p} A_{ik} B_{kl} C_{lj},\\
+	\end{align*}
+	par permutation des sommes finies.
+}
+
 \subsection{Inverse}
+
+\prop{}{
+	Soit $M\in\R^{n \times n}$ une matrice.
+	Supposons que $M$ admette un inverse à gauche : $M^{-G} M = I$.
+	
+	Alors l'inverse à gauche est unique et est également un inverse à droite : $M^{-G} = M^{-D} = M^{-1}$.
+}{prop:inv}
+
+\nomen{
+	Une matrice admettant un inverse est dite \emphindex{matrice inversible}.
+}
+
+\pf{}{
+	todo
+}
+
+\exe{}{
+	Soit $n\in\N$ et $P, D\in\R^{n\times n}$ des matrices. Supposons $P$ inversible.
+	Montrer que
+		\[ (PD P^{-1})^n = P D^n P^{-1}. \]
+}{exe:pdpinv}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $M = \begin{pmatrix} a & b \\ c & d\end{pmatrix}\in\R^{2\times2}$ une matrice.
+	
+	\begin{enumerate}
+		\item
+		Montrer que si $ad-bc\neq0$, alors
+			\[ M^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -d & a \end{pmatrix}.  \]
+		\item
+		Montrer que si $ad-bc = 0$, alors
+			\[ M \begin{pmatrix} b \\ -a \end{pmatrix} = 0, \]
+		puis conclure que $M$ n'est pas inversible dans ce cas.
+	\end{enumerate}
+	
+	La quantité $ad-bc$ s'appelle le \emphindex{détérminant} de la matrice $A$.
+}{exe:inv-2x2}{
+	todo
+}
 
 \subsection{Transposition}
 
-% produit scalaire <x,y> = x^T y
+\dfn{transposition}{
+	La \emphindex{transposition} d'une matrice $M\in\R^{m\times n}$ est une matrice $M^T \in \R^{m\times n}$ vérifiant
+		\[ M^T_{ij} = M_{ji}. \]
+}{dfn:transposition}
+
+\notation{
+	La transposée est également notée $^tM$.
+}
+
+\ex{}{
+	\[ \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}^T = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix}. \]
+}{ex:transposition}
+
+\nt{
+	Le produit scalaire $\japb{u, v} = u_1 v_1 + \dots + v_n u_n$ s'écrit donc, de façon matricielle,
+		\[ \japb{u, v} = u^T v. \]
+}
+
+\nomen{
+	Un vecteur $v \in \R^n$ est aussi appelé \emphindex{vecteur colonne}.
+	Sa transposée $v^T\in\R^{1\times n}$ est un \emphindex{vecteur ligne}.
+}
+
+\prop{transposition du produit}{
+	Soient $A \in \R^{m\times n}$ et $B\in\R^{n \times p}$. 
+	Alors
+		\[ (AB)^T = B^T A^T. \]
+}{prop:transpos-produit}
+
+\dfn{matrice symétrique}{
+	Une matrice $M \in \R^{n\times n}$ est \emphindex{matrice symétrique} dès que $M^T = M$.
+}{dfn:matrice-symetrique}
 
 \section*{Exercices supplémentaires}
 \addcontentsline{toc}{section}{Exercices supplémentaires}
+
+\exe{difficulty=2}{
+	Soit $n\in\N^*$.
+	Considérons un graphe de $n$ sommets indexés de $1$ à $n$ avec des arcs entre certains sommets.
+	Notons $A\in\R^{n\times n}$ la \emphindex{matrice d'adjacence} définie par $A_{ij} = 1$ si les sommets $i$ et $j$ sont reliés par un arc, et $A_{ij}=0$ sinon.
+	
+	\begin{enumerate}
+		\item
+		Montrer que $A^k_{ij}$ est égal au nombre de chemins de $i$ vers $j$ passant par exactement $k$ arcs.
+		\item
+		Combien de façons différentes y a-t-il de passer d'un sommet à son opposé en exactement 4 arcs dans un carré où chaque sommet est lié à chaque autre (lui-même non compris) ?
+		
+		\emph{Ce graphe est appelé le \emphindex{graphe complet} sur 4 sommets.}
+	\end{enumerate}
+	
+}{exe:adjacency-matrix}{
+	todo
+}
 
 \exe{}{
 	Considérons $A = \begin{pmatrix} 1&2\\3&4 \end{pmatrix}$.
@@ -43,6 +159,55 @@
 }{exe:p-car-A-inv}{
 	todo
 }
+
+\exe{difficulty=2}{
+	Considérons la \emphindex{suite de Fibonacci} $(F_n)_{n \geq 0}$ définie récursivement par 
+		\begin{align*} F_0 = 0, && F_1 = 1, && F_{n+2} = F_{n+1} + F_{n} \quad (n \geq 0). \end{align*}
+	Soit $X_n := \begin{pmatrix} F_n \\ F_{n+1} \end{pmatrix}$ pour $n \geq 0$.
+	Posons également $\phi_+ = \frac{1+\sqrt5}2$ le \emphindex{nombre d'or} et $\phi_- = \frac{1-\sqrt5}2$ son conjugué.
+	\begin{enumerate}
+		\item 
+		Trouver la matrice $A \in \R^{2 \time 2}$ telle que $X_{n+1} = A X_n$.
+		\item 
+		Montrer que $A = P D P^{-1}$ où 
+			\begin{align*}
+				P = \begin{pmatrix} 1  & 1 \\ \phi_+ & \phi_- \end{pmatrix}, && 
+				D = \begin{pmatrix} \phi_+ & 0 \\ 0 & \phi_- \end{pmatrix}, &&
+				\et &&
+				P^{-1} = \frac1{10}\begin{pmatrix} 5-\sqrt5 & 2\sqrt5 \\ 5+\sqrt5 & -2\sqrt5 \end{pmatrix}.
+			\end{align*}
+		\item 
+		En déduire de la relation $X_n = A^n X_0$ une expression fonctionnelle pour $F_n$ en fonction de $n$.
+	\end{enumerate}
+	
+	\emph{Remarque : la forme matricielle donne un méthode rapide de calculer les termes de la suite grâce à l'\emphindex{exponentiation rapide} : 4 opérations matricielles suffisent à calculer $A^{16}$ grâce à des mises au carré successives.}
+}{exe:Fibonacci}{
+	Nous trouvons $A = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$.
+	Par conséquent, $X_n = A^n X_0 = PD^nP^{-1} \begin{pmatrix} 0 \\ 1 \end{pmatrix}$. 
+	Nous nous intéressons donc qu'à la première coordonnée de la deuxième colonne de $PD^n P^{-1}$, qui donne
+		\[ F_n = \frac{\phi_+^n - \phi_-^n}{\sqrt{5}}. \]
+}
+
+\exe{difficulty=1}{
+	Soit $M\in\R^{n\times n}$ une matrice dont les colonnes forment une base orthonormale.
+	Montrer que $M^T M = I$ puis que $M M^T = I$ et en déduire que les lignes de $M$ forment également une base orthonormale.
+}{exe:ortho-matrix}{
+	todo
+}
+
+\exe{}{
+	Considérons la \emphindex{forme quadratique} $f(x, y)= 2x^2 + 3xy - y^2$.
+	\begin{enumerate}
+		\item
+		Donner une matrice $M\in\R^{2\times2}$ symétrique telle que, pour tout $x, y \in \R$,
+			\[ f(x, y) = \begin{pmatrix} x & y \end{pmatrix} \cdot M \cdot \pvec{x}{y}. \]
+		\item
+		Montrer que la matrice $P^T M P$ est diagonale, où $P = \begin{pmatrix} 1 & -0,75 \\ 0 & 1 \end{pmatrix}$.
+	\end{enumerate}
+}{exe:bilinear-matrix}{
+	todo
+}
+
 
 \shipoutExercise
 
