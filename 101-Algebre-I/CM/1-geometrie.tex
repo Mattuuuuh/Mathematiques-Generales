@@ -342,30 +342,12 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	todo
 }
 
-%\subsection{Base orthonormale}
-%
-%\dfn{indépendance linéaire}{
-%	
-%}{dfn:indep-lin}
-%
-%\dfn{base}{
-%
-%}{dfn:base}
-%
-%\nomen{
-%	Une base dont les vecteurs sont orthogonaux deux à deux et dont chaque vecteur est de norme 1 est une \emphindex{base orthonormée}.
-%}
-%
-%\ex{base canonique}{
-%	
-%}{ex:base-canonique}
-%
-%\nt{
-%	Nous verrons plus tard que toute base de $\R^2$ est de taille 2 : c'est sa \emphindex{dimension} en tant qu'espace vectoriel sur $\R$.
-%	
-%	Plus généralement, la dimension de $\R^n$ comme \emphindex{$\R$-espace vectoriel} est égale à $n$.
-%}
-
+% inégalités triangulaire et Cauchy-Schwarz sont Algèbre IV
+%\thm{inégalité triangulaire}{
+%	La norme euclidienne vérifie l'\emphindex{inégalité triangulaire} :
+%	pour tout $u, v \in\R^n$,
+%		\[ \norm{u + v} \leq \norm{u} + \norm{v}. \]
+%}{thm:ineg-tri}
 
 
 \section{Intersections : premiers systèmes}
@@ -391,7 +373,7 @@ Heuristique degrés liberté = variable - équations.
 	todo
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=2}{
 	Soient $b_1^*, b_2, b_3 \in\R^3$ trois vecteurs linéairement indépendants.
 	\begin{enumerate}
 		\item
@@ -403,8 +385,48 @@ Heuristique degrés liberté = variable - équations.
 			\[ b_3^* = b_3 - \frac{\japb{b_3, b_1^*}}{\japb{b_1^*, b_1^*}} b_1^* - \frac{\japb{b_3, b_2^*}}{\japb{b_2^*, b_2^*}} b_2^* \]
 		est orthogonal à $b_1^*$ et $b_2^*$.
 	\end{enumerate}
+	\emph{Remarque : ce procédé peut continuer et porte le nom d\emphindex{algorithme de Gram-Schmidt}.}
 }{exe:gram-schmidt}{
 	todo
+}
+
+
+\exe{difficulty=2}{
+	Soient $u, v\in\R^n$ deux vecteurs linéairement indépendants.
+	\begin{enumerate}
+		\item
+		Développer la fonction quadratique $f(t) = \norm{u + tv}^2$.
+		\item
+		Que dire du discriminant du polynôme quadratique $f$ ?
+		\item
+		En conclure l'\emphindex{inégalité de Cauchy-Schwarz} :
+			\[ \abs{\japb{u, v}} \leq \norm{u} \norm{v}. \]
+		\item
+		Montrer l'égalité suivante pour n'importe quels réels $x_1, \dots, x_n \in \R$.
+			\[ |x_1| + \dots + |x_n| \leq \sqrt{n} \sqrt{x_1^2 + \dots + x_n^2} \]
+	\end{enumerate}
+}{exe:Cauchy-Schwarz}{
+	\begin{enumerate}
+		\item
+		\begin{align*}
+			f(t) &= \norm{u + tv}^2, \\
+			&= \norm{u}^2 + \norm{tv}^2 + 2\japb{u, tv}, \\
+			&= t^2 \norm{v}^2 + 2t \japb{u, v} + \norm{u}^2.
+		\end{align*}
+		\item
+		Le polynôme est toujours positif ou nul car c'est le carré d'une norme.
+		Son discriminant est donc négatif ou nul car $f$ n'admet qu'une ou aucune racine.
+		\item
+		\begin{align*}
+			\Delta = b^2 - 4ac &\leq 0, \\
+			\left(2\japb{u, v}\right)^2 - 4\norm{v}^2\norm{u}^2 &\leq 0, \\
+			4\left(\japb{u, v}^2 - \norm{v}^2\norm{u}^2\right) &\leq 0, \\
+			\japb{u, v}^2 &\leq  \norm{v}^2\norm{u}^2, \\
+			\abs{\japb{u, v}} &\leq \norm{u} \norm{v}.
+		\end{align*}
+		\item
+		En prenant $u$ le vecteur dont toutes les coordonnées sont 1 et $v$ dont les coordonnées sont $|x_1|, \dots, |x_n|$, l'inégalité de Cauchy-Schwarz donne le résultat attendu.
+	\end{enumerate}
 }
 
 \shipoutExercise
