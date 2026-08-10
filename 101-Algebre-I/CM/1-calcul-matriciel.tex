@@ -354,16 +354,23 @@
 \section*{Exercices supplémentaires}
 \addcontentsline{toc}{section}{Exercices supplémentaires}
 
+\exe{}{
+	Trouver deux matrices $A, B\in\R^{n\times n}$ non nulles telles que $AB = 0$, où $0$ désigne la matrice nulle de $\R^{n\times n}$.
+}{exe:Rnn-non-integre}{
+	En $n=1$, $ab=0$ implique $a =0$ ou $b=0$ d'après la propriété du produit nul.
+	En $n=2$, les matrices diagonales $A = \begin{pmatrix}1&\\&\end{pmatrix}$ et $B=\begin{pmatrix}&\\&1\end{pmatrix}$ fonctionnent.
+}
+
 \exe{difficulty=2}{
 	Soit $n\in\N^*$.
 	Considérons un graphe de $n$ sommets indexés de $1$ à $n$ avec des arcs entre certains sommets.
-	Notons $A\in\R^{n\times n}$ la \emphindex{matrice d'adjacence} définie par $A_{ij} = 1$ si les sommets $i$ et $j$ sont reliés par un arc, et $A_{ij}=0$ sinon.
+	Notons $A\in\R^{n\times n}$ la \emphindex{matrice d'adjacence} définie par $A_{ij} = 1$ si les sommets $i$ et $j$ sont reliés par une arête, et $A_{ij}=0$ sinon.
 	
 	\begin{enumerate}
 		\item
-		Montrer que $A^k_{ij}$ est égal au nombre de chemins de $i$ vers $j$ passant par exactement $k$ arcs.
+		Montrer que $A^k_{ij}$ est égal au nombre de chemins de $i$ vers $j$ passant par exactement $k$ arêtes.
 		\item
-		Combien de façons différentes y a-t-il de passer d'un sommet à son opposé en exactement 4 arcs dans un carré où chaque sommet est lié à chaque autre (lui-même non compris) ?
+		Combien de façons différentes y a-t-il de passer d'un sommet à son opposé en exactement 4 arêtes dans un carré où chaque sommet est lié à chaque autre (lui-même non compris) ?
 		
 		\emph{Ce graphe est appelé le \emphindex{graphe complet} sur 4 sommets.}
 	\end{enumerate}

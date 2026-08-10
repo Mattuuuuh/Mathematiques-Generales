@@ -40,7 +40,7 @@ On se restreint au triangle rectangle dont les sommets sont $(0;b), (x ; b)$, et
 L'angle $\alpha$ comme défini ci-dessus est constant et mesure la pente de la droite.
 
 	\begin{align*}
-		\tan(\alpha) = \dfrac{|y-b|}{|x|} && \iff && |y-b| = \tan(\alpha) \cdot |x|.
+		\tan(\alpha) = \frac{|y-b|}{|x|} && \iff && |y-b| = \tan(\alpha) \cdot |x|.
 	\end{align*}
 Comme la valeur absolue ne fait que supprimer le signe, on en déduit que
 	\begin{align*}
@@ -138,7 +138,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	Sinon, l'intersection des deux droites est vide et elles sont parallèles.
 %	Si $b=0$, les droites sont verticales et parallèles.
 %	
-%	Sinon, leur équations réduites sont $y = \dfrac{-a}{b}x$ et $y = \dfrac{-a}{b}x + \dfrac{c}b$, de même coefficient directeur.
+%	Sinon, leur équations réduites sont $y = \frac{-a}{b}x$ et $y = \frac{-a}{b}x + \frac{c}b$, de même coefficient directeur.
 %	Les droites sont donc parallèles dans ce cas aussi.
 }
 
@@ -171,7 +171,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	Comme $a$ et $b$ ne sont pas tous les deux nuls, $a^2 + b^2 >0$. 
 	L'expression $ax_P + by_P$ est ainsi une fonction affine croissante en $k$ : quand $k$ grandit, $ax_P + by_P$ aussi.
 	
-	Pour tout $c\in\R$, choisir $k = \dfrac{c}{a^2 + b^2}$ permet bien d'obtenir $ax_P + by_P = c$.
+	Pour tout $c\in\R$, choisir $k = \frac{c}{a^2 + b^2}$ permet bien d'obtenir $ax_P + by_P = c$.
 }
 
 \exe{}{
@@ -363,6 +363,111 @@ Heuristique degrés liberté = variable - équations.
 \section*{Exercices supplémentaires}
 \addcontentsline{toc}{section}{Exercices supplémentaires}
 
+
+\exe{, difficulty=0}{
+	Pour chaque système d'équations d'inconnues $x, y \in \R$, donner un système équivalent tel que les coefficients multipliant $x$ soient opposés (c'est-à-dire leur somme soit nulle).
+	\setlength{\columnsep}{1cm}
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \systeme{\,,\,}$
+		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \systeme{\,,\,}$
+		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \systeme{\,,\,}$
+		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \systeme{\,,\,}$
+		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff\systeme{\,,\,}$
+		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff\systeme{\,,\,}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:2}{
+	\setlength{\columnsep}{1cm}
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \systeme{2x+6y=6{,},-2x+2y=2.}$
+		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \systeme{3x - 21y = 3{,}, -3x + 5y = 13.}$
+		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \systeme{2x - y = 3{,}, -2x + 4y = -10.}$
+		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \systeme{4x  - y = -4{,},  -4x - 20y = -8.}$
+		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff\systeme{-6x - 6y = -15{,}, 6x + 14y = 20.}$
+		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff \systeme{35x - 5y = 50{,}, -35x - 14y = -7.}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Pour chaque système de l'exercice \ref{exe:2}, 
+		\begin{enumerate}
+			\item combiner les équations pour trouver $y$ ; 
+			\item trouver $x$ ; 
+			\item vérifier que le couple $(x ;y)$ obtenu soit bien solution du système initial.
+		\end{enumerate}
+}{exe:3}{ \, \\
+	\begin{enumerate}[label=Système \roman*) :, itemsep=20pt, leftmargin=80pt]
+		\item La somme des deux équations donne
+			\[ 8y = 8 \iff y = 1. \]
+		En remplaçant $y$ par $1$ dans la première équation, on trouve $x + 3 = 3$, et donc $x =0$.
+			\[ (x ; y ) = (0; 1). \]
+		
+		\item La somme des deux équations donne
+			\[ -16y = 16 \iff y = -1. \]
+		En remplaçant $y$ par $-1$ dans la première équation, on trouve $x + 7 = 1$, et donc $x =-6$.
+			\[ (x ; y ) = (-6; -1). \]
+		
+		\item La somme des deux équations donne
+			\[ 3y = -7 \iff y = -\frac73. \]
+		En remplaçant $y$ par $-\frac73$ dans la première équation, on trouve $2x +\frac73 = 3$, et donc $x =\frac13$.
+			\[ (x ; y ) = \left(\frac13; -\frac73 \right). \]
+		
+		\item La somme des deux équations donne
+			\[ -21y = -12 \iff y = \frac{12}{21} = \frac47. \]
+		En remplaçant $y$ par $ \frac47$ dans la deuxième équation, on trouve $x +\frac{20}7 = 2$, et donc $x =-\frac67$.
+			\[ (x ; y ) = \left(-\frac67; \frac47 \right). \]
+		
+		\item La somme des deux équations donne
+			\[ 8y = 5 \iff y = \frac58. \]
+		En remplaçant $y$ par $\frac58$ dans la deuxième équation, on trouve $3x +\frac{35}8 = 10 \iff x =\frac{45}{24} = \frac{15}8$.
+			\[ (x ; y ) = \left(\frac{15}8; \frac58 \right). \]
+		
+		\item La somme des deux équations donne
+			\[ -19y = 43 \iff y = -\frac{43}{19}. \]
+		En remplaçant $y$ par $-\frac{43}{19}$ dans la première équation, on trouve $7x +\frac{43}{19}= 10 \iff x =\frac{147}{133} = \frac{21}{19}$.
+			\[ (x ; y ) = \left( \frac{21}{19};  -\frac{43}{19} \right). \]
+	\end{enumerate}
+}
+
+\exe{}{
+	Donner les solutions réelles $(x;y)$ des systèmes suivantes.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $\sys{2x+4y=0}{-2x -2y = 2}$
+		\item $\sys{-6x+3y=-3}{x -3y = -2}$
+		\item $\sys{x+y = 2}{x+y=2}$
+		\item $\sys{8x-4y = 6+2x-y}{7x+12y=-5+y}$
+		\item $\sys{x-y = 1}{-x+y=10}$
+		\item $\sys{\frac12 x - \frac23 y= -1}{ ,\frac15 x + \frac72 y= 5}$
+		\item $\sys{2x - 8y = 2}{-4x+16y=-1}$
+		\item $\sys{5x + y = -2x-1-y}{8x = -1+2y}$
+		\item $\systeme[yx]{2y + 12x = -3{,}, , {-6}x=y + \frac32}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:4}{\, \\
+	
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $(x ; y) = (-2 ; 1)$
+		\item $(x ; y) = (1;1)$
+		\item Les deux équations sont redondantes : on a en fait qu'une seule contrainte pour deux variables et donc un degré liberté. Pour chaque choix de $x$, on peut trouver un $y$ tel que $(x;y)$ soit solution.
+		L'ensemble des solutions est
+			\[ \{ (x ; y) \text{ tq. } x+y=2, x, y \in \R \} = \{ (x ; y) \text{ tq. } y = -x + 2, \text{ où $x$ parcourt $\R$} \} = \Ccal_f, \]
+		où $f(x) = -x+2$.
+		\item $(x ; y) = \left(\frac{17}{29} ; -\frac{24}{29}\right)$
+		\item Les deux équations sont contradictoires et aucune solution n'existe.
+		\item $(x ; y) = \left(-\frac{10}{113} ; \frac{162}{113}\right)$
+		\item Les deux équations sont contradictoires et aucune solution n'existe.
+		\item $(x ; y) = \left(-\frac{2}{15} ; -\frac{1}{30}\right)$
+		\item Les deux équations sont redondantes : on a en fait qu'une seule contrainte pour deux variables et donc un degré liberté. Pour chaque choix de $x$, on peut trouver un $y$ tel que $(x;y)$ soit solution.
+		L'ensemble des solutions est
+			\[ \left\{ (x ; y) \text{ tq. } -6x -y = \frac32, x, y \in \R \right\} = \left\{ (x ; y) \text{ tq. } y= -6x - \frac32 \text{ où $x$ parcourt $\R$} \right\} = \Ccal_f, \]
+		où $f(x) =-6x - \frac32$.
+	\end{enumerate}
+}
 
 
 \exe{difficulty=1}{
