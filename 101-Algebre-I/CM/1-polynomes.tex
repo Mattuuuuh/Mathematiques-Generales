@@ -4,7 +4,7 @@
 \chapter{Polynômes à coefficients réels}
 \label{chap:polynomes}
 
-\section{Introduction}
+%\section{Introduction}
 
 \dfn{polynôme à coefficients réels, fonction polynomiale}{
 	Soit $d\in\N$. Un \emphindex{polynôme} à coefficients réels est une expression du type
@@ -13,6 +13,12 @@
 	
 	Une fonction $f(x) = a_0 + a_1x + a_2x^2 + \dots + a_d x^d$ de $\R$ dans $\R$ est une \emphindex{fonction polynomiale}.
 }{dfn:polynome}
+
+\nomen{
+	Le \emphindex{polynôme nul} est $0$, le polynôme à coefficients tous nuls.
+
+	La \emphindex{fonction nulle sur $\R$} est la fonction $f$ vérifiant $f(x) = 0$ pour tout $x\in\R$.
+}
 
 \nt{
 	Un polynôme n'a pas nécessairement vocation à être vu comme une fonction.
@@ -62,9 +68,9 @@
 
 \nomen{
 	Soient $p_1, p_2, \dots, p_k$ des polynômes à coefficients réels ($k\in\N^*$).
-	Une \emphindex{combinaison linéaire} est une expression de la forme
+	Une \emphindex{combinaison linéaire} sur $\R$ est une expression de la forme
 		\[ \alpha_1 p_1 + \alpha_2 p_2 + \dots + \alpha_k p_k, \]
-	où les $\alpha_i$ sont des nombres réels pour $i=1, 2, \dots, k$.
+	où les $\alpha_i\in\R$ sont des nombres réels pour $i=1, 2, \dots, k$.
 	
 	De plus, 
 	\begin{enumerate}
@@ -73,15 +79,30 @@
 	\end{enumerate}
 }
 
+\nt{
+	Le $0$ à droite de l'égalité $\alpha_1 p_1 + \alpha_2 p_2 + \dots + \alpha_k p_k = 0$ correspond au polynôme nul dont tous les coefficients sont nuls.
+}
+
+\ex{}{
+	Considérons $\{ x+1 ; x^2 + 3 ; x ; 2 \}$ une famille de polynômes.
+	Alors
+		\[ 2(x+1) - (x^2 + 3) + 2x - 3(2) = -x^2 + 4x -7 \]
+	est une combinaison linéaire non triviale de ces polynômes.
+	
+	La combinaison
+		\[ 3(x+1) + 0(x^2 +3) - 3x - \frac32(2) = 0 \]
+	est une combinaison nulle non triviale.
+}{ex:comb-lin}
+
 \exe{}{
-	Montrer que le polynôme $x^2 + x + 1$ est combinaison linéaire des polynômes $x^2 + 1$ et $x+1$.
+	Montrer que le polynôme $x + 1$ est combinaison linéaire des polynômes $x + 3$ et $x+5$.
 }{exe:comb-lin-poly}{
 
 }
 
 \exe{}{
 	Montrer que le polynôme $x^2 - 5x + 6$ n'est pas combinaison linéaire des polynômes $x - 2$ et $x-3$.
-}{exe:comb-lin-poly}{
+}{exe:not-comb-lin-poly}{
 
 }
 
@@ -95,8 +116,23 @@
 }{dfn:indep-lin}
 
 \nomen{
-	Une famille de polynôme non linéairement indépendante est dite \emphindex{famille liée}.
+	Une famille linéairement indépendante est dite \emphindex{famille libre}.
+
+	Une famille linéairement dépendante est dite \emphindex{famille liée}.
 }
+
+\ex{}{
+	L'exemple \ref{ex:comb-lin} montre que la famille de polynômes $\{ x+1 ; x^2 + 3 ; x ; 2 \}$ est liée car il existe une combinaison linéaire nulle et non triviale.
+	
+	En enlevant le premier polynôme, la famille $\{ x+1 ; x^2 + 3 ; 2 \}$ devient libre.
+	En effet, si 
+		\[ \alpha_1 (x+1) + \alpha_2 (x^2 + 3) + \alpha_3 (2) = 0 \]
+	avec $\alpha_1, \alpha_2, \alpha_3\in\R$, alors
+		\[ \alpha_2 x^2 + \alpha_1 x + (\alpha_1 + 3\alpha_2 + 2\alpha_3) 1 = 0. \]
+	Par indépendant linéaire des monômes $\{ 1 ; x ; x^2 \}$, il suit que
+		\[ \alpha_2 = \alpha_1 = \alpha_1 + 3\alpha_2 + 2\alpha_3 = 0. \]
+	Par conséquent, $\alpha_1=\alpha_2=\alpha_3=0$ et l'unique combinaison linéaire nulle est la combinaison triviale.
+}{ex:indep-lin}
 
 \nt{
 	Les polynômes $\{ 1 ; x ; x^2 ; \dots \}$ sont indépendants sur $\R$ par définition.
@@ -105,10 +141,6 @@
 	
 	La distinction est subtile mais importante car, sur un ensemble fini, un polynôme non nul peut être associé à une fonction nulle.
 	L'exercice \ref{exe:fonction-nulle-S} fournit un exemple.
-}
-
-\nomen{
-	La \emphindex{fonction nulle} est la fonction $f$ vérifiant $f(x) = 0$ pour tout $x\in\R$.
 }
 
 \exe{difficulty=1}{
@@ -121,28 +153,28 @@
 \exe{difficulty=1}{
 	Soit $S = \{ -1 ; 0 ; 1\}$.
 	Considérons l'ensemble $S[x]$, les polynômes à coefficients dans $S$.
-	Par définition, le polynôme $x^3 - x$ n'est pas nul.
+	Par définition, le polynôme $x^3 - x$ n'est pas le polynôme nul.
 	
-	Montrer que la fonction polynomiale $f(x) = x^3 -x$, elle, est la fonction nulle dans $S[x]$.
+	Montrer que la fonction polynomiale $f(x) = x^3 -x$, elle, est la fonction nulle sur $S$.
 }{exe:fonction-nulle-S}{
 	Il s'agit de montrer que $f(x) = 0$ pour tout $x\in S$.
 	Ceci se vérifie par le calcul : $f(0) = f(1) = f(-1) = 0$.
 }
 
 \exe{}{
-	Montrer que la famille de polynômes $\{ x+1 ; x+2 \} \subseteq\R[x]$ est linéairement indépendante.
+	Montrer que la famille de polynômes $\{ x+1 ; x+2 \} \subseteq\R[x]$ est linéairement indépendante sur $\R$.
 }{exe:lin-indep1}{
 	todo
 }
 
 \exe{}{
-	Montrer que la famille de polynômes $\{ x^2+4x - 2 ; x+2 ; 50 \} \subseteq\R[x]$ est linéairement indépendante.
+	Montrer que la famille de polynômes $\{ x^2+4x - 2 ; x+2 ; 50 \} \subseteq\R[x]$ est linéairement indépendante sur $\R$.
 }{exe:lin-indep2}{
 	todo
 }
 
 \exe{}{
-	Est-ce que la famille de polynômes $\{ 2x^2+4x - 2 ; x^2 + x + 1 ; x-2 \} \subseteq\R[x]$ est linéairement indépendante ?
+	Est-ce que la famille de polynômes $\{ 2x^2+4x - 2 ; x^2 + x + 1 ; x-2 \} \subseteq\R[x]$ est linéairement indépendante sur $\R$ ?
 	Démontrer que oui ou fournir un certificat de non indépendance linéaire : une combinaison linéaire nulle et non triviale.
 }{exe:lin-indep3}{
 	La famille est liée car
@@ -166,6 +198,18 @@
 	Prenons $p = \alpha_i f_i$ et $p = \beta_i f_i$ deux combinaisons linéaires de $p$.
 	Alors $p-p = 0 = (\alpha_i - \beta_i) f_i$ est la combinaison nulle.
 	Par indépendance linéaire, c'est la combinaison triviale et donc $\alpha_i - \beta_i = 0 \iff \alpha_i = \beta_i$ pour tout $i=1, 2, \dots, n$.
+}
+
+\exe{difficulty=1}{
+	Soit $F_1, F_2 \subseteq \R[x]$ deux familles de polynômes.
+	Nommons $V_1$ et $V_2$ l'ensemble de toutes les combinaisons linéaires de $F_1$ et $F_2$ respectivement.
+	
+	Montrer que, pour un polynôme $f$ combinaison linéaire de $F_1 \cup F_2$,
+	\begin{align*}
+		V_1 \cap V_2 = \{ 0 \} && \iff && f = v_1 + v_2 \text{ se décompose de façon unique avec $v_1\in V_1$ et $v_2\in V_2$}.
+	\end{align*}
+}{exe:direct-sum}{
+	todo
 }
 
 \section{Divisibilité et division euclidienne}
@@ -325,14 +369,14 @@
 }
 
 \exe{}{
-	Pour chaque propriété, donner une fonction polynomiale $f$ sur $\R$ non identiquement nulle la vérifiant.
+	Pour chaque propriété, donner un polynôme $f$ sur $\R$ non nul la vérifiant.
 	\begin{multicols}{2}
 	\begin{enumerate}
 		\item $f$ s'annule en $1$.
 		\item $f$ s'annule en $-10$.
 		\item $f$ s'annule en $0$.
 		\item $f$ s'annule en $-10$ et en $1$.
-		\item Les zéros de $f$ sont $2, -3, \frac27$, et $0$.
+		\item Les racines de $f$ sont $2, -3, \frac27$, et $0$.
 	\end{enumerate}
 	\end{multicols}
 }{exe:6}{
@@ -516,7 +560,8 @@
 }
 
 \exe{difficulty=1}{
-	Soit $f\in C^1(\R)$ une fonction continûment dérivable.
+	%Soit $f\in C^1(\R)$ une fonction continûment dérivable.
+	Soit $f$ une fonction dérivable en 0.
 	Montrer que 
 		\[ f(x) = f(0) + f'(0)x + g(x), \]
 	où $g(x) = o(x)$ dans le sens suivant : 

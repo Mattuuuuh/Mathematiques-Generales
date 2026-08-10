@@ -46,6 +46,22 @@ Produit matriciel $Ax$ du point de vue vectoriel $Ax = x_i a_i$.
 % indépendance
 % base
 
+
+
+\subsection{Produit vectoriel dans $\R^3$}
+
+\dfn{produit vectoriel}{
+	Soient $u, v \in \R^3$ deux vecteurs.
+	Alors le \emphindex{produit vectoriel} de $u$ et $v$ est donné par
+		%\[ u \land v = \begin{pmatrix} u_1 \\ u_2 \\ u_3 \end{pmatrix} \land \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} u_2v_3 - u_3v_2\\ u_3v_1-u_1v_3 \\ u_1v_2-u_2v_1 \end{pmatrix}. \]
+		\[ u \land v = \begin{pmatrix} u_2v_3 - u_3v_2\\ u_3v_1-u_1v_3 \\ u_1v_2-u_2v_1 \end{pmatrix}. \]
+}{dfn:prod-vect}
+
+\prop{}{
+	Le produit vectoriel de deux vecteurs $u, v$ orthonormaux donne un vecteur $u\land v$ tel que $\bigpar{ u, v, u\land v}$ soit une base orthonormée de sens direct (respectant la règle du tire-bouchon) de $\R^3$.
+	% TODO: base non définie
+}{prop:prod-vect}
+
 \section{Espaces affines}
 
 \section*{Exercices supplémentaires}

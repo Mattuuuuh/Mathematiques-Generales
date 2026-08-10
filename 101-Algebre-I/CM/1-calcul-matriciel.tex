@@ -6,27 +6,206 @@
 
 \section{Matrices et vecteurs}
 
-% def
-% vecteur = matrice
-% vecteur colonne vs vecteur ligne
+\dfn{matrice}{
+	Soient $m, n\in\N^*$ deux entiers naturels.
+	Une \emphindex{matrice $m\times n$ à coefficients réels} $M$ est un tableau rectangulaire de $m$ lignes et $n$ colonnes :
+		\[ M = \begin{pmatrix} M_{11} & M_{12} & \dots & M_{1n} \\M_{21} & M_{22} & \dots & M_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ M_{m1} & M_{m2} & \dots & M_{mn} \end{pmatrix}. \]
+	Les coefficients $M_{ij}\in\R$ sont des nombres réels.
+}{dfn:matrice}
+
+\nomen{
+	Les nombres $m\times n$ sont la \emphindex{taille} de la matrice.
+	
+	Si $m=n$, la matrice est dit \emphindex{matrice carrée}.
+}
+
+\notation{
+	L'ensemble des matrices $m\times n$ à coefficients réels est noté $M_{m, n}(R)$ ou $\R^{m\times n}$.
+}
+
+\nt{
+	Les indices et dimensions se lisent toujours « ligne puis colonne ».
+	Une matrice $M \in \R^{4\times3}$ a donc $4$ lignes et $3$ colonnes.
+	Le coefficient$M_{13}$ est situé ligne $1$, colonne $3$.
+}
+
+\nomen{
+	Un vecteur $v\in\R^n$ est vu comme une matrice $n\times1$. Autrement dit, $\R^n = \R^{n\times1}$.
+	Le vecteur est dit \emphindex{vecteur colonne} ou \emphindex{vecteur debout}.
+	
+	Une matrice $u \in \R^{1 \times n}$ est un \emphindex{vecteur ligne} ou \emphindex{vecteur couché}.
+}
 
 \subsection{Opérations sur les matrices}
 
-% non commutatif en général
-% opérations par blocs
+\dfn{multiplication par un scalaire}{
+	Soient $M\in\R^{m\times n}$ une matrice et $\alpha\in\R$ un réel appelé \emphindex{scalaire}.
+	La multiplication $\alpha \cdot M$ distribue $\alpha$ sur chaque coefficient de $M$.
+	\[ \alpha \cdot \begin{pmatrix} M_{11} & M_{12} & \dots & M_{1n} \\M_{21} & M_{22} & \dots & M_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ M_{m1} & M_{m2} & \dots & M_{mn} \end{pmatrix} = \begin{pmatrix} \alpha M_{11} & \alpha M_{12} & \dots & \alpha M_{1n} \\\alpha M_{21} & \alpha M_{22} & \dots & \alpha M_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ \alpha M_{m1} & \alpha M_{m2} & \dots & \alpha M_{mn} \end{pmatrix}. \]
+}{dfn:mult-mat-scal}
+
+\dfn{addition des matrices}{
+	Soient $A, B\in\R^{m\times n}$ deux matrices \underline{de même taille}.
+	L'\emphindex{addition matricielle} $A+B$ ajoute les coefficients de même position ensemble.
+		\[ \begin{pmatrix} A_{11} & A_{12} & \dots & A_{1n} \\A_{21} & A_{22} & \dots & A_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ A_{m1} & A_{m2} & \dots & A_{mn} \end{pmatrix} + \begin{pmatrix} B_{11} & B_{12} & \dots & B_{1n} \\B_{21} & B_{22} & \dots & B_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ B_{m1} & B_{m2} & \dots & B_{mn} \end{pmatrix} = \begin{pmatrix} A_{11}+B_{11} & A_{12}+B_{12} & \dots & A_{1n}+B_{1n} \\ A_{21}+B_{21} & A_{22}+B_{22} & \dots & A_{2n}+B_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ A_{m1}+B_{m1} & A_{m2}+B_{m2} & \dots & A_{mn}+B_{mn} \end{pmatrix}. \]
+}{dfn:add-mat-mat}
+
+\dfn{multiplication des matrices}{
+	Soient $A\in\R^{m\times n}$ et $B\in\R^{n\times p}$ deux matrices.
+	Le nombre de colonnes de $A$ est égal au nombre de lignes de $B$.
+	
+	Le \emphindex{produit matriciel} $A\cdot B$ est une matrice $m\times p$ telle que
+		\[ (AB)_{ij} = \sum_{k=1}^{n} A_{ik} B_{jk}. \]
+}{dfn:mult-mat-mat}
+
+\nt{
+	Le coefficient $(AB)_{ij}$ est égal au produit scalaire de la ligne $i$ de $A$ par la colonne $j$ de $B$.
+
+	La multiplication matricielle respecte une sorte de « relation de Chasles » des tailles et des indices :
+		\begin{align*}
+			(m \times n) \cdot (n \times p) = (m \times p) && \et && (AB)_{ij} = \sum_{k=1}^{n} A_{ik}B_{kj}.
+		\end{align*}
+}
+
+\motiv{
+	La multiplication matricielle est définie de sorte à ce qu'une application linéaire de $\R^n$ dans $\R^m$ soit égale à
+		\[ f(x) = A\cdot x, \]
+	pour $A\in\R^{m\times n}$ une certaine matrice.
+	Ceci généraliste les applications linéaire de $\R$ dans $\R$ qui s'écrivent $f(x) = ax$ pour $a\in\R$ un certain nombre réel.
+	
+	De plus, si $g(x) = Bx$ est une application linéaire de $\R^p$ dans $\R^n$ (c'est-à-dire $B\in\R^{n\times p}$), alors
+		\[ f(g(x)) = A(Bx) = (AB) x, \]
+	par l'associativité démontrée section \ref{subsec:assoc}.
+	
+	La multiplication matricielle traduit donc naturellement les fonctions linéaires ainsi que leur composition.
+}
+
+\prop{non commutativité du produit matriciel}{
+	Le produit matriciel n'est pas commutatif en général.
+	Il existe deux matrices carrées $A, B\in\R^{n\times n}$ telles que, 
+		\[ AB \neq BA \]
+}{prop:prod-mat-mat-non-comm}
+
+\exe{}{
+	Montrer que les matrices $A = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ et $B = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$ ne commutent pas : $AB \neq BA$.
+}{exe:mult-mat-mat-non-comm}{
+	
+}
+
+\exe{difficulty=2}{
+	Considérons des matrices dites \emphindex{matrice par blocs} définie comme
+		\begin{align*}
+			M = \begin{pmatrix} A & B \\ C & D \end{pmatrix} && \et && N  =\begin{pmatrix} A' & B' \\ C' & D' \end{pmatrix}
+		\end{align*}
+	où $A, B, C, D, A', B', C',$ et $D'$ sont elles-mêmes des matrices appelée « blocs ».
+	\begin{enumerate}
+		\item
+		Quelles conditions poser sur les tailles des blocs pour que les produits $AA', AB', BC', BD', CA', CB', DC',$ et $DD'$ aient un sens ?
+		\item
+		Montrer que sous ces conditions,
+			\[ MN = \begin{pmatrix} AA' + BC' & AB' + BD' \\ CA' + DC' & CB' + DD' \end{pmatrix}.  \]
+	\end{enumerate}
+}{exe:mult-mat-mat-bloc}{
+
+}
 
 
-%\subsection{Système $Ax=b$}
 
-\subsection{Matrices diagonales}
+\subsection{Matrice indentité et matrices diagonales}
 
-% D^n 
-% action sur les colonnes à droites
-% action sur les lignes à gauche
+\notation{
+	Lorsqu'un matrice est décrite, les coefficients $0$ peuvent être remplacés par des blancs.
+	Par exemple,
+		\[ \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & \\ & 1 \end{pmatrix}. \]
+}
+
+\dfn{matrice identité}{
+	Soit $n\in\N^*$ un entier naturel.
+	La \emphindex{matrice identité} de taille $n$ est donnée par
+		\[ I_n = \begin{pmatrix} 1 & & & \\ & 1 & & \\ & & \ddots & \\ & & & 1 \end{pmatrix} \in \R^{n \times n}. \]
+}{dfn:mat-id}
+
+\notation{
+	Lorsqu'un matrice est décrite, les coefficients $*$ peuvent être remplacés par coefficients réels quelconques.
+	Par exemple,
+		\[ \begin{pmatrix} * & 0 \\ 0 & * \end{pmatrix} = \begin{pmatrix} 2 & \\ & 6 \end{pmatrix} \ou \begin{pmatrix} -3 & \\ & 1 \end{pmatrix}. \]
+}
+
+\dfn{matrice diagonale}{
+	Soit $n\in\N^*$ un entier naturel.
+	Une \emphindex{matrice diagonale} de taille $n$ prend la forme
+		\[ \begin{pmatrix} * & & & \\ & * & & \\ & & \ddots & \\ & & & * \end{pmatrix} \in \R^{n \times n}. \]
+}{dfn:mat-diag}
+
+\prop{action d'une matrice diagonale}{
+	Soit $n\in\N*$, $D\in\R^{n\times n}$ une matrice diagonale, et $M\in\R^{n\times n}$ une matrice carrée quelconque.
+		\[ D = \begin{pmatrix} d_1 & & & \\ & d_2 & & \\ & & \ddots & \\ & & & d_n \end{pmatrix} \in \R^{n \times n}. \]
+	Alors 
+	\begin{enumerate}
+		\item
+		Le produit $D\cdot M$ multiplie chaque ligne $i$ de $M$ par le coefficient $d_i$ correspondant.
+		\item
+		Le produit $M\cdot D$ multiplie chaque colonne $i$ de $M$ par le coefficient $d_i$ correspondant.
+	\end{enumerate}
+}{prop:mult-mat-diag}
+
+\nt{
+	Phrases récapitulatives à retenir.
+	\begin{center}
+		« Multiplier à gauche agit sur les lignes. »
+		
+		« Multiplier à droite agit sur les colonnes. »
+	\end{center}
+	L'exemple de non-commutativité de l'exercice \ref{exe:mult-mat-mat-non-comm} devient alors clair sans calcul.
+}
+
+\exe{}{
+	Montrer la proposition \ref{prop:mult-mat-diag}.
+}{exe:prop:mult-mat-diag}{
+	todo
+}
+
+\exe{}{
+	Soit $A\in\R^{m\times n}$ et $B\in\R^{n \times p}$ deux matrices.
+	Notons $b_1, \dots, b_p$ les $p$ colonnes de $B$.
+	
+	Montrer 
+		\[ AB = \begin{pmatrix} Ab_1 & Ab_2 & \dots & Ab_p \end{pmatrix}. \]
+	\emph{Remarque : conclure que $A$ agit sur les colonnes est erroné ici. Multiplier par A à gauche modifie les coordonnées de chaque colonne de la même manière. $A$ agit donc sur les lignes.}
+}{exe:mult-mat-mat2}{
+	todo
+}
+
+\cor{}{
+	Soit $M\in\R^{n\times n}$ une matrice carrée.
+	Alors
+		\[ I_n \cdot M = M \cdot I_n = M. \]
+}{cor:id-el-neutre}
+
+\nt{
+	La matrice identité est donc l'équivalent de $1$ dans les nombres réels : multiplier par $I_n$ n'a aucun effect.
+	Certains textes notent d'ailleurs $I_n$ simplement par $I$ ou $1$, la dimension pouvant être déduite naturellement.
+}
+
+\exe{}{
+	Soit $n\in\N*$, $D\in\R^{n\times n}$ une matrice diagonale :
+		\[ D = \begin{pmatrix} d_1 & & & \\ & d_2 & & \\ & & \ddots & \\ & & & d_n \end{pmatrix} \in \R^{n \times n}. \]
+	Montrer que pour tout $N\in\N^*$
+		\[ D^N = \begin{pmatrix} d_1^N & & & \\ & d_2^N & & \\ & & \ddots & \\ & & & d_n^N \end{pmatrix}. \]
+}{exe:Dpown}{
+	todo
+}
+
+\exe{}{
+	Montrer que les matrices diagonales de même taille commutent toutes entre elles.
+}{exe:Diag-commute}{
+	todo
+}
 
 \section{Propriétés des matrices}
 
 \subsection{Associativité}
+\label{subsec:assoc}
 
 \prop{}{
 	Le produit matriciel est associatif.
@@ -52,10 +231,17 @@
 	par permutation des sommes finies.
 }
 
+\exe{}{
+	Soient $A\in\R^{n\times n}$ une matrice carrée et $N \in\N$ un entier naturel.
+	Montrer que la notation $A^N$ a un sens puis montrer que les matrices de l'ensemble $\{ I_n, A, A^2, A^3, \dots, A^N \}$ commutent deux à deux.
+}{exe:powers-commute}{
+	todo
+}
+
 \subsection{Inverse}
 
 \prop{}{
-	Soit $M\in\R^{n \times n}$ une matrice.
+	Soit $M\in\R^{n \times n}$ une matrice où $n\in\N^*$.
 	Supposons que $M$ admette un inverse à gauche : $M^{-G} M = I$.
 	
 	Alors l'inverse à gauche est unique et est également un inverse à droite : $M^{-G} = M^{-D} = M^{-1}$.
@@ -66,7 +252,8 @@
 }
 
 \pf{}{
-	todo
+	La preuve nécessite l'échelonnage des matrices du chapitre \ref{chap:forme-echelonnee}.
+	La proposition sera alors réécrite (voir \ref{prop:inv2}) et démontrée.
 }
 
 \exe{}{
@@ -75,6 +262,16 @@
 		\[ (PD P^{-1})^n = P D^n P^{-1}. \]
 }{exe:pdpinv}{
 	todo
+}
+
+\exe{}{
+	Soit $A \in\R^{n\times n}$ une matrice carrée.
+	Montrer que s'il existe un vecteur $v\in\R^n$ non nul tel que $Av = 0$, alors $A$ n'est pas inversible.
+}{exe:kern-inv}{
+	Démontrons la contraposée en supposans $A$ inversible.
+	Alors tout vecteur $v$ vérifiant $Av=0$ vérifie aussi $A^{-1} (Av) = A^{-1} 0$.
+	Par associativité, $(A^{-1} A) v = 0$, et donc $I_n v = v = 0$.
+	Le vecteur $v$ est donc nul.
 }
 
 \subsection{Transposition}
@@ -88,19 +285,24 @@
 	La transposée est également notée $^tM$.
 }
 
+\nt{
+	Chaque ligne de $M$ devient une colonne de $M^T$ (et inversement).
+}
+
 \ex{}{
 	\[ \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}^T = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix}. \]
 }{ex:transposition}
 
+
 \nt{
-	Le produit scalaire $\japb{u, v} = u_1 v_1 + \dots + v_n u_n$ s'écrit donc, de façon matricielle,
+	Le produit scalaire $\japb{u, v} = u_1 v_1 + \dots + v_n u_n$ de deux vecteurs colonne $u, v\in\R^n$ s'écrit donc de façon matricielle comme
 		\[ \japb{u, v} = u^T v. \]
 }
 
-\nomen{
-	Un vecteur $v \in \R^n$ est aussi appelé \emphindex{vecteur colonne}.
-	Sa transposée $v^T\in\R^{1\times n}$ est un \emphindex{vecteur ligne}.
-}
+%\nomen{
+%	Un vecteur $v \in \R^n$ est aussi appelé \emphindex{vecteur colonne}.
+%	Sa transposée $v^T\in\R^{1\times n}$ est un \emphindex{vecteur ligne}.
+%}
 
 \prop{transposition du produit}{
 	Soient $A \in \R^{m\times n}$ et $B\in\R^{n \times p}$. 
@@ -151,10 +353,10 @@
 	\begin{enumerate}
 		\item
 		Montrer que si $ad-bc\neq0$, alors
-			\[ M^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -d & a \end{pmatrix}.  \]
+			\[ M^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.  \]
 		\item
 		Montrer que si $ad-bc = 0$, alors
-			\[ M \begin{pmatrix} b \\ -a \end{pmatrix} = 0, \]
+			\[ M \begin{pmatrix} b \\ -a \end{pmatrix}  = M \begin{pmatrix} d \\ -c \end{pmatrix} = 0, \]
 		puis conclure que $M$ n'est pas inversible dans ce cas.
 	\end{enumerate}
 	
@@ -206,6 +408,13 @@
 			\[ f(x, y) = \begin{pmatrix} x & y \end{pmatrix} \cdot M \cdot \pvec{x}{y}. \]
 		\item
 		Montrer que la matrice $P^T M P$ est diagonale, où $P = \begin{pmatrix} 1 & -0,75 \\ 0 & 1 \end{pmatrix}$.
+		\item
+		Calculer $P^{-1}$ à l'aide de la formule
+			\[ \begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.  \]
+		\item
+		Exprimer les variables $z, t\in\R$ en fonction de $x, y$ pour que $P\pvec{z}{t} = \pvec{x}y$.
+		\item
+		Montrer que $f(x, y) = \alpha_1 z^2 + \alpha_2 t^2$ où $\alpha_1, \alpha_2 \in\R$ sont des réels à déterminer.
 	\end{enumerate}
 }{exe:bilinear-matrix}{
 	todo
