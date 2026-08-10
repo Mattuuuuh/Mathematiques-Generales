@@ -2,23 +2,292 @@
 %!TEX root = 0-notes.tex
 
 \unchapter{Équations}
-\fancyhead[C]{\textbf{Chapitre \thechapter~— Méthodologie}}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Équations linéaires}}
 \addcontentsline{toc}{section}{Méthodologie}
 
-\prop{}{
+\dfn{équation}{
+	Une \emphindex{équation} en $x$ est une expression de la forme
+		\[ \text{(expression 1 pouvant dépendre de $x$)} = \text{(expression 2 pouvant dépendre de $x$)}. \]
+	Une expression ne dépendant pas de $x$ est dite \emphindex{constante}.
+	
+	Une équation peut admettre aucune, une, plusieurs, ou une infinité de solutions.
+	Ces solutions ne sont pas toujours exprimables avec les opérations usuelles.
+}{}
 
-}{prop:1}
+\ex{}{
+	L'égalité suivante, valable pour un nombre $x\neq0$ (car $2$ est divisé par $x$),
+		\[ x^7 - \frac2x + 12 = 41 \]
+	admet deux solutions, $x\approx-0,068965517223732834608$ et $x\approx1,6273802760023052895$.
+}{}
+
+\thm{manipulations d'équations}{
+	Deux équations sont \emphindex{équivalentes} s'il est possible de passer de l'une à l'autre à l'aide d'une opération inversible.
+		\[ \text{(expression 1)} = \text{(expression 2)} \iff \text{(expression 3)} = \text{(expression 4)}. \]
+	Une solution de la première équation est une solution de la deuxième et vice versa.
+	Les deux équations ont le même \emphindex{ensemble de solutions}.
+	
+	\setlength{\columnseprule}{1pt}
+	\begin{multicols}{2}
+	Opérations inversibles usuelles :
+	\begin{enumerate}
+		\item Ajouter un nombre.
+		\item Soustraire un nombre.
+		\item Multiplier par un nombre non nul.
+		\item Diviser par un nombre non nul.
+	\end{enumerate}
+	\columnbreak
+	Opérations non inversible usuelles :
+	\begin{enumerate}
+		\item Multiplier par 0.
+		\item Mettre au carré.
+	\end{enumerate}
+	\vfill\,
+	\end{multicols}
+}{}
+
+\dfn{équation linéaire}{
+	Une \emphindex{équation linéaire} est une identité du type
+		\[ a  x + b = c  x + d, \]
+	où $a, b, c, d \in \R$ sont des constantes réelles, et $x \in \R$ est un nombre réel à trouver à l'aide de l'équation.
+}{}
+
+\nomen{
+	Une équation est \emphindex{résoluble pour $x$} si elle est équivalente à une équation du type
+		\[ x = \text{(un nombre) ou (un autre nombre) ou $\dots$}. \]
+	Ces nombres sont les \emphindex{solutions} de l'équation.
+}
+
+\mth{
+	Pour résoudre une équation linéaire, on regroupe les multiples de $x$ d'un côté et les constantes de l'autre : 
+		\[ (a-c)  x = d - b. \]
+	Si $a-c$ est non nul, on multiplie les deux côté par son inverse pour déduire 
+		\[ x = (d-b)\times \dfrac{1}{a-c} =  \dfrac{d-b}{a-c}. \]
+	Dans ce cas, l'équation n'a qu'une seule solution et une réponse sous forme de fraction est généralement attendue.
+}
 
 \newpage
 \addcontentsline{toc}{section}{Exercices}
 \fancyhead[C]{\textbf{Chapitre \thechapter~— Exercices}}
 
 
-\exe{,difficulty=3}{
-	exe1
+\exe{, difficulty=1}{
+	Pour chaque paire d'équations, ajouter entre elles le symbole
+		\begin{enumerate}[itemindent=1.5cm]
+			\item[$\implies$] si la première équation implique la seconde ;
+			\item[$\impliedby$] si la deuxième équation implique la première ;
+			\item[$\iff$] si les deux équations sont équivalentes ;
+			\item[$\centernot\iff$] si les deux équations sont indépendantes.
+		\end{enumerate}
+	Spécifier l'opération appliquée pour obtenir la deuxième équation à partir de la première le cas échéant.
+	
+	Par abus de notation et pour gagner du temps, l'absence de symbole signifie en général que les équations sont équivalentes, mais il faut toujours faire attention à ce que cela soit bien le cas !
+	
+	\begin{center}
+	\begin{tabular}{ccc|c|c}
+		Équation 1 & Symbole & Équation 2 & Opération & \thead{Les équations sont-\\ elles équivalentes ?} \\ \hline
+		$3x + 2y = 1$ &  & $6x  + 4y = 2$ & &  \\ \hline
+		$-x + 2y = 1$ &  & $-x + 2y - 1 = 0$ & &  \\ \hline
+		$3x + 2y = 1$ & & $-3x - 5y = -3$ & &  \\ \hline
+		$x^2 = -3x$ &  & $x = -3$ & &  \\ \hline
+		$-10x - y = 3$ &  & $0=0$ & &  \\ \hline
+		$x-y= 3$ & & $-x + y = -3$ & &  \\ \hline
+		$x -y = 0$ & & $x=y$ & &  \\ \hline
+		$-x + 2y = 3$ & & $0=0$ & &  \\ \hline
+		$2x + 3y + 4 = 2x + 3y + 5$ & & $1=0$ & &  \\ \hline
+		$-x - y = 1$ & & $-x - y = 1$ & &  \\ \hline
+		$0=0$ & & $23x - 10y = 6$ & &  \\ \hline
+		$x + 2y = 3$ & & $x^2 + 2yx = 3x$ & &  \\ \hline
+		$x-3y  =0$ & & $-2x+6y = 0$ & &  \\ \hline
+		$-2x + 3y = -3$ & & $4x - 6y = -6$ & &  \\ \hline
+		$x^2 = x$ & & $x = 1$ & &  \\ \hline
+		$x = 3$ & & $x^2 = 9$ & &  \\ \hline
+	\end{tabular}
+	\end{center}
 }{exe:1}{
-	sol1
+	\begin{center}
+	\begin{tabular}{ccc|c|c}
+		Équation 1 & Symbole & Équation 2 & Opération & \thead{Les équations sont-\\ elles équivalentes ?} \\ \hline
+		$3x + 2y = 1$ & {$\iff$} & $6x  + 4y = 2$ & {$\times2$} & {Oui} \\ \hline
+		$-x + 2y = 1$ & {$\iff$} & $-x + 2y - 1 = 0$ & {$-1$} & {Oui} \\ \hline
+		$3x + 2y = 1$ & {$\centernot\iff$} & $-3x - 5y = -3$ & & {Non} \\ \hline
+		$x^2 = -3x$ & {$\impliedby$} & $x = -3$ & & {Non} \\ \hline
+		$-10x - y = 3$ & {$\implies$} & $0=0$ & {$\times0$} & {Non} \\ \hline
+		$x-y= 3$ & {$\iff$} & $-x + y = -3$ & {$\times(-1)$} & {Oui} \\ \hline
+		$x -y = 0$ &{$\iff$} & $x=y$ & {$+y$} & {Oui} \\ \hline
+		$-x + 2y = 3$ & {$\implies$} & $0=0$ & {$\times0$} & {Non} \\ \hline
+		$2x + 3y + 4 = 2x + 3y + 5$ & {$\iff$} & $1=0$ & {$+(-2x-3y)$} & {Oui} \\ \hline
+		$-x - y = 1$ & {$\centernot\iff$} & $-x - y = 1$ & & {Non} \\ \hline
+		$0=0$ & {$\impliedby$} & $23x - 10y = 6$ & & {Non} \\ \hline
+		$x + 2y = 3$ & {$\implies$} & $x^2 + 2yx = 3x$ & {$\times x$} & {Non} \\ \hline
+		$x-3y  =0$ & {$\iff$} & $-2x+6y = 0$ & {$\times(-2)$} & {Oui} \\ \hline
+		$-2x + 3y = -3$ & {$\centernot\iff$} & $4x - 6y = -6$ & & {Non} \\ \hline
+		$x^2 = x$ & {$\impliedby$} & $x = 1$ & & {Non} \\ \hline
+		$x = 3$ & {$\implies$} & $x^2 = 9$ & {Mise au carré} & {Non} \\ \hline
+	\end{tabular}
+	\end{center}
+	
 }
+
+
+\exe{}{
+	Trouver le $x\in\Q$ rationnel vérifiant chaque équation suivante, et l'exprimer sous forme de fraction irréductible.
+
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=10pt]
+		\item $3x + 5 = 2x + 7$
+		\item $4x - 6 = 3x + 8$
+		\item $5x + 10 = 2x + 4$
+		\item $-2x + 3 = 4x - 1$
+		\item $7x - 5 = 5x + 9$
+		\item $6x + 4 = 3x + 12$
+		\item $-3x + 2 = -5x - 4$
+		\item $8x - 9 = 6x + 3$
+		\item $2x + 11 = -3x + 5$
+		\item $-4x + 7 = -x + 10$
+	\end{enumerate}
+	\end{multicols}
+}{exe:inter-affine}
+{
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=10pt]
+		\item $3x + 5 = 2x + 7 \iff x = 2$
+		\item $4x - 6 = 3x + 8 \iff x = 14$
+		\item $5x + 10 = 2x + 4 \iff x = -2$
+		\item $-2x + 3 = 4x - 1 \iff x = \dfrac{2}{3}$
+		\item $7x - 5 = 5x + 9 \iff x = 7$
+		\item $6x + 4 = 3x + 12 \iff x = \dfrac{8}{3}$
+		\item $-3x + 2 = -5x - 4 \iff x = -3$
+		\item $8x - 9 = 6x + 3 \iff x = 6$
+		\item $2x + 11 = -3x + 5 \iff x = \dfrac{-6}{5}$
+		\item $-4x + 7 = -x + 10 \iff x = -1$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Trouver le $x \in \Q$ rationnel non nul vérifiant chaque équation suivante, et l'exprimer sous forme de fraction irréductible.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=10pt]
+		\item $9 = \dfrac3x$
+		\item $-4 = \dfrac2x$
+		\item $0,2422 = \dfrac1x$
+		\item $0,7 = \dfrac{0,1}x$
+		\item $3 - \dfrac4x = -9 + \dfrac1x$
+		\item $-2 + \dfrac{-2}x = \dfrac3x - 10$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:eq-lin}
+{
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=10pt]
+		\item $9 = \dfrac3x \iff x = \dfrac13$
+		\item $-4 = \dfrac2x \iff x=-\dfrac12$
+		\item $0,2422 = \dfrac1x \iff x = \dfrac{10000}{2422} = \dfrac{5000}{1211}$
+		\item $0,7 = \dfrac{0,1}x \iff x = \dfrac17$
+		\item $3 - \dfrac4x = -9 + \dfrac1x \iff x = \dfrac5{12}$
+		\item $-2 + \dfrac{-2}x = \dfrac3x - 10 \iff x = \dfrac58$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{, difficulty=1}{
+	Multipliez l'équation 
+		\[ \dfrac{a}b + \dfrac{c}d = x \]
+	par $b$ puis $d$ à gauche et à droite et en déduire la règle d'addition des fractions :
+		\[ x = \dfrac{ad + cb}{bd}. \]
+}{exe:common-denom}{
+	En multipliant par $bd$, on trouve
+		\[ (bd) x =  bd \left( \dfrac{a}b + \dfrac{c}d \right) = ad + bc, \]
+	d'où
+		\[ x = \dfrac{ad+bc}{bd}. \]
+}
+
+
+\exe{}{
+	Résoudre les équations suivantes pour $x\in\R$ non nul. Exprimer $x$ sous la forme $q \sqrt{r}$ avec $q\in\Q$ rationnel et $r\in\N$ le plus petit possible.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\dfrac3x = \dfrac73.$
+		\item $ \dfrac7x  =\dfrac1x + 2$
+		\item $\dfrac{16}x  =\dfrac{\sqrt{3}}2$
+		\item $-\dfrac2x =4\sqrt{3}$
+		\item $\dfrac9{-x}  =\dfrac{\sqrt{6}}5$
+		\item $-\dfrac3x =\dfrac57\sqrt{7}$
+		\item $-\dfrac9{2x}  =\dfrac{\sqrt{11}}3$
+		\item $\dfrac2{7x} =-\sqrt{14}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:eq-sqrt}{}
+
+\exe{difficulty=1}{
+	\begin{multicols}{2}
+	La Terre complète son tour autour du Soleil en environ 365,2422 jours. 
+	Un calendrier ne peut donc pas contenir 365 jours tous les ans si celui-ci doit être synchronisé avec les saisons.
+	
+	Si le calendrier contient moins de 365,2422 jours, il sera en avance.
+	S'il contient plus de 365,2422 jours, il sera en retard
+
+	\begin{center}
+		\includegraphics[page=4]{2-figures.pdf}
+	\end{center}
+	\end{multicols}
+	
+	\begin{enumerate}
+	\item
+	Calendrier julien\footnote{De Jules César (né en 100 av. J.-C., mort en 44 av. J.-C.).}.
+	
+	En $46$ av. J.-C., Jules César introduit la règle de l'année bissextile.
+	\begin{enumerate}
+		\item
+		Trouver un entier naturel $a \in \N$ non nul tel que
+			\[ 365{,}2422 \approx 365 + \dfrac1a.\]
+
+		\item
+		En déduire la règle d'année bissextile du calendrier julien.
+		
+		\item
+		Au bout de 1 600 ans, de combien de jours le calendrier est-il en retard ?
+	\end{enumerate}
+	
+	\item
+	Calendrier grégorien\footnote{Du pape Grégoire XIII (1502-1585).}.
+	
+	En 1582, plus de 1 600 ans après l'introduction de la règle d'année bissextile, le calendrier julien prend donc un retard notable.
+	Le pape Grégoire XIII promulgue alors une réforme du calendrier, ainsi créant le calendrier grégorien encore utilisé aujourd'hui.
+	
+	Afin de corriger le problème de dérive du calendrier, une nouvelle règle est ajoutée à la définition d'année bissextile.
+	
+	\begin{enumerate}
+		\item
+		Trouver un entier naturel $b \in \N$ tel que
+			\[ 365{,}2422 \approx 365 + \dfrac14 - \dfrac{b}{400}.\]
+
+		\item
+		En déduire la règle d'année bissextile du calendrier grégorien.
+		
+		\item
+		Au bout de combien d'années le calendrier est-il en retard d'un jour ?
+	\end{enumerate}
+	
+	\item
+	Un nouveau calendrier ?
+	\begin{enumerate}
+		\item
+		Trouver un entier naturel $c \in \N$ tel que
+			\[ 365{,}2422 \approx 365 + \dfrac14 - \dfrac{3}{400} - \dfrac{c}{4000}.\]
+
+		\item 
+		Créer une nouvelle règle d'année bissextile.
+		\item
+		Calculer le nombre d'années avant que votre calendrier soit en retard d'un jour.
+	\end{enumerate}
+	\end{enumerate}
+}{exe:calendrier}{}
+
+
 \newpage
 \addcontentsline{toc}{section}{Solutions}
 \fancyhead[C]{\textbf{Chapitre \thechapter~— Solutions}}

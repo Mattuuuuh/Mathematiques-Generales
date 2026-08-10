@@ -2,27 +2,215 @@
 %!TEX root = 0-notes.tex
 
 \unchapter{Calculs}
-\fancyhead[C]{\textbf{Chapitre \thechapter~— Méthodologie}}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Calculs}}
 \addcontentsline{toc}{section}{Méthodologie}
 
-\prop{}{
+\subsection*{Nombres rationnels}
 
-}{prop:1}
+
+\dfn{nombres rationnels}{
+	Soit $a, b \in \Z$ deux entiers relatifs, avec $b$ non nul.
+	
+	Alors le \emphindex{rationnel} $\frac{a}{b}$ est l'\underline{unique} nombre vérifiant
+		\[ \frac{a}b \times b = a. \]
+	
+	L'ensemble de tous les rationnels est noté
+		\[ \Q = \Bigset{ \frac{a}{b} \tq a \in \Z, b \in \Z, b \neq 0}. \]
+}{dfn:nombres-rationnels}
+
+\ex{}{
+	Le nombre rationnel $\frac43$ est l'unique nombre vérifiant
+		\[ \frac43 \times 3 = 4. \]
+}{ex:nombres-rationnels2}
+
+\thm{opérations}{
+	Pour $a, b, c, d \in \Z$ des entiers relatifs, non nuls lorsque dénominateurs,
+		\begin{align*}
+		\frac{a}b + \frac{c}d = \frac{ad + cb}{bd}, && \et &&
+		\frac{a}b \times \frac{c}d = \frac{a\times c}{b\times d}.
+		\end{align*}
+}{}
+
+\dfn{}{
+	L'\emphindex{inverse} d'un nombre $a \in \R$ non nul désigne la quantité qui, lorsque multipliée par $a$, donne $1$.
+	Elle est notée $\frac{1}{a}$ ou $a^{-1}$ et vérifie 
+		\[ a \times \frac1a = 1. \]
+	
+	Phrase à retenir :
+	\begin{center}
+		« Diviser par $a$ c'est multipler par son inverse $\frac1a$. »
+	\end{center}
+}{}
+
+\nt{
+	L'inverse de $2$ est donc $0,5$ car $2\times0,5 = 1$. 
+	D'où $\frac12 = 0,5$.
+	
+	La notation $\frac12$ est préférée à $0,5$ car généralement plus précise : le rationnel $\frac13$ n'est pas décimal et ne peut pas s'exprimer de façon exacte en écriture décimale (elle est infinie).
+}
+	
+\ex{}{
+	L'inverse de $\frac47$ est $\frac74$ car $\frac47 \times \frac74 = 1$.
+	Autrement dit, $\frac{\ \ 1 \ \ }{\frac47} = \left( \frac47 \right)^{-1} = \frac74$.
+}{}
+
+\thm{simplification}{
+	La relation suivante permet de réduire les fractions.
+		\[ \frac{a\times d}{b\times d} = \frac{a}{b} \]
+	Lorsqu'un diviseur commun au numérateur et au dénominateur est trouvé, il peut être simplifié.
+	Sinon la fraction est \emphindex{irréductible}.
+}{}
+
+\subsection*{Calcul littéral}
+
+
 
 \newpage
 \addcontentsline{toc}{section}{Exercices}
 \fancyhead[C]{\textbf{Chapitre \thechapter~— Exercices}}
 
+
+\exe{}{
+	Écrire les sommes et différences de rationnels sous forme d'une fraction irréductible.
+	\begin{multicols}{3}
+	\begin{enumerate}[itemsep=10pt]
+		\item $1 - \dfrac12$
+		\item $\dfrac78 + \dfrac{9}{40}$
+		\item $\dfrac{3}{4} + \dfrac{2}{5}$
+		\item $\dfrac{7}{6} - \dfrac{5}{8}$
+		\item $\dfrac{9}{10} + \dfrac{2}{3} - \dfrac{1}{4}$
+		\item $\dfrac{-5}{7} + \dfrac{8}{9}$
+%		\item $\dfrac{4}{5} - \dfrac{3}{10} + \dfrac{-5}{6}$
+%		\item $\dfrac{-1}{2} + \dfrac{7}{8}$
+%		\item $\dfrac{11}{12} - \dfrac{5}{9} + \dfrac{7}{10}$
+%		\item $\dfrac{2}{3} - \dfrac{5}{4}$
+%		\item $\dfrac{-1}{3} + \dfrac{7}{9} - \dfrac{5}{6}$
+%		\item $\dfrac{3}{8} - \dfrac{1}{2}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:rationnals}
+{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $1 - \dfrac{1}{2} = \dfrac{1}{2}$
+		\item $\dfrac{7}{8} + \dfrac{9}{40} = \dfrac{11}{10}$
+		\item $\dfrac{3}{4} + \dfrac{2}{5} = \dfrac{23}{20}$
+		\item $\dfrac{7}{6} - \dfrac{5}{8} = \dfrac{13}{24}$
+		\item $\dfrac{9}{10} + \dfrac{2}{3} - \dfrac{1}{4} = \dfrac{79}{60}$
+		\item $\dfrac{-5}{7} + \dfrac{8}{9} = \dfrac{11}{63}$
+%		\item $\dfrac{4}{5} - \dfrac{3}{10} + \dfrac{-5}{6} = \dfrac{-1}{3}$
+%		\item $\dfrac{-1}{2} + \dfrac{7}{8} = \dfrac{3}{8}$
+%		\item $\dfrac{11}{12} - \dfrac{5}{9} + \dfrac{7}{10} = \dfrac{191}{180}$
+%		\item $\dfrac{2}{3} - \dfrac{5}{4} = \dfrac{-7}{12}$
+%		\item $\dfrac{-1}{3} + \dfrac{7}{9} - \dfrac{5}{6} = \dfrac{-7}{18}$
+%		\item $\dfrac{3}{8} - \dfrac{1}{2} = \dfrac{-1}{8}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{}{
+	Écrire les produits et divisions de rationnels sous forme de fraction irréductible.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}[itemsep=10pt]
+		\item $\dfrac{\ \ -3 \ \ }{\dfrac54}$
+		\item $\dfrac{63}{20} \times \dfrac{15}{14}$
+		\item $\dfrac{3}{4} \times \dfrac{2}{5}$
+		\item $\dfrac{\ \ \dfrac{7}{6}\ \ }{\dfrac{5}{8}}$
+		\item $\dfrac{9}{10} \times \dfrac{2}{3} \times \dfrac{4}{1}$
+		\item $\dfrac{-5}{7} \times \dfrac{8}{9}$
+%		\item $\left(\dfrac{4}{5}\right)^{-1} \times \dfrac{3}{10}$
+%		\item $\dfrac{-1}{2} \times \left(\dfrac{7}{8}\right)^{-1}$
+%		\item $\dfrac{11}{12} \times \dfrac{5}{9} \times \left(\dfrac{7}{10}\right)^{-1}$
+%		\item $\dfrac{2}{3} \times \dfrac{5}{4}$
+%		\item $\dfrac{-1}{3} \times \left(\dfrac{7}{9}\right)^{-1}$
+%		\item $\dfrac{3}{8} \times \dfrac{1}{2}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:rationnals2}
+{
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=10pt]
+		\item $\dfrac{-3}{\dfrac{5}{4}} = \dfrac{-12}{5}$
+		\item $\dfrac{63}{20} \times \dfrac{15}{14} = \dfrac{27}{8}$
+		\item $\dfrac{3}{4} \times \dfrac{2}{5} = \dfrac{3}{10}$
+		\item $\dfrac{\ \ \dfrac{7}{6}\ \ }{\dfrac{5}{8}} = \dfrac{28}{15}$
+		\item $\dfrac{9}{10} \times \dfrac{2}{3} \times \dfrac{4}{1} = \dfrac{12}{5}$
+		\item $\dfrac{-5}{7} \times \dfrac{8}{9} = \dfrac{-40}{63}$
+%		\item $\left(\dfrac{4}{5}\right)^{-1} \times \dfrac{3}{10} = \dfrac{3}{8}$
+%		\item $\dfrac{-1}{2} \times \left(\dfrac{7}{8}\right)^{-1} = \dfrac{-4}{7}$
+%		\item $\dfrac{11}{12} \times \dfrac{5}{9} \times \left(\dfrac{7}{10}\right)^{-1} = \dfrac{275}{378}$
+%		\item $\dfrac{2}{3} \times \dfrac{5}{4} = \dfrac{5}{6}$
+%		\item $\dfrac{-1}{3} \times \left(\dfrac{7}{9}\right)^{-1} = \dfrac{-3}{7}$
+%		\item $\dfrac{3}{8} \times \dfrac{1}{2} = \dfrac{3}{16}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Développer et réduire les expressions suivantes pour obtenir une expression de la forme
+		\[ ax^2 + bx + c, \]
+	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $x + 2x + 3x$
+		\item $(1+3x) - (8 - 2x)$
+		\item $x - 2(2-x)$
+		\item $x(3-x) + 8(x+1)$
+		\item $(x+3)(x-1) - 2x + 1$
+		\item $(x+1)^2 + 4x - 4$
+		\item $(3x-1)^2 - 9x^2 - 4$
+		\item $x(3x-1)  + 3x^2 +12$
+	\end{enumerate}
+	\end{multicols}
+}{exe:dev-red}{}
+
+\exe{}{
+	Développer les expressions algébriques suivantes pour obtenir une expression de la forme
+		\[ ax^2 + bx + c, \]
+	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $f(x) = (1+x)^2$
+			\item $g(x) = (x-3)^2$
+			\item $h(x) = (3-x)^2$
+			\item $F(x) = (3 + 2x)^2$
+			\item $G(x) = (3x - 7)^2$
+			\item $H(x) = (-7x - 2)^2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:id-rem}{
+	\begin{align*}
+		f(x) &= (1+x)^2 = 1^2 + 2(1)(x) + x^2 = 1 + 2x + x^2 \\
+		g(x) &= (x-3)^2 = x^2 - 2(x)(3) + 3^2 = x^2 - 6x + 9 \\
+		h(x) &= (3-x)^2 = 3^2 - 2(3)(x) + x^2 = 9 - 6x + x^2 \\
+		F(x) &= (3 + 2x)^2 = 3^2 + 2(3)(2x) + (2x)^2 = 9 + 12x + 4x^2 \\
+		G(x) &= (3x - 7)^2 = (3x)^2 - 2(3x)(7) + 7^2 = 9x^2 - 42x + 49 \\
+		H(x) &= (-7x - 2)^2 = (7x + 2)^2 = (7x)^2 + 2(7x)(2) + 2^2 = 49x^2 + 28x + 4
+	\end{align*}
+
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%%%% Samoyeau below %%%%%
+%%%%%%%%%%%%%%%%%%%%
+
+
+
 \exe{difficulty=0}{
 	Simplifier les fractions suivantes quand c'est possible:
 	\\
-	$\dfrac{32}{28}$ ; $\dfrac{64}{80}$ ; $\dfrac{15}{35}$ ; $\dfrac{49}{35}$ ; $\dfrac{14}{21}$ ; $\dfrac{8}{16}$ ; $\dfrac{120}{140}$ ; $\dfrac{12}{36}$ ; $\dfrac{3700}{1200}$ ; $\dfrac{48}{56}$ ; $\dfrac{81}{99}$ ; $\dfrac{77}{66}$; $\dfrac{8}{12}$; $\dfrac{21}{27}$; $\dfrac{13}{45}$; $\dfrac{30}{75}$; $\dfrac{3}{2222}$; $\dfrac{12}{36}$.
+	$\frac{32}{28}$ ; $\frac{64}{80}$ ; $\frac{15}{35}$ ; $\frac{49}{35}$ ; $\frac{14}{21}$ ; $\frac{8}{16}$ ; $\frac{120}{140}$ ; $\frac{12}{36}$ ; $\frac{3700}{1200}$ ; $\frac{48}{56}$ ; $\frac{81}{99}$ ; $\frac{77}{66}$; $\frac{8}{12}$; $\frac{21}{27}$; $\frac{13}{45}$; $\frac{30}{75}$; $\frac{3}{2222}$; $\frac{12}{36}$.
 }{exe:1}{
 	sol1
 }
 
 \exe{difficulty=0}{
-	Classer les fractions suivantes par ordre croissant : \\$A=\dfrac{1}{2}, B=\dfrac{1}{6}, C=\dfrac{5}{12}, D=\dfrac{3}{4}, E=\dfrac{2}{3}.$ 
+	Classer les fractions suivantes par ordre croissant : \\$A=\frac{1}{2}, B=\frac{1}{6}, C=\frac{5}{12}, D=\frac{3}{4}, E=\frac{2}{3}.$ 
 }{exe:2}{
 	sol1
 }
@@ -30,7 +218,7 @@
 \exe{difficulty=0}{
 	Calculer et simplifier:
 	\\
-	$A=\dfrac{2}{7}+\dfrac{6}{7}$ ;  $B=\dfrac{1}{3}-\dfrac{5}{3}$ ;  $C=\dfrac{5}{11}+\dfrac{-3}{11}$ ; $D=\dfrac{3}{8}+\dfrac{3}{4}$ ; $E=\dfrac{4}{9}+\dfrac{1}{27}$ ; $F=\dfrac{4}{30}+\dfrac{1}{10}$ ; $G=\dfrac{4}{5}+1$ ;$H=\dfrac{8}{3}-3$ ; $I=\dfrac{11}{13}+2$; $J=\dfrac{13}{15}-\dfrac{11}{20}$; $K=3+\dfrac{3}{4}$; $L=-1-\dfrac{5}{7}$; $M=\dfrac{1}{7}+\dfrac{3}{4}$; $N=\dfrac{5}{6}+\dfrac{-3}{8}$.
+	$A=\frac{2}{7}+\frac{6}{7}$ ;  $B=\frac{1}{3}-\frac{5}{3}$ ;  $C=\frac{5}{11}+\frac{-3}{11}$ ; $D=\frac{3}{8}+\frac{3}{4}$ ; $E=\frac{4}{9}+\frac{1}{27}$ ; $F=\frac{4}{30}+\frac{1}{10}$ ; $G=\frac{4}{5}+1$ ;$H=\frac{8}{3}-3$ ; $I=\frac{11}{13}+2$; $J=\frac{13}{15}-\frac{11}{20}$; $K=3+\frac{3}{4}$; $L=-1-\frac{5}{7}$; $M=\frac{1}{7}+\frac{3}{4}$; $N=\frac{5}{6}+\frac{-3}{8}$.
 
 }{exe:3}{
 	sol1
@@ -39,7 +227,7 @@
 \exe{difficulty=0}{
 	Calculer et simplifier. 
 	\\
-	$A=\dfrac{7}{3} \times (-2)$ ; $B=\dfrac{9}{3} \times\dfrac{3}{8}$; $C=\dfrac{1}{5} \times \dfrac{-1}{2}$;$D=\dfrac{11}{15}\div \dfrac{-3}{2}$ ; $E=\dfrac{10}{3}\div \dfrac{1}{11}$; $F=\dfrac{\dfrac{2}{3}}{\dfrac{4}{9}} $, $G=\dfrac{\dfrac{5}{9}}{\dfrac{8}{3}} $, $H=\dfrac{\dfrac{3}{4}}{\dfrac{3}{4}} $, $I=\dfrac{\dfrac{3}{2}}{\dfrac{2}{3}} $, $J=\dfrac{11}{15}\times \dfrac{-3}{2}$.
+	$A=\frac{7}{3} \times (-2)$ ; $B=\frac{9}{3} \times\frac{3}{8}$; $C=\frac{1}{5} \times \frac{-1}{2}$;$D=\frac{11}{15}\div \frac{-3}{2}$ ; $E=\frac{10}{3}\div \frac{1}{11}$; $F=\frac{\frac{2}{3}}{\frac{4}{9}} $, $G=\frac{\frac{5}{9}}{\frac{8}{3}} $, $H=\frac{\frac{3}{4}}{\frac{3}{4}} $, $I=\frac{\frac{3}{2}}{\frac{2}{3}} $, $J=\frac{11}{15}\times \frac{-3}{2}$.
 
 }{exe:4}{
 	sol1
@@ -48,9 +236,9 @@
 \exe{difficulty=0}{
 	 Calculer et simplifier:
 	\\
-	$a=\dfrac{2}{3}-\dfrac{1}{3}\times \dfrac{4}{5}$
-	; $b= \dfrac{-2}{3} \times \left( \dfrac{1}{2}-\dfrac{1}{4} \right)$ ; $c= \left( \dfrac{-2}{7}+\dfrac{5}{42} \right)\times \left( 5-\dfrac{3}{8} \right)$ ; $d= \dfrac{\dfrac{2}{5}+\dfrac{-3}{4}}{2+(-2)\times \dfrac{-7}{4}}$ ; $e=\left(1+\dfrac{1}{2}\right) \div \dfrac{2}{3}$ ; 
-	$f=\left(\dfrac{2}{3}+\dfrac{1}{2}\right) \times \dfrac{6}{25}$ ; $g=\dfrac{-1+\dfrac{33}{11}}{\dfrac{2}{7}}$.
+	$a=\frac{2}{3}-\frac{1}{3}\times \frac{4}{5}$
+	; $b= \frac{-2}{3} \times \left( \frac{1}{2}-\frac{1}{4} \right)$ ; $c= \left( \frac{-2}{7}+\frac{5}{42} \right)\times \left( 5-\frac{3}{8} \right)$ ; $d= \frac{\frac{2}{5}+\frac{-3}{4}}{2+(-2)\times \frac{-7}{4}}$ ; $e=\left(1+\frac{1}{2}\right) \div \frac{2}{3}$ ; 
+	$f=\left(\frac{2}{3}+\frac{1}{2}\right) \times \frac{6}{25}$ ; $g=\frac{-1+\frac{33}{11}}{\frac{2}{7}}$.
 
 }{exe:5}{
 	sol1
@@ -70,7 +258,7 @@
 }
 
 \exe{difficulty=0}{
-	Une usine française de voitures vend $\dfrac{1}{3}$ de ses voitures en Allemagne, $\dfrac{1}{4}$ de ce qui reste en Espagne et le reste en France. Quelle proportion de voitures de cette usine reste en France?
+	Une usine française de voitures vend $\frac{1}{3}$ de ses voitures en Allemagne, $\frac{1}{4}$ de ce qui reste en Espagne et le reste en France. Quelle proportion de voitures de cette usine reste en France?
 
 }{exe:7}{
 	sol1
@@ -78,14 +266,14 @@
 
 \exe{difficulty=0}{
 	Amaya et Mariza ont deux tablettes de chocolat, une au chocolat noir et une au chocolat au lait qui sont de même proportion. 
-	Amaya a mangé $\dfrac{1}{4}$ des $\dfrac{2}{3}$ de la tablette au chocolat au lait. Mariza a mangé la moitié des $\dfrac{3}{4}$ de la tablette de chocolat noir. Laquelle a mangé le plus de chocolat? 
+	Amaya a mangé $\frac{1}{4}$ des $\frac{2}{3}$ de la tablette au chocolat au lait. Mariza a mangé la moitié des $\frac{3}{4}$ de la tablette de chocolat noir. Laquelle a mangé le plus de chocolat? 
 
 }{exe:8}{
 	sol1
 }
 
 \exe{difficulty=0}{
-	Lors d'une course, Pierre fait $\dfrac{1}{3}$ de la distance totale parcourue en vélo, $\dfrac{5}{12}$ de la distance totale en courant, $\dfrac{1}{6}$ de la distance totale à la nage et le reste en kayak. 
+	Lors d'une course, Pierre fait $\frac{1}{3}$ de la distance totale parcourue en vélo, $\frac{5}{12}$ de la distance totale en courant, $\frac{1}{6}$ de la distance totale à la nage et le reste en kayak. 
 	\begin{enumerate}
 		\item Compléter la phrase suivante : Pierre a parcouru .... de la distance totale en kayak.
 		\item Cette course fait 24 kms. Quelle est la distance parcourrue en kayak? 
@@ -99,7 +287,7 @@
 	Calculer la fraction suivante et simplifier au maximum. \\
 	
 	
-	$\beta=\dfrac{ \dfrac{2}{3} \times \dfrac{6}{12} + \dfrac{-3}{7} - 4 }{ \dfrac{\dfrac{1}{2}-3}{8\times \dfrac{-1}{2}} + \dfrac{2}{5}-\dfrac{1}{4}}$
+	$\beta=\frac{ \frac{2}{3} \times \frac{6}{12} + \frac{-3}{7} - 4 }{ \frac{\frac{1}{2}-3}{8\times \frac{-1}{2}} + \frac{2}{5}-\frac{1}{4}}$
 
 }{exe:10}{
 	sol1
