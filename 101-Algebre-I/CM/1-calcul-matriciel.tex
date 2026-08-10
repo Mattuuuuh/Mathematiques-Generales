@@ -71,7 +71,7 @@
 	La multiplication matricielle est définie de sorte à ce qu'une application linéaire de $\R^n$ dans $\R^m$ soit égale à
 		\[ f(x) = A\cdot x, \]
 	pour $A\in\R^{m\times n}$ une certaine matrice.
-	Ceci généraliste les applications linéaire de $\R$ dans $\R$ qui s'écrivent $f(x) = ax$ pour $a\in\R$ un certain nombre réel.
+	Ceci généralise les applications linéaire de $\R$ dans $\R$ qui s'écrivent $f(x) = ax$ pour $a\in\R$ un certain nombre réel.
 	
 	De plus, si $g(x) = Bx$ est une application linéaire de $\R^p$ dans $\R^n$ (c'est-à-dire $B\in\R^{n\times p}$), alors
 		\[ f(g(x)) = A(Bx) = (AB) x, \]
@@ -231,12 +231,23 @@
 	par permutation des sommes finies.
 }
 
+\cor{}{
+	La puissance d'une matrice carrée $A$
+		\[ A^n = \underbrace{A \cdot A \cdot \cdots \cdot A}_{\text{$n$ fois}} \]
+	a un sens.
+}{cor:Apown}
+
+\notation{
+	Par analogie aux nombres réels, nous posons $A^0 = I$ pour une matrice carrée $A$.
+}
+
 \exe{}{
-	Soient $A\in\R^{n\times n}$ une matrice carrée et $N \in\N$ un entier naturel.
-	Montrer que la notation $A^N$ a un sens puis montrer que les matrices de l'ensemble $\{ I_n, A, A^2, A^3, \dots, A^N \}$ commutent deux à deux.
+	Soient $A$ une matrice carrée et $n \in\N$ un entier naturel.
+	Montrer que les matrices de l'ensemble $\{ I, A, A^2, A^3, \dots, A^n \}$ commutent deux à deux.
 }{exe:powers-commute}{
 	todo
 }
+
 
 \subsection{Inverse}
 
@@ -256,7 +267,22 @@
 	La proposition sera alors réécrite (voir \ref{prop:inv2}) et démontrée.
 }
 
-\exe{}{
+\exe{difficulty=1}{
+	Considérons la matrice $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$.
+	\begin{enumerate}
+		\item
+		Calculer $A^2$ et $A^3$.
+		\item
+		Soit $n\in\N$.
+		Conjecturer une expression pour $A^n$ puis la démontrer.
+		\item
+		Trouver $A^{-1}$ et montrer par le calcul que c'est bien l'inverse à gauche et à droite de $A$.
+	\end{enumerate}
+}{exe:I-p-E11}{
+	$A^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}$.
+}
+
+\exe{difficulty=1}{
 	Soit $n\in\N$ et $P, D\in\R^{n\times n}$ des matrices. Supposons $P$ inversible.
 	Montrer que
 		\[ (PD P^{-1})^n = P D^n P^{-1}. \]
@@ -264,7 +290,7 @@
 	todo
 }
 
-\exe{}{
+\exe{difficulty=1}{
 	Soit $A \in\R^{n\times n}$ une matrice carrée.
 	Montrer que s'il existe un vecteur $v\in\R^n$ non nul tel que $Av = 0$, alors $A$ n'est pas inversible.
 }{exe:kern-inv}{
@@ -309,6 +335,17 @@
 	Alors
 		\[ (AB)^T = B^T A^T. \]
 }{prop:transpos-produit}
+
+\pf{}{
+	Notons $a_i$ la ligne $i$ de $A$ et $b_j$ la colonne $j$ de $B$.
+	Alors $(AB)_{ij} = \japb{a_i, b_j}$.
+	
+	Il suit donc que, d'une part, $(AB)^T_{ji} = \japb{a_i, b_j}$.
+	
+	D'autre part, $(B^T A^T)_{ji }$ est le produit scalaire de la ligne $j$ de $B^T$ avec la colonne $i$ de $A^T$.
+	Par transposition et symétrie du produit scalaire, ce coefficient est égal au produit scalaire de la ligne $i$ de $A$ par la colonne $j$ de $B^T$.
+	Donc $(B^T A^T)_{ji } = \japb{a_i, b_j} = (AB)^T_{ji}$, ce qui conclut.
+}
 
 \dfn{matrice symétrique}{
 	Une matrice $M \in \R^{n\times n}$ est \emphindex{matrice symétrique} dès que $M^T = M$.
