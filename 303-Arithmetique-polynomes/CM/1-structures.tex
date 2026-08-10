@@ -795,6 +795,28 @@
 	L'ensemble $S = \{ 1 \}$ forme un groupe trivial lorsque muni de l'opération $\circ$.
 }
 
+\exe{}{
+	Considérons l'ensemble $\Z$ muni de la loi $\circ$ suivante.
+		\[ x \circ y = x-y. \]
+	Est-ce que $\bigpar{\Z, -}$ est un groupe ?
+}{exe:Z-minus}{
+	\begin{enumerate}
+		\item
+		La loi est interne.
+		\item
+		Notons $e\in\Z$ un élément neutre candidat.
+		Alors $e$ doit vérifier $e\circ x = x \circ e = x$ pour tout $x\in\Z$.
+		
+		L'égalité $1-e = 1$ implique $e = 0$, mais alors $e-1 \neq 1$.
+		
+		La loi n'admet donc pas d'élément neutre.
+		\item
+		L'associativité $x \circ (y \circ z) = (x \circ y) \circ z$ est équivalente à l'identité
+			\[ x-(y-z) = (x-y)-z \iff x-y+z = x-y-z, \]
+		qui n'est pas vraie non plus pour tout $x, y, z\in\Z$ (prendre par exemple $x=y=0$ et $z=1$).
+	\end{enumerate}
+}
+
 \exe{difficulty=1}{
 	Soit $\alpha\in\R$ un réel et
 	$H = \japb{1, \alpha}$ le sous-groupe de $\bigpar{\R, +}$ généré par $1$ et $\alpha$.
