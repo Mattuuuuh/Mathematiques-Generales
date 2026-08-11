@@ -1,0 +1,175 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\unchapter{Calculs}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Calcul littéral}}
+\addcontentsline{toc}{section}{Méthodologie}
+
+\axiome{
+	Pour trois nombres réels $x, y, z \in\R$, nous avons
+	\begin{enumerate}
+		\item
+		La distributivité de $\times$ sur $+$ :
+			\[ x\times(y+z) = x\times y + x\times z. \]
+		\item
+		L'associativité de l'addition :
+			\[ x+(y+z) = (x+y)+z = x+y+z.\]
+		\item
+		L'associativité de la multiplication :
+			\[ x\times(y\times z) = (x\times y)\times z = x\times y\times z.\]
+	\end{enumerate}
+}{}
+
+\nt{
+	Les axiomes s'appliquent à la division et la soustraction car
+	\begin{center}
+	« Diviser c'est multiplier par l'inverse. »
+	
+	« Soustraire c'est ajouter l'opposé. »
+	\end{center}
+}
+
+\nt{
+	Lorsqu'une opération est omise, c'est une multiplication.
+	La multiplication est prioritaire sur l'addition. Les parenthèses isolent des expressions.
+}
+
+\ex{}{
+		\[ 
+		\underbrace{3 (x + 4) + 2}_{\emphindex{forme factorisée}}  
+		= 
+		\underbrace{3x + 3\times4 + 2}_ {\emphindex{forme développée}}  
+		= 
+		\underbrace{3x + 14}_{\emphindex{forme développée réduite}}
+		. \]
+		\[ 
+		\underbrace{xy + 2yz}_{\emphindex{forme développée réduite}}
+		= 
+		\underbrace{y(x+2z)}_{\emphindex{forme factorisée}}
+		. \]
+}{}
+
+\dfn{puissance sur $\N^*$}{
+	Soit $n \in \N^*$ un entier naturel non nul.
+	Alors \og $x$ puissance $n$ \fg~est égal à
+		\[ x^{n} = \underbrace{x \times x \times \cdots \times x}_{\text{$n$ fois}}. \]
+	En particulier,
+		\begin{align*}
+			x^1 = x && x^2 = x\times x && x^3 = x \times x \times x
+		\end{align*}
+}{dfn:puissance-N}
+
+\nt{
+	La puissance 0 est égale à 1 par convention  : $x^0 = 1$.
+}
+
+\thm{}{
+	Soient $a, b, c, d\in\R$ quatre nombres réels.
+	Alors
+	\begin{align*}
+		&(a+b)(c+d) = (a)(c) + (a)(d) + (b)(c) + (b)(d) &\text{(double distributivité)} \\
+	&\left.
+	\begin{array}{cl}
+		(a+b)(a-b) &= (a)^2 - (b)^2 \\
+		(a+b)^2 &= (a)^2 + (b)^2 + 2(a)(b)\\
+		(a-b)^2 &= (a)^2 + (b)^2 - 2(a)(b)
+	\end{array}\right\}  &\text{(identités remarquables)} 
+	\end{align*}
+	%$$
+}{}
+
+\prop{propriétés des puissances}{
+	Soient $x, y\in\R$ et  $m, n \in \N$. Alors
+		\begin{align*}
+			x^{m} \times x^{n} = x^{m+n},  && \bigl( x^{m}\bigr)^n = x^{m\times n}, && \et && (xy)^n = x^n y^n.
+		\end{align*}
+%		\[ x^{m} \times x^{n} = x^{m+n}, \]
+%	et 
+%		\[ \bigl( x^{m}\bigr)^n = x^{m\times n}. \]
+%	En particulier, on a 
+%		\begin{align*}
+%			q^0 = 1 && q^{-1} = \dfrac1q &&	q^{-a} = \dfrac1{q^a}
+%		\end{align*}
+}{prop:propriétés-puissances}
+
+\ex{}{
+		\[ 
+		3(2x-1)^2 + x^2
+		= 
+		3\underbrace{\left[(2x)^2+(1)^2 - 2(2x)(1)\right]}_{(2x-1)^2} + x^2
+		= 
+		3\bigl[4x^2+1^2 - 4x\bigr] + x^2
+		= 
+		\bigl[12x^2+3 - 12x\bigr] + x^2
+		= 
+		\underbrace{13x^2}_{12x^2 + x^2}+3 - 12x
+		. \]
+}{}
+
+\newpage
+\addcontentsline{toc}{section}{Exercices}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Exercices}}
+
+
+\exe{}{
+	Développer et réduire les expressions suivantes pour obtenir une expression de la forme
+		\[ ax^2 + bx + c, \]
+	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $x + 2x + 3x$
+		\item $(1+3x) - (8 - 2x)$
+		\item $x - 2(2-x)$
+		\item $x(3-x) + 8(x+1)$
+		\item $(x+3)(x-1) - 2x + 1$
+		\item $(x+1)^2 + 4x - 4$
+		\item $(3x-1)^2 - 9x^2 - 4$
+		\item $x(3x-1)  + 3x^2 +12$
+	\end{enumerate}
+	\end{multicols}
+}{exe:dev-red}{}
+
+\exe{}{
+	Développer les expressions algébriques suivantes pour obtenir une expression de la forme
+		\[ ax^2 + bx + c, \]
+	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item $f(x) = (1+x)^2$
+			\item $g(x) = (x-3)^2$
+			\item $h(x) = (3-x)^2$
+			\item $F(x) = (3 + 2x)^2$
+			\item $G(x) = (3x - 7)^2$
+			\item $H(x) = (-7x - 2)^2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:id-rem}{
+	\begin{align*}
+		f(x) &= (1+x)^2 = 1^2 + 2(1)(x) + x^2 = 1 + 2x + x^2 \\
+		g(x) &= (x-3)^2 = x^2 - 2(x)(3) + 3^2 = x^2 - 6x + 9 \\
+		h(x) &= (3-x)^2 = 3^2 - 2(3)(x) + x^2 = 9 - 6x + x^2 \\
+		F(x) &= (3 + 2x)^2 = 3^2 + 2(3)(2x) + (2x)^2 = 9 + 12x + 4x^2 \\
+		G(x) &= (3x - 7)^2 = (3x)^2 - 2(3x)(7) + 7^2 = 9x^2 - 42x + 49 \\
+		H(x) &= (-7x - 2)^2 = (7x + 2)^2 = (7x)^2 + 2(7x)(2) + 2^2 = 49x^2 + 28x + 4
+	\end{align*}
+
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%%%% Samoyeau below %%%%%
+%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\newpage
+\addcontentsline{toc}{section}{Solutions}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Solutions}}
+
+\shipoutAnswer
+
+
+

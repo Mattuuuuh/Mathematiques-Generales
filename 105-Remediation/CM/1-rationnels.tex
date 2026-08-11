@@ -2,10 +2,8 @@
 %!TEX root = 0-notes.tex
 
 \unchapter{Calculs}
-\fancyhead[C]{\textbf{Chapitre \thechapter~— Calculs}}
+\fancyhead[C]{\textbf{Chapitre \thechapter~— Nombres rationnels}}
 \addcontentsline{toc}{section}{Méthodologie}
-
-\subsection*{Nombres rationnels}
 
 
 \dfn{nombres rationnels}{
@@ -34,7 +32,7 @@
 \dfn{}{
 	L'\emphindex{inverse} d'un nombre $a \in \R$ non nul désigne la quantité qui, lorsque multipliée par $a$, donne $1$.
 	Elle est notée $\frac{1}{a}$ ou $a^{-1}$ et vérifie 
-		\[ a \times \frac1a = 1. \]
+		\[ a \times \frac1a = \frac{a}{a} = 1. \]
 	
 	Phrase à retenir :
 	\begin{center}
@@ -54,16 +52,18 @@
 	Autrement dit, $\frac{\ \ 1 \ \ }{\frac47} = \left( \frac47 \right)^{-1} = \frac74$.
 }{}
 
-\thm{simplification}{
+\dfn{fraction irréductible}{
 	La relation suivante permet de réduire les fractions.
 		\[ \frac{a\times d}{b\times d} = \frac{a}{b} \]
 	Lorsqu'un diviseur commun au numérateur et au dénominateur est trouvé, il peut être simplifié.
 	Sinon la fraction est \emphindex{irréductible}.
 }{}
 
-\subsection*{Calcul littéral}
-
-
+\thm{}{
+	Les nombres $\sqrt2, \oldsqrt[3]{7}, \pi$ ne sont pas rationnels.
+	
+	Ils appartiennent à $\R$, l'ensemble des \emphindex{nombres réels}.
+}{}
 
 \newpage
 \addcontentsline{toc}{section}{Exercices}
@@ -146,51 +146,6 @@
 %		\item $\dfrac{3}{8} \times \dfrac{1}{2} = \dfrac{3}{16}$
 	\end{enumerate}
 	\end{multicols}
-}
-
-\exe{}{
-	Développer et réduire les expressions suivantes pour obtenir une expression de la forme
-		\[ ax^2 + bx + c, \]
-	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
-	
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $x + 2x + 3x$
-		\item $(1+3x) - (8 - 2x)$
-		\item $x - 2(2-x)$
-		\item $x(3-x) + 8(x+1)$
-		\item $(x+3)(x-1) - 2x + 1$
-		\item $(x+1)^2 + 4x - 4$
-		\item $(3x-1)^2 - 9x^2 - 4$
-		\item $x(3x-1)  + 3x^2 +12$
-	\end{enumerate}
-	\end{multicols}
-}{exe:dev-red}{}
-
-\exe{}{
-	Développer les expressions algébriques suivantes pour obtenir une expression de la forme
-		\[ ax^2 + bx + c, \]
-	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
-		\begin{multicols}{2}
-		\begin{enumerate}
-			\item $f(x) = (1+x)^2$
-			\item $g(x) = (x-3)^2$
-			\item $h(x) = (3-x)^2$
-			\item $F(x) = (3 + 2x)^2$
-			\item $G(x) = (3x - 7)^2$
-			\item $H(x) = (-7x - 2)^2$
-		\end{enumerate}
-		\end{multicols}
-}{exe:id-rem}{
-	\begin{align*}
-		f(x) &= (1+x)^2 = 1^2 + 2(1)(x) + x^2 = 1 + 2x + x^2 \\
-		g(x) &= (x-3)^2 = x^2 - 2(x)(3) + 3^2 = x^2 - 6x + 9 \\
-		h(x) &= (3-x)^2 = 3^2 - 2(3)(x) + x^2 = 9 - 6x + x^2 \\
-		F(x) &= (3 + 2x)^2 = 3^2 + 2(3)(2x) + (2x)^2 = 9 + 12x + 4x^2 \\
-		G(x) &= (3x - 7)^2 = (3x)^2 - 2(3x)(7) + 7^2 = 9x^2 - 42x + 49 \\
-		H(x) &= (-7x - 2)^2 = (7x + 2)^2 = (7x)^2 + 2(7x)(2) + 2^2 = 49x^2 + 28x + 4
-	\end{align*}
-
 }
 
 
