@@ -544,6 +544,31 @@
 	todo
 }
 
+\exe{difficulty=2}{
+	Une combinaison convexe dans un $\R$-espace vectoriel $V$ d'un ensemble $\{ v_1, \dots, v_n\}\subseteq V$ est une expression de la forme
+		\[ \lambda_1 v_1 + \dots + \lambda_n v_n, \]
+	où $\lambda_i \in \R$ sont des coefficients réels vérifiants $\lambda_i \geq 0$ pour tout $i$ et $\lambda_1 + \dots + \lambda_n = 1$.
+
+	L'exercice suivant vise à démontrer le \emphindex{théorème de Gauss-Lucas} : pour $f\in\C[x]$ non constant, les racines de $f'$ sont combinaison convexe des racines de $f$.
+	\begin{enumerate}
+		\item
+		Posons $\{ r_i \}_{i=1}^{n}$ et $\{ m_i \}_{i=1}^n$ les racines distinctes de $f$ et leur multiplicité.
+		Montrer que, pour tout $z$ non racine de $f$,
+			\[ \log f(z) = a + \sum_{i=1}^k m_i \log(z-r_i), \]
+		où $a\in\C$ est une constante.
+		\item
+		En déduire que, pour tout $z$ non racine de $f$ telle que $f'(z)=0$,
+			\[ \sum_{i=1}^k \frac{m_i}{z-r_i} = 0. \]
+		\item
+		En utilisant que $\frac1{\xi} = \frac{\bar{\xi}}{|\xi|^2}$, montrer alors que
+			\[ z = \sum_{i=1}^{k} \lambda_i r_i \]
+		est une combinaison convexe, où $\mu_i = |z-r_i|^{-2}$ et $\lambda_i = \frac1{\sum_{j=1}^{k} \lambda_j} \lambda i$.
+	\end{enumerate}
+	\emph{Remarque : diviser une combinaison positive par sa somme permet de la \emphindex{normaliser} en une combinaison convexe.}
+}{exe:Gauss-Lucas}{
+	todo
+}
+
 % TODO
 %\exe{difficulty=2}{
 %	Algorithme du factor refinement.
