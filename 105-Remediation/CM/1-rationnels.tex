@@ -1,7 +1,7 @@
 %!TEX encoding = UTF8
 %!TEX root = 0-notes.tex
 
-\unchapter{Calculs}
+\unchapter{Nombres rationnels}
 \fancyhead[C]{\textbf{Chapitre \thechapter~— Nombres rationnels}}
 \addcontentsline{toc}{section}{Méthodologie}
 
@@ -149,6 +149,304 @@
 }
 
 
+\exe{}{
+	Exprimer chaque valeur suivante sous forme de fraction irréductible.
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\alph*), itemsep=10pt]
+		\item $1-\dfrac{4}{44}$
+		\item $\dfrac{15}{27}$
+		\item $\dfrac{8}{3} + 6$
+		\item $\dfrac{65}{5^2}$
+		\item $\dfrac{6}{32}\times\dfrac{2}{3}$
+		\item $\dfrac{38}{20}-3$
+		\item $\left(\dfrac{10}{44}\right)^{-1}$
+		\item $\dfrac{6}{18}\times2 + 1$
+		\item $\left(\dfrac{66}{99}\right)^2$
+		\item $\dfrac{23}{18} + \dfrac12$
+		\item $\dfrac{34}{20}$
+		\item $2 - \dfrac{9}{5}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:frac-irr}{
+	\begin{multicols}{4}
+	\begin{enumerate}[label=\alph*), itemsep=10pt]
+		\item $\dfrac{10}{11}$
+		\item $\dfrac{5}{9}$
+		\item $\dfrac{26}{3}$
+		\item $\dfrac{13}{5}$
+		\item $\dfrac{1}{18}$
+		\item $\dfrac{-11}{10}$
+		\item $\dfrac{22}{5}$
+		\item $\dfrac{5}{3}$
+		\item $\dfrac{4}{9}$
+		\item $\dfrac{16}{9}$
+		\item $\dfrac{17}{10}$
+		\item $\dfrac{1}{5}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{}{
+	Sans calculatrice, donner le développement décimal des fractions suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*), leftmargin=60pt]
+		\item $\dfrac1{10}$
+		\item $\dfrac1{5}$
+		\item $\dfrac3{10^{5}}$
+		\item $\dfrac7{20}$
+		\item $\dfrac{395}{50}$
+		\item $\dfrac{11}{200}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:dev-decimaux}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\dfrac1{10} = 0,1.$
+		\item $\dfrac1{5} = \dfrac2{10} = 0,2.$
+		\item $\dfrac3{10^{5}} = 0,000~03.$
+		\item $\dfrac7{20} = \dfrac{3,5}{10} = 0,35.$
+		\item $\dfrac{395}{50} = \dfrac{790}{100} = 7,9.$
+		\item $\dfrac{11}{200} = \dfrac{5,5}{100} = 0,055.$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{}{
+	Sans calculatrice, donner le développement décimal des fractions suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*), leftmargin=60pt]
+		\item $\dfrac1{100}$
+		\item $\dfrac3{5}$
+		\item $\dfrac2{10^{1}}$
+		\item $\dfrac7{2}$
+		\item $\dfrac{7}{20}$
+		\item $\dfrac{31}{200}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:dev-decimauxE}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\dfrac1{100} = 0,01$
+		\item $\dfrac3{5} = 0,6$
+		\item $\dfrac2{10^{1}} = 0,2$
+		\item $\dfrac7{2} = 3,5$
+		\item $\dfrac{7}{20} = 0,35$
+		\item $\dfrac{31}{200} = 0,155$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{, difficulty=1}{
+	Déterminer le développement décimal de $\frac1{11}$ sans calculatrice.
+}{exe:111-dec}{
+	Posons 
+		\[ \dfrac{1}{11} = 0,n_1 n_2 n_3 n_4 \dots. \]
+	Par multplication par 10 successives et étude des parties décimales, on obtient $n_1 = 0$, $n_2=9$, et $\frac1{11} = 0,n_3n_4n_5\dots$.
+	D'où
+		\[ \dfrac1{11} = 0,09~09~09~09~\cdots. \]
+}
+
+
+\exe{, difficulty=1}{
+	Déterminer le développement décimal de $\frac{12}{22}$ sans calculatrice.
+}{exe:113-dec}{
+	Posons 
+		\[ \dfrac{12}{22} = 0,n_1 n_2 n_3 n_4 \dots. \]
+	Par multplication par 10 successives et étude des parties décimales, on obtient $n_1 = 5$, $n_2=4$, et $\frac{12}{22} = 0,n_3 n_4 n_5\dots$.
+	D'où
+		\[ \dfrac{12}{22} = 0,54~54~54~54~\cdots. \]
+}
+
+
+\exe{}{
+	Montrer que les nombres suivants sont rationnels en les exprimant sous forme de fraction d'entiers.
+	\[
+	\begin{aligned}
+		A &= 0,666{\dots} \\
+		B &= 1,666{\dots} \\
+	\end{aligned}
+	\hspace{5cm}
+	\begin{aligned}
+		C &= 0,121212{\dots} \\
+		D &= 0,34777{\dots} \\
+	\end{aligned}
+	\]
+	\[
+	E = 0,123456789123456789123{\dots} \text{ (nombre d'Amandine) }
+	\]
+}{exe:dev-to-fraction}{
+	\begin{enumerate}[label=\Alph*.]
+		\item 
+		La relation $10A = 6 + A$ donne $A = \frac23$.
+		\item
+		La relation $10B = 15 + B$ donne $B = \frac{15}{9} = \frac53$.
+		On aurait aussi pû utiliser que $B = 1+A$.
+		\item
+		La relation $100C = 12 + C$ donne $C = \frac{12}{99} = \frac{4}{33}$.
+		\item
+		En posant $\tilde{E} = 100E = 34,777{\dots}$, on obtient $10\tilde{E} = 313 + \tilde{E}$, d'où $\tilde{E} = \frac{313}{9}$, et donc $E = \frac{1}{100}E' = \frac{313}{900}$.
+		\item 
+		La relation $10^9 E = 123~456~789 + E$ donne $E = \frac{123~456~789}{999~999~999}$.
+	\end{enumerate}
+}
+
+
+\exe{}{
+	Montrer que les nombres suivants sont rationnels en les exprimant sous forme de fraction d'entiers.
+	\begin{align*}
+		A = 0,123123123{\dots} &&
+		B = 0,9999{\dots}
+	\end{align*}
+}{exe:dev-to-fractionE}{
+	\begin{enumerate}[label=\Alph*.]
+		\item
+		La relation $1000A = 123 + A$ donne $A = \frac{123}{999} = \frac{41}{333}$.
+		\item 
+		La relation $10B = 9 + B$ donne $9B = 9$ et $B=1$.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=2}{
+	Donner quelques termes en plus de la somme infinie suivante. 
+		\[ \dfrac1{10} + \dfrac1{100} + \dfrac1{1 000} + \dfrac1{10 000} + \dots \]
+	Écrire le nombre en écriture décimale, puis l'exprimer sous forme de fraction de deux entiers comme à l'exercice \ref{exe:dev-to-fraction}.
+}{exe:20}{
+	La somme infinie vaut $0,1111{\dots} = \frac19$.
+}
+
+\exe{, difficulty=2}{
+	Donner quelques termes en plus de la somme infinie suivante.
+		\[ \dfrac12 + \dfrac14 + \dfrac18 + \dfrac1{16} + \dots \]
+	À quoi est-elle égale ? Un résultat entier est attendu.
+}{exe:21}{
+	Posons $S$ cette somme. 
+	En multipliant par $2$, on trouve $2S = 1 + S$, et donc $S=1$.
+}
+
+\exe{, difficulty=2}{
+	On considère la somme finie suivante
+		\[ S = 1 + 2 + 4 + 8 + 16 + \dots + 2^{n-1} +  2^n, \]
+	où $n\in\N$ est un entier naturel.
+	
+	Montrer que $2S = S - 1 + 2^{n+1}$, et en déduire la valeur de $S$ sous forme close (sans points de suspension).
+}{exe:22}{
+	En multipliant par 2, le premier terme (1) disparait, et un nouveau terme ($2^{n+1}$) apparaît.
+	On a donc bien $2S = S -1 + 2^{n+1}$, et donc $S = 2^{n-1} - 1$.
+}
+
+
+\exe{, difficulty=1}{
+	Soit $q\in\Q$ un rationnel. Montrer qu'un triangle dont les côtés sont de longueur $(4 ; 5 ; q)$ ne peut être rectangle que si $q=3$.
+	
+	En autorisant $x\in\R$ irrationel, donner un triangle rectangle de côtés $(4 ; 5; x)$ avec $x\neq3$.
+}{exe:non-rec}{
+	Il y a deux cas de figure à étudier : $q$ est la longueur de l'hypothénuse, ou elle ne l'est pas.
+	Dans le premier cas, le théorème de Pythagore énonce que
+		\[ 4^2 + 5^2 = q^2 \iff 41 = q^2. \]
+	Il suit que $q=\sqrt{41}$ qui n'est pas rationnel car 41 n'est pas un carré parfait.
+	Ceci répond à la deuxième question : $(4 ; 5; \sqrt{41})$ est rectangle.
+	
+	Dans le second cas,
+		\[ q^2 + 4^2 = 5^2 \iff q^2 = 9. \]
+	Par conséquent, $q = \pm3$ et seule la solution $q=3$ est positive et donc une longueur valide.
+}
+
+\exe{, difficulty=2}{
+	Montrer que $\sqrt2 = 1 + \frac1{1+\sqrt2}$.
+	En déduire que $\sqrt2 = 1 + \frac1{2 + \frac1{1+\sqrt2}}$ et que
+		\[\sqrt2 = 1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac1{1+\sqrt2}}}}. \]
+	Exprimer le rationnel $1 + \frac1{2 + \frac1{2 + \frac12}}$ sous la form $\frac{p}{q}$ avec $p$ et $q$ premiers entre eux et calculer $\left| \sqrt2 - \frac{p}q \right|$ à l'aide de la calculatrice.
+	Faire idem avec $1 + \frac1{2 + \frac1{2 + \frac1{2 + \frac12}}}$.
+}{exe:frac-continue-sqrt2}{
+	En manipulant l'équation on se retrouve à vouloir montrer que $\sqrt2 - 1 = \frac1{\sqrt2+1}$, ce qui est équivalent à $(\sqrt2 - 1)(\sqrt2 + 1) = 1$, vrai par identité remarquable (ou par distributivité simple).
+	
+	Comme $\sqrt2 = 1 + \frac1{1+\sqrt2}$, on peut remplacer le $\sqrt2$ dans l'expression de droite par toute l'expression de droite.
+	On obtient donc $\sqrt2 = 1 + \cfrac1{1 + 1 + \cfrac1{1+\sqrt2}} = 1 + \cfrac1{2 + \cfrac1{1+\sqrt2}}$ comme voulu.
+	On obtient l'expression d'après en répétant le même raisonnement.
+	
+	Par simplifications simples, on trouve $\frac{p}{q} = \frac{17}{12}$.
+	La calculatrice nous donne alors $\left| \sqrt2 - \frac{17}{12} \right| \approx 0,002$.
+	
+	Finalement, remarquons que 
+	\begin{align*}
+		1 + \cfrac1{2 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}} &= 1 + \cfrac1{1+ 1 + \cfrac1{2 + \cfrac1{2 + \cfrac12}}}, \\
+			&= 1 + \cfrac1{1+ \dfrac{17}{12}} = \dfrac{41}{29}.
+	\end{align*}
+	Le rationnel $\frac{41}{29}$ vérifie $\left| \sqrt2 - \frac{41}{29} \right| \approx 0,0004$, soit 5 fois plus proche de $\sqrt2$ que $\dfrac{17}{12}$ l'est.
+}
+
+\exe{, difficulty=2}{
+	Montrer qu'un triangle isocèle rectangle ne peut pas avoir des côtés de longueurs toutes entières.
+}{exe:non-iso-rec}{
+	Supposons qu'il existe un triangle isocèle rectangle de côtés $(a ; a; b)$.
+	
+	Or, comme le triangle est rectangle isocèle,
+		\[ b^2 = a^2 + a^2 = 2a^2 \iff b = \pm\sqrt2 a. \]
+	Par conséquent, $\sqrt2 = \pm\frac{b}{a} \in \Q$, ce qui contredit le théroème d'irrationalité de la racine carrée de 2.
+}
+
+\exe{, difficulty=2}{
+	En musique, la gamme classique contient douze notes avec un rapport de fréquence de 2 sur l'octave.
+	La gamme est dite à tempérament égal si le rapport de fréquence entre deux notes consécutives est toujours le même.
+	Notons ce rapport $r\in\R$.
+	Justifier que $r^{12} = 2$ puis démontrer que $r$ est un nombre irrationnel : $r \not\in\Q$.
+}{exe:temp-egal}{
+	Le rapport de fréquence entre deux notes consécutives étant toujours $r$, on multiplie $r$ par lui-même 12 fois pour obtenir le rapport de fréquence entre deux notes de distance $12$, c'est-à-dire deux notes séparée par un octave.
+	Ainsi $r^{12} = 2$ car l'octave correspond à un rapport de fréquence de 2.
+	
+	Supposons désormais que $r$ soit rationnel. Alors $r^{6}$ est aussi rationnel.
+	Cependant, $(r^6)^2 = r^{12} = 2$, donc $r^{6} = \sqrt2$, qui n'est pas rationnel. \Large\Lightning
+}
+
+\exe{, difficulty=3}{
+	Posons $\Qsqrt{5} = \bigset{ r + s \sqrt5 \tq r, s \in \Q} \subseteq \R$ et considérons $x = r + s\sqrt5$ et $y=p+q\sqrt5$ avec $r, s, p, q \in\Q$.
+	\begin{enumerate}
+		\item
+		Montrer que $\Q \subseteq \Qsqrt5$ est une inclusion stricte.
+		\item
+		Montrer que $x=y \iff r = p \et s = q$.
+	\end{enumerate}
+	Considérons désormais la fonction « conjugué » $f$ définie par $f\bigl(r + s\sqrt5\bigr) = r - s\sqrt5$.
+	\begin{enumerate}[resume]
+		\item
+		Montrer que $f(x+y) = f(x)+f(y)$ et que $f(xy) = f(x)f(y)$.
+		\item
+		Montrer que si $f(x) = x$, alors $x\in\Q$.
+		\item
+		Conclure à l'aide des deux dernières questions que
+			\[ \dfrac1{2^{256}\sqrt5}\left[ \left({1+\sqrt5}\right)^{256} - \left({1-\sqrt5}\right)^{256}\right] \]
+		est un nombre rationnel.
+		(C'est en fait un nombre entier et le terme $256$ de la suite de Fibonacci)
+		\item
+		Montrer que $\Qsqrt{5} \neq \R$ en montrant que $\sqrt2 \not\in \Qsqrt{5}$.
+	\end{enumerate}
+} {exe:Qsqrt2}{
+	%À rendre pour possibilité de points bonus à la prochaine évaluation.
+	%Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	
+	Indication pour la question 2 : il est possible de montrer en premier lieu que $x = 0 \iff r=s=0$.
+	On dit alors que $1$ et $\sqrt5$ sont \emph{linéairement indépendants} sur $\Q$.
+	
+	Indication pour la question 5 : montrer que $f(x^n) = f(x)^n$ et que $f\left(\frac1x\right) = \frac1{f(x)}$ à l'aide de la question 3.
+	
+	\underline{Discussion}
+	
+	L'exercice fait l'étude du corps d'extension des nombres rationnels auxquels on a ajouté la racine carrée de 5.
+	Il suit de la question 6 que l'ensemble 
+		\[ \Q\bigl(\sqrt2, \sqrt5\bigr) = \bigset{ r + s \sqrt2 + t\sqrt5 \tq r, s, t \in \Q} \]
+	est un sur-ensemble strict de $\Qsqrt5$ qui n'est toujours pas égal à $\R$.
+	
+	La {théorie de Galois}\footnotemark généralise ces exemples et permet notamment de répondre par la négative aux trois grands problèmes de l'Antiquité : la duplication du cube, la trisection de l'angle, et la quadrature du cercle.
+	\footnotetext{Évariste Galois (1811-1832), mathématicien français mort à l'âge de 20 ans. }
+	La démonstration procède ainsi: chaque construction à la règle et au compas à partir d'un repère orthonormé ajoute la racine carrée d'un nombre déjà constructible jusqu'ici.
+	La racine carrée de 2 est par exemple constructible grâce au théorème de Pythagore comme distance entre $(1 ; 0)$ et $(0;1)$.
+	En montrant que certains nombres ne peuvent pas appartenir à de telles extensions, on démontre immédiatement qu'ils sont non constructibles.
+}
+
 
 %%%%%%%%%%%%%%%%%%%%
 %%%%% Samoyeau below %%%%%
@@ -156,66 +454,72 @@
 
 
 
+%\exe{difficulty=0}{
+%	Simplifier les fractions suivantes quand c'est possible:
+%	\\
+%	$\frac{32}{28}$ ; $\frac{64}{80}$ ; $\frac{15}{35}$ ; $\frac{49}{35}$ ; $\frac{14}{21}$ ; $\frac{8}{16}$ ; $\frac{120}{140}$ ; $\frac{12}{36}$ ; $\frac{3700}{1200}$ ; $\frac{48}{56}$ ; $\frac{81}{99}$ ; $\frac{77}{66}$; $\frac{8}{12}$; $\frac{21}{27}$; $\frac{13}{45}$; $\frac{30}{75}$; $\frac{3}{2222}$; $\frac{12}{36}$.
+%}{exe:Samoyeau1}{
+%	sol1
+%}
+
 \exe{difficulty=0}{
-	Simplifier les fractions suivantes quand c'est possible:
-	\\
-	$\frac{32}{28}$ ; $\frac{64}{80}$ ; $\frac{15}{35}$ ; $\frac{49}{35}$ ; $\frac{14}{21}$ ; $\frac{8}{16}$ ; $\frac{120}{140}$ ; $\frac{12}{36}$ ; $\frac{3700}{1200}$ ; $\frac{48}{56}$ ; $\frac{81}{99}$ ; $\frac{77}{66}$; $\frac{8}{12}$; $\frac{21}{27}$; $\frac{13}{45}$; $\frac{30}{75}$; $\frac{3}{2222}$; $\frac{12}{36}$.
-}{exe:1}{
+	Classer les fractions suivantes par ordre croissant : 
+	\begin{align*}
+		A=\frac{1}{2}, && B=\frac{1}{6}, && C=\frac{5}{12}, &&D=\frac{3}{4}, &&E=\frac{2}{3}.
+	\end{align*}
+}{exe:Samoyeau2}{
 	sol1
 }
 
-\exe{difficulty=0}{
-	Classer les fractions suivantes par ordre croissant : \\$A=\frac{1}{2}, B=\frac{1}{6}, C=\frac{5}{12}, D=\frac{3}{4}, E=\frac{2}{3}.$ 
-}{exe:2}{
-	sol1
-}
+%\exe{difficulty=0}{
+%	Calculer et simplifier:
+%	\\
+%	$A=\frac{2}{7}+\frac{6}{7}$ ;  $B=\frac{1}{3}-\frac{5}{3}$ ;  $C=\frac{5}{11}+\frac{-3}{11}$ ; $D=\frac{3}{8}+\frac{3}{4}$ ; $E=\frac{4}{9}+\frac{1}{27}$ ; $F=\frac{4}{30}+\frac{1}{10}$ ; $G=\frac{4}{5}+1$ ;$H=\frac{8}{3}-3$ ; $I=\frac{11}{13}+2$; $J=\frac{13}{15}-\frac{11}{20}$; $K=3+\frac{3}{4}$; $L=-1-\frac{5}{7}$; $M=\frac{1}{7}+\frac{3}{4}$; $N=\frac{5}{6}+\frac{-3}{8}$.
+%
+%}{exe:Samoyeau3}{
+%	sol1
+%}
 
-\exe{difficulty=0}{
-	Calculer et simplifier:
-	\\
-	$A=\frac{2}{7}+\frac{6}{7}$ ;  $B=\frac{1}{3}-\frac{5}{3}$ ;  $C=\frac{5}{11}+\frac{-3}{11}$ ; $D=\frac{3}{8}+\frac{3}{4}$ ; $E=\frac{4}{9}+\frac{1}{27}$ ; $F=\frac{4}{30}+\frac{1}{10}$ ; $G=\frac{4}{5}+1$ ;$H=\frac{8}{3}-3$ ; $I=\frac{11}{13}+2$; $J=\frac{13}{15}-\frac{11}{20}$; $K=3+\frac{3}{4}$; $L=-1-\frac{5}{7}$; $M=\frac{1}{7}+\frac{3}{4}$; $N=\frac{5}{6}+\frac{-3}{8}$.
-
-}{exe:3}{
-	sol1
-}
-
-\exe{difficulty=0}{
-	Calculer et simplifier. 
-	\\
-	$A=\frac{7}{3} \times (-2)$ ; $B=\frac{9}{3} \times\frac{3}{8}$; $C=\frac{1}{5} \times \frac{-1}{2}$;$D=\frac{11}{15}\div \frac{-3}{2}$ ; $E=\frac{10}{3}\div \frac{1}{11}$; $F=\frac{\frac{2}{3}}{\frac{4}{9}} $, $G=\frac{\frac{5}{9}}{\frac{8}{3}} $, $H=\frac{\frac{3}{4}}{\frac{3}{4}} $, $I=\frac{\frac{3}{2}}{\frac{2}{3}} $, $J=\frac{11}{15}\times \frac{-3}{2}$.
-
-}{exe:4}{
-	sol1
-}
+%\exe{difficulty=0}{
+%	Calculer et simplifier. 
+%	\\
+%	$A=\frac{7}{3} \times (-2)$ ; $B=\frac{9}{3} \times\frac{3}{8}$; $C=\frac{1}{5} \times \frac{-1}{2}$;$D=\frac{11}{15}\div \frac{-3}{2}$ ; $E=\frac{10}{3}\div \frac{1}{11}$; $F=\frac{\frac{2}{3}}{\frac{4}{9}} $, $G=\frac{\frac{5}{9}}{\frac{8}{3}} $, $H=\frac{\frac{3}{4}}{\frac{3}{4}} $, $I=\frac{\frac{3}{2}}{\frac{2}{3}} $, $J=\frac{11}{15}\times \frac{-3}{2}$.
+%
+%}{exe:Samoyeau4}{
+%	sol1
+%}
 
 \exe{difficulty=0}{
 	 Calculer et simplifier:
-	\\
-	$a=\frac{2}{3}-\frac{1}{3}\times \frac{4}{5}$
-	; $b= \frac{-2}{3} \times \left( \frac{1}{2}-\frac{1}{4} \right)$ ; $c= \left( \frac{-2}{7}+\frac{5}{42} \right)\times \left( 5-\frac{3}{8} \right)$ ; $d= \frac{\frac{2}{5}+\frac{-3}{4}}{2+(-2)\times \frac{-7}{4}}$ ; $e=\left(1+\frac{1}{2}\right) \div \frac{2}{3}$ ; 
-	$f=\left(\frac{2}{3}+\frac{1}{2}\right) \times \frac{6}{25}$ ; $g=\frac{-1+\frac{33}{11}}{\frac{2}{7}}$.
-
-}{exe:5}{
+	\begin{align*}
+	a&=\frac{2}{3}-\frac{1}{3}\times \frac{4}{5} &
+	 b&= \frac{-2}{3} \times \left( \frac{1}{2}-\frac{1}{4} \right) \\
+	 c&= \left( \frac{-2}{7}+\frac{5}{42} \right)\times \left( 5-\frac{3}{8} \right) & d&= \frac{\frac{2}{5}+\frac{-3}{4}}{2+(-2)\times \frac{-7}{4}} \\
+	 e&=\left(1+\frac{1}{2}\right) \div \frac{2}{3} &
+	f&=\left(\frac{2}{3}+\frac{1}{2}\right) \times \frac{6}{25} \\
+	g&=\frac{-1+\frac{33}{11}}{\frac{2}{7}}
+	\end{align*}
+}{exe:Samoyeau5}{
 	sol1
 }
 
 \exe{difficulty=0}{
+	En décembre pour les fêtes, M. Marchand dit avoir vendu les quatre cinquièmes de sa marchandise. En janvier, pendant les soldes, il a encore vendu les trois quarts de ce qu'il restait.
 	\begin{enumerate}
-		\item En décembre pour les fêtes, M. Marchand dit avoir vendu les quatre cinquièmes de sa marchandise. En janvier, pendant les soldes, il a encore vendu les trois quarts de ce qu'il restait.
-		
+		\item
 		Quelle fraction de sa marchandise a-t-il vendu en tout?
-		
-		\item  La valeur totale de sa marchandise est de 262 000 euros. Quelle somme représente sa vente globale?
+		\item  
+		La valeur totale de sa marchandise est de 262 000 euros. Quelle somme représente sa vente globale?
 	\end{enumerate}
 
-}{exe:6}{
+}{exe:Samoyeau6}{
 	sol1
 }
 
 \exe{difficulty=0}{
 	Une usine française de voitures vend $\frac{1}{3}$ de ses voitures en Allemagne, $\frac{1}{4}$ de ce qui reste en Espagne et le reste en France. Quelle proportion de voitures de cette usine reste en France?
 
-}{exe:7}{
+}{exe:Samoyeau7}{
 	sol1
 }
 
@@ -223,7 +527,7 @@
 	Amaya et Mariza ont deux tablettes de chocolat, une au chocolat noir et une au chocolat au lait qui sont de même proportion. 
 	Amaya a mangé $\frac{1}{4}$ des $\frac{2}{3}$ de la tablette au chocolat au lait. Mariza a mangé la moitié des $\frac{3}{4}$ de la tablette de chocolat noir. Laquelle a mangé le plus de chocolat? 
 
-}{exe:8}{
+}{exe:Samoyeau8}{
 	sol1
 }
 
@@ -231,22 +535,25 @@
 	Lors d'une course, Pierre fait $\frac{1}{3}$ de la distance totale parcourue en vélo, $\frac{5}{12}$ de la distance totale en courant, $\frac{1}{6}$ de la distance totale à la nage et le reste en kayak. 
 	\begin{enumerate}
 		\item Compléter la phrase suivante : Pierre a parcouru .... de la distance totale en kayak.
-		\item Cette course fait 24 kms. Quelle est la distance parcourrue en kayak? 
+		\item Cette course fait 24 kilomètres. Quelle est la distance parcourue en kayak? 
 	\end{enumerate} 
 
-}{exe:9}{
+}{exe:Samoyeau9}{
 	sol1
 }
 
 \exe{difficulty=0}{
-	Calculer la fraction suivante et simplifier au maximum. \\
-	
-	
-	$\beta=\frac{ \frac{2}{3} \times \frac{6}{12} + \frac{-3}{7} - 4 }{ \frac{\frac{1}{2}-3}{8\times \frac{-1}{2}} + \frac{2}{5}-\frac{1}{4}}$
+	Calculer la fraction suivante et simplifier au maximum.
+	\[ 
+	\beta=\frac{ \frac{2}{3} \times \frac{6}{12} + \frac{-3}{7} - 4 }{ \frac{\frac{1}{2}-3}{8\times \frac{-1}{2}} + \frac{2}{5}-\frac{1}{4}}
+	\]
 
-}{exe:10}{
+}{exe:Samoyeau10}{
 	sol1
 }
+
+
+
 
 
 

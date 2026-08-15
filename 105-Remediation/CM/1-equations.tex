@@ -47,25 +47,43 @@
 	\end{multicols}
 }{}
 
-\dfn{équation linéaire}{
-	Une \emphindex{équation linéaire} est une identité du type
-		\[ a  x + b = c  x + d, \]
-	où $a, b, c, d \in \R$ sont des constantes réelles, et $x \in \R$ est un nombre réel à trouver à l'aide de l'équation.
-}{}
-
 \nomen{
 	Une équation est \emphindex{résoluble pour $x$} si elle est équivalente à une équation du type
 		\[ x = \text{(un nombre) ou (un autre nombre) ou $\dots$}. \]
 	Ces nombres sont les \emphindex{solutions} de l'équation.
 }
 
-\mth{
-	Pour résoudre une équation linéaire, on regroupe les multiples de $x$ d'un côté et les constantes de l'autre : 
-		\[ (a-c)  x = d - b. \]
-	Si $a-c$ est non nul, on multiplie les deux côté par son inverse pour déduire 
-		\[ x = (d-b)\times \dfrac{1}{a-c} =  \dfrac{d-b}{a-c}. \]
-	Dans ce cas, l'équation n'a qu'une seule solution et une réponse sous forme de fraction est généralement attendue.
-}
+\dfn{équation linéaire}{
+	Une \emphindex{équation linéaire} est une identité du type
+		\[ a  x + b = c  x + d, \]
+	où $a, b, c, d \in \R$ sont des constantes réelles, et $x \in \R$ est un nombre réel à trouver à l'aide de l'équation.
+}{}
+
+%\mth{
+%	Pour résoudre une équation linéaire, on regroupe les multiples de $x$ d'un côté et les constantes de l'autre : 
+%		\[ (a-c)  x = d - b. \]
+%	Si $a-c$ est non nul, on multiplie les deux côté par son inverse pour déduire 
+%		\[ x = (d-b)\times \dfrac{1}{a-c} =  \dfrac{d-b}{a-c}. \]
+%	Dans ce cas, l'équation n'a qu'une seule solution et une réponse sous forme de fraction est généralement attendue.
+%}
+
+\ex{}{
+	Pour résoudre une équation linéaire, il faut 1) ajouter/soustraire pour regrouper les multiples de $x$ d'un côté et les constantes de l'autre (« isoler $x$ ») ; 
+	puis 2) multiplier/diviser pour trouver $x$.
+	\begin{align*}
+		7x - 1 = x + 4
+		&&\underbrace{\iff}_{+1}&& 7x = x + 5 
+		&&\underbrace{\iff}_{-x}&& 6x = 5 
+		&&\underbrace{\iff}_{\times\frac16}&& x = \frac56
+	\end{align*}
+	Il est aussi possible d'isoler $x$ à droite.
+	\begin{align*}
+		7x - 1 = x + 4
+		&&\underbrace{\iff}_{-4}&& 7x-5 = x 
+		&&\underbrace{\iff}_{-7x}&& -5 = -6x 
+		&&\underbrace{\iff}_{\times\frac{-1}6}&&\frac{-5}{-6} = x
+	\end{align*}
+}{}
 
 \newpage
 \addcontentsline{toc}{section}{Exercices}
@@ -207,6 +225,53 @@
 		\[ x = \dfrac{ad+bc}{bd}. \]
 }
 
+
+\exe{}{
+	Résoudre les équations suivantes pour $x\in\R$ non nul. 
+	%Exprimer $x$ sous la forme $q \sqrt{n}$ avec $q\in\Q$ rationnel et $n\in\N$ le plus petit possible.
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $\dfrac{x}3 = \dfrac12.$
+		\item $ \dfrac7x  =\dfrac12$
+		\item $\dfrac6x  =\dfrac{\sqrt{3}}2$
+		\item $\dfrac{x}2 =\dfrac1{\sqrt{3}}$
+		%\item $\dfrac9x  =\dfrac{\sqrt{6}}5$
+		%\item $-\dfrac3x =\sqrt{7}$
+		%\item $-\dfrac7{2x}  =\dfrac{\sqrt{11}}3$
+		%\item $\dfrac3{5x} =-\sqrt{5}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:aut0}{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				\dfrac{x}3 &= \dfrac12 \\
+				x &= 3 \cdot \frac12 \\
+				x &= \frac32
+			\end{align*}
+		\item
+			\begin{align*}
+				\dfrac7x  &=\dfrac12 \\
+				7 &= x \cdot \frac12 \\
+				x &= 7\cdot2 = 14
+			\end{align*}
+		\item
+			\begin{align*}
+				\dfrac6x  &= \dfrac{\sqrt{3}}2 \\
+				6 &= x \cdot \dfrac{\sqrt{3}}2 \\
+				x &= 6\cdot\dfrac2{\sqrt{3}} \\
+				x &= \frac{12}3 \sqrt3 = 4\sqrt3
+			\end{align*}
+		\item
+			\begin{align*}
+				\dfrac{x}2 &= \dfrac1{\sqrt{3}} \\
+				x &= 2 \cdot \dfrac1{\sqrt{3}} \\
+				x &= \frac23 \sqrt3
+			\end{align*}
+	\end{enumerate}
+	\end{multicols}
+}
 
 \exe{}{
 	Résoudre les équations suivantes pour $x\in\R$ non nul. Exprimer $x$ sous la forme $q \sqrt{r}$ avec $q\in\Q$ rationnel et $r\in\N$ le plus petit possible.

@@ -20,3 +20,4 @@
 *.idx
 *.ind
 *.ilg
+**/_minted

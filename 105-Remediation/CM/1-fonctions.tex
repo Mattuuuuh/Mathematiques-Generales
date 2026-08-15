@@ -5,15 +5,601 @@
 \fancyhead[C]{\textbf{Chapitre \thechapter~— Fonctions}}
 \addcontentsline{toc}{section}{Méthodologie}
 
-\prop{}{
 
-}{prop:1}
+\dfn{fonction, variable, constante}{
+	On dit qu'une quantité $y\in\R$ s'exprime \emphindex{en fonction d}'une quantité $x\in\R$ lorsque, à chaque nombre $x$ possible, on peut associer \underline{une unique} valeur $y$.
+	
+	On note alors $y = f(x)$, lu  « $y$ égal $f$ de $x$ », où $x$ est la \emphindex{variable}, et $f$ la \emphindex{fonction}.
+	
+	Si une quantité ne dépend pas de $x$, on l'appelle \emphindex{constante}, ou \emphindex{indépendante} de $x$.
+	Cependant, une constante peut toujours être vue comme une fonction de $x$ !
+	
+%	\begin{center}
+%	\includegraphics[page=19]{2-figures.pdf}
+%	\end{center}
+}{}
+
+\dfn{antécédent, image}{
+	Considérons une fonction $f$ et deux nombres réels $x, y\in\R$ vérifiants
+		\[ y = f(x). \]
+	On lit \og $y$ égal $f$ de $x$ \fg, et on dit alors que
+		\begin{enumerate}
+			\item
+			$y$ est l'\emphindex{image} de $x$ par $f$ ; et
+			\item
+			$x$ est \underline{un} \emphindex{antécédent} de $y$ par $f$.
+		\end{enumerate}
+}{}
+
+
+\dfn{forme algébrique}{
+	On appelle 
+		\[ f(x) = 3 x+1 \]
+	la \emphindex{forme algébrique} de $f$.
+	On lit dans ce cas \og $f$ de $x$ égal trois $x$ plus 1 \fg.
+	
+	C'est une forme entièrement générale qui permet de déduire l'image $f(x)$ à partir de n'importe quel réel $x\in\D$ du domaine de $f$.
+}{}
+
+
+\dfn{intervalle}{
+	Soient $a, b \in \R$.
+	L'\emphindex{intervalle} $[a;b]$ est l'ensemble des nombres réels compris entre $a$ et $b$ inclus.
+		\[ x \in [a ; b] \qquad \iff \qquad x \in \R, a \leq x \leq b. \]
+	Il faut donc que $a \leq b$ pour que l'intervalle soit non vide.
+	
+	Lorsqu'un crochet de l'intervalle regarde vers l'extérieur, la borne correspondante est exclue.
+	
+	Les symboles $a$ et $b$ peuvent prendre la notation $\minfty$ ou $\pinfty$ respectivement.
+	L'infini n'est jamais inclu car ce n'est pas un nombre réel.
+}{}
+
+%\notations{
+%	On définit les signes suivants correspondant à des inégalités \emphindex{strictes} et \emphindex{larges}.
+%	\begin{multicols}{2}
+%	\begin{enumerate}[leftmargin=50pt]
+%		\item[$<$ :] strictement inférieur à
+%		\item[$\leq$ :] inférieur ou égal à
+%		\item[$>$ :] strictement supérieur à
+%		\item[$\geq$ :] supérieur ou égal à
+%	\end{enumerate}
+%	\end{multicols}
+%	On attire l'attention sur le fait que le « ou » est inclusif : $x \leq x$ est toujours vrai. 
+%}
+
+%\notations{
+%	On peut noter deux inégalités sur la même lignes dès qu'elles vont dans le même sens.
+%	Par exemple, les deux inégalités ci-dessus peuvent être condensées en une :
+%		\[ x \in \R, \text{ et } a \leq x \leq b, \]
+%	ou encore
+%		\[ x \in \R, \text{ et } b \geq x \geq a. \]
+%}
+
+
+\dfn{courbe représentative}{
+	Considérons $f$ une fonction sur un domaine $\D$.
+	
+	La \emphindex{courbe représentative} de $f$, notée $\Ccal_f$, est donnée par l'ensemble de points
+		\[ \Ccal_f = \Bigset{ \bigpar{x ; f(x)} \text{ où $x$ parcourt } \D }. \]
+	On lit « la courbe représentative de $f$ est l'ensemble des points $\bigl(x ; f(x)\bigr)$ du plan où $x$ parcourt le domaine de $f$ ».
+}{dfn:Cf}	
+
+
+
+\cor{propriété fondamentale}{
+	La \emphindex{propriété fondamentale} suivante est valable pour tout $x, y\in\R$.
+		\begin{align*}
+			(x;y) \in \Ccal_f && \iff && y = f(x).
+		\end{align*}
+	Elle permet de décider si un point appartient à une courbe ou non.
+	%\emph{Note : $f(x) = \dfrac1{200}(x+3,5)(x+2,5)(x-3,5)(x-4,5)(x-5,5) + 2$, polynôme de degré $5$ dans l'exemple ci-dessus.}
+}{cor:prop-fond}
+
+
+
+\subsection*{Résoudre graphiquement $f(x) = g(x)$}
+
+On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'équation est vérifiée.
+
+Soient $f, g$ sur $\D = ]{-}3,4 ; 2,3[$ deux fonctions réelles dont les courbes représentatives sont données ci-dessous.
+
+\begin{figure}[h]
+	\begin{center}
+	 \includegraphics[page=20, scale=1.25]{2-figures.pdf}
+	\end{center}
+	\caption{Résolution graphique de l'équation $f(x) = g(x)$}
+\end{figure}
+	
+Imaginons un nombre réel $x\in\R$ parcourant $]{-}3,4 ; 2,3[$ en partant de la gauche et allant vers la droite.
+Pour chaque $x$, le point de $\Ccal_f$ d'abscisse $x$ est d'ordonnée $f(x)$, par définition.
+Idem pour le point de $\Ccal_g$ d'abscisse $x$ : il est d'ordonnée $g(x)$.
+
+Ainsi quand $x$ traverse le domaine, ces deux points sont confondus si et seulement si ces deux points sont de même ordonnée, c'est-à-dire si et seulement si $f(x) = g(x)$.		
+	
+Les solutions $x\in]{-}3,4 ; 2,3[$ de l'équation $f(x) = g(x)$ sont donc données approximativement par l'ensemble
+	\[ \bigset{ -0,8 ; 1,2 }. \]
+
+\thm{}{
+	Soient $f,g$ deux fonctions réelles définies sur un même domaine $\D$.
+	Les solutions dans $\D$ de l'équation $f(x) = g(x)$ sont les abscisses des points d'intersection de $\Ccal_f$ et $\Ccal_g$.
+}{}
+
+\subsection*{Résoudre graphiquement $f(x) \leq g(x)$}
+
+On cherche à résoudre graphiquement une équation du type $f(x)=g(x)$, c'est-à-dire trouver l'ensemble des $x\in\R$ pour lesquels l'inéquation est vérifiée.
+
+Soient $f, g$ sur $\D = ]{-}3,4 ; 2,3[$ deux fonctions réelles dont les courbes représentatives sont données ci-dessous.
+
+\begin{figure}[h]
+	\begin{center}
+	 \includegraphics[page=21, scale=1.25]{2-figures.pdf}
+	\end{center}
+	\caption{Résolution graphique de l'équation $f(x) \leq g(x)$}
+\end{figure}
+
+Pour chaque $x$ parcourant $]{-}3,4 ; 2,3[$, la hauteur (l'ordonnée) du point de $\Ccal_f$ d'abscisse $x$ est donnée par $f(x)$, et celle du point de $\Ccal_g$ d'abscisse $x$ est donnée par $g(x)$.
+Ainsi, le premier point est en dessous du second dès que $f(x) \leq g(x)$.
+
+L'ensemble des solutions de l'inéquation $f(x) \leq g(x)$ est donc donné approximativement par
+	\[ [{-}0,8 ; 1,2 ]. \]
+
+\thm{}{
+	Soient $f, g$ deux fonctions réelles définies sur un même domaine $\D$.
+	Les solutions dans $\D$ de l'équation $f(x) \leq g(x)$ sont les abscisses des points de $\Ccal_f$ situés en dessous de $\Ccal_g$.
+}{}
+
+\notations{
+	Soient deux intervalles $I, J \subseteq \R$. On note $I \cup J$ l'\emphindex{union} des ensembles $I$ et $J$ : ce sont les nombres réels qui appartiennent à $I$ \underline{ou} à $J$.
+	\begin{center}
+	 \includegraphics[page=22, scale=1.25]{2-figures.pdf}
+	\end{center}
+}
+
 
 \newpage
 \addcontentsline{toc}{section}{Exercices}
 \fancyhead[C]{\textbf{Chapitre \thechapter~— Exercices}}
 
 
+\exemulticols{}{
+	Donner approximativement les coordonnées de chaque point du repère ci-contre.
+	\begin{align*}
+		&A(\phantom{2} ; \phantom{3}) \\[10pt]
+		&B \\[10pt]
+		&C \\[10pt]
+		&D \\[10pt]
+		&E
+	\end{align*}
+	\vfill\null
+}{
+	\begin{center}
+	\includegraphics[page=5]{2-figures.pdf}
+	\end{center}
+}{exe:lecture-coord}{
+	\begin{align*}
+		A(3 ; 0) && B(-1 ; 3) && C(3 ; 3) &&
+		D(0;-2) && E(-2,5 ; 0)
+	\end{align*}
+}
+
+\exemulticols{}{
+	Donner le domaine $\D$ du repère ci-contre.
+	Calculer $4$ points appartenant aux courbes $\C_f$ et $\C_g$ et les esquisser dans le repère.
+	\setlength{\columnseprule}{1pt} 
+	\begin{multicols}{2}
+		$f(x) = 2x + 1$
+		
+		\vspace{2cm}\,
+		
+		\columnbreak
+		
+		$g(x) = 2 - x$
+	\end{multicols}
+	
+	Quel $x\in\D$ vérifie $f(x) = g(x)$ ?
+	
+	\vfill\,
+	
+	\includegraphics[page=23]{2-figures.pdf}
+}{
+
+
+
+}{exe:Cf-affine}{
+	Un point de de la courbe représentative de $f$ prend la forme $(x ; f(x))$, où $x$ fait partie du domaine d'étude.
+	
+	Pour chaque fonction, les points de sa courbe représentative sont alignés.
+	La courbe d'une fonction affine est en fait une droite.
+	
+	Les courbes représentatives sont données ci-dessous.
+	\begin{center}
+	\includegraphics[page=24]{2-figures.pdf}
+	\end{center}
+	Graphiquement, on lit $x\approx0,3$ vérifiant $f(x) = g(x)$, mais cette solution n'est pas exacte car
+		\begin{align*}
+			f(0,3) = 2\cdot0,3+1 = 1,6 && \et && g(0,3) = 2-0,3 = 1,7.
+		\end{align*}
+	Algébriquement, on obtient la solution exacte suivante.
+		\begin{align*}
+			f(x) &= g(x) \\
+			2x + 1 &= 2 - x \\
+			3x + 1 &= 2 \\
+			3x &= 1 \\
+			x &= \frac13
+		\end{align*}
+}
+
+
+
+\exe{, difficulty=1}{
+	En reprenant les points de l'exercice \ref{exe:lecture-coord}, donner
+		\begin{enumerate}
+			\item $BC$, la longueur du segment $[BC]$ ;
+			\item $AC$, la longueur du segment $[AC]$ ; et
+			\item $AB$, la longueur du segment $[AB]$.
+		\end{enumerate}
+}{exe:longueur-ex}{
+	\begin{enumerate}
+		\item Les points sont alignés horizontalement, et on lit que $BC=4$, différence des abscisses.
+		\item Les points sont alignés horizontalement, et on lit que $AC=3$, différence des ordonnées.
+		\item Le triangle $ABC$ est rectangle. On a donc $AB^2 = AC^2 + AC^2 = 25$ d'après le théorème de Pythagore. 
+		Il suit que $AB =5$.
+	\end{enumerate}
+}
+
+
+
+\exe{}{
+	On considère le triangle de sommets $A(1;2), B(-3 ; 5), C(-5 ; -6)$.
+	\begin{enumerate}
+		\item Tracer le triangle $ABC$ dans un repère.
+		\item Calculer le carré de chacun des côtés. 
+		\item Que dire du triangle ?
+	\end{enumerate}
+}{exe:Trex}{
+	\begin{multicols}{2}
+	\begin{center}
+	\includegraphics[page=6]{2-figures.pdf}
+	\end{center}
+	
+	\begin{enumerate}
+		\item[2.] 
+			\begin{align*}
+				AB^2 &= \norm{A-B}^2 = \norm{(4 ; -3)}^2 = 16 + 9 = 25, \\
+				AC^2 &= \norm{A-C}^2 = \norm{(6 ; 8)}^2 = 36 + 64 = 100, \\
+				BC^2 &= \norm{B-C}^2 = \norm{(2 ; 11)}^2 = 4 + 121 = 125.
+			\end{align*}
+		\item[3.] D'après la réciproque du théorème de Pythagore, le triangle est rectangle en $A$ car $BC^2 = AB^2 + AC^2$.
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Considérons les points $\point{A}{1}{1}, \point{B}{3}{1}, C\bigl(2 ; \sqrt{3}+1\bigr)$.
+	Démontrer que le triangle $ABC$ est équilatéral en calculant le carré de la longueur de chaque côté.
+	
+	\emph{Un triangle équilatéral est un triangle dont les trois côtés ont la même longueur}.
+}{exe:équilatéral}{
+	On calcule 
+		\begin{align*}
+			AB^2 = {2^2 + 0^2} = 4, && AC^2 = {1^2 + \sqrt{3}^2} = 4, && BC^2 = 4.
+		\end{align*}
+}
+
+\exe{, difficulty=1}{
+	Soient $A(1;1), B(3;1)$ deux points du plan, et $C(2;x)$ un point dépendant d'un paramètre réel $x\in\R$.
+	
+	\begin{enumerate}
+		\item Où se situe le point $C$ ? Tracer dans un repère les points $A, B$, ainsi que les positions possibles de $C$.
+		\item
+		Pour quel(s) $x\in\R$ le triangle $ABC$ est-il équilatéral ? 
+	\end{enumerate}
+}{exe:équilatéral2}{
+	On souhaite que $AB = AC = BC$ soit vérifié, c'est-à-dire que
+		\[ 2 = \sqrt{1 + (1-x)^2} = \sqrt{1 + (1-x)^2}. \]
+	La deuxième égalité est redondante et, en mettant au carré, on trouve
+		\begin{align*}
+		4 = 1 + (1-x)^2 && \iff && (1-x)^2 = 3.
+		\end{align*}
+	En reprenant l'exercice \ref{exe:carre4-all}, on trouve deux solutions :
+	\vspace{-20pt}
+		\begin{multicols}{2}
+		\begin{align*}
+			1-x &= \sqrt{3}, \\
+			x &= 1-\sqrt{3}.
+		\end{align*}
+			
+		\begin{align*}
+			1-x &= -\sqrt{3}, \\
+			x &= 1 +\sqrt{3}.
+		\end{align*}
+		\end{multicols}
+}{}
+
+\exe{}{
+	Considérons les points
+		\begin{align*}
+			\point{A}{0}{1}, && \point{B}{-3}{0}, && \point{C}{1}{-2}, && \point{D}{-2}{-3}.
+		\end{align*}
+	Démontrer que le quadrilatère $BACD$ est un parallélogramme en comparant le milieu de ses deux diagonales.
+	
+	\emph{Un parallélogramme est un quadrilatère dont les diagonales se coupent en leur milieu}.
+}{exe:parallelogramme}{
+	Le milieu du segment $[BC]$ est donné par
+		\[ M = \dfrac12 (B+C) = (-1;-1),\]
+	et le milieu du segment $[AD]$ est donné par
+		\[ M' = \dfrac12 (A+D) = (-1;-1) = M.\]
+	Le quadrilatère est donc bien un parallélogramme.
+
+	\centering
+	\includegraphics[page=7]{2-figures.pdf}
+}
+
+\exe{, difficulty=1}{
+	Soient $\point{A}12$ et $\point{M}3{-1}$ deux points du plan.
+	Quel point $C$ faut-il choisir pour que $M$ soit le milieu du segment $[AC]$ ? Donner ses coordonnées.
+}{exe:milieu2}{
+	La contrainte que $M$ soit le milieu de $[AC]$ s'écrit
+		\begin{align*}
+			M = \dfrac12(A+C) && \iff && 2M = A+C && \iff && C = 2M-A
+		\end{align*}
+	Par suite,
+		\[ C= 2M-A = 2\cdot\left(3;-1\right) - \left(1;2\right) = \left(5; -4\right). \]
+	
+}
+
+
+\exe{, difficulty=1}{
+	Considérons $A(-2;-1), B(-1;1)$, et $C(-3 ; 2)$ trois points.
+	Quel point $D$ poser de telle sorte que le quadrilatère $ABDC$ soit un parallélogramme ?
+	
+	\emph{Indication : calculer le milieu $M$ de $BC$. $M$ doit aussi être le milieu de $AD$.}
+}{exe:parall-constr}{
+
+	\begin{multicols}{2}
+	\begin{center}
+	\includegraphics[page=8]{2-figures.pdf}
+	\end{center}
+	
+	Calculons d'abord 
+		\[ M = \dfrac{B+C}2 = \left(-2 ; \dfrac32 \right). \]
+	
+	Imposons ensuite $M  = \dfrac{A+D}2$, équivalent à $D = 2M - A$.
+	Il suit que 
+		\[ D = (-4 +2 ; 3 +1) = (-2 ; 4). \]
+	\end{multicols}
+}
+
+
+\exe{, difficulty=1}{
+	Soient $p, q \in \Z$ deux entiers.
+	Montrer que le point $\bigl(p^2 - q^2 ; 2pq\bigr)$ est à distance $p^2 + q^2$ de l'origine.
+}{exe:norme-triplet-pythagoricien}{
+	On utilise que $(a+b)^2 = a^2 + b^2 + 2ab$ et que $(a-b)^2 = a^2 + b^2 - 2ab$ pour calculer la norme du point.
+	Ces deux identités, dites \emph{remarquables}, seront étudiées plus tard dans le cours.
+	Nonobstant, la double distributivité permet de les démontrer facilement.
+		\begin{align*}
+			\bigl(p^2 - q^2\bigr)^2 + (2pq)^2 &= p^4 + q^4 - 2p^2q^2 + 4p^2q^2, \\
+												&= p^4 + q^4 + 2p^2q^2, \\
+												&= \bigl(p^2 + q^2\bigr)^2.
+		\end{align*}
+}
+
+
+
+\exe{, difficulty=0}{
+	Un étudiant jette une balle dans les airs et mesure la hauteur de la balle tous les quarts de seconde.
+	Il note ses résultats dans le tableau ci-dessous.
+	\begin{center}
+		\def\arraystretch{1.5}
+		%\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+			Hauteur (cm) & 85 & 145 & 190 & 145 & 85 & 40 & 0 \\ \hline
+			Temps (s) & 0 & 0,25 & 0,5 & 0,75 & 1 & 1,25 & 1,5 \\\hline
+		\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item La hauteur est-elle une fonction du temps ? Justifier.
+		\item Le temps est-il une fonction de la hauteur ? Justifier.
+	\end{enumerate}
+}{exe:f1}{
+	\begin{enumerate}
+		\item On peut associer \textbf{une seule} hauteur à chaque temps. La hauteur peut donc être vue comme fonction du temps.
+		\item On ne peut pas associer un unique temps à chaque hauteur. Par exemple, il y a deux temps distincts pour lesquels la hauteur est de $85$cm (0s et 1s).
+		Le temps ne peut donc pas être vu comme fonction de la hauteur.
+	\end{enumerate}
+}
+
+\exe{, difficulty=1}{
+	\begin{enumerate}
+		\item
+		Montrer que le rayon $R$ d'un cercle est fonction de son périmètre $P$ et écrire la fonction $\text{Rayon}(P)$ associée.
+		\item
+		Montrer que l'aire $A$ d'un cercle est fonction de son rayon $R$ et écrire la fonction $\text{Aire}(R)$ associée.
+		\item
+		En déduire que l'aire $A$ d'un cercle est fonction de son périmètre $P$ et écrire la fonction $\text{Aire}(P)$ associée.
+	\end{enumerate}
+}{exe:f2}{
+	\begin{enumerate}
+		\item
+		De la relation 
+			\[ P = 2\pi \cdot R, \]
+		on déduit que 
+			\[ R = \dfrac{1}{2\pi} \cdot P. \]
+		Remarquons qu'on a inversé le membre de gauche et le membre de droite pour extraire la forme d'une fonction : une valeur de $P$ donne une unique valeur de $R$.
+		
+		Ainsi on peut voir $R$ comme une fonction de $P$. On note alors $R=R(P)$, qui vérifie
+		\[ R(P) = \dfrac{1}{2\pi} \cdot P. \]
+		
+		\item 
+		La formule de l'aire
+			\[ A = \pi \cdot R^2 \]
+		exprime directement l'aire comme fonction du rayon : à chaque rayon possible, on peut calculer une unique aire.
+		On note alors
+			\[ A(R) =  \pi \cdot R^2. \]
+		\item
+		On souhaite exprimer l'aire $A$ comme fonction du périmètre $P$.
+		Or d'après les questions précédentes, l'aire $A$ est fonction du rayon $R$, et le rayon $R$ est lui-même fonction du périmètre $P$.
+		
+		Ainsi, une valeur de $P$ donne une unique valeur de $R$ qui donne une unique valeur de $A$.
+		En suivant le raisonnement, on peut composer les fonctions trouvées ci-dessus en considérant $A(R(P))$.
+		Pour ne pas surcharger les notations, appelons plutôt $\text{Aire}$ la fonction prenant un périmètre.
+			\begin{align*}
+			 \text{Aire}(P) &= A\bigl(R(P)\bigr) \\ &=A\left(\dfrac{1}{2\pi} \cdot P\right) \\ &= \pi \left( \dfrac{1}{2\pi} \cdot P \right)^2 \\ &= \dfrac{\pi}{4\pi^2} \cdot P^2 = \dfrac{1}{4\pi} \cdot P^2.
+			 \end{align*}
+	\end{enumerate}
+}
+
+\exe{}{
+	Considérons la fonction $f$ donnée {algébriquement} par
+	\begin{align*}
+		f(x) = 3x + 1
+	\end{align*}
+	pour tout $x\in\R$.
+	
+	\begin{enumerate}
+		\item
+		Calculer l'image par $f$ de $0$ ; de $3,1$ ; de $\frac13$ ; de $-1$ ; de $-\frac23$.
+		\item
+		Donner un antécédent de $1$ par $f$.
+		\item
+		Déterminer tous les antécédents de $6$ par $f$.	
+	\end{enumerate}
+}{exe:images-antécédents}{
+	\begin{enumerate}
+	\item
+	L'image de $x$ est donnée par $f(x)$. On calcule donc
+		\begin{align*}
+			f(0) &= 3\cdot0 + 1 = 1 \\
+			f(3,1) &= 3\cdot3,1 + 1 = 10,3 \\
+			f\left(\frac13\right) &= 3\cdot\frac13 + 1 = 1 + 1 = 2 \\
+			f(-1) &= 3\cdot(-1) + 1 = -2 \\
+			f\left(-\frac23\right) &= 3 \cdot \left(- \frac23\right) + 1 = -1.
+		\end{align*}
+	\item
+	La relation
+		\[ f(0) = 1 \]
+	implique que l'image de $0$ est $1$, et qu'un antécédent de $1$ est $0$.
+	On a donc trouvé $0$, antécédent de $1$ par $f$.
+	\item
+	Appelons $x$ un antécédent de $6$ par $f$.
+	Autrement dit, l'image de $x$ est $6$, et donc 
+		\[ f(x) = 6. \]
+	En utilisant l'expression algébrique de $f$, on trouve
+		\begin{align*}
+			f(x) &= 6, \\
+			3\cdot x + 1 &= 6, \\
+			3\cdot x &= 5, \\
+			x &= \dfrac53.
+		\end{align*}
+	Ainsi $x=\frac53$ est le seul antécédent de $6$ par $f$.
+	En général, certaines fonctions admettent plusieurs antécédents.
+	Voir par exemple l'exercice suivant.
+	\end{enumerate}
+
+
+}
+
+\exe{}{
+	Un fonction $f$ admet le tableau de valeurs suivant.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+	Parmis les expressions algébriques suivantes, lesquelles \underline{ne peuvent pas} correspondre à $f(x)$ ?
+		\begin{multicols}{4}
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$
+			\item $1+\dfrac{x}2$
+			\item $\dfrac{1-x}2$
+			\item $\dfrac{-x^2 - x + 2}2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:f4}{
+	Il s'agit de discriminer les fonctions possibles en utilisant les images du tableau.
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$ vaut bien $1$ en $x=0$, mais l'expression vaut $3$ en $x=-2$, donc ce n'est pas l'expression de $f$.
+			\item  $1+\dfrac{x}2$ vaut bien $1$ en $x=0$ et $0$ en $x=-2$, mais elle vaut $1$ en $x=1$, ce n'est donc pas l'expression de $f$.
+			\item $\dfrac{1-x}2$ vaut $\frac12$ en $x=0$, ce n'est donc pas l'expression de $f$.
+			\item $f(x) = \dfrac{-x^2 - x + 2}2$ est la seule expression possible, qu'on vérifiera en calculant les images de $0, -2, 1,$ et $-1$.
+			
+			Attention aux parenthèses lors de la substitution d'une valeur négative ainsi qu'à l'ordre des opérations.
+			Par exemple, en $x=-2$,
+				\[ \dfrac{-x^2 - x + 2}2 = \dfrac{-(-2)^2 - (-2) + 2}2 = \dfrac{-(4)+2+2}2 = 0. \]
+		\end{enumerate}
+
+	Cet exercice deviendra vite évident après avoir terminé l'étude des fonctions affines. 
+	Comme les courbes représentatives des trois premières expressions sont des droites non constantes, toutes leurs images ont un unique antécédent.
+	Or ici $0$ et $1$ ont deux antécédents.
+}
+
+
+
+\exe{}{
+	Remplir le tableau d'images suivant.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 3 & 0 & \\ \hline
+			$g(x)$ & 1 & 0 &  & -2 \\ \hline
+			$f(x)+2g(x)$ &  & & 2 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+}{exe:fonctions-QCM-trous}{
+	\begin{center}
+	\def\arraystretch{1.2}
+	\setlength\tabcolsep{20pt}
+	\begin{tabular}{|c|c|c|c|c|}\hline
+		$x$ & 0 & -2 & 1 & -1 \\ \hline
+		$f(x)$ & 1 & 3 & 0 & 5 \\ \hline
+		$g(x)$ & 1 & 0 & 1 & -2 \\ \hline
+		$f(x)+2g(x)$ & 3 & 3 & 2 & 1 \\ \hline
+	\end{tabular}
+	\end{center}
+}
+
+
+\exe{, difficulty=0}{
+	Posons $h(x) = (x+2)(x-1)$ pour tout $x\in\R$.
+	Remplir le tableau de valeurs ci-dessous.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{30pt}
+		\begin{tabular}{|c|c|c|}\hline
+			$x$ & -2 & 1 \\ \hline
+			$f(x)$ & -42 & 1729 \\ \hline
+			$h(x)$ &  &   \\ \hline
+			$f(x)+h(x)$ &  &   \\ \hline
+			$f(x)+2h(x)$ &  &   \\ \hline
+		\end{tabular}
+		\end{center}
+}{exe:fonctions-QCM2}{
+	Lors du calcul de chacune des images, au moins un facteur est nul : le produit vaut donc toujours zéro.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{30pt}
+		\begin{tabular}{|c|c|c|}\hline
+			$x$ & -2 & 1 \\ \hline
+			$f(x)$ & -42 & 1729 \\ \hline
+			$h(x)$ & 0 & 0   \\ \hline
+			$f(x)+h(x)$ & -42 & 1729  \\ \hline
+			$f(x)+2h(x)$ & -42 & 1729  \\ \hline
+		\end{tabular}
+		\end{center}
+}
+
+\exe{, difficulty=1}{
+	Montrer qu'il existe une infinité de fonctions, toutes différentes, vérifiant le même tableau de valeurs de l'exercice \ref{exe:fonctions-QCM2}.
+}{exe:fonctions-QCM3}{
+	On prend par exemple $f(x) + h(x), f(x) + 2h(x), f(x) + 3h(x), \dots$.
+}
 
 \exe{}{
 	Soit $f$ définie algébriquement sur $]{-\infty}; 0[ \cup ]0 ; {+\infty}[$ par
@@ -35,6 +621,342 @@
 
 }{exe:images}{
 
+}
+
+\exe{, difficulty=1}{
+	Soit $f(x) = (x-12)(x-13)$.
+	Développer l'expression pour vérifier que $f(x) = x^2 - 25x + 156$.
+	
+	Calculer les images de 0 ; 1 ; 11 ; 12 ; 13; et 14 par $f$ avec la forme adéquate et sans calculatrice.
+}{exe:image-selon-forme}{
+	Pour $f(0)$ et $f(1)$, on préférera la forme développée $f(x) = x^2 - 25x + 156$.
+	Ainsi, $f(0) = 156$ immédiatement, et $f(1) = 1 - 25 + 156 = 132$.
+	
+	Pour $f(11), f(12), f(13), f(14)$, la forme factorisée est préférable, car on calcule facilement que
+		\begin{align*}
+			f(11) &= (11-12)(11-13) = (-1)(-2) = 2 \\
+			f(12) &= (12-12)(12-13) = 0 \\
+			f(13) &= (13-12)(13-13) = 0 \\
+			f(14) &= (14-12)(14-13) = (2)(1) =2
+		\end{align*}
+}
+
+
+\exe{, difficulty=1}{
+	Considérons les fonctions $f(x) =x^2 -6x + 9$ et $g(x)=(x-3)^2$ pour tout $x\in\R$.
+	\begin{enumerate}
+		\item
+		Calculer les images par $f$ et $g$ de $0$ ; de $6$ ; de $3$ ; de $-\frac23$.
+		\item
+		Donner deux antécédents de $9$ par $f$.
+		\item
+		Montrer que $f(x) = g(x)$ pour tout $x\in\R$ réel.
+	\end{enumerate}
+}{exe:forme-canonique}{
+	\begin{enumerate}
+		\item
+		Pour $f$, on calcule
+			\begin{align*}
+				f(0) &= 9, \\
+				f(6) &= 6^2 - 6^2 + 9 = 9, \\
+				f(3) &= 3^2 - 6\times3 + 9 = 0, \\
+				f\left(-\frac23\right) &= \left(-\frac23\right)^2 - 6\left(-\frac23\right) + 9 = \frac49 + 4 + 9 = \frac49 + \frac{117}9 = \frac{121}9.
+			\end{align*}
+		Pour $g$, on calcule
+			\begin{align*}
+				g(0) &= (-3)^2 = 9, \\
+				g(6) &= 3^2 = 9, \\
+				g(3) &= 0^2 = 0, \\
+				g\left(-\frac23\right) &= \left(-\frac23 - 3\right)^2= \left(-\dfrac{11}3\right)^2 = \frac{121}9.
+			\end{align*}
+		\item
+		0 et 6 sont deux antécédents de 9 par $f$.
+		\item
+		On part toujours de la forme factorisée ($g$ ici) pour arriver vers la forme développée réduite ($f$ ici).
+			\begin{align*}
+				g(x) &= (x-3)^2 \\
+					&= (x-3)(x-3) \\
+					&= x(x-3) - 3(x-3) \\
+					&= x^2 - 3x - 3x + 9 \\
+					&= x^2 - 6x + 9
+			\end{align*}
+		Le développement de carré sera travaillé pendant l'étude des identités remarquables.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=0}{
+	Un fonction $f$ définie sur tout $\R$ admet le tableau de valeurs suivant.
+		\begin{center}
+		\def\arraystretch{1.2}
+		\setlength\tabcolsep{20pt}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+			$x$ & 0 & -2 & 1 & -1 \\ \hline
+			$f(x)$ & 1 & 0 & 0 & 1 \\ \hline
+		\end{tabular}
+		\end{center}
+	Parmis les expressions algébriques suivantes, lesquelles \underline{ne peuvent pas} correspondre à $f(x)$ ?
+		\begin{multicols}{3}
+		\begin{enumerate}[label=\roman*)]
+			\item $1-x$
+			\item $\dfrac{-x^2 - x + 2}2$
+			\item $1+\dfrac{x}2$
+			\item $\dfrac{1-x}2$
+			\item $\dfrac{x^3 - 3x + 2}2$
+			\item $\dfrac{-x^4 - 2x^3 + x + 2}2$
+		\end{enumerate}
+		\end{multicols}
+}{exe:fonctions-QCM}{
+		\begin{enumerate}[label=\roman*)]
+			\item
+			Impossible car $f(-2) = 0$.
+			\item 
+			Celle-ci est possible, car toutes les images correspondent au tableau.
+			\item 
+			Impossible car $f(1) = 0$.
+			\item
+			Impossible car $f(-2) = 0$.
+			\item 
+			Celle-ci est possible, car toutes les images correspondent au tableau.
+			\item 
+			Celle-ci est possible, car toutes les images correspondent au tableau.
+		\end{enumerate}
+}
+
+
+
+\exe{, difficulty=1}{
+	Esquisser la courbe de la fonction $f$ sur $\D=[3;10]$ donnée algébriquement par
+		\[ f(x) = \dfrac3x + 1. \]
+}{exe:graph-droite2}{
+	Il faut choisir suffisamment de $x \in [3;10]$ du domaine afin de pouvoir bien tracer l'allure de la courbe.
+	Attention, celle-ci n'est pas une droite !
+	
+	\begin{center}
+	\includegraphics[page=9]{2-figures.pdf}
+	\end{center}
+}
+
+
+\exe{, difficulty=2}{
+	Utiliser le repère ci-dessous pour comparer les représentations graphiques des trois fonctions suivantes données algébriquement.
+		\begin{align*}
+			f(x) = x^2, && g(x) = x^2 - 3, && h(x) = (x+4)^2.
+		\end{align*}
+		
+	\begin{center}
+	\includegraphics[page=10]{2-figures.pdf}
+	\end{center}
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item
+		Estimer, grâces aux courbes, les solutions $x\in[-8;5]$ de l'équation $f(x) = h(x)$.
+		Vérifier l'exactitude des solutions en calculant et en comparant $f(x)$ et $h(x)$.
+		\item
+		Faire de même pour les solutions $x\in[-8;5]$ de $g(x) = h(x)$.
+		\item
+		Estimer, grâces aux courbes, à quel intervalle appartiennent les $x\in[-8;5]$ vérifiant \mbox{$h(x) \leq f(x)$}.
+	\end{enumerate}
+}{exe:y-shift}{
+	On graphe les fonctions ci-dessous. 
+	On remarque que $\Ccal_g$ est juste en dessous de $\Ccal_f$. C'est logique car
+		\[ g(x) = f(x) - 3, \]
+	donc quand on place les points pour $\Ccal_f$ et $\Ccal_g$, ceux de $\Ccal_g$ sont $3$ en dessous de ceux de $\Ccal_f$.
+	
+	On remarque aussi que $\Ccal_h$ est la courbe de $\Ccal_f$ décalée vers la gauche.
+	C'est également cohérent car
+		\[ h(x) = f(x+4). \]
+	Pour connaître l'image de $x$ par $h$, on prend l'image de $x+4$ par $f$.
+	On a donc par exemple $h(-4) = f(0), h(3,9) = f(0,1),$ etc... 
+	On comprend bien pourquoi $\Ccal_h$ est la $\Ccal_f$ décalée de $4$ vers la gauche.
+	
+	\begin{center}
+	\includegraphics[page=11	]{2-figures.pdf}
+	\end{center}
+
+	\begin{enumerate}[label=(\alph*)]
+		\item
+		Les $x\in[-8;5]$ vérifiant $f(x)=h(x)$ sont les abscisses des points d'intersection de $\Ccal_f$ et $\Ccal_h$.
+		Ici, seul $x\approx -2$ fonctionne.
+		On calcule $f(-2) = 4$ et $h(-2) = 4$, et on en déduit que $x=-2$ exactement.
+		
+		\item
+		Les $x\in[-8;5]$ vérifiant $h(x)=g(x)$ sont les abscisses des points d'intersection de $\Ccal_h$ et $\Ccal_g$.
+		Ici, seul $x\approx -2,5$ fonctionne.
+		On calcule $h(-2,5) = 1,5^2 = \frac94$ et $g(-2,5) = 2,5^2 - 3 = \frac{25}4 - 3 = \frac{13}4$ et donc que la solution trouvée n'est pas exacte.
+		
+		La solution exacte est en fait $x= -\frac{19}8 = -2,375$.
+		\item
+		Les $x\in[-8;5]$ vérifiant $h(x) \leq f(x)$ sont les abscisses pour lesquelles la courbe $\Ccal_h$ est sous la courbe $\Ccal_f$.
+		Ici, on trouve approximativement $[-8 ; -2]$.
+	\end{enumerate}
+}
+
+
+
+\exemulticols{, difficulty=1}{
+	Considérons deux fonctions, $g$ et $h$, données graphiquement sur $\D = ]{-}3,4 ; 2,3[$ ci-contre.
+	
+	Donner approximativement l'ensemble des nombres $x$ du domaine vérifiant les (in)équations suivantes.
+	\begin{enumerate}
+		\itemsep1em 
+		\item $g(x) = h(x)$
+		\item $g(x) \leq h(x)$
+		\item $h(x) \leq g(x)$
+	\end{enumerate}	
+}{
+	\begin{center}
+	\includegraphics[page=12]{2-figures.pdf}
+	\end{center}
+}{exe:eq-ineq}{
+	\begin{enumerate}
+		\item On cherche ici l'ensemble
+			\[ \bigset{ x \in \D \text{ tels que } g(x) = h(x) }. \]
+		On lit (approximativement) les abscisses des points d'intersection des deux courbes :
+			\[ \bigset{ x \in \D \tq g(x) = h(x) } \approx \bigset{ {-0,8}, {1,2} } \]
+		\item On cherche ici l'ensemble
+			\[ \bigset{ x \in \D \tq g(x) \leq h(x) }. \]
+		On lit (approximativement) les abscisses pour lesquelles la courbe $\Ccal_g$ est sous $\Ccal_h$ :
+			\[ \bigset{ x \in \D \tq g(x) \leq h(x) } \approx [ {-0,8} ; {1,2} ]. \]
+		\item On cherche ici l'ensemble
+			\[ \bigset{ x \in \D \tq h(x) \leq g(x) }. \]
+		On lit (approximativement) les abscisses pour lesquelles la courbe $\Ccal_h$ est sous $\Ccal_g$.
+			\[ \bigset{ x \in \D \tq g(x) \leq h(x) } \approx [{-3,4} ; {-0,8} ] \cup [ {1,2} ; {2,3} ]. \]
+	\end{enumerate}
+	
+	Remarquons en outre les relations suivantes :
+		\[ \bigset{ x \in \D \tq h(x) \leq g(x) } \cup \bigset{ x \in \D \tq h(x) \geq g(x) } = \D, \]
+	ce qui n'est pas surprenant car pour tout $x\in\D$, on a forcément $g(x) \leq h(x)$ \textbf{ou} $g(x) \geq h(x)$. 
+	Ainsi, 
+		\[ \bigset{ x \in \D \tq h(x) \leq g(x) \ou  h(x) \geq g(x) }  = \bigset{ x \in \D } = \D. \]
+	C'est donc pour cela que les ensembles sont complémentaires par rapport à $\D$ : leur union est $\D$ tout entier.
+	
+	En outre, les points appartenant aux deux ensembles à la fois sont
+		\begin{align*}
+		 \bigset{ x \in \D \tq h(x) \leq g(x) \et h(x) \geq g(x) } = \bigset{ x \in \D \tq h(x) = g(x) },
+		 \end{align*}
+	car $h(x) \leq g(x)$ \textbf{et} $h(x) \geq g(x)$ est équivalent à $g(x) = h(x)$ pour tout $x\in\D$.
+	
+	C'est donc pour ça que les bornes des intervalles étudiés sont les abscisses des points d'intersection.
+	Ces abscisses sont exactement où une courbe passe au-dessus d'une autre.
+}
+
+
+\exe{}{
+	Considérons la fonction $f$ sur $\R$ donnée algébriquement par
+		\[ f(x) = \dfrac17-x. \]
+	Pour chaque point suivant, déterminer s'il appartient à $\Ccal_f$ ou non.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $\left(0; \frac17\right)$
+		\item $\left(-\frac17 ; 0\right)$
+		\item $\left(\frac27 ; -\frac17\right)$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:Cf}{
+	On rappelle la propriété fondamentale
+		\begin{align*}
+			(x;y) \in \Ccal_f && \iff && y = f(x)
+		\end{align*}
+	Pour savoir si un point $(x;y)$ appartient à $\Ccal_f$, il s'agit de vérifier si l'égalité $y=f(x)$ tient.
+	
+	\begin{enumerate}[label=\roman*)]
+		\item On applique la propriété pour $x = 0, y= \frac17$.
+		D'une part, $f(x) = f(0) = \frac17 - 0 = \frac17$, et d'autre part $y=\frac17$.
+		On a donc bien $y=f(x)$ pour ce couple, et il appartient à $\Ccal_f$.
+			\[ \left(0; \dfrac17\right) \in \Ccal_f. \]
+		
+		\item On choisit $(x;y) = \left(-\frac17 ; 0\right)$, et on compare $f(x) = f\left(-\frac17\right) = \frac27$ à $y=0$. 
+		On a donc
+			\[ \left(-\dfrac17 ; 0\right) \not\in \Ccal_f. \]
+		\item On choisit $(x;y) = \left(\frac27 ; -\frac17\right)$, et on compare $f(x) = f\left(\frac27\right) = \frac{-1}7$ à $y=-\frac17$. 
+		D'où
+			\[ \left(\dfrac27 ; -\dfrac17\right) \in \Ccal_f. \]
+	\end{enumerate}
+}
+
+\exe{, difficulty=2}{
+	Considérons la représentation graphique suivante d'une fonction $f$ définie sur \mbox{$\D = ]{-}3,4 ; 2,3[$}.
+	
+	\begin{center}
+	\includegraphics[page=13]{2-figures.pdf}
+	\end{center}
+	\begin{enumerate}
+		\item\label{q1}
+		Donner approximativement les images de -1 et de 2 par $f$. 
+		\item Énumérer approximativement les antécédents de 2 et de 4 par $f$.
+		\item Exprimer aproximativement l'ensemble $\{ x \in \D \tq f(x) \geq 4 \}$ sous forme d'intervalle.
+		\item Donner approximativement un réel qui admet exactement deux antécédents par $f$.
+		\item Si $f$ était définie sur $\R$ tout entier, serait-il toujours possible de connaître l'image de -2 ? Et tous les antécédents de -2 ?
+	\end{enumerate}
+	Supposons désormais que $f(x) = 3-2 x +\frac13 x^3$ pour tout $x\in\D$ du domaine.
+	\begin{enumerate}[resume]
+		\item Répondre à nouveau à la question \ref{q1} à l'aide de l'expression algébrique de $f$.
+		Des valeurs exactes sont attendues.
+		\item Montrer que l'image de $-3$ par $f$ est $0$ et que l'image de $0$ par $f$ est $3$.
+	\end{enumerate}
+}{exe:deg3}{
+	\begin{enumerate}
+		\item On détermine approximativement
+			\begin{align*}
+			f(-1) \approx 4,5 && \et && f(2) \approx 1,5.
+			 \end{align*}
+		\item On cherche d'abord les antécédents de 2, c'est-à-dire les nombres $x$ du domaine vérifiant
+			\[ f(x) = -2. \]
+		Pour ça, on se pose \og à hauteur 2 \fg : on trace une droite horizontale d'ordonnée 2 et on regarde les points d'intersection.
+			\begin{center}
+		\includegraphics[page=14]{2-figures.pdf}
+			\end{center}
+		
+		
+		En l'occurrence, seuls $x\approx -2,8 ; 0,5 ;  \et 2,1$ fonctionnent.
+			
+		Pour les antécédents de 4, on fait idem en regardant les points d'intersection avec la droite d'ordonnée 4.
+			\begin{center}
+		\includegraphics[page=15]{2-figures.pdf}
+			\end{center}
+		On trouve trois valeurs approximatives : $x \approx -2,2$ et $x \approx 0,5$.
+		
+		\item
+		On regarde quels antécédents $x \in \D$ du domaine d'étude ont une image supérieure ou égale à 4.
+		En reprenant le graphe de la résolution de $f(x) = 4$, on remarque que \textbf{tous} les $x$ entre -2,2 et 0,5 ont une image supérieure à 4.
+		Ainsi, 
+			\[ \bigset{ x \in \D \tq f(x) \geq 4 } \approx [-2,2 ; 0,5], \]
+		les bornes étant incluses car l'inégalité est large.
+		
+		\item 
+		On a plusieurs choix ici. 
+		Il faut placer une droite horizontale telle qu'elle s'intersecte exactement deux fois avec la courbe de $f$.
+		Un choix clair est $4$ (en violet ci-dessous).
+		Un choix moins clair est $1,1$, en faisant en sorte que la courbe frôle la droite horizontale qu'on place en ordonnée $1,1$ (en rouge ci-dessous).
+		On dit alors que la droite est \emph{tangente} à la courbe.
+		
+			\begin{center}
+		\includegraphics[page=16]{2-figures.pdf}
+			\end{center}
+		
+		\item L'image est unique et ne dépend pas du domaine (tant que celui-ci contient $-2$ !).
+		On peut donc toujours connaître $f(-2)$, même sans connaître $f$ en dehors du domaine.
+		
+		Les antécédents, eux, dépendent du domaine choisi.
+		Comme on ne sait pas du tout à quoi ressemble $\Ccal_f$ en dehors du domaine choisi, il est impossible de déterminer tous les réels $x\in\R$ antécédents de $-2$ par $f$.
+		
+		\item On calcule grâce à la calculatrice (ou sans...)
+			\begin{align*}
+				f(-1) = \dfrac{14}3 && f(2) =  \dfrac53.
+			\end{align*}
+		
+		\item On calcule à la main que
+			\begin{align*}
+				f(-3) &= 3 - 2 \cdot (-3) + \dfrac13 \cdot (-3)^3, \\
+					&= 3 + 6 - 9, \\
+					&= 0.
+			\end{align*}
+		Pour l'image de $0$, remarquons que seul le terme ne dépendant pas de $x$ subsiste. 
+		On l'appelle le terme \emph{constant}, et on trouve $f(0) = 3$, comme requis.
+	\end{enumerate}
 }
 
 
@@ -155,6 +1077,80 @@
 
 
 
+\exe{, difficulty=0}{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -10 + 3(3x-1)^2. \]
+	\begin{enumerate}
+		\item Développer réduire l'expression algébrique de $f$.
+		\item Montrer que $f$ atteint son minimum en $x^\star=\frac13$ et donner sa valeur.
+	\end{enumerate}
+}{exe:extrema4-99}{
+	Développons et réduisons calmement :
+		\begin{align*}
+			f(x) &= -10 + 3(3x-1)^2 \\
+				&= -10 + 3 \bigl[ (3x)^2 + 1^2 - 2\times3x \bigr] \\
+				&= -10 + 3 \bigl[ 9x^2 + 1 - 6x \bigr] \\
+				&= -10 + 27x^2 + 3 - 18x \\
+				&= 27x^2 - 18x - 7
+		\end{align*}
+
+	Lorsqu'on a affaire à une forme avec carré, on part systématiquement du fait qu'un carré est toujours positif pour construire $f(x)$.
+	Pour tout $x\in\R$ réel, on a donc
+		\begin{align*}
+			(3x-1)^2 &\geq 0 \\
+			3(3x-1)^2 &\geq 0 \\
+			-10 + 3(3x-1)^2 &\geq -10 \\
+			f(x) &\geq -10
+		\end{align*}
+	On en déduit que $f(x)$ est borné inférieurement par $-10$ pour tous les $x\in\R$ réels.
+	
+	Pour montrer que c'est un minimum atteint en $\frac13$, on calcule $f(\frac13) = -10$.
+	En conclusion,
+		\[ f(x) \geq f\left(\dfrac13\right)=-10, \]
+	et ce pour tous les $x\in\R$. Par définition, $-10$ est le minimum de $f$, atteint en $\frac13$.
+}
+
+\exe{, difficulty=0}{
+	Soit $f$ la fonction définie sur $\R$ par
+		\[ f(x) = -3 - (x+1)^2. \]
+	\begin{enumerate}
+		\item Développer réduire l'expression algébrique de $f$.
+		\item Donner le maximum de $f$ ainsi que l'antécédent $x^\star$ qui le réalise.
+	\end{enumerate}
+}{exe:extrema3-99}{
+	Développons et réduisons en faisant attention au signe moins qui multiplie le carré tout entier :
+		\begin{align*}
+			f(x) &= -3 - (x+1)^2 \\
+				&=-3 - \bigl[ x^2 + 2x + 1 \bigr] \\
+				&= -3 -x^2 - 2x - 1 \\
+				&= -x^2 - 2x - 4
+		\end{align*}
+		
+	Lorsqu'on a affaire à une forme avec carré, on part systématiquement du fait qu'un carré est toujours positif pour enfin construire $f(x)$.
+	Pour tout $x\in\R$ réel, on a donc
+		\begin{align*}
+			(x+1)^2 &\geq 0 \\
+			-(x+1)^2 &\leq 0 \\
+			-3 - (x+1)^2 &\leq -3 \\
+			f(x) &\leq -3
+		\end{align*}
+	On en déduit que $f(x)$ est borné supérieurement par $-3$ pour tous les $x\in\R$ réels.
+	
+	Pour montrer que c'est un maximum atteint en $-1$, on calcule $f(-1) = -3 - (-1+1)^2 = -3 + 0^2 = -3$.
+	En conclusion,
+		\[ f(x) \leq f(-1)=-3, \]
+	et ce pour tous les $x\in\R$. Par définition, $-3$ est le maximum de $f$, atteint en $-1$.
+}
+
+
+\exe{}{
+	Montrer que la notation $x = \sqrt{-1}$ n'a pas de sens pour $x\in\R$ réel.
+}{exe:sqrt-undef}{
+	À supposer qu'il existe un tel $x\in\R$, alors il vérifierait $x^2 = -1$.
+	Ce n'est pas possible car la fonction carré est toujours positive. \Large\Lightning
+}
+
+
 \exe{}{
 	Calculer ou lire le coefficient directeur $a$ et l'ordonnée à l'origine $b$ des fonctions affines suivantes.
 	
@@ -210,6 +1206,111 @@
 	\end{multicols}
 }
 
+\exe{, difficulty=2}{
+	Pour chaque propriété suivante, donner algébriquement une fonction la vérifiant.
+		%\begin{multicols}{1}
+		\begin{enumerate}
+			\item Une image admet exactement un antécédent.
+			\item Une image admet exactement deux antécédents.
+			\item Une image admet exactement trois antécédents.
+			\item Une image admet une infinité d'antécédents.
+		\end{enumerate}	
+		%\end{multicols}
+}{exe:nb-antécédents}{
+	\begin{enumerate}
+		\item La fonction affine $f(x) = x$ donne une droite dont chaque image admet un unique antécédent.
+		\item La fonction affine $f(x) = x^2$ donne une parabole. En résolvant $f(x) =1$, on peut démontrer que seuls $1$ et $-1$ sont les antécédents de $1$.
+		\item Considérons $f(x) = (x-1)\cdot(x-2)\cdot(x-3)$. Résoudre $f(x)=0$ pour montrer que seuls $1 ; 2 ;$ et $3$ sont antécédents de $0$.
+		\item Une fonction constante fonctionne bien. Par exemple $f(x) = 0$.
+	\end{enumerate}	
+}
+
+\exe{, difficulty=2}{
+	Donner graphiquement une fonction sur $\R$ non constante telle que toutes les images de $f$ admettent un nombre infini d'antécédents.
+}{exe:infinité-antécédents}{
+	On peut définir par exemple la fonction \emph{signe} en incluant 0 dans les positifs (traditionnellement, $\text{signe}(0) = 0$).
+		\[ \text{signe}(x) = \begin{cases*} +1 & si $x \geq 0$, \\
+								-1 & si $x<0$.
+				\end{cases*}. \]
+	Pour une fonction plus intéressante, on pourrait prendre une fonction en vague.
+	La fonction sinus fonctionne bien : entrer par exemple \texttt{y=sin(x)} sur Geogebra.
+}
+
+
+\exemulticols{}{
+	Tracer les graphes des fonctions $g(x) = f(x) + 2$ et $h(x) = f(x) - 1$ dans le repère contenant $\Ccal_f$ ci-contre.
+}{
+	\begin{center}
+	\includegraphics[page=17]{2-figures.pdf}
+	\end{center}
+}{exe:draw-plusc}{
+	\begin{center}
+	\includegraphics[page=18]{2-figures.pdf}
+	\end{center}
+}
+
+
+
+\exe{, difficulty=1}{
+	Considérons les points $O(0;0)$ et $P(3 ; 1)$ et $(d)$ la médiatrice du segment $[OP]$ : ce sont tous les points $M(x;y)$ à équidistance de $O$ et $P$.
+	
+	Montrer que $x$ et $y$ sont liés par la relation 
+		$ y = -3x + 5. $
+}{exe:médiatrice}{
+%	À rendre pour possibilité de points bonus à la prochaine évaluation.
+%	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	La contrainte d'équidistance s'exprime et est équivalente aux équations suivantes.
+		\begin{align*}
+			\norm{M-O}^2 &= \norm{M - P}^2 \\
+			x^2 + y^2 &= (x-3)^2 + (y-1)^2 \\
+			x^2 + y^2 &= x^2 - 6x + 9 + y^2 - 2y + 1 \\
+			2y &= -6x + 10 \\
+			y &= -3x + 5
+		\end{align*}
+}
+
+
+\exe{, difficulty=2}{
+	Considérons une fonction quadratique 
+		$ f(x) = ax^2 + bx + c, $
+	où $a, b, c\in\R$ sont trois paramètres réels.
+	Supposons qu'on connaisse deux \emph{racines} distinctes de $f$, c'est-à-dire qu'on connaisse $\alpha, \beta\in\R$ tels que $\alpha\neq\beta$ et
+		\[ f(\alpha) = f(\beta) = 0. \]
+	\begin{enumerate}
+		\item Montrer que la fonction $g(x) = f(x) - a (x-\alpha)(x-\beta)$ est affine.
+			%\[ g(x) = f(x) - a (x-\alpha)(x-\beta) \qquad \text{ pour tout } x\in\R. \]
+		\item Montrer que $g$ admet deux racines distinctes.
+		\item En déduire que $g$ est constamment nulle et donc que
+%			\begin{align*}
+%				\alpha+\beta = -\dfrac{b}a, && \alpha\cdot\beta = \dfrac{c}a, && f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.
+%			\end{align*}
+			\[ f(x) = a (x-\alpha)(x-\beta)  \qquad \text{ pour tout } x\in\R.\]
+		On dit alors que $f$ se \emph{scinde} en produit affine.
+	\end{enumerate}
+}{exe:thm-fond-alg-2}{
+	%À rendre pour possibilité de points bonus à la prochaine évaluation.
+	%Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+	
+	\underline{Discussion}
+	
+	Il s'avère qu'un résultat plus général est atteignable : si $\alpha\in\R$ est une racine d'un polynôme\footnote{Une expression de la forme $a_n x^n + a_{n-1}x^{n-1} + \hdots + a_1 x + a_0$ dont les $a_i$ sont des coefficients fixés.} $f$ de n'importe quel degré\footnote{La plus haute puissance de $x$ : le degré de $2x^2 -3x^4 + 12$ est 4.}, alors on a nécessairement $f(x) = (x-\alpha)\cdot g(x)$ pour un polynôme $g$.
+	La démonstration se base sur la division euclidienne dans les polynômes :
+	pour n'importe quels polynômes $f, g$, il existe deux polynômes $q, r$ vérifiants 
+		\[ f = qg + r, \]
+	avec le degré de $r$ strictement inférieur au degré de $g$.
+	
+	Dans notre cas, il doit exister un polynôme $q$ et une constante $r$ tels que $f(x) = q(x)\cdot(x-\alpha) + r$.
+	En évaluant en $x=\alpha$, on obtient que $r=0$.
+	
+	En répétant le processus, tout polynôme de degré $n$ admettant $n$ racines se scinde en produit affine.
+	En revanche, tous les polynômes n'admettent pas de racines réelles !
+	C'est le cas du polynôme $x^2 + 1$ qui, lui, ne peut pas se scinder comme $(x-\alpha)(x-\beta)$ car $\alpha$ et $\beta$ seraient alors deux racines de $x^2 + 1$.
+	 Or $x^2 + 1$ ne s'annule jamais, le carré étant toujours positif !
+	 
+	Supposons désormais qu'on ait un ensemble de nombres contenant $\R$ ainsi qu'un nouveau « nombre », racine hypothétique de $x^2 + 1$ ; est-ce que tous les polynômes se scindent dans cet ensemble\footnote{Il faut aussi qu'on puisse ajouter et multiplier dans cet ensemble tout en restant à l'intérieur de celui-ci ; c'est la \emph{stabilité}.} ? 
+	Le \emph{théorème fondamental de l'algèbre} répond positivement à cette question.
+	Ce nombre hypothétique est nommé $i$, dont la construction formelle utilise, notamment, la division euclidienne des polynômes.
+}
 
 
 \newpage
