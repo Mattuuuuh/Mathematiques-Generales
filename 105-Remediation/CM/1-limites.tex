@@ -5,20 +5,66 @@
 \fancyhead[C]{\textbf{Chapitre \thechapter~— Limites}}
 \addcontentsline{toc}{section}{Méthodologie}
 
-\prop{}{
+placeholder
 
-}{prop:1}
+% interprétation numérique
+
+% asymptotes et interprétation graphique
+
+% limites simples f(x) -> f(a)
+
+% limites de polynômes frac p(x) / q(x)
+
+% fonctions cos/sin
+
+% fonction arctan
+
+% fonction exp/ln/log
+% domination des polynômes
 
 \newpage
 \addcontentsline{toc}{section}{Exercices}
 \fancyhead[C]{\textbf{Chapitre \thechapter~— Exercices}}
 
 
-\exe{,difficulty=3}{
-	exe1
-}{exe:1}{
-	sol1
+
+
+\exe{,difficulty=1}{
+	Le but de cet exercice est d'étudier le comportement de l'écart-type d'une série statistique lorsqu'une valeur moyenne est ajoutée à répétition.
+	\begin{enumerate}
+		\item
+		Montrer qu'ajouter une valeur moyenne à une série statistique ne change pas sa moyenne.
+		\item
+		\begin{multicols}{2}
+		%En déduire, sans calcul littéral, la moyenne de la série statistique ci-contre, où $N\in\N$ est un entier naturel.
+		Donner la moyenne de la série statistique ci-contre, où $N\in\N$ est un entier naturel.
+		
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+		Valeur   & 0 & 20 & 10 \\ \hline
+		Effectif & 17 & 17 & $N$ \\ \hline
+		\end{tabular}
+		\end{center}
+		\end{multicols}
+	
+		\item
+		Exprimer l'écart-type $\sigma$ de cette série comme fonction de $N$.
+		Calculer $\sigma$ lorsque $N$ vaut 10 ; 20 ; 50 ; 100 à l'aide de la fonction.
+		%La série devient-elle plus ou moins concentrée autour de sa moyenne ?
+		Vers quelle valeur l'écart-type $\sigma$ s'approche-t-il \mbox{lorsque $N$ grandit ?}
+		
+		\item
+		Donner le premier entier $N\in\N$ à partir duquel l'écart-type est inférieur ou égal à 1.
+		\item
+		Est-il possible, pour n'importe quel seuil $S>0$, de trouver un entier $N\in\N$ tel que l'écart-type soit inférieur à $S$ ?
+	\end{enumerate}
+}{exe:variance-exemple}{
+	%À rendre pour possibilité de points bonus...
 }
+
+
+
+
 \newpage
 \addcontentsline{toc}{section}{Solutions}
 \fancyhead[C]{\textbf{Chapitre \thechapter~— Solutions}}

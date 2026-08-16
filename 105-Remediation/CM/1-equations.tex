@@ -148,6 +148,71 @@
 	
 }
 
+\filbreak
+
+\exe{difficulty=1}{
+	Un élève de Seconde fournit la production écrite suivante.
+	Celle-ci présente quelques erreurs.
+	
+	\fbox{\parbox{\textwidth}{
+		\textbf{\oldunderline{Énoncé :}}
+		
+		Considérons l'équation $x^3 + x^2 + x + 1 = 0$ où $x\in\R$ est un nombre réel encore inconnu.
+		\begin{enumerate}
+			\item
+			Montrer que $(x-1)(x^3 + x^2 + x + 1) = x^4 - 1$.
+			\item
+			En déduire la ou les solutions de l'équation originelle.
+		\end{enumerate}
+		
+		\textbf{\underline{Réponse de l'élève :}}
+		
+		\begin{enumerate}
+			\item
+			Pour développer $(x-1)(x^3 + x^2 + x + 1)$,
+			je distribue d'abord le $x$, puis le $-1$, et j'ajoute les résultats.
+				\[ x(x^3 + x^2 + x + 1) + (-1)(x^3 + x^2 + x + 1) = x^4 + x^3 + x^2 + x -x^3 -x^2 - x - 1. \]
+			Les puissances de $x$ égales se regroupent pour simplifier l'expression
+				\[ x^4 + x^3 + x^2 + x -x^3 -x^2 - x - 1 = x^4 - 1, \]
+			comme voulu.
+			\item
+			Un $x\in\R$ pour lequel $x^3 + x^2 + x + 1 = 0$ vérifie donc $0 = x^4 - 1$ et donc
+			$x^4  = 1$.
+			En appliquant la racine carrée, je trouve $x^2 = 1$ car $x^4 = (x^2)^2$.
+			En l'appliquant encore, j'obtiens finalement $x = 1$.
+			
+			L'unique solution de l'équation est donc $1$.
+		\end{enumerate}
+	}}
+	\begin{enumerate}
+		\item 
+		Identifier les erreurs commises par l'élève.
+		\item
+		Répondre à l'énoncé.
+	\end{enumerate}
+}{exe:erreurs}{
+	\begin{enumerate}
+		\item
+		La première question est bien traitée et ne comporte aucune erreur.	
+		\item
+		La deuxième question contient deux erreurs : une lors de la résolution de $x^4 = 1$, et l'autre dans sa conclusion.
+		
+		Premièrement, appliquer la racine carrée est pertinente, mais $\sqrt{x^2} = |x|$, et non pas $x$ !
+		La valeur absolue est importante pour ne pas oublier de solution.
+		Ainsi, si $x^4 = 1$, alors $|x^2| = 1$. Comme $x^2 \geq 0$ pour tout $x\in\R$, la valeur absolue peut disparaître ici.
+		Puis, si $x^2 = 1$, alors $|x| = 1$, et donc $x=1$ ou $x=-1$. Il y a donc deux solutions réelles à l'équation $x^4  = 1$.
+		
+		Deuxièmement, la conclusion est erronnée car elle présente une erreur de logique.
+		En effet, l'impliquation $x^3 + x^2 + x + 1 = 0 \implies x \in \{-1 ; 1\}$ est vraie, mais l'implication inverse ne l'est pas !
+		Nous disposons de deux candidats de solutions qu'il faut vérifier. La solution $x=1$ ne fonctionne pas, mais $x=-1$, elle, fonctionne.
+		La seule solution est donc $x=-1$.
+		
+		En multipliant l'équation originelle par $x-1$, nous avons ajouté artificiellement la solution $x=1$.
+		Par exemple, les implications suivantes sont vraie
+			\[ x - 1 = 0 \implies (x-3)(x-1) = 0 \implies x \in \{3 ; 1\}. \]
+	\end{enumerate}
+}
+
 
 \exe{}{
 	Trouver le $x\in\Q$ rationnel vérifiant chaque équation suivante, et l'exprimer sous forme de fraction irréductible.
@@ -185,7 +250,7 @@
 }
 
 \exe{}{
-	Trouver le $x \in \Q$ rationnel non nul vérifiant chaque équation suivante, et l'exprimer sous forme de fraction irréductible.
+	Trouver le $x \in \Q$ rationnel (tel que chaque dénominateur est non nul) vérifiant chaque équation suivante, et l'exprimer sous forme de fraction irréductible.
 	
 	\begin{multicols}{2}
 	\begin{enumerate}[itemsep=10pt]
@@ -195,6 +260,8 @@
 		\item $0,7 = \dfrac{0,1}x$
 		\item $3 - \dfrac4x = -9 + \dfrac1x$
 		\item $-2 + \dfrac{-2}x = \dfrac3x - 10$
+		\item $\dfrac1{x-2} = 3$
+		\item $\dfrac3{x+5} = \dfrac7{x+5} - 3$
 	\end{enumerate}
 	\end{multicols}
 
@@ -207,7 +274,8 @@
 		\item $0,2422 = \dfrac1x \iff x = \dfrac{10000}{2422} = \dfrac{5000}{1211}$
 		\item $0,7 = \dfrac{0,1}x \iff x = \dfrac17$
 		\item $3 - \dfrac4x = -9 + \dfrac1x \iff x = \dfrac5{12}$
-		\item $-2 + \dfrac{-2}x = \dfrac3x - 10 \iff x = \dfrac58$
+		\item $\dfrac1{x-2} = 3 \iff x=\dfrac73$
+		\item $\dfrac3{x+5} = \dfrac7{x+5} - 3 \iff x=\dfrac{-11}3$
 	\end{enumerate}
 	\end{multicols}
 }
@@ -353,6 +421,76 @@
 	\end{enumerate}
 	\end{enumerate}
 }{exe:calendrier}{}
+
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			22x^2 - 125x + 22  = 0. \label{eq:1}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
+	\end{enumerate}
+}{exe:eq7}{
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe par double distributivité :
+			\[ (2x - 11)(11x - 2) = 22x^2 - 4x - 121x + 22 = 22x^2 - 125x + 22. \]
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
+		L'ensemble des solutions de \eqref{eq:1} est donc $\left\{ \dfrac{11}2 ; \dfrac2{11} \right\}$.
+	\end{enumerate}
+}
+
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du troisième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			4x^3 - 6x^2 - 2x + 3  = 0. \label{eq:2}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $4x^3 - 6x^2 - 2x + 3 = (2x-3) \left(2x^2-1\right)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:2}.
+	\end{enumerate}
+}{exe:eq8}{
+
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe par double distributivité.
+		On utilise aussi que $x^2 \cdot x = x \cdot x \cdot x = x^3$.
+			\[ (2x - 3)(2x^2 - 1) = 4x^3 - 2x -6x^2 + 3. \]
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
+		Or l'équation $2x^2 - 1 = 0$ est équivalente à $x^2 = \dfrac12$.
+		En prenant la racine et en utilisant que $\sqrt{x^2} = |x|$, on obtient
+			\[ |x| = \sqrt{\dfrac12} = \dfrac1{\sqrt2}. \]
+		Les deux valeurs $\pm \dfrac1{\sqrt2}$ (notation $\pm$ pour \og plus ou moins \fg) sont donc solutions.
+		On en déduit que l'ensemble des solutions de \eqref{eq:2} est $\left\{ \dfrac32 ; \pm \dfrac1{\sqrt2} \right\} = \left\{ \dfrac32 ; \dfrac1{\sqrt2} ; - \dfrac1{\sqrt2} \right\}$
+	\end{enumerate}
+
+}
+
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du quatrième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			16x^4 - 24x^2 + 9  = 0. \label{eq:3}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $16x^4 - 24x^2 + 9 = \left(4x^2-3\right)^2$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:3}.
+	\end{enumerate}
+}{exe:eq9}{
+
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe à l'aide de l'identité remarquable $(a-b)^2 = a^2 + b^2 -2ab$.
+		On utilise aussi que $(x^2)^2 = x^2 \cdot x^2 = x\cdot x\cdot x\cdot x = x^4$.
+			\[ (4x^2 - 3)^2 = (4x^2)^2 + 3^2 - 2\cdot(4x^2)\cdot3 = 16x^4 + 9 -24x^2. \]
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
+		Ici, les deux facteurs sont les mêmes, car $(4x^2 - 3)^2 = (4x^2 - 3)(4x^2 - 3)$, donc on se remet à résoudre $(4x^2 - 3) = 0$.
+		Ceci est équivalent à $x^2 = \dfrac34$, et donc l'ensemble des $x$ vérifiant \eqref{eq:3} est donné par $\left\{ \pm \sqrt{\dfrac34} \right\} = \left\{ \pm \dfrac12\sqrt{3} \right\}= \left\{ \dfrac12\sqrt{3} ;  -\dfrac12\sqrt{3} \right\}$.
+	\end{enumerate}
+
+}
+
+
 
 
 \newpage

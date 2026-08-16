@@ -421,5 +421,14 @@
 			
 		\end{axis}
 	\end{tikzpicture}
+	
+	%page25
+	%exe:domaine-def-graphique
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, x=32pt, y=15pt]
+		% (h)
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\Ccal_h$};
+	\end{axis}
+	\end{tikzpicture}
 %
 \end{document}

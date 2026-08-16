@@ -336,7 +336,128 @@
 \footnotetext{Pierre de Fermat (1607 - 1665), magistrat et mathématicien français.}
 
 
+\exemulticols{difficulty=1}{
+	Pour quel $N\in\N$ la moyenne de la série ci-contre est-elle 10 ?
+}{
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}\hline
+		Valeur   & 0 & 16 & 8 & 12 \\ \hline
+		Effectif & 2 & 5 & N & 7  \\ \hline
+		\end{tabular}
+		\end{center}
+}{exe:stats08}{
+	Il existe deux façons de procéder : la recherche locale ou la résolution d'une équation.
+	
+	\underline{Première méthode}
+	
+	Explorons d'abord la première méthode. Il s'agit de tester une première valeur de $N$, et de décider de la direction (augmenter $N$ ou diminuer $N$) qui permettra de s'approcher de la solution.
+	
+	Si $N = 0$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times0+12\times7}{2+5+0+7} \approx 11,7. \]
+	Comme le but étant d'atteindre 10, il est cohérent d'augmenter le nombre de notes en-dessous de 10 pour baisser la moyenne.
+	En augmentant $N$, au augmente donc l'effectif de la note 8, qui va baisser la moyenne.
+	
+	Si $N=10$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times10+12\times7}{2+5+10+7} \approx 10,2. \]
+	Ceci ne suffit pas mais nous évoluons dans la bonne direction !
+	
+	Si $N=20$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times20+12\times7}{2+5+20+7} \approx 9,5. \]
+	Nous sommes allés trop loin : il faut diminuer $N$ pour augmenter la moyenne.
+	
+	Comme $N \in ]10 ; 20[$, on peut tester $N=15$ et décider d'une direction pour diviser le nombre de valeurs candidates par deux : c'est la dichotomie.
 
+	Si $N=15$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times15+12\times7}{2+5+15+7} \approx 9,79. \]
+	Par conséquent, $N \in ]10 ; 15[$.
+	
+	Si $N=12$, alors la moyenne est donnée par
+		\[ \frac{0\times2+16\times5+8\times12+12\times7}{2+5+12+7} = 10, \]
+	et nous avons trouvés notre $N$ !
+
+	\underline{Deuxième méthode}
+
+	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
+	
+		\begin{align*}
+			\overline{X} &= 10 \\
+			\frac{0\times2+16\times5+8\times N+12\times7}{2+5+N+7} &= 10 \\
+			0  + 80 + 8\cdot N + 84 &= 10 \cdot(14 + N) \\
+			164 + 8 \cdot N &= 140 + 10 \cdot N \\
+			164-140 &= 2 \cdot N \\
+			N &= 12		
+		\end{align*}
+
+	$12$ est bien un entier naturel, donc $N=12$ est l'unique solution.
+	Remarquons d'ailleurs que nousa vons démontré l'unicité de la solution en plus de l'avoir obtenue.
+}
+
+
+% TODO: fix leur/leurs ça me saoule ça je dois apprendre
+\exe{,difficulty=1}{
+	Un élève reçoit deux notes, 7 et 14, et son méchant professeur souhaite modifier leur coefficient afin que l'élève ait une moyenne inférieure à 10.
+	\begin{enumerate}
+		\item
+		Calculer la moyenne des notes lorsque leurs coefficients sont égaux.
+		\item
+		Que dire sur les coefficients pour que la moyenne pondérée soit inférieure à 10 ?
+		\item
+		Trouver deux coefficients tels que la moyenne soit \emph{exactement} de 10.
+		
+		\emph{Indication : supposer que la somme des coefficients est égale à 1.}
+		% est-ce que ça va vraiment aider, ça ?
+	\end{enumerate}
+}{exe:moyenne-ponderee}{
+	\begin{enumerate}
+		\item
+		%D'après l'exercice \ref{exe:3}, lorsque les coefficients sont égaux, ils peuvent être supposés tous les deux égaux à 1.
+		Lorsque les coefficients sont égaux, ils peuvent être supposés tous les deux égaux à 1.
+		On obtient donc une moyenne classique $\frac{7+14}{2} = 10,5$.
+		\item
+		Pour obtenir une moyenne pondérée inférieure à 10, il faut augmenter le poids de la note la plus basse.
+		Le coefficient associé à 7 doit donc être supérieur à celui associé à 14.
+		\item
+		Posons $c>0$ le coefficent associé à 7.
+		Nous pouvons diviser les coefficients par leur somme sans changer la moyenne pondérée, et donc supposer que la somme des coefficients vaut 1. 
+		Le coefficient associé à 14 est donc $1-c$, et la moyenne pondérée vaut
+			\[ \frac{7\times c + 14\times(1-c)}{1} = 7c + 14(1-c). \]
+		La contrainte de l'énoncé nous permet donc d'obtenir
+			\begin{align*}
+				7c+14(1-c) &= 10, \\
+				7c + 14 - 14c &= 10, \\
+				-7c &= -4, \\
+				c &= \frac47.
+			\end{align*}
+		Les coefficients sont donc $\frac47$ et $\frac37$.
+		Notons qu'une stratégie de recherche par dichotomie comme à l'exercice \ref{exe:stats08} n'aurait pas abouti car les nombres $\frac47$ et $\frac37$ ne sont pas décimaux : leur développement décimal est infini.
+	\end{enumerate}
+}
+
+
+\exe{, difficulty=2}{
+	On dit d'une série qu'elle est symétrique autour de 0 si chaque valeur $x$ de la série peut être associée à une unique valeur $-x$ de la série.
+	Ainsi $(-1 ; 0 ; 2 ; -2 ; 1)$ est symétrique autour de 0 mais $(1 ; 0 ; -1 ; -1)$ ne l'est pas.
+	\begin{enumerate}
+		\item
+		Montrer qu'une série symétrique autour de 0 a une moyenne nulle.
+		\item
+		Soit $n\geq1$ un entier naturel.
+		À l'aide de la linéarité de la moyenne, montrer que la série statistique $(0 ; 1 ; 2 ; \hdots ; n-1 ; n)$ a pour moyenne $\frac{n}2$.
+		\item
+		En déduire que
+			\[ 1 + 2 + 3 + \dots + (n-1) + n = \dfrac{n(n+1)}2 \]
+		\item
+		Calculer sans calculatrice la valeur de la somme $1 + 2 + 3 + \hdots+ 9~999 + 10~000$.
+	\end{enumerate}
+}{exe:somme-triangle}{
+%	À rendre pour possibilité de points bonus...
+
+	Indication pour la première partie :
+%	montrer que la série est symétrique par rapport à $\frac{n}2$.
+%	Chaque valeur $\frac{n}2 - k$ a une sœur $\frac{n}2 + k$.
+%	Sommer les valeurs sœurs ensemble pour simplifier le calcul de la moyenne.
+	calculer la nouvelle moyenne après avoir soustrait $\frac{n}2$ à chaque valeur de la série statistique et utiliser la linéarité de la moyenne.
+}
 
 
 
