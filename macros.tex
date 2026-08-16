@@ -40,21 +40,33 @@
 	\end{Answer}
 }
 
+% version 1
 \newcommand{\exemulticols}[5]{
-	%\begin{multicols}{2}
-	\begin{Exercise}[#1, label=#4]
 	\begin{multicols}{2}
-		%\marginnote{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+	\begin{Exercise}[#1, label=#4]
 		#2
+	\end{Exercise}
 	\columnbreak
 		#3
 	\end{multicols}
-	\end{Exercise}
-	%\end{multicols}
 	\begin{Answer}[ref=#4]
 		#5
 	\end{Answer}
 }
+
+% version 2
+%\newcommand{\exemulticols}[5]{
+%	\begin{Exercise}[#1, label=#4]
+%	\begin{multicols}{2}
+%		#2
+%	\columnbreak
+%		#3
+%	\end{multicols}
+%	\end{Exercise}
+%	\begin{Answer}[ref=#4]
+%		#5
+%	\end{Answer}
+%}
 
 \newcommand{\exeTF}[1]{}
 
