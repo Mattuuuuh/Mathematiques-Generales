@@ -100,7 +100,7 @@
 	où $A, B, C, D, A', B', C',$ et $D'$ sont elles-mêmes des matrices appelée « blocs ».
 	\begin{enumerate}
 		\item
-		Quelles conditions poser sur les tailles des blocs pour que les produits $AA', AB', BC', BD', CA', CB', DC',$ et $DD'$ aient un sens ?
+		Quelles conditions poser sur les tailles des blocs pour que les produits $AA'$, $AB'$, $BC'$, $BD'$, $CA'$, $CB'$, $DC'$, et $DD'$ aient un sens ?
 		\item
 		Montrer que sous ces conditions,
 			\[ MN = \begin{pmatrix} AA' + BC' & AB' + BD' \\ CA' + DC' & CB' + DD' \end{pmatrix}.  \]
@@ -111,7 +111,7 @@
 
 
 
-\subsection{Matrice indentité et matrices diagonales}
+\subsection{Matrice identité et matrices diagonales}
 
 \notation{
 	Lorsqu'un matrice est décrite, les coefficients $0$ peuvent être remplacés par des blancs.
@@ -165,30 +165,45 @@
 	todo
 }
 
+\notation{
+	Lorsqu'un vecteur colonne ou un vecteur ligne compose une matrice, nous pourrons noter des traits respectivement verticaux ou horizontaux pour rappeler leurs dimensions.
+	Par exemple,
+		\[
+		\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix} 
+		= 
+		\begin{pmatrix} | & | & | \\ v_1 & v_2 & v_3 \\ | & | & | \end{pmatrix}
+		= 
+		\begin{pmatrix} \dash & w_1 & \dash \\ \dash & w_2 & \dash  \\ \dash & w_3 & \dash\end{pmatrix},
+		\]
+	où $v_1 = \begin{pmatrix}1\\4\\7\end{pmatrix}$, $v_2 = \begin{pmatrix}2\\5\\8\end{pmatrix}$, $v_3 = \begin{pmatrix}3\\6\\9\end{pmatrix}$ et $w_1 = \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}$, $w_2 = \begin{pmatrix} 4 & 5 & 6 \end{pmatrix}$, $w_3 = \begin{pmatrix} 7 & 8 & 9 \end{pmatrix}$.
+}
+
 \exe{}{
 	Soit $A\in\R^{m\times n}$ et $B\in\R^{n \times p}$ deux matrices.
-	Notons $b_1, \dots, b_p$ les $p$ colonnes de $B$.
+	Notons $a_1, \dots, a_m\in\R^{1\times n}$ les lignes de $A$ et $b_1, \dots, b_p\in\R^{n}$ les colonnes de $B$.
 	
 	Montrer 
-		\[ AB = \begin{pmatrix} Ab_1 & Ab_2 & \dots & Ab_p \end{pmatrix}. \]
+		\[ AB = \begin{pmatrix} | & | & & | \\ Ab_1 & Ab_2 & \cdots & Ab_p \\ | & | & & | \end{pmatrix} = \begin{pmatrix}  \dash & a_1B & \dash \\  \dash &  a_2B & \dash\\  & \vdots \\  \dash & a_mB & \dash \end{pmatrix}. \]
 	\emph{Remarque : conclure que $A$ agit sur les colonnes est erroné ici. Multiplier par A à gauche modifie les coordonnées de chaque colonne de la même manière. $A$ agit donc sur les lignes.}
 }{exe:mult-mat-mat2}{
 	todo
 }
 
 \cor{}{
-	Soit $M\in\R^{n\times n}$ une matrice carrée.
+	Soient $A\in\R^{n\times p}$ et $B\in\R^{p\times n}$ deux matrices.
 	Alors
-		\[ I_n \cdot M = M \cdot I_n = M. \]
+	\begin{align*}
+		I_n \cdot A = A && \et && B \cdot I_n = B.
+	\end{align*}
 }{cor:id-el-neutre}
 
 \nt{
-	La matrice identité est donc l'équivalent de $1$ dans les nombres réels : multiplier par $I_n$ n'a aucun effect.
-	Certains textes notent d'ailleurs $I_n$ simplement par $I$ ou $1$, la dimension pouvant être déduite naturellement.
+	La matrice identité est donc l'équivalent de $1$ dans les nombres réels : multiplier par $I_n$ (lorsque les tailles le permettent) n'a aucun effet.
+	Certains textes notent d'ailleurs $I_n$ simplement par $I$ ou $1$, la dimension pouvant être déduite par le contexte.
 }
 
 \exe{}{
-	Soit $n\in\N*$, $D\in\R^{n\times n}$ une matrice diagonale :
+	Soit $n\in\N^*$, $D\in\R^{n\times n}$ une matrice diagonale :
 		\[ D = \begin{pmatrix} d_1 & & & \\ & d_2 & & \\ & & \ddots & \\ & & & d_n \end{pmatrix} \in \R^{n \times n}. \]
 	Montrer que pour tout $N\in\N^*$
 		\[ D^N = \begin{pmatrix} d_1^N & & & \\ & d_2^N & & \\ & & \ddots & \\ & & & d_n^N \end{pmatrix}. \]
@@ -266,6 +281,40 @@
 	La preuve nécessite l'échelonnage des matrices du chapitre \ref{chap:forme-echelonnee}.
 	La proposition sera alors réécrite (voir \ref{prop:inv2}) et démontrée.
 }
+
+\cor{}{
+	Soit $A\in\R^{n\times n}$ une matrice carrée.
+	Montrer l'équivalence suivante
+	\begin{align*}
+		\bigpar{\text{$A$ est inversible}} && \iff && \bigpar{\text{pour tout $b\in\R^n$, le système $Ax = b$ admet une unique solution $x\in\R^n$}}
+	\end{align*}
+}{cor:inv-sol}
+
+\pf{}{
+	\underline{Direction $\implies$.}
+	
+	Si $A$ est inversible, alors 
+		\[ Ax = b \iff A^{-1} (Ax) = A^{-1} b \iff (A^{-1} A) x = A^{-1}b \iff I_n x = A^{-1} b \iff x = A^{-1}b. \]
+	La solution existe et est unique.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Nous souhaitons créer la matrice inverse $A^{-1}$ pour montrer que $A$ est inversible.
+	Il s'agit donc de trouver une matrice $B\in\R^{n\times n}$ telle que $AB = I$.
+	En notant $b_1, \dots, b_n \in\R^n$ les colonnes de $B$, l'exercice \ref{exe:mult-mat-mat2} implique que l'équation est équivalente aux systèmes
+		\begin{align*}
+			Ab_1 = e_1, && Ab_2 = e_2, && \dots, && Ab_n = e_n, 
+		\end{align*}
+	où $e_1, e_2, \dots, e_n$ sont les colonnes de $I_n$.
+	
+	L'existence de ces $b_i$ est garantie par hypothèse. La matrice $B$ vérifie donc $AB = I$ ce qui en fait l'inverse de $A$ d'après la proposition \ref{prop:inv}.
+}
+
+\nomen{
+	L'ensemble des colonnes $e_1, e_2, \dots, e_n$ de la matrice identité $I_n$ est aussi appelé \emphindex{base canonique}\footnotemark.
+}
+
+\footnotetext{L'adjectif « canonique » signifie ici « naturelle ». C'est un choix privilégié pour sa simplicité. }
 
 \exe{difficulty=1}{
 	Considérons la matrice $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$.
