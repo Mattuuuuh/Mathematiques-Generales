@@ -9,7 +9,7 @@
 \dfn{polynôme à coefficients réels, fonction polynomiale}{
 	Soit $d\in\N$. Un \emphindex{polynôme} à coefficients réels est une expression du type
 		\[ a_0 + a_1x + a_2x^2 + \dots + a_d x^d, \]
-	où $a_d \neq 0$, $d$ est le \emphindex{degré} du polynôme, les $a_i\in\K$ sont ses \emphindex{coefficients}, et $x$ est une abstraite (pas nécessairement un nombre réel !).
+	où $a_d \neq 0$, $d$ est le \emphindex{degré} du polynôme, les $a_i\in\K$ sont ses \emphindex{coefficients}, et $x$ est une \emphindex{indéterminée} abstraite (pas nécessairement un nombre réel !).
 	
 	Une fonction $f(x) = a_0 + a_1x + a_2x^2 + \dots + a_d x^d$ de $\R$ dans $\R$ est une \emphindex{fonction polynomiale}.
 }{dfn:polynome}
@@ -183,7 +183,7 @@
 
 \exe{difficulty=1}{
 	Soit $d\in\N$ pas un carré parfait. 
-	Montrer que la famille $\{ 1 ; \sqrt{d} \} \subseteq\R$ est linéairement indépendante sur $\Q$.
+	Montrer que la famille $\bigset{ 1 ; \sqrt{d} } \subseteq\R$ est linéairement indépendante sur $\Q$.
 }{exe:lin-indep4}{
 	todo
 }
@@ -208,6 +208,7 @@
 	\begin{align*}
 		V_1 \cap V_2 = \{ 0 \} && \iff && f = v_1 + v_2 \text{ se décompose de façon unique avec $v_1\in V_1$ et $v_2\in V_2$}.
 	\end{align*}
+	Lorsque la décomposition est unique, nous dirons alors que $V_1$ et $V_2$ sont en \emphindex{somme directe}, notée $V_1 \oplus V_2$.
 }{exe:direct-sum}{
 	todo
 }
@@ -229,13 +230,13 @@
 	Un diviseur non constant est appelé un \emphindex{diviseur propre}.
 }
 
-\nt{
-	Par convention, nous posons $\deg(0) = \minfty$.
-	Cette convention est utile pour préserver le premier point de la proposition \ref{prop:deg-div} suivante dans le cas $g=0$.
-}
+%\nt{
+%	Par convention, nous posons $\deg(0) = \minfty$.
+%	Cette convention est utile pour préserver le premier point de la proposition \ref{prop:deg-div} suivante dans le cas $g=0$.
+%}
 
 \prop{}{
-	Soient $f, g\in\R[x]$. Alors
+	Soient $f, g\in\R[x]$. Alors, avec la convention $\deg(0) = \minfty$,
 	\begin{enumerate}
 		\item
 		$\deg(fg) = \deg(f) + \deg(g)$
@@ -265,7 +266,7 @@
 	Soient $f, g\in\R[x]$ deux polynômes à coefficients réels avec $g\neq0$.
 	Il existe deux uniques polynômes $q, r\in\R[x]$ vérifiant
 	\begin{enumerate}
-		\item $f = bg + r$ ; et
+		\item $f = gq + r$ ; et
 		\item $\deg(r) < \deg(g)$
 	\end{enumerate}
 	C'est la \emphindex{division euclidienne} de $f$ par $g$.
@@ -286,15 +287,17 @@
 	
 	\begin{enumerate}
 		\item
-		Initialiser $q = 0$.
+		Initialiser $q = 0$ et $r=f$.
 		\item
-		Tant que $\deg(f-gq) \geq \deg(g)$, 
+		Tant que $\deg(r) \geq \deg(g)$, 
 		\item
 		Ajouter un multiple de $x^{\deg(f-gq) - \deg(g)}$ à $q$ de telle sorte que le degré de $f-gq$ diminue d'au moins 1.
 		\item
+		Redéfinir $r = f-gq$.
+		\item
 		Fin Tant que
 		\item
-		Renvoyer $q$ et $r=f-gq$.
+		Renvoyer $q$ et $r$.
 	\end{enumerate}
 
 	\underline{Unicité.}
@@ -329,7 +332,7 @@
 
 \dfn{racine, zéro}{
 	Soit $f\in\R[x]$ un polynôme à coefficients réels.
-	Un nombre réel $r \in \R$ est une \emphindex{racine} du polynôme $f$ ou \emphindex{zéro} de la fonction polynomiale $f$ dès que $f(r) = 0$.
+	Un nombre réel $\alpha\in \R$ est une \emphindex{racine} du polynôme $f$ ou \emphindex{zéro} de la fonction polynomiale $f$ dès que $f(\alpha) = 0$.
 }{dfn:racine}
 
 \exe{}{
@@ -369,7 +372,7 @@
 }
 
 \exe{}{
-	Pour chaque propriété, donner un polynôme $f$ sur $\R$ non nul la vérifiant.
+	Pour chaque propriété, donner un polynôme $f$ à coefficients réels et non nul la vérifiant.
 	\begin{multicols}{2}
 	\begin{enumerate}
 		\item $f$ s'annule en $1$.
@@ -392,22 +395,22 @@
 }
 
 \prop{}{
-	Soit $f\in\R[x]$ un polynôme non nul à coefficient réels et $r\in\R$ une racine.
-	Alors le monôme $x-r$ divise $f$ dans $\R[x]$ : il existe un $q\in\R[x]$ non nul vérifiant
-		\[ f(x) = (x-r) q(x). \]
+	Soit $f\in\R[x]$ un polynôme non nul à coefficient réels et $\alpha\in\R$ une racine.
+	Alors le monôme $x-\alpha$ divise $f$ dans $\R[x]$ : il existe un $q\in\R[x]$ non nul vérifiant
+		\[ f(x) = (x-\alpha) q(x). \]
 }{prop:x-r-div}
 
 \pf{}{
-	Soit $f(x) = (x-r)q(x) + c(x)$, $\deg(c) < \deg(x-r)$ la division euclidienne de $x-r$ par $f$.
+	Soit $f(x) = (x-\alpha)q(x) + c(x)$, $\deg(c) < \deg(x-\alpha)$ la division euclidienne de $x-\alpha$ par $f$.
 	\begin{enumerate}
 		\item
 		La condition des degrés implique que $c$ est une constante.
 		\item
 		Le caractère non nul de $f$ implique que $q$ est non nul.
 		\item
-		L'évaluation en $x=r$ aboutit à $f(r) = q(r) (r-r) + c \iff 0 = c$.
+		L'évaluation en $x=\alpha$ aboutit à $f(\alpha) = q(r) (\alpha-\alpha) + c \iff 0 = c$.
 	\end{enumerate}
-	Par conséquent, $f(x) = (x-r) q(x)$.
+	Par conséquent, $f(x) = (x-\alpha) q(x)$.
 }
 
 
@@ -454,8 +457,8 @@
 %}{thm:facteur-lin}
 
 \dfn{multiplicité}{
-	Soit $f\in\R[x]$ un polynôme à coefficients réels et $r\in\R$ une racine.
-	La \emphindex{multiplicité} $m$ de la racine $r$ est l'entier tel que $(x-r)^{m}$ divise $f$ dans $\R[x]$ mais pas $(x-r)^{m+1}$.
+	Soit $f\in\R[x]$ un polynôme à coefficients réels et $\alpha\in\R$ une racine.
+	La \emphindex{multiplicité} $m\in\N^*$ de la racine $\alpha$ est l'entier tel que $(x-\alpha)^{m}$ divise $f$ dans $\R[x]$ mais pas $(x-\alpha)^{m+1}$.
 }{dfn:multiplicite}
 
 \nomen{
@@ -465,7 +468,7 @@
 \cor{}{
 	Soit $f\in\R[x]$ un polynôme à coefficients réels.
 	Alors $f$ se \emphindex{factorise} comme
-		\[ f(x) = \left(\prod_{\text{$r$ racine de $f$}} (x-r)^{m(r)}\right) \cdot q(x), \]
+		\[ f(x) = \left(\prod_{\text{$\alpha$ racine de $f$}} (x-\alpha)^{m(\alpha)}\right) \cdot q(x), \]
 	où $q(x)$ n'admet aucune racine réelle.
 }{cor:scinde}
 
@@ -575,7 +578,7 @@
 	
 	Remarque : si $f\in C^2(\R)$, il s'avère que $g(x) = \O(x^2)$, c'est-à-dire que $\frac{g(x)}{x^2}$ reste borné lorsque $x$ tend vers $0$ (ce qui est plus fort que $g=o(x)$).
 	Nous aurons en fait 
-		\[ f(x) = f(0) + f'(0)x + \frac{f''(0)}2 x^2 + O(x^2). \]
+		\[ f(x) = f(0) + f'(0)x + \frac{f''(0)}2 x^2 + o(x^2). \]
 }
 
 \exe{difficulty=1}{
@@ -596,8 +599,8 @@
 }
 
 \prop{}{
-	Soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $a\in\R$ un réel quelconque.
-	Montrer que $a$ est une racine de multiplicité $m$ si et seulement si $f(a) = f'(a) = \cdots = f^{(m-1)}(a) = 0$ et $f^{(m)}(a) \neq 0$.
+	Soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $\alpha\in\R$ un réel quelconque.
+	Montrer que $\alpha$ est une racine de multiplicité $m$ si et seulement si $f(\alpha) = f'(\alpha) = \cdots = f^{(m-1)}(\alpha) = 0$ et $f^{(m)}(\alpha) \neq 0$.
 }{prop:mult-from-diff}
 
 \exe{difficulty=1}{
@@ -606,20 +609,20 @@
 	todo
 }
 
-\thm{}{
+\cor{}{
 	Soit $f\in\R[x]$ un polynôme à coefficients réels. 
 	Supposons de sucroît que tous les racines de $f$ soient réelles\footnote{hypothèse dont on pourra se passer plus tard grâce aux nombres complexes.}.
 	
 	Alors les seuls diviseurs d'à la fois $f$ et $f'$ sont les constantes si et seulement si toutes les racines de $f$ sont simples.
-}{thm:derivative-test}
+}{cor:derivative-test}
 
 \exe{difficulty=1}{
-	Démontrer le théorème \ref{thm:derivative-test}.
+	Démontrer le corollaire \ref{cor:derivative-test}.
 }{exe:derivative-test}{
 	\underline{Direction $\implies$.}
 	
-	Soit $r\in\R$ une racine de $f$ de multiplicité $m\in\N^*$.
-	Comme $x-r$ divise $f$ mais pas $f'$, nous avons $f(r) = 0$ et $f'(r) \neq 0$.
+	Soit $\alpha\in\R$ une racine de $f$ de multiplicité $m\in\N^*$.
+	Comme $x-\alpha$ divise $f$ mais pas $f'$, nous avons $f(\alpha) = 0$ et $f'(\alpha) \neq 0$.
 	La proposition \ref{prop:mult-from-diff} implique que $m=1$.
 	
 	\underline{Direction $\impliedby$.}
@@ -627,8 +630,8 @@
 	Montrons la contraposée.
 	Soit $d\in\R[x]$ un diviseur non constant à la fois de $f$ et de $f'$.
 	Les racines de $d$ étant des racines de $f$, elles sont toutes réelles.
-	Si $d$ n'étant pas constant, il existe un réel $r\in\R$ tel que $x-r$ divise $d$ et donc $f$ et $f'$.
-	Ainsi $f(r) = f'(r) = 0$ et la racine $r$ n'est pas simple.
+	Le polynôme $d$ n'étant pas constant, il existe un réel $\alpha\in\R$ tel que $x-\alpha$ divise $d$ et donc $f$ et $f'$.
+	Ainsi $f(\alpha) = f'(\alpha) = 0$ et la racine $\alpha$ n'est pas simple.
 }
 
 
@@ -699,8 +702,6 @@
 
 
 
-
-
 \exe{}{
 	Pour chaque proposition suivante, démontrer qu'elle est \underline{toujours vraie} ou montrer qu'elle \underline{peut être fausse} avec un contre-exemple (un dessin peut suffir).
 	
@@ -762,6 +763,14 @@
 	todo
 }
 
+\exe{difficulty=1}{
+	Considérons $f(x) = a_0 + a_1x + \dots + a_nx^n$ un polynôme à coefficients réels non nuls et dont les signes s'alternent : lorsqu'un l'un est positif, le suivant est négatif, et vice-versa.
+
+	Montrer que les racines réelles de $f$ sont soit toutes strictement positives, soit toutes strictement négatives.
+}{exe:no-negative-roots}{
+	todo
+}
+
 \exe{difficulty=2}{
 	Supposons que $r+s\sqrt{d}$, avec $r, s\in\Q$ et $d\in\N$ non carré parfait, soit racine de l'équation $ax^2 + bx + c = 0$ où $a, b, c\in\Q$.
 	Montrer que son conjugué $r-s\sqrt{d}$ est également racine.
@@ -810,12 +819,14 @@
 	\begin{enumerate}[resume]
 		\item
 		À quelle suite correspond chaque polynôme suivant ?
+		\begin{multicols}{2}
 		\begin{enumerate}
 			\item Le polynôme nul.
 			\item Le polynôme $1$.
 			\item Le polynôme $x$.
 			\item Le polynôme $x^2$.
 		\end{enumerate}
+		\end{multicols}
 		\item
 		Comment définir les multiplication $\alpha a$ et $a \cdot b$ pour $\alpha\in\R$ et $a, b\in\hat{\R}^\infty$ ?
 		\item

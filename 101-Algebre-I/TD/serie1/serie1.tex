@@ -1,20 +1,351 @@
 \input{../../../preamble-TD.tex}
 
-\SetDate[27/05/2026]
+\SetDate[5/09/2026]
 
 \begin{document}
-\pagestyle{fancy}
-\fancyhead[L]{Algèbre I}
-\fancyhead[C]{\bf Série 1}
-\fancyhead[R]{\today}
+\fancyhead[C]{\bf Algèbre I --- Série 1}
+
+\subsection*{Automatismes}
+
+\exe{}{
+	Soient $f(x) = 3+2x$ et $g(x) = x^2 + 2x - 1$ deux polynômes à coefficients réels.
+	Calculer
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $f(x)+g(x)$ ;
+		\item $f(x) g(x)$ ;
+		\item $f(x)^2$ ; et
+		\item $f(g(x))$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:sum-product}{
+	todo
+}
+
+\exe{}{
+	Calculer de tête le coefficient
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		en $x$ de $(x+3)(x-4)$ ;
+		\item
+		en $x^2$ de $(1+x+x^2+x^3)(2x^2 + 3x - 5)$ ; \columnbreak
+		\item
+		en $x^6$ de $(3-4x-x^3+7x^4 + 2x^5)^2$ ;  et
+		\item
+		en $x^{50}$ de \mbox{$(1 + x^{25} + x^{50} + x^{100})(1 - x^{25} - x^{50} - x^{100})$}.
+	\end{enumerate}
+	\end{multicols}
+}{exe:coeff-reading}{
+
+}
+
+\subsection*{Exercices}
+
+\exe{}{
+	Montrer que le polynôme $x + 1$ est combinaison linéaire des polynômes $x + 3$ et $x+5$.
+}{exe:comb-lin-poly}{
+
+}
+\exe{}{
+	Montrer que le polynôme $x^2 - 5x + 6$ n'est pas combinaison linéaire des polynômes $x - 2$ et $x-3$.
+}{exe:not-comb-lin-poly}{
+
+}
+
+
+\exe{difficulty=1}{
+	Soit $S = \{ -1 ; 0 ; 1\}$.
+	Considérons l'ensemble $S[x]$, les polynômes à coefficients dans $S$.
+	Par définition, le polynôme $x^3 - x$ n'est pas le polynôme nul.
+	
+	Montrer que la fonction polynomiale $f(x) = x^3 -x$, elle, est la fonction nulle sur $S$.
+	
+	\emph{Remarque : il est donc important de distinguer polynôme et fonction polynomiale.}
+}{exe:fonction-nulle-S}{
+	Il s'agit de montrer que $f(x) = 0$ pour tout $x\in S$.
+	Ceci se vérifie par le calcul : $f(0) = f(1) = f(-1) = 0$.
+}
+
+\exe{}{
+	Montrer que la famille de polynômes $\{ x+1 ; x+2 \} \subseteq\R[x]$ est linéairement indépendante sur $\R$.
+}{exe:lin-indep1}{
+	todo
+}
+
+\exe{}{
+	Montrer que la famille de polynômes $\{ x^2+4x - 2 ; x+2 ; 50 \} \subseteq\R[x]$ est linéairement indépendante sur $\R$.
+}{exe:lin-indep2}{
+	todo
+}
+
+\exe{}{
+	Est-ce que la famille de polynômes $\{ 2x^2+4x - 2 ; x^2 + x + 1 ; x-2 \} \subseteq\R[x]$ est linéairement indépendante sur $\R$ ?
+	Démontrer que oui ou fournir une combinaison linéaire nulle et non triviale.
+}{exe:lin-indep3}{
+	La famille est liée car
+		\[ (2x^2 + 4x - 2) - 2(x^2 + x + 1) - 2(x-2) = 0. \]
+}
+
+
+
+
+\exe{}{
+	Pour chaque propriété, donner un polynôme $f$ à coefficients réels et non nul la vérifiant.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f$ s'annule en $1$.
+		\item $f$ s'annule en $-10$.
+		\item $f$ s'annule en $0$.
+		\item $f$ s'annule en $-10$ et en $1$.
+		\item Les racines de $f$ sont $2, -3, \frac27$, et $0$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:6}{
+	Le polynôme identiquement nul $f(x) = 0$ n'est bien sûr pas autorisé sinon l'exercice n'a pas d'intérêt !
+	\begin{enumerate}
+		\item $f(x) = x-1$ fonctionne ainsi que $f(x) = 3(x-1)$, ou $f(x) = -(x-1) = 1-x$.
+		\item $f(x) = x+10$ fonctionne, ainsi que $f(x) = (x+10)(x-1)$, et tous ses multiples.
+		\item $f(x) = x$ ou $f(x) = 500x$.
+		\item $f(x) = (x+10)(x-1) = x^2 +9x -10$.
+		\item $f(x) = (x-2)(x+3)(x-\frac27)x$.
+	\end{enumerate}
+
+}
+
+
+
+\exe{}{
+	Considérons l'équation quadratique $3x^2-7x+4= 0$ pour $x\in\R$.
+	Montrer que $1$ est racine de l'équation et en déduire l'autre racine.
+}{exe:euclide-poly}{
+	todo
+}
+
+
+
+
+\exe{}{
+	Trouver une racine triviale (évidente) puis factoriser le polynôme $f(x) = 7x^2 - 10x + 3$ pour trouver sa deuxième racine.
+}{exe:euclide-poly2}{
+	todo
+}
+
+
+\exe{}{
+	Considérons le polynôme $f(x) = 21x^3 - 7x^2 - 9x + 3$.
+	Montrer, par le calcul, que $\frac13$ est une racine de $f$.
+	En déduire les autres racines de $f$.
+	
+	\emph{Indication : calculer la division euclidienne de $f$ par $3x-1$ plutôt que par $x-\frac13$ pour simplifier les calculs.}
+}{exe:euclide-poly3}{
+	$f(x) = (3x-1)(7x^2-3)$ donc les racines sont $\frac13$ et $\pm\sqrt{\frac37}$.
+}
+
+\exe{}{
+	Considérons le polynôme $f(x) = 4x^3 - 6x^2 - 2x + 3$.
+	Montrer, par le calcul, que $\frac32$ est une racine de $f$.
+	En déduire les autres racines de $f$.
+}{exe:8}{
+		\[ (2x - 3)(2x^2 - 1) = 4x^3 - 2x -6x^2 + 3. \]
+	On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
+	Or l'équation $2x^2 - 1 = 0$ est équivalente à $x^2 = \dfrac12$.
+	En prenant la racine et en utilisant que $\sqrt{x^2} = |x|$, on obtient
+		\[ |x| = \sqrt{\dfrac12} = \dfrac1{\sqrt2}. \]
+	Les deux valeurs $\pm \dfrac1{\sqrt2}$ (notation $\pm$ pour \og plus ou moins \fg) sont donc solutions.
+	On en déduit que l'ensemble des solutions de \eqref{eq:2} est $\left\{ \dfrac32 ; \pm \dfrac1{\sqrt2} \right\} = \left\{ \dfrac32 ; \dfrac1{\sqrt2} ; - \dfrac1{\sqrt2} \right\}$
+
+}
+
+
+\exe{difficulty=1}{
+	Montrer le théorème de Taylor bis : 
+	soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $a\in\R$ un réel quelconque.
+	Alors
+		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(a)}{k!} (x-a)^k.\]
+}{exe:taylor-poly-2}{
+	todo
+}
+
+
+
+\exe{}{
+	Considérons le polynôme
+		\[ f(x) = (x-3)^2 - (x-3)^4 + 3(x-3)^5. \]
+	Calculer $f(3), f'(3), f''(3), f'''(3), f^{(\text{iv})}(3)$, et $f^{(\text{v})}(3)$.
+}{exe:f-shift-derivatives}{
+
+}
+
+
+\exe{difficulty=1}{
+	Considérons le \emphindex{symbole de Pochhammer} défini par
+		\begin{align*}
+			(x)_0 = 1, && \et && (x)_n = x(x-1)(x-2)\cdots(x-n+1) \text{ pour $n\in\N^*$, }
+		\end{align*}
+	ainsi que l'opérateur de différence $\Delta$ qui associe à chaque $f\in\R[x]$ le polynôme $f(x+1)-f(x)$.
+	
+	Montrer que, pour tout $n\in\N^*$, l'identité suivante est vraie dans $\R[x]$.
+		\[ \Delta(x)_n = n\cdot(x)_{n-1} \]
+}{exe:Pochhammer}{
+
+}
 
 
 
 \exe{difficulty=1}{
-	exe 1
-}{exe:1}{
-	sol 1
-}	
+	Considérons une famille de polynômes $\{ f_1, f_2, \dots, f_n\} \subseteq \R[x]$ telle que pour tout $i=1, 2, \dots n$, il existe un nombre $\alpha_i\in\R$ qui est racine de $f_j$ pour tout $j\neq i$, mais n'est pas racine de $f_i$.
+	Montrer que la famille est linéairement indépendante sur $\R$.
+	
+	Conclure que la famille $F$ suivante est linéairement indépendante sur $\R$.
+		\[ F = \bigset{ (x-1)(x-2)(x-3) ; x(x-2)(x-3) ; x(x-1)(x-3) ; x(x-1)(x-2) } \]
+	Est-ce qu'il est possible d'écrire n'importe quel polynôme de degré inférieur ou égal à 3 comme combinaison linéaire des éléments de $F$ ?
+}{exe:unique-roots}{
+	todo
+}
+
+
+
+\exe{}{
+	Vrai ou faux ?
+	\begin{enumerate}%[itemsep=10pt]
+		\item
+		Si $f|g$ dans $\R[x]$, alors $\deg(f) \leq \deg(g)$.
+		\item
+		Si $f$ divise $g$ dans $\R[x]$, alors $(3f)$ divise aussi $g$.
+		\item
+		Soient $f, g\in\R[x]$. Alors $\deg(fg) = \deg(f)+\deg(g)$.
+		\item
+		Soient $f, g\in\R[x]$. $\deg(f+g) = \max\{\deg(f) ; \deg(g)\}$.
+		\item
+		Un polynôme constant de $\R[x]$ est de degré nul.
+		\item
+		$7x$ divise $x$ dans $\R[x]$.
+		\item
+		$124(x+1)$ divise $2x^5 -x^4 - 3x^3 + x^2 -3x - 4$ dans $\R[x]$.
+	\end{enumerate}
+}{exe:TF-polynomes}{
+	\begin{enumerate}
+		\item
+		Faux uniquement à cause du polynôme nul $g=0$. 
+		Tous les polynômes divisent le polynôme nul. 
+		\item
+		Vrai.
+		\item
+		Vrai car le coefficient dominant de $fg$ est le produit des coefficients dominants de $f$ et de $g$.
+		\item
+		Il faut et il suffit que la somme des coefficients de degré $\max\{\deg(f) ; \deg(g)\}$ soit non nulle.
+		Si $g=-f$ par exemple, alors $\deg(f+g) = \minfty$.
+		\item
+		Faux à cause du polynôme nul de degré $\minfty$ par convention.
+		\item
+		Vrai car $(7x)\cdot\frac17 = x$.
+		\item
+		Vrai car $-1$ est racine du deuxième polynôme.
+	\end{enumerate}
+	
+}
+
+
+\subsection*{Approfondissements}
+
+\exe{difficulty=1}{
+	Soit $d\in\N$ pas un carré parfait. 
+	Montrer que la famille $\bigset{ 1 ; \sqrt{d} } \subseteq\R$ est linéairement indépendante sur $\Q$.
+}{exe:lin-indep4}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $F_1, F_2 \subseteq \R[x]$ deux familles de polynômes.
+	Nommons $V_1$ et $V_2$ l'ensemble de toutes les combinaisons linéaires de $F_1$ et $F_2$ respectivement.
+	
+	Montrer que, pour un polynôme $f$ combinaison linéaire de $F_1 \cup F_2$,
+	\begin{align*}
+		V_1 \cap V_2 = \{ 0 \} && \iff && f = v_1 + v_2 \text{ se décompose de façon unique avec $v_1\in V_1$ et $v_2\in V_2$}.
+	\end{align*}
+	Lorsque la décomposition est unique, nous dirons alors que $V_1$ et $V_2$ sont en \emphindex{somme directe}, notée $V_1 \oplus V_2$.
+}{exe:direct-sum}{
+	todo
+}
+
+\exe{}{
+	Montrer qu'une fonction polynomiale de $\R[x]$ de degré 3 admet au moins une racine réelle.
+}{exe:deg3-root}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Montrer la \emphindex{règle du produit} : pour deux polynômes $f, g\in\R[x]$,
+		\[ (fg)' = f'g + g'f. \]
+}{exe:deriv-prod}{
+	À gauche, le coefficient en $x^n$ de $fg$ est égal à
+		\[ \sum_{i+j=n} f_i g_j. \]
+	Le coefficient en $x^{n-1}$ de $fg$ est donc égal à
+		\[ n\sum_{i+j=n} f_i g_j. \]
+	À droite, le coefficient en $x^{n-1}$ de $f'g$ est égal à
+		\[ \sum_{i+j=n-1} f'_ig_j = \sum_{i+j=n-1} (i+1)f_{i+1}g_j = \sum_{i+j=n} if_ig_j. \]
+	Le coefficient en $x^{n-1}$ de $g'f$ est égal à
+		\[ \sum_{i+j=n-1} f_ig'_j = \sum_{i+j=n-1} f_i (j+1)g_{j+1} = \sum_{i+j=n} f_ijg_j. \]
+	Le coefficient en $x^{n-1}$ de $f'g + g'f$ est donc égal à
+		\[ \sum_{i+j=n} f_ijg_j +  \sum_{i+j=n} if_ig_j = \sum_{i+j=n} (i+j)f_ig_j = n\sum_{i+j=n} f_i g_j. \]
+	Les coefficients de $(fg)'$ et $f'g+g'f$ sont donc égaux et les polynômes sont égaux.
+}
+
+
+\exe{difficulty=1}{
+	%Soit $f\in C^1(\R)$ une fonction continûment dérivable.
+	Soit $f$ une fonction dérivable en 0.
+	Montrer que 
+		\[ f(x) = f(0) + f'(0)x + g(x), \]
+	où $g(x) = o(x)$ dans le sens suivant : 
+		\[ \lim_{x \to 0} \frac{g(x)}x = 0. \]
+}{exe:taylor-C1}{
+	Posons $g(x) = f(x) - f(0) - f'(0)x$.
+	Pour $x\neq0$, nous avons
+		\[ \frac{g(x)}x = \frac{f(x) - f(0)}{x-0} - f'(0). \]
+	Lorsque $x$ tend vers $0$,  $\frac{f(x) - f(0)}{x-0}$ tend vers $f'(0)$ par définition de $f'(0)$.
+	Il suit donc que $\frac{g(x)}x$ tend vers 0 comme requis.
+	
+	Remarque : si $f\in C^2(\R)$, il s'avère que $g(x) = \O(x^2)$, c'est-à-dire que $\frac{g(x)}{x^2}$ reste borné lorsque $x$ tend vers $0$ (ce qui est plus fort que $g=o(x)$).
+	Nous aurons en fait 
+		\[ f(x) = f(0) + f'(0)x + \frac{f''(0)}2 x^2 + o(x^2). \]
+}
+
+\exe{difficulty=1}{
+	Le but de cet exercice est de construire explicitement l'ensemble $\R[x]$ dans lequel les monômes $\{ 1 ; x ; x^2 ; \dots \}$ sont linéairement indépendants sur $\R$.
+	
+	Considérons à cette fin l'ensemble $\hat{\R}^\infty$ des suites réelles ayant seulement un nombre fini de termes non nuls.
+	\begin{enumerate}
+		\item
+		Montrer que toute suite $a\in\hat{\R}^\infty$ prend la forme
+			\[ a = (a_0, a_1, \dots, a_d, 0, 0, 0,\dots). \]
+	\end{enumerate}
+	Nous verrons donc dans la suite un polynôme  $a_0 + a_1 x + \dots + a_d x^d$ comme une suite $a = (a_0, a_1, a_2, \dots, a_d, 0, 0, 0,\dots)$ de $\hat{\R}^\infty$.
+	\begin{enumerate}[resume]
+		\item
+		À quelle suite correspond chaque polynôme suivant ?
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item Le polynôme nul.
+			\item Le polynôme $1$.
+			\item Le polynôme $x$.
+			\item Le polynôme $x^2$.
+		\end{enumerate}
+		\end{multicols}
+		\item
+		Comment définir les multiplication $\alpha a$ et $a \cdot b$ pour $\alpha\in\R$ et $a, b\in\hat{\R}^\infty$ ?
+		\item
+		Montrer que les suites $\{ e_0 ; e_1 ; \dots ; e_d \}$ sont linéairement indépendantes sur $\R$, où
+			\[ e_i = ( 0, 0, \dots, 0, \underbrace{1}_{\text{position $i$}}, 0, 0, \dots ). \]
+		Ces suites sont appelées \emphindex{vecteurs canoniques}.
+	\end{enumerate}
+}{exe:Rx-constr}{
+
+}
+
+
+
 
 %%%%%%%%%%%
 

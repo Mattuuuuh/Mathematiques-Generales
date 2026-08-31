@@ -159,6 +159,8 @@
 \renewcommand{\underline}[1]{\oldunderline{\smash{#1}}}
 
 % emph + index
+% for \uline which allows underline with line breaks
+\usepackage[normalem]{ulem}
 % i add underline just for now
 \newcommand{\emphindex}[1]{\emph{\uline{#1}}\index{#1}}
 

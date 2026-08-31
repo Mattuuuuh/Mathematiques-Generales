@@ -15,23 +15,27 @@ margin=2cm,
 
 % HEADER, ARRAY, ENUM, MULTIOCL
 \usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{Université de Mayotte}
+\fancyhead[C]{\bf Série 1}
+\fancyhead[R]{\today}
 \usepackage{array}
 \usepackage{multicol, enumitem}
 
 % theorems
-\theoremstyle{theorem}
-\newtheorem{thm}{Théorème}
-\theoremstyle{plain}
-\newtheorem*{sol}{Solution}
-\theoremstyle{definition}
-\newtheorem{ex}{Exercice}
-\newtheorem{dfn}{Définition}
-\newtheorem*{dfn*}{Définition}
-\newtheorem*{remarque}{Remarque}
+%\theoremstyle{theorem}
+%\newtheorem{thm}{Théorème}
+%\theoremstyle{plain}
+%\newtheorem*{sol}{Solution}
+%\theoremstyle{definition}
+%\newtheorem{ex}{Exercice}
+%\newtheorem{dfn}{Définition}
+%\newtheorem*{dfn*}{Définition}
+%\newtheorem*{remarque}{Remarque}
 
-\newtheoremstyle{named}{}{}{}{}{\bfseries}{.}{.5em}{\thmnote{#3}}
-\theoremstyle{named}
-\newtheorem*{namedtheorem}{Theorem}
+%\newtheoremstyle{named}{}{}{}{}{\bfseries}{.}{.5em}{\thmnote{#3}}
+%\theoremstyle{named}
+%\newtheorem*{namedtheorem}{Theorem}
 
 % roman subsections
 \renewcommand{\thesubsection}{\Roman{subsection}} 
@@ -39,56 +43,9 @@ margin=2cm,
 
 % exercices
 \usepackage[answerdelayed, lastexercise]{exercise}
-\usepackage{ifthen}
-\renewcommand{\ExerciseHeader}{
-	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\ref{\ExerciseLabel-Answer}.}};\!
-	\ifnum\ExerciseDifficulty=0
-	\else
-		(\theExerciseDifficulty)
-	\fi
-}
-\renewcommand{\DifficultyMarker}{$\star$}
-\renewcommand{\AnswerHeader}{
-	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\theExercise.}};\!
-}
-\newcommand{\exe}[4]{
-	\begin{Exercise}[#1, label=#3]
-		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
-		%\marginpar{[Bonus]}
-		\else
-		\marginpar{\mbox{[\ExerciseTitle]}}
-		\fi
-		#2
-	\end{Exercise}
-	\begin{Answer}[ref=#3]
-		#4
-	\end{Answer}
-}
-\newcommand{\exemulticols}[5]{
-	\begin{multicols}{2}
-	\begin{Exercise}[#1, label=#4]
-		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
-		%\marginnote{[Bonus]}
-		\else
-		\marginnote{\mbox{[\ExerciseTitle]\qquad}}
-		\fi
-		#2
-	\end{Exercise}
-	\columnbreak
-		#3
-	\end{multicols}
-	\begin{Answer}[ref=#4]
-		#5
-	\end{Answer}
-}
 
 % date
 \usepackage{advdate}
-
-% vabs
-\newcommand{\vabs}[1]{
-	\left| #1 \right|
-}
 % plots
 \usepackage{pgfplots}
 \tikzset{
@@ -134,3 +91,46 @@ margin=2cm,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{../../../macros}
+
+\usepackage{ifthen}
+\renewcommand{\ExerciseHeader}{
+	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\ref{\ExerciseLabel-Answer}.}};\!
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
+}
+\renewcommand{\DifficultyMarker}{$\star$}
+\renewcommand{\AnswerHeader}{
+	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\theExercise.}};\!
+}
+\renewcommand{\exe}[4]{
+	\begin{Exercise}[#1, label=#3]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginpar{[Bonus]}
+		\else
+		\marginpar{\mbox{[\ExerciseTitle]}}
+		\fi
+		#2
+	\end{Exercise}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}
+\renewcommand{\exemulticols}[5]{
+	\begin{multicols}{2}
+	\begin{Exercise}[#1, label=#4]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginnote{[Bonus]}
+		\else
+		\marginnote{\mbox{[\ExerciseTitle]\qquad}}
+		\fi
+		#2
+	\end{Exercise}
+	\columnbreak
+		#3
+	\end{multicols}
+	\begin{Answer}[ref=#4]
+		#5
+	\end{Answer}
+}
