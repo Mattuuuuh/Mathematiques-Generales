@@ -34,6 +34,14 @@
 % CLEAN SETUPS : MDFRAMED SURROUND
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% conditional ``clean'' must be defined before inputing the preamble.
+% Example :
+	% \documentclass[a4paper, 12pt]{report}
+	%\newif\ifclean
+	%		\cleantrue
+	%		\cleanfalse	
+	%\input{../../preamble}
+
 \ifclean
 
 \usepackage[framemethod=pgf]{mdframed}
@@ -176,11 +184,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % EXERCISES 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% delays answers
-% answers are from last exercise if no label is provided
-%\usepackage[answerdelayed, exercisedelayed, lastexercise]{exercise}
-\usepackage[answerdelayed, lastexercise]{exercise}
 
 % reset counter each chapter
 %\renewcounter{Exercise}[chapter]

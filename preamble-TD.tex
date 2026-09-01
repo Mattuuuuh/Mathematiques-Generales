@@ -1,68 +1,62 @@
 \documentclass[a4paper, 12pt]{extarticle}
-\usepackage[french]{babel}
-\usepackage[
-a4paper,
-margin=2cm,
-]{geometry}
+\input{../../../packages.tex}
+%\usepackage[french]{babel}
+%\usepackage[
+%a4paper,
+%margin=2cm,
+%]{geometry}
+%
+%\usepackage[utf8x]{inputenc}
+%%fonts
+%\usepackage{libertinus,libertinust1math}
+%\usepackage{amsmath,amsthm,amssymb,mathtools}
+%
+%%virgules
+%\usepackage{icomma}
 
-\usepackage[utf8x]{inputenc}
-%fonts
-\usepackage{libertinus,libertinust1math}
-\usepackage{amsmath,amsthm,amssymb,mathtools}
-
-%virgules
-\usepackage{icomma}
-
-% HEADER, ARRAY, ENUM, MULTIOCL
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead[L]{Université de Mayotte}
-\fancyhead[C]{\bf Série 1}
-\fancyhead[R]{\today}
-\usepackage{array}
-\usepackage{multicol, enumitem}
-
-% theorems
-%\theoremstyle{theorem}
-%\newtheorem{thm}{Théorème}
-%\theoremstyle{plain}
-%\newtheorem*{sol}{Solution}
-%\theoremstyle{definition}
-%\newtheorem{ex}{Exercice}
-%\newtheorem{dfn}{Définition}
-%\newtheorem*{dfn*}{Définition}
-%\newtheorem*{remarque}{Remarque}
-
-%\newtheoremstyle{named}{}{}{}{}{\bfseries}{.}{.5em}{\thmnote{#3}}
-%\theoremstyle{named}
-%\newtheorem*{namedtheorem}{Theorem}
-
-% roman subsections
-\renewcommand{\thesubsection}{\Roman{subsection}} 
-
-
-% exercices
-\usepackage[answerdelayed, lastexercise]{exercise}
-
-% date
-\usepackage{advdate}
-% plots
-\usepackage{pgfplots}
-\tikzset{
-	every axis/.style = {clip=false, axis lines=center, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, domain=-2:2}
-}
-
-%subfigures
-\usepackage{subcaption}
-
-%hyperlink footnote
-\usepackage{hyperref}
-
-% tableaux var, signe
-\usepackage{tkz-tab}
-
-% tikz calculating
-\usetikzlibrary{calc}
+%% HEADER, ARRAY, ENUM, MULTIOCL
+%\usepackage{fancyhdr}
+%\usepackage{array}
+%\usepackage{multicol, enumitem}
+%
+%% theorems
+%%\theoremstyle{theorem}
+%%\newtheorem{thm}{Théorème}
+%%\theoremstyle{plain}
+%%\newtheorem*{sol}{Solution}
+%%\theoremstyle{definition}
+%%\newtheorem{ex}{Exercice}
+%%\newtheorem{dfn}{Définition}
+%%\newtheorem*{dfn*}{Définition}
+%%\newtheorem*{remarque}{Remarque}
+%
+%%\newtheoremstyle{named}{}{}{}{}{\bfseries}{.}{.5em}{\thmnote{#3}}
+%%\theoremstyle{named}
+%%\newtheorem*{namedtheorem}{Theorem}
+%
+%% roman subsections
+%\renewcommand{\thesubsection}{\Roman{subsection}} 
+%
+%
+%% exercices
+%
+%% plots
+%\usepackage{pgfplots}
+%\tikzset{
+%	every axis/.style = {clip=false, axis lines=center, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, domain=-2:2}
+%}
+%
+%%subfigures
+%\usepackage{subcaption}
+%
+%%hyperlink footnote
+%\usepackage{hyperref}
+%
+%% tableaux var, signe
+%\usepackage{tkz-tab}
+%
+%% tikz calculating
+%\usetikzlibrary{calc}
 
 %wider tabulars
 %\def\arraystretch{2}
@@ -73,6 +67,15 @@ margin=2cm,
 
 % margins for points
 \usepackage{marginnote}
+
+% date
+\usepackage{advdate}
+
+
+\pagestyle{fancy}
+\fancyhead[L]{Université de Mayotte}
+\fancyhead[C]{\bf Série 1}
+\fancyhead[R]{\today}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
@@ -91,6 +94,16 @@ margin=2cm,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{../../../macros}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGE-SPECIFIC ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% global settings for the first level in enumerate environments
+\setlist[enumerate, 1]{%
+	align = left%, labelwidth = \parindent, labelsep = 0pt, leftmargin = \parindent
+}
 
 \usepackage{ifthen}
 \renewcommand{\ExerciseHeader}{
