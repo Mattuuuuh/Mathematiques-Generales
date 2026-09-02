@@ -23,9 +23,31 @@
 }
 
 \exe{}{
+	Pour chaque polynôme de $\R[x]$ suivant, donner : son degré ; son coefficient dominant ; et son coefficient constant. Dire si le polynôme est unitaire ou non.
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=5pt]
+		\item
+		$p_1(x) = x^3 + x - 1$
+		\item
+		$p_2(x) = -x^7 + 6x + 4$
+		\item
+		$p_3(x) = x^3 + x^5 - x$
+		\item
+		$p_4(x) = 1 + x^2 - x^4 - x^3 + x$
+	\end{enumerate}
+	\end{multicols}
+	\emph{Notation : le degré d'un polynôme $p$ est noté $\deg(p)$.}
+}{exe:degre-unitaire}{
+	todo
+}
+
+\subsection*{Exercices}
+
+
+\exe{difficulty=1}{
 	Calculer de tête le coefficient
 	\begin{multicols}{2}
-	\begin{enumerate}
+	\begin{enumerate}[itemsep=5pt]
 		\item
 		en $x$ de $(x+3)(x-4)$ ;
 		\item
@@ -40,29 +62,39 @@
 
 }
 
-\subsection*{Exercices}
-
 \exe{difficulty=1}{
 	Calculer le coefficient 
 	%\begin{multicols}{2}
-	\begin{enumerate}
+	\begin{enumerate}[itemsep=5pt]
+		\item
+		en $x^6$ de $(3x^2 + 7x - 3)(7x - 2x^4 + 3)$
+		\item
+		constant de $\left(17 + 31320x - 10^{31}x^2 - \frac13 x^7\right)\left(41x^2 + 76x - 2\right)$ ;
 		\item
 		en $x$ de $(x+3)(x-4)(x-8)$ ;
 		\item
 		en $x^2$ de $(x+1)(x-1)(x+3)(x+6)(x-2)$ ;
 		\item
-		constant de $\left(17 + 17320x - 10^{31}x^2 - \frac13 x^7\right)\left(41x^2 + 76x - 2\right)$ ;
-		\item
 		en $x^6$ de $(1+x)^7$.
 	\end{enumerate}
 	%\end{multicols}
-	\emph{Il est possible de vérifier ses résultats à l'aide de WolframAlpha (\href{https://www.wolframalpha.com/}{https://www.wolframalpha.com/}).}
+	\emph{Il est possible de vérifier ses résultats à l'aide de WolframAlpha (\href{https://www.wolframalpha.com/input?i=\%28x\%2B1\%29\%28x-1\%29\%28x\%2B3\%29\%28x\%2B6\%29\%28x-2\%29}{https://www.wolframalpha.com/}).}
 }{exe:coeff-reading-3}{
+	todo
+}
+
+\exe{}{
+	Montrer que le coefficient constant d'un polynôme $p$ est égal à $p(0)$.
+	
+	Quel est le coefficient constant de $p(x) = (x-1)^{231} - (x-1)^{436}$ ?
+}{exe:coeff-const}{
 	todo
 }
 
 \exe{difficulty=1}{
 	Montrer que le polynôme $x + 1$ est combinaison linéaire des polynômes $x + 3$ et $x+5$.
+	
+	La combinaison trouvée est-elle unique ?
 }{exe:comb-lin-poly}{
 
 }
@@ -75,33 +107,39 @@
 
 
 \exe{difficulty=0}{
-	Soit $S = \{ -1 ; 0 ; 1\}$.
-	Considérons l'ensemble $S[x]$, les polynômes à coefficients dans $S$.
-	Par définition, le polynôme $x^3 - x$ n'est pas le polynôme nul.
-	
-	Montrer que la fonction polynomiale $f(x) = x^3 -x$, elle, est la fonction nulle sur $S$.
-	
-	\emph{Remarque : il est donc important de distinguer polynôme et fonction polynomiale.}
+	Soit $S = \bigset{ -1 ; 0 ; 1 } \subseteq \R$ un ensemble à trois éléments.
+	Considérons l'ensemble $S[x]$ des polynômes à coefficients dans $S$, ainsi que $p(x) = x^3 - x$.
+	\begin{enumerate}
+		\item Est-ce que $p(x) \in S[x]$ ? Justifier.
+		\item Est-ce que $p$ est le polynôme nul de $S[x]$ ?
+		\item Est-ce que $p$ est la fonction nulle sur $S$ ? C'est la fonction qui envoie chaque élément \mbox{de $S$ sur $0$.}
+	\end{enumerate}
+	\emph{Conclusion : il est donc important de distinguer polynôme et fonction polynomiale.}
 }{exe:fonction-nulle-S}{
 	Il s'agit de montrer que $f(x) = 0$ pour tout $x\in S$.
 	Ceci se vérifie par le calcul : $f(0) = f(1) = f(-1) = 0$.
 }
 
 \exe{}{
-	Est-ce que la famille de polynômes $\{ x^2+4x - 2 ; x+2 ; 50 \} \subseteq\R[x]$ est linéairement indépendante sur $\R$ ? 
-	Démontrer que oui ou fournir une combinaison linéaire nulle et non triviale.
+	Donner la définition de l'indépendance linéaire sur $\R$ d'une famille de polynômes.
+}{exe:def-LI}{
+	Il existe une combinaison linéaire nulle et non triviale.
+}
+
+\exe{}{
+	Est-ce que la famille de polynômes $\bigset{ x^2+4x - 2 ; x+2 ; 50 } \subseteq\R[x]$ est linéairement indépendante sur $\R$ ? 
 }{exe:lin-indep2}{
 	todo
 }
 
 \exe{}{
-	Est-ce que la famille de polynômes $\{ x+1 ; x+2 \} \subseteq\R[x]$ est libre sur $\R$ ?
+	Est-ce que la famille de polynômes $\bigset{ x+1 ; x+2 } \subseteq\R[x]$ est libre sur $\R$ ?
 }{exe:lin-indep1}{
 	todo
 }
 
 \exe{}{
-	Est-ce que la famille de polynômes $\{ 2x^2+4x - 2 ; x^2 + x + 1 ; x-2 \} \subseteq\R[x]$ est libre sur $\R$ ?
+	Est-ce que la famille de polynômes $\bigset{ 2x^2+4x - 2 ; x^2 + x + 1 ; x-2 } \subseteq\R[x]$ est libre sur $\R$ ?
 }{exe:lin-indep3}{
 	La famille est liée car
 		\[ (2x^2 + 4x - 2) - 2(x^2 + x + 1) - 2(x-2) = 0. \]
@@ -226,8 +264,56 @@
 
 
 
+
+\exe{difficulty=0}{
+	Démontrer que $x-1$ divise $x^8 - 1$.
+}{exe:diviseur-x-m-1}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Montrer que si $f(x)$ divise $g(x)$ dans $\R[x]$, alors
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item  $f(-x)$ divise $g(-x)$ ; et
+		\item $f(x+1)$ divise $g(x+1)$.
+	\end{enumerate}
+	\end{multicols}
+	En conclure que 
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item  $x+1$ divise $x^8 - 1$ ; et que
+		\item  $x$ divise $(x+1)^{1204} - 1$.
+	\end{enumerate}
+	\end{multicols}
+	
+	Est-ce que $x+1$ divise toujours $x^n - 1$ pour $n\geq2$ ?
+}{exe:diviseur-x-p-1}{
+	todo
+}
+
+% todo : x² - 1 divise x^{120} - 1 par exemple pour les racines.
+
+\exe{difficulty=1}{
+	Démontrer que $x-1$ divise $x^3 - 1 + 2x - 2x^2$.
+}{exe:diviseur-x-m-1-2}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Supposons la famille $\{ p_1 ; p_2 ; p_3 \} \subseteq \R[x]$ libre.
+	Montrer que les familles 
+	\begin{align*}
+		\mathcal{F}_1 = \bigset{ p_1 ; p_2 + p_1 ; p_3 } && \et && \mathcal{F}_2 = \bigset{ p_1 + p_2 ; p_2 + p_3 ; p_1 + p_2 + p_3 } 
+	\end{align*}
+	sont également libres.
+}{exe:libre-to-libre}{
+	todo
+}
+
+
 \exe{}{
-	Vrai ou faux ? Le degré d'un polynôme $f$ est noté $\deg(f)$.
+	Vrai ou faux ? Montrer que chaque assertion est vraie ou donner un contre-exemple.
 	\begin{enumerate}[itemsep=10pt]
 		\item
 		Si $f|g$ dans $\R[x]$, alors $\deg(f) \leq \deg(g)$.
@@ -247,6 +333,8 @@
 		%$124(x+1)$ divise $2x^5 -x^4 - 3x^3 + x^2 -3x - 4$ dans $\R[x]$.
 		\item
 		Si $f|g$ dans $\R[x]$, alors $f|g^2$ dans $\R[x]$ aussi.
+		\item
+		Le polynôme $(1-x)^{22}$ est unitaire.
 	\end{enumerate}
 }{exe:TF-polynomes}{
 	\begin{enumerate}
@@ -268,50 +356,11 @@
 		%Vrai car $-1$ est racine du deuxième polynôme.
 		\item
 		Vrai car si $g = fq$, alors $g^2 = f(qg) = fq'$, alors $q'=qg$ le quotient de $g^2$ par $f$.
+		\item
+		Vrai : son coefficient dominant, en $x^{22}$ est donné par $(-1)^{22} = 1$ car $22$ est pair.
 	\end{enumerate}
 	
 }
-
-\exe{difficulty=0}{
-	Démontrer que $x-1$ divise $x^8 - 1$.
-}{exe:diviseur-x-m-1}{
-	todo
-}
-
-\exe{difficulty=1}{
-	Montrer que si $f(x)$ divise $g(x)$ dans $\R[x]$, alors
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item  $f(-x)$ divise $g(-x)$ ; et
-		\item $f(x+1)$ divise $g(x+1)$.
-	\end{enumerate}
-	\end{multicols}
-	En déduire que $x+1$ divise $x^8 - 1$ et que $x$ divise $(x+1)^{1204} - 1$.
-	
-	Est-ce que $x+1$ divise toujours $x^n - 1$ pour $n\geq2$ ?
-}{exe:diviseur-x-p-1}{
-	todo
-}
-
-% todo : x² - 1 divise x^{120} - 1 par exemple pour les racines.
-
-\exe{difficulty=1}{
-	Démontrer que $x-1$ divise $x^3 - 1 + 2x - 2x^2$.
-}{exe:diviseur-x-m-1-2}{
-	todo
-}
-
-\exe{difficulty=1}{
-	Supposons la famille $\{ p_1 ; p_2 ; p_3 \} \subseteq \R[x]$ libre.
-	Montrer que les familles 
-	\begin{align*}
-		\mathcal{F}_1 = \bigset{ p_1 ; p_2 + p_1 ; p_3 } && \et && \mathcal{F}_2 = \bigset{ p_1 + p_2 ; p_2 + p_3 ; p_1 + p_2 + p_3 } 
-	\end{align*}
-	sont également libres.
-}{exe:libre-to-libre}{
-	todo
-}
-
 
 \subsection*{Approfondissements}
 
@@ -327,18 +376,26 @@
 	todo
 }
 
-\exe{difficulty=2}{
-	Soit $F_1, F_2 \subseteq \R[x]$ deux familles de polynômes.
-	Nommons $V_1$ et $V_2$ l'ensemble de toutes les combinaisons linéaires de $F_1$ et $F_2$ respectivement.
+\exe{difficulty=3}{
+	Est-ce que la famille des racines carrées de nombres premiers s'arrêtant à un certain $p$ est libre sur $\Q$ ? $$\mathcal{S}_p=\bigset{ 1 ; \sqrt{2} ; \sqrt{3} ; \sqrt{5} ; \sqrt{7} ; \sqrt{11} ; \dots ; \sqrt{p} } \subseteq \R$$
+	% S for quadratic surds :)
+}{exe:lin-indep-primes}{
 	
-	Montrer que, pour un polynôme $f$ combinaison linéaire de $F_1 \cup F_2$,
-	\begin{align*}
-		V_1 \cap V_2 = \{ 0 \} && \iff && f = v_1 + v_2 \text{ se décompose de façon unique avec $v_1\in V_1$ et $v_2\in V_2$}.
-	\end{align*}
-	Lorsque la décomposition est unique, nous dirons alors que $V_1$ et $V_2$ sont en \emphindex{somme directe}, notée $V_1 \oplus V_2$.
-}{exe:direct-sum}{
-	todo
 }
+
+% assez dur
+%\exe{difficulty=2}{
+%	Soit $F_1, F_2 \subseteq \R[x]$ deux familles de polynômes.
+%	Nommons $V_1$ et $V_2$ l'ensemble de toutes les combinaisons linéaires de $F_1$ et $F_2$ respectivement.
+%	
+%	Montrer que, pour un polynôme $f$ combinaison linéaire de $F_1 \cup F_2$,
+%	\begin{align*}
+%		V_1 \cap V_2 = \{ 0 \} && \iff && f = v_1 + v_2 \text{ se décompose de façon unique avec $v_1\in V_1$ et $v_2\in V_2$}.
+%	\end{align*}
+%	Lorsque la décomposition est unique, nous dirons alors que $V_1$ et $V_2$ sont en \emphindex{somme directe}, notée $V_1 \oplus V_2$.
+%}{exe:direct-sum}{
+%	todo
+%}
 %
 %\exe{}{
 %	Montrer qu'une fonction polynomiale de $\R[x]$ de degré 3 admet au moins une racine réelle.
@@ -383,37 +440,37 @@
 %		\[ f(x) = f(0) + f'(0)x + \frac{f''(0)}2 x^2 + o(x^2). \]
 %}
 
-\exe{difficulty=1}{
-	Le but de cet exercice est de construire l'ensemble $\R[x]$ dans lequel les monômes $\{ 1 ; x ; x^2 ; \dots \}$ sont linéairement indépendants sur $\R$ à l'aide des suites.
-	
-	Considérons à cette fin l'ensemble $\hat{\R}^\infty$ des suites réelles ayant seulement un nombre fini de termes non nuls.
-	\begin{enumerate}
-		\item
-		Montrer que toute suite $a\in\hat{\R}^\infty$ prend la forme
-			\[ a = (a_0, a_1, \dots, a_d, 0, 0, 0,\dots). \]
-	\end{enumerate}
-	Nous verrons donc dans la suite un polynôme  $a_0 + a_1 x + \dots + a_d x^d$ comme une suite $a = (a_0, a_1, a_2, \dots, a_d, 0, 0, 0,\dots)$ de $\hat{\R}^\infty$.
-	\begin{enumerate}[resume]
-		\item
-		À quelle suite correspond chaque polynôme suivant ?
-		\begin{multicols}{2}
-		\begin{enumerate}
-			\item Le polynôme nul.
-			\item Le polynôme $1$.
-			\item Le polynôme $x$.
-			\item Le polynôme $x^2$.
-		\end{enumerate}
-		\end{multicols}
-		\item
-		Comment définir l'addition $a+b$ ainsi que les multiplication $\alpha a$ et $a \cdot b$ pour $\alpha\in\R$ et $a, b\in\hat{\R}^\infty$ ?
-		\item
-		Montrer que les suites $\{ e_0 ; e_1 ; \dots ; e_d \}$ sont linéairement indépendantes sur $\R$, où
-			\[ e_i = ( 0, 0, \dots, 0, \underbrace{1}_{\text{position $i+1$}}, 0, 0, \dots ). \]
-		%Ces suites sont appelées \emphindex{vecteurs canoniques}.
-	\end{enumerate}
-}{exe:Rx-constr}{
-
-}
+%\exe{difficulty=1}{
+%	Le but de cet exercice est de construire l'ensemble $\R[x]$ dans lequel les monômes $\{ 1 ; x ; x^2 ; \dots \}$ sont linéairement indépendants sur $\R$ à l'aide des suites.
+%	
+%	Considérons à cette fin l'ensemble $\hat{\R}^\infty$ des suites réelles ayant seulement un nombre fini de termes non nuls.
+%	\begin{enumerate}
+%		\item
+%		Montrer que toute suite $a\in\hat{\R}^\infty$ prend la forme
+%			\[ a = (a_0, a_1, \dots, a_d, 0, 0, 0,\dots). \]
+%	\end{enumerate}
+%	Nous verrons donc dans la suite un polynôme  $a_0 + a_1 x + \dots + a_d x^d$ comme une suite $a = (a_0, a_1, a_2, \dots, a_d, 0, 0, 0,\dots)$ de $\hat{\R}^\infty$.
+%	\begin{enumerate}[resume]
+%		\item
+%		À quelle suite correspond chaque polynôme suivant ?
+%		\begin{multicols}{2}
+%		\begin{enumerate}
+%			\item Le polynôme nul.
+%			\item Le polynôme $1$.
+%			\item Le polynôme $x$.
+%			\item Le polynôme $x^2$.
+%		\end{enumerate}
+%		\end{multicols}
+%		\item
+%		Comment définir l'addition $a+b$ ainsi que les multiplication $\alpha a$ et $a \cdot b$ pour $\alpha\in\R$ et $a, b\in\hat{\R}^\infty$ ?
+%		\item
+%		Montrer que les suites $\{ e_0 ; e_1 ; \dots ; e_d \}$ sont linéairement indépendantes sur $\R$, où
+%			\[ e_i = ( 0, 0, \dots, 0, \underbrace{1}_{\text{position $i+1$}}, 0, 0, \dots ). \]
+%		%Ces suites sont appelées \emphindex{vecteurs canoniques}.
+%	\end{enumerate}
+%}{exe:Rx-constr}{
+%
+%}
 
 
 
