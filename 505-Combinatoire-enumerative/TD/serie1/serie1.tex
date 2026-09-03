@@ -1,15 +1,209 @@
 \input{../../../preamble-TD.tex}
 
-\SetDate[27/05/2026]
+\SetDate[4/9/2026]
 
 \begin{document}
-\fancyhead[C]{\bf Algèbre I --- Série 1}
+\fancyhead[C]{\bf Combinatoire énumérative --- Série 1}
+
+
+\exe{}{
+	Calculer la valeur de $6\choose3$ et interpréter le résultat.
+}{exe:0}{
+
+}
+
+\exe{}{
+	Une carte bancaire possède un code à 4 chiffres, de 0 à 9.
+	\begin{enumerate}
+		\item
+		Combien y a-t-il
+		\begin{enumerate}
+			\item
+			de codes possibles ?
+			\item
+			de codes se terminant par un chiffre pair ?
+			\item
+			de codes contenant au moins une fois 7 ?
+			\item
+			de codes contenant exactement une fois 7 ?
+		\end{enumerate}
+		\item
+		Une banque force son utilisateur a utiliser 4 chiffres différents pour augmenter la sécurité.
+		Combien y a-t-il
+		\begin{enumerate}
+			\item
+			de codes possibles ?
+			\item
+			de codes se terminant par un chiffre pair ?
+			\item
+			de codes contenant exactement une fois 7 ?
+		\end{enumerate}
+		\item
+		La banque a-t-elle eu raison de forcer l'utilisation de 4 chiffres différents ?	
+	\end{enumerate}
+}{exe:bank}{
+
+}
+
+\exe{}{
+	On pose un pion sur la case inférieure gauche d'un échiquier $4\times4$.
+	On déplace le pion de case en case afin d'atteindre la case supérieure droite.
+	Le pion peut soit se déplacer d'une case vers le haut, soit d'une case vers la droite. Il est donc impossible de faire une boucle.
+	En combien de façons différentes peut-il atteindre la case supérieure droite ?
+	
+}{exe:binom2}{
+
+}
+	\begin{figure}[h!]
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\foreach \i in {0, ..., 4}{
+			\draw (\i,0) -- (\i,4);
+		}
+		\foreach \j in {0, ..., 4}{
+			\draw (0,\j) -- (4,\j);
+		}
+		
+		\draw[<-] (.4,.5) arc[start angle=-90, end angle=-155, radius=.75cm] node[left] {Départ};
+		\draw[<-] (3.6,3.5) arc[start angle=90, end angle=25, radius=.75cm] node[right] {Arrivée};
+	\end{tikzpicture}
+	\caption{Échiquier $4\times4$.}
+	\label{fig:1a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\foreach \i in {0, ..., 4}{
+			\draw (\i,0) -- (\i,4);
+		}
+		\foreach \j in {0, ..., 4}{
+			\draw (0,\j) -- (4,\j);
+		}
+		\draw[thick] (.5,.5) -- (2.5, .5) -- (2.5, 1.5) -- (3.5, 1.5) -- (3.5, 3.5);
+		\draw[thick, dashed] (.5,.5) -- (.5, 1.5) -- (1.5, 1.5) -- (2.5, 1.5) -- (2.5, 2.5) -- (2.5 ,3.5) -- (3.5, 3.5);
+	\end{tikzpicture}
+	\caption{Deux façons différentes d'atteindre l'arrivée.}
+	\label{fig:1b}
+	\end{subfigure}
+	\caption{Figure de l'exercice \ref{exe:binom2}.}
+	\end{figure}
+
+
 
 \exe{difficulty=1}{
-	exe 1
-}{exe:1}{
+	Soient $m \leq n$ deux entiers naturels non nuls.
+	Montrer que le nombre de fonctions $f : [m] \rightarrow [n]$ strictement croissantes est égal à ${n \choose m}$.
+	
+	\emph{Indication : montrer qu'un $m$-uplet de $[n]$ correspond à une unique fonction $f$ strictement croissante.}
+}{exe:strict-increasing}{
+
+}
+
+\exe{difficulty=1}{
+	Soit $n\in\N$. En comparant les termes en $x^n$ de l'identité
+		$(1+x)^{2n} = (1+x)^n \cdot (1+x)^n, $
+	montrer que
+		\[ \sum_{k=0}^{n} {n \choose k} {n \choose n-k} = {2n \choose n}. \]
+}{exe:id-newton}{
+	todo
+}
+
+\exe{}{
+	Calculer le nombre de multiples de $7$, $11$, ou $13$ dans $[1000] = \{ 1 ; 2 ; 3 ; \dots ; 1000 \}$.
+	
+	Écrire un programme informatique permettant de vérifier son résultat.
+}{exe:divisors}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Dans l'ensemble $[1000] = \{ 1 ; 2 ; 3 ; \dots ; 1000 \}$, les multiples de 8, de 12, et de 15 sont supprimés.
+	Combien de nombres restent-il ?
+	
+	Écrire un programme informatique permettant de vérifier son résultat.
+}{exe:divisors-hard}{
+	todo
+}
+
+
+
+\exe{difficulty=1}{
+	Un ballon de football est constituté de 32 pentagones et hexagones réguliers comme ci-dessus :
+	chaque pentagone est entouré de cinq hexagones et chaque hexagone est entouré de trois pentagones et trois hexagones qui s'alternent.
+
+	Pour des pentagones $p$ et hexagones $h$, considérons l'ensemble 
+		\[ S = \bigset{ (p, h) \tq \text{ $p$ et $h$ partagent un côté } }. \]
+	En comptant $|S|$ de deux façons différentes, montrer que $5p = 3h$ et en déduire le nombre de pentagones et d'hexagones sur le ballon.
+}{exe:double-counting}{
 	sol 1
-}	
+}
+
+\exe{}{
+	 Une secrétaire dispose de $12$ enveloppes portant chacune l'adresse d'un client différent. Elle a aussi $12$ lettres différentes à envoyer à chacun des $12$ clients. Ne sachant pas pour chaque client quelle lettre doit lui être destinée, elle met au hasard chacune des $12$ lettres dans chacune des $12$ enveloppes et les poste en priant le ciel pour que chaque client reçoive sa lettre.
+	 \begin{enumerate}
+	  	\item 
+	  	Quelle est la probabilité que son vœu soit exaucé ?
+	  	\item 
+	  	Quelle est la probabilité qu'aucun des clients de reçoivent sa lettre ?
+%	  	\item 
+%	  	Quelle est la probabilité que deux clients exactement reçoivent leur lettre ?
+	 \end{enumerate}
+}{exe:derangement}{
+	 \begin{enumerate}
+		  \item 
+		  Il y a une seule permutation favorable pour que tous les clients reçoivent leur lettre et il y a $12!=479001600$ permutations possibles. La probabilités que tous les clients reçoivent leurs lettres est donc : $\dfrac{1}{12!}=\dfrac{1}{479001600}.$
+	  	\item 
+	  	La probabilité qu'aucun client ne reçoive sa lettre est égal au nombre de dérangements d'un ensemble à $12$ éléments divisé par $12!$ : 
+			\[  \sum_{k=0}^{12}\frac{(-1)^k}{k!}=\frac{16019531}{43545600}\approx 0,368. \]
+%	  	\item 
+%	  	La probabilité que deux clients exactement reçoivent leur lettre est la probabilité que la secrétaire n'ait pas permuté leurs lettres en les mettant dans l'enveloppe tout en ayant dérangé les autres, c'est-à-dire :  
+%			\[ \frac{1}{2!}\times \frac{10!\sum_{k=0}^{10}\frac{(-1)^k}{k!}}{10!}\approx 0,184 \ (\approx \frac{1}{2!e}). \]
+	 \end{enumerate}
+}
+
+\begin{figure}
+	\center
+	\includegraphics[scale=.3]{football2.png}
+	\caption{Figure de l'exercice \ref{exe:double-counting}.}
+\end{figure}
+
+\exe{}{
+	Donner un ensemble de 6 entiers relatifs tels qu'aucune différence de deux d'entre eux n'est multiple de 6.
+
+	Montrer que parmis 7 entiers relatifs, la différence de deux d'entre eux est un multiple de 6.
+}{exe:pidgin-whole0}{
+
+}
+
+\exe{}{
+	Montrer que parmis 100 personnes, 9 d'entre elles sont nécessairement nées le même mois de l'année.
+}{exe:pidgin-whole1}{
+
+}
+
+
+\exe{difficulty=1}{
+	Montrer qu'il existe un nombre de la forme $N = 11...100...0 \in\N$ (que des $1$ puis que des $0$) qui est multiple de $23$ et inférieur ou égal à $10^{24}$.
+	
+	\emph{Exemple : 111100 qui n'est malheureusement pas multiple de 23.}
+}{exe:pidgin-whole2}{
+
+}
+
+\exe{difficulty=1}{
+	Soit $n\in\N^*$ et $n = k_1 + k_2 + \dots + k_m$ une partition de $n$ en $m$ entiers naturels.
+	
+	Montrer que $k_1! k_2! \cdots k_m!$ divise $n$.
+	
+	Le nombre 
+		\[ \frac{n!}{k_1! k_2! \cdots k_m!} = {n \choose k_1, k_2, \dots, k_m} \in \N \]
+	est un \emph{coefficient multinomial}.
+}{exe:multinomial}{
+	todo
+}
+
 
 %%%%%%%%%%%
 
