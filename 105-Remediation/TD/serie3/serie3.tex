@@ -1,0 +1,254 @@
+\input{../../../preamble-TD.tex}
+
+\SetDate[2/09/2026]
+
+\begin{document}
+\fancyhead[C]{\textbf{Équations — Exercices}}
+
+\subsection*{Automatismes}
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du deuxième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			22x^2 - 125x + 22  = 0. \label{eq:1}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $22x^2 - 125x + 22 = (2x-11)(11x-2)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:1}.
+	\end{enumerate}
+}{exe:eq7}{
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe par double distributivité :
+			\[ (2x - 11)(11x - 2) = 22x^2 - 4x - 121x + 22 = 22x^2 - 125x + 22. \]
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
+		L'ensemble des solutions de \eqref{eq:1} est donc $\left\{ \dfrac{11}2 ; \dfrac2{11} \right\}$.
+	\end{enumerate}
+}
+
+
+\exe{}{
+	Pour chaque propriété, donner une fonction polynomiale $f$ à coefficients réels et non nulle la vérifiant.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f$ s'annule en $1$.
+		\item $f$ s'annule en $-10$.
+		\item $f$ s'annule en $0$.
+		\item $f$ s'annule en $-10$ et en $1$.
+		\item Les racines de $f$ sont $2, -3, \frac27$, et $0$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:6}{
+	Le polynôme identiquement nul $f(x) = 0$ n'est bien sûr pas autorisé sinon l'exercice n'a pas d'intérêt !
+	\begin{enumerate}
+		\item $f(x) = x-1$ fonctionne ainsi que $f(x) = 3(x-1)$, ou $f(x) = -(x-1) = 1-x$.
+		\item $f(x) = x+10$ fonctionne, ainsi que $f(x) = (x+10)(x-1)$, et tous ses multiples.
+		\item $f(x) = x$ ou $f(x) = 500x$.
+		\item $f(x) = (x+10)(x-1) = x^2 +9x -10$.
+		\item $f(x) = (x-2)(x+3)(x-\frac27)x$.
+	\end{enumerate}
+
+}
+
+\subsection*{Exercices}
+
+\exe{}{
+	Résoudre les équations suivantes pour $x\in\R$ non nul. Exprimer $x$ sous la forme $q \sqrt{r}$ avec $q\in\Q$ rationnel et $r\in\N$ le plus petit possible.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\dfrac3x = \dfrac73.$
+		\item $ \dfrac7x  =\dfrac1x + 2$
+		\item $\dfrac{16}x  =\dfrac{\sqrt{3}}2$
+		\item $-\dfrac2x =4\sqrt{3}$
+		\item $\dfrac9{-x}  =\dfrac{\sqrt{6}}5$
+		\item $-\dfrac3x =\dfrac57\sqrt{7}$
+		\item $-\dfrac9{2x}  =\dfrac{\sqrt{11}}3$
+		\item $\dfrac2{7x} =-\sqrt{14}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:eq-sqrt}{}
+
+
+
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du troisième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			4x^3 - 6x^2 - 2x + 3  = 0. \label{eq:2}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $4x^3 - 6x^2 - 2x + 3 = (2x-3) \left(2x^2-1\right)$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:2}.
+	\end{enumerate}
+}{exe:eq8}{
+
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe par double distributivité.
+		On utilise aussi que $x^2 \cdot x = x \cdot x \cdot x = x^3$.
+			\[ (2x - 3)(2x^2 - 1) = 4x^3 - 2x -6x^2 + 3. \]
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
+		Or l'équation $2x^2 - 1 = 0$ est équivalente à $x^2 = \dfrac12$.
+		En prenant la racine et en utilisant que $\sqrt{x^2} = |x|$, on obtient
+			\[ |x| = \sqrt{\dfrac12} = \dfrac1{\sqrt2}. \]
+		Les deux valeurs $\pm \dfrac1{\sqrt2}$ (notation $\pm$ pour \og plus ou moins \fg) sont donc solutions.
+		On en déduit que l'ensemble des solutions de \eqref{eq:2} est $\left\{ \dfrac32 ; \pm \dfrac1{\sqrt2} \right\} = \left\{ \dfrac32 ; \dfrac1{\sqrt2} ; - \dfrac1{\sqrt2} \right\}$
+	\end{enumerate}
+
+}
+
+
+\exe{}{
+	On souhaite connaître les solutions de l'équation du quatrième degré d'inconnue $x\in\R$ :
+		\begin{align}
+			16x^4 - 24x^2 + 9  = 0. \label{eq:3}
+		\end{align}
+	\begin{enumerate}
+		\item Montrer que $16x^4 - 24x^2 + 9 = \left(4x^2-3\right)^2$.
+		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:3}.
+	\end{enumerate}
+}{exe:eq9}{
+
+	\begin{enumerate}
+		\item On part toujours de la forme factorisée qu'on développe à l'aide de l'identité remarquable $(a-b)^2 = a^2 + b^2 -2ab$.
+		On utilise aussi que $(x^2)^2 = x^2 \cdot x^2 = x\cdot x\cdot x\cdot x = x^4$.
+			\[ (4x^2 - 3)^2 = (4x^2)^2 + 3^2 - 2\cdot(4x^2)\cdot3 = 16x^4 + 9 -24x^2. \]
+		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
+		Ici, les deux facteurs sont les mêmes, car $(4x^2 - 3)^2 = (4x^2 - 3)(4x^2 - 3)$, donc on se remet à résoudre $(4x^2 - 3) = 0$.
+		Ceci est équivalent à $x^2 = \dfrac34$, et donc l'ensemble des $x$ vérifiant \eqref{eq:3} est donné par $\left\{ \pm \sqrt{\dfrac34} \right\} = \left\{ \pm \dfrac12\sqrt{3} \right\}= \left\{ \dfrac12\sqrt{3} ;  -\dfrac12\sqrt{3} \right\}$.
+	\end{enumerate}
+
+}
+
+
+
+\filbreak
+
+\exe{difficulty=1}{
+	\begin{multicols}{2}
+	La Terre complète son tour autour du Soleil en environ 365,2422 jours. 
+	Un calendrier ne peut donc pas contenir 365 jours tous les ans si celui-ci doit être synchronisé avec les saisons.
+	
+	Si le calendrier contient moins de 365,2422 jours, il sera en avance.
+	S'il contient plus de 365,2422 jours, il sera en retard
+
+	\begin{center}
+		\includegraphics[page=4]{../../CM/2-figures.pdf}
+	\end{center}
+	\end{multicols}
+	
+	\begin{enumerate}
+	\item
+	Calendrier julien\footnote{De Jules César (né en 100 av. J.-C., mort en 44 av. J.-C.).}.
+	
+	En $46$ av. J.-C., Jules César introduit la règle de l'année bissextile.
+	\begin{enumerate}
+		\item
+		Trouver un entier naturel $a \in \N$ non nul tel que
+			\[ 365{,}2422 \approx 365 + \dfrac1a.\]
+
+		\item
+		En déduire la règle d'année bissextile du calendrier julien.
+		
+		\item
+		Au bout de 1 600 ans, de combien de jours le calendrier est-il en retard ?
+	\end{enumerate}
+	
+	\item
+	Calendrier grégorien\footnote{Du pape Grégoire XIII (1502-1585).}.
+	
+	En 1582, plus de 1 600 ans après l'introduction de la règle d'année bissextile, le calendrier julien prend donc un retard notable.
+	Le pape Grégoire XIII promulgue alors une réforme du calendrier, ainsi créant le calendrier grégorien encore utilisé aujourd'hui.
+	
+	Afin de corriger le problème de dérive du calendrier, une nouvelle règle est ajoutée à la définition d'année bissextile.
+	
+	\begin{enumerate}
+		\item
+		Trouver un entier naturel $b \in \N$ tel que
+			\[ 365{,}2422 \approx 365 + \dfrac14 - \dfrac{b}{400}.\]
+
+		\item
+		En déduire la règle d'année bissextile du calendrier grégorien.
+		
+		\item
+		Au bout de combien d'années le calendrier est-il en retard d'un jour ?
+	\end{enumerate}
+	
+	\item
+	Un nouveau calendrier ?
+	\begin{enumerate}
+		\item
+		Trouver un entier naturel $c \in \N$ tel que
+			\[ 365{,}2422 \approx 365 + \dfrac14 - \dfrac{3}{400} - \dfrac{c}{4000}.\]
+
+		\item 
+		Créer une nouvelle règle d'année bissextile.
+		\item
+		Calculer le nombre d'années avant que votre calendrier soit en retard d'un jour.
+	\end{enumerate}
+	\end{enumerate}
+}{exe:calendrier}{}
+
+
+
+%
+%\exe{, difficulty=2}{
+%	Donner quelques termes en plus de la somme infinie suivante. 
+%		\[ \dfrac1{10} + \dfrac1{100} + \dfrac1{1 000} + \dfrac1{10 000} + \dots \]
+%	Écrire le nombre en écriture décimale, puis l'exprimer sous forme de fraction de deux entiers comme à l'exercice \ref{exe:dev-to-fraction}.
+%}{exe:20}{
+%	La somme infinie vaut $0,1111{\dots} = \frac19$.
+%}
+%
+%\exe{, difficulty=2}{
+%	Donner quelques termes en plus de la somme infinie suivante.
+%		\[ \dfrac12 + \dfrac14 + \dfrac18 + \dfrac1{16} + \dots \]
+%	À quoi est-elle égale ? Un résultat entier est attendu.
+%}{exe:21}{
+%	Posons $S$ cette somme. 
+%	En multipliant par $2$, on trouve $2S = 1 + S$, et donc $S=1$.
+%}
+%
+%\exe{, difficulty=2}{
+%	On considère la somme finie suivante
+%		\[ S = 1 + 2 + 4 + 8 + 16 + \dots + 2^{n-1} +  2^n, \]
+%	où $n\in\N$ est un entier naturel.
+%	
+%	Montrer que $2S = S - 1 + 2^{n+1}$, et en déduire la valeur de $S$ sous forme close (sans points de suspension).
+%}{exe:22}{
+%	En multipliant par 2, le premier terme (1) disparait, et un nouveau terme ($2^{n+1}$) apparaît.
+%	On a donc bien $2S = S -1 + 2^{n+1}$, et donc $S = 2^{n-1} - 1$.
+%}
+%
+%
+%\exe{, difficulty=2}{
+%	Montrer qu'un triangle isocèle rectangle ne peut pas avoir des côtés de longueurs toutes entières.
+%}{exe:non-iso-rec}{
+%	Supposons qu'il existe un triangle isocèle rectangle de côtés $(a ; a; b)$.
+%	
+%	Or, comme le triangle est rectangle isocèle,
+%		\[ b^2 = a^2 + a^2 = 2a^2 \iff b = \pm\sqrt2 a. \]
+%	Par conséquent, $\sqrt2 = \pm\frac{b}{a} \in \Q$, ce qui contredit le théroème d'irrationalité de la racine carrée de 2.
+%}
+%
+%\exe{, difficulty=1}{
+%	Soit $q\in\Q$ un rationnel. Montrer qu'un triangle dont les côtés sont de longueur $(4 ; 5 ; q)$ ne peut être rectangle que si $q=3$.
+%	
+%	En autorisant $x\in\R$ irrationel, donner un triangle rectangle de côtés $(4 ; 5; x)$ avec $x\neq3$.
+%}{exe:non-rec}{
+%	Il y a deux cas de figure à étudier : $q$ est la longueur de l'hypothénuse, ou elle ne l'est pas.
+%	Dans le premier cas, le théorème de Pythagore énonce que
+%		\[ 4^2 + 5^2 = q^2 \iff 41 = q^2. \]
+%	Il suit que $q=\sqrt{41}$ qui n'est pas rationnel car 41 n'est pas un carré parfait.
+%	Ceci répond à la deuxième question : $(4 ; 5; \sqrt{41})$ est rectangle.
+%	
+%	Dans le second cas,
+%		\[ q^2 + 4^2 = 5^2 \iff q^2 = 9. \]
+%	Par conséquent, $q = \pm3$ et seule la solution $q=3$ est positive et donc une longueur valide.
+%}
+
+%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Nombres rationnels — Solutions}}
+\shipoutAnswer
+
+\end{document}
