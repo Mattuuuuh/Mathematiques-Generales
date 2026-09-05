@@ -1,76 +1,14 @@
 \documentclass[a4paper, 12pt]{extarticle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \input{../../../packages.tex}
-%\usepackage[french]{babel}
-%\usepackage[
-%a4paper,
-%margin=2cm,
-%]{geometry}
-%
-%\usepackage[utf8x]{inputenc}
-%%fonts
-%\usepackage{libertinus,libertinust1math}
-%\usepackage{amsmath,amsthm,amssymb,mathtools}
-%
-%%virgules
-%\usepackage{icomma}
-
-%% HEADER, ARRAY, ENUM, MULTIOCL
-%\usepackage{fancyhdr}
-%\usepackage{array}
-%\usepackage{multicol, enumitem}
-%
-%% theorems
-%%\theoremstyle{theorem}
-%%\newtheorem{thm}{Théorème}
-%%\theoremstyle{plain}
-%%\newtheorem*{sol}{Solution}
-%%\theoremstyle{definition}
-%%\newtheorem{ex}{Exercice}
-%%\newtheorem{dfn}{Définition}
-%%\newtheorem*{dfn*}{Définition}
-%%\newtheorem*{remarque}{Remarque}
-%
-%%\newtheoremstyle{named}{}{}{}{}{\bfseries}{.}{.5em}{\thmnote{#3}}
-%%\theoremstyle{named}
-%%\newtheorem*{namedtheorem}{Theorem}
-%
-%% roman subsections
-%\renewcommand{\thesubsection}{\Roman{subsection}} 
-%
-%
-%% exercices
-%
-%% plots
-%\usepackage{pgfplots}
-%\tikzset{
-%	every axis/.style = {clip=false, axis lines=center, axis line style=<->, xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}, domain=-2:2}
-%}
-%
-%%subfigures
-%\usepackage{subcaption}
-%
-%%hyperlink footnote
-%\usepackage{hyperref}
-%
-%% tableaux var, signe
-%\usepackage{tkz-tab}
-%
-%% tikz calculating
-%\usetikzlibrary{calc}
-
-%wider tabulars
-%\def\arraystretch{2}
-%\setlength\tabcolsep{15pt}
-
-% for striked out implies sign (\centernot\implies)
-\usepackage{centernot}
-
-% margins for points
-\usepackage{marginnote}
 
 % date
 \usepackage{advdate}
-
 
 \pagestyle{fancy}
 \fancyhead[L]{Université de Mayotte}
@@ -105,9 +43,14 @@
 	align = left, labelwidth = \parindent%, labelsep = 0pt, leftmargin = \parindent
 }
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXERCISES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{ifthen}
 \renewcommand{\ExerciseHeader}{
-	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\ref{\ExerciseLabel-Answer}.}};\!
+	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\hyperref[\ExerciseLabel-Answer]{\theExercise}.}};\!
 	\ifnum\ExerciseDifficulty=0
 	\else
 		(\theExerciseDifficulty)
@@ -147,3 +90,6 @@
 		#5
 	\end{Answer}
 }
+
+
+

@@ -1,0 +1,231 @@
+%!TEX encoding = UTF8
+%!TEX root = 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 1 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\exe{}{
+	Soit $f$ une fonction réelle sur $\R$.
+	Montrer que l'ensemble des périodes de $f$ suivant est un groupe commutatif lorsque muni de l'addition $+$ usuelle.
+		\[ P_f = \bigset{ p \in \R \tq f(x+p) = f(x) ~ \forall x\in\R } \]
+}{exe:groupe-periodes}{
+	
+}
+
+\exe{}{
+	Soit $A$ un anneau unitaire. 
+	Montrer que $\bigpar{ A^\times,  \cdot  }$ est un groupe.
+}{exe:units-group}{
+	todo
+}
+
+
+\exe{difficulty=1}{
+	Considérons $ABC$ un triangle équilatéral dans le plan.
+	Soit $r$ la rotation centrale qui envoie $A$ sur $B$, $B$ sur $C$, et $C$ sur $A$.
+	Soit $s$ la symétrie axiale qui envoie $A$ sur $B$, $B$ sur $A$, et qui laisse $C$ invariant.
+	Notons les éléments $r$ et $s$ par leur action sur $A, B, C$ comme suit :
+		\begin{align*}
+			r = \begin{pmatrix} A&B&C\\B&C&A\end{pmatrix} && \et && s = \begin{pmatrix}A&B&C\\B&A&C\end{pmatrix}.
+		\end{align*}
+	
+	Soit $G = \japb{r, s}$ le groupe généré par $r$ et par $s$ (c'est-à-dire tous les produits de $r$ et de $s$ possibles), doté de la loi de composition naturelle des fontions :
+	pour tout $g, h\in G$ et $P$ un point du plan, 
+		\[ (gh)(P) = g(h(P)). \]
+	\begin{enumerate}
+		\item
+		Montrer que $G$ a au plus $6$ éléments.
+		\item
+		Nommer et expliciter tous les éléments du groupe $G$. Ce groupe est appelé \mbox{« groupe diédral »} et noté $D_6$.
+		\item
+		Décrire la loi de composition de $G$ à l'aide d'une table de multiplication.
+	\end{enumerate}
+	
+	\emph{Remarque : un groupe est entièrement décrit par sa table de multiplication.}
+}{exe:D6}{
+	todo
+}
+
+
+\exe{difficulty=1}{
+	Considérons $\R[x]$, l'ensemble des polynômes à coefficients réels, comme $\R$-espace vectoriel.
+	Soit $E = \End(\R[x])$ l'ensemble des endomorphismes (applications $\R$-linéaires) de $\R[x]$ muni de l'opérateur de composition $\circ$.
+	\begin{enumerate}
+		\item
+		Montrer que $E$ est stable pour $\circ$ ; que la loi $\circ$ est associative ; et qu'elle admet un élément neutre.
+		\item
+		Montrer que l'élément $m_x : p(x) \mapsto x\cdot p(x)$ admet un inverse à gauche mais pas à droite.
+		\item
+		Montrer que l'élément $\partial : p(x) \mapsto p'(x)$ admet un inverse à droite mais pas à gauche.
+		\item
+		Donner un élément inversible de $E$ qui n'est pas l'élément neutre.
+	\end{enumerate}
+	\emph{Conclusion : $E$ n'est pas un groupe.}
+}{exe:inv-gauche-not-droite}{
+	Il y a en fait une infinité d'inverses à gauche et à droite !
+}
+
+\exe{difficulty=1}{
+	Soit $G$ un sous-groupe de $\bigpar{\R ,+}$.
+	L'ensemble $G$ est dit \emphindex{dense} dans $\R$ toute boule de $\R$ s'intersecte avec $G$. 
+	Autrement dit, pour tout $x\in\R$ et tout $\epsilon>0$, il existe un $g\in G$ à distance $\epsilon$ de $x$ : $|x - g| < \epsilon$.
+	
+	En considérant le plus petit nombre strictement positif de $G$, montrer que $G$ est soit dense, soit de la forme $g\Z$ avec $g\in G$.
+	
+	\emph{
+	Remarque : les nombres représentables par un ordinateur forment un sous-groupe additif de $\bigpar{\R, +}$.
+	Chaque nombre représentable est donc multiple entier du plus petit nombre représentable.
+	}
+}{exe:subgroup-R-p}{
+	todo
+}
+
+
+\exe{}{
+	Montrer que $u \cdot 0 = 0$ pour tout $u$ élément d'un anneau $R$.
+	
+	\emph{À gauche : $u$ multiplié par l'élément neutre additif 0.}
+	
+	\emph{À droite : l'élément neutre additif.}
+}{exe:utimes0}{
+	Nous avons la suite d'égalités suivantes.
+		\begin{align*}
+			u \cdot 0 &= u \cdot (0+0)  && \text{car $\bigpar{R, +}$ est un groupe d'élément neutre $0$} \\
+				&= u \cdot 0 + u \cdot 0 && \text{par associativité de $ \cdot $ sur $+$} \\
+			0 &= u \cdot 0 && \text{en soustrayant $u \cdot 0$}
+		\end{align*}
+}
+
+\exe{}{
+	Montrer que $u \cdot (-1) = -u$ pour tout $u$ élément d'un anneau unitaire $R$.
+	
+	\emph{À gauche : $u$ multiplié par l'inverse additif de l'élément neutre multiplicatif 1.}
+	
+	\emph{À droite : l'inverse additif de $u$.}
+}{exe:utimes-1}{
+	Nous avons la suite d'égalités suivantes.
+		\begin{align*}
+			u \cdot (-1) + u &= u \cdot (-1+1) && \text{par associativité de $ \cdot $ sur $+$} \\
+				&= u \cdot 0 && \\
+				&= 0 &&
+		\end{align*}
+}
+
+
+\exe{}{
+	Considérons $(\Z, +, \cdot)$, l'anneau des entiers relatifs.
+	Montrer que $I = 6\Z$ est un idéal de l'anneau. C'est-à-dire :
+	\begin{enumerate}
+		\item
+		$(I, +)$ est un groupe commutatif ; et
+		\item
+		$n \cdot I \subseteq I$ pour tout $n\in\Z$.
+	\end{enumerate}
+}{exe:6Z-ideal}{
+
+}
+
+\exe{}{
+	Trouver des entiers relatifs $u, v \in \Z$ tels que
+		\[ 6u + 15v = 3, \]
+	puis montrer que $6\Z + 15\Z = 3\Z$.
+}{exe:6Z-p-15Z}{
+
+}
+
+\exe{}{
+	Montrer que $6\Z \cap 15\Z = 30\Z$.
+}{exe:6Z-cap-15Z}{
+
+
+}
+
+\exe{}{
+	Montrer que
+		\begin{align*}
+			a | b && \iff && b\Z \subseteq a\Z.
+		\end{align*}
+}{exe:divide-include}{
+	todo
+}
+
+
+\exe{}{
+	Soit $A$ un anneau unitaire.
+	Montrer que si $u\in A$ admet un inverse à gauche et un inverse à droite, alors ces inverses sont égaux.
+		\[ u^G \cdot u = 1 = u \cdot u^D \implies u^G = u^D. \]
+}{exe:inv-gauche-droite}{
+	Par associativité, $u^D = (u^G u) u^D = u^G (u u^D) = u^G$.
+}
+
+\exe{difficulty=1}{
+	Considérons $A = \bigset{ f : \R \rightarrow \R }$ l'ensemble des applications de  $\R$ dans $\R$.
+	Nous équipons $A$ d'un addition $+$ et d'une multiplication $\cdot$ définies par
+		\begin{align*}
+		(f+g)(x) = f(x) + g(x) && \et && (f\cdot g)(x) = f(x)g(x).
+		\end{align*}
+	\begin{enumerate}
+		\item Donner les éléments neutres pour l'addition et la multiplication dans l'anneau $\bigpar{A, +, \cdot}$.
+		\item Décrire les diviseurs de zéro de $A$.
+		\item Montrer que chaque élément non nul est soit un diviseur de zéro, soit inversible.
+	\end{enumerate}
+}{exe:ring-of-maps}{
+	todo
+}
+
+\exe{}{
+	Soit $A$ un anneau unitaire.
+	Montrer qu'une unité $u\in A^\times$ n'est pas un diviseur de zéro.
+}{exe:unit-not-zero-divisor}{
+}
+
+\exe{difficulty=0}{
+	Considérons le sous-ensemble $E$ des matrices réelles $2\times2$ suivant.
+		\[ E = \left\{ \begin{pmatrix} a & -b \\ b & a \end{pmatrix} \tq a, b \in \R \right\}. \]
+	Montrer que $E$ est un corps lorsque muni de l'addition et de la multiplication usuelles des matrices.
+}{exe:C-as-matrix}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $p\in\N$ un nombre premier.
+	Montrer que $\F_p = \bigpar{ \Z/p\Z, +, \cdot }$ est un corps.
+	
+	Trouver l'inverse de 6 dans $\F_{15}$ à l'aide de l'exercice \ref{exe:6Z-p-15Z}.
+}{exe:Fp-field}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soit $(A, +, \cdot)$ un anneau commutatif unitaire et $\circ$ la loi définie par
+		\[ a \circ b = a + b - a\cdot b. \]
+	\begin{enumerate}
+		\item 
+		Montrer que $\circ$ est associative d'élément neutre 0.
+		\item
+		Montrer que $\bigpar{A-\{1\}, \circ}$ est un groupe si et seulement si $A$ est un corps.
+	\end{enumerate}
+}{exe:circle-op}{
+	todo
+}
+
+
+\exe{}{
+	Montrer que tout corps est intègre : aucun élément non nul ne divise zéro.
+}{exe:field-integral}{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

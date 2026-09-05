@@ -1,0 +1,759 @@
+%!TEX encoding = UTF8
+%!TEX root = 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 1 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+\exe{origin=set1,}{
+	Soient $f(x) = 3+2x$ et $g(x) = x^2 + 2x - 1$ deux polynômes à coefficients réels.
+	Calculer
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $f(x)+g(x)$ ;
+		\item $f(x) g(x)$ ;
+		\item $f(x)^2$ ; et
+		\item $g(f(x))$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:sum-product}{
+	\begin{enumerate}
+		\item 
+			\[  f(x)+g(x) = 3+2x + x^2 + 2x - 1 = x^2 + 4x + 2. \]
+		\item 
+			\[ f(x) g(x) = (3+2x)(x^2 + 2x - 1) = 3x^2 + x - 3. \]
+		\item 
+			\[ f(x)^2 = (3+2x)^2 = 4x^2 + 12x + 9. \] 
+		\item 
+			\[ g(f(x)) = f(x)^2 + 2f(x) - 1 = (4x^2 + 12x + 9) + 2(3+2x) - 1 = 4x^2 + 16x + 14. \]
+	\end{enumerate}
+}
+
+\exe{origin=set1,}{
+	Pour chaque polynôme de $\R[x]$ suivant, donner : son degré ; son coefficient dominant ; et son coefficient constant. Dire si le polynôme est unitaire ou non.
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=5pt]
+		\item
+		$p_1(x) = x^3 + x - 1$
+		\item
+		$p_2(x) = -x^7 + 6x + 4$
+		\item
+		$p_3(x) = x^3 + x^5 - x$
+		\item
+		$p_4(x) = 1 + x^2 - x^4 - x^3 + x$
+	\end{enumerate}
+	\end{multicols}
+	\emph{Notation : le degré d'un polynôme $p$ est noté $\deg(p)$.}
+}{exe:degre-unitaire}{
+	\begin{enumerate}
+		\item
+		$\deg(p_1) = 3$. Le coefficient dominant est $1$ donc $p_1$ est unitaire.
+		Le coefficient constant est $-1$.
+		\item
+		$\deg(p_2) = 7$. Le coefficient dominant est $-1$ donc $p_2$ n'est pas unitaire.
+		Le coefficient constant est $4$.
+		\item
+		$\deg(p_3) = 5$. Le coefficient dominant est $1$ donc $p_3$ est unitaire.
+		Le coefficient constant est $0$.
+		\item
+		$\deg(p_4) = 4$. Le coefficient dominant est $-1$ donc $p_4$ n'est pas unitaire.
+		Le coefficient constant est $1$.
+	\end{enumerate}
+}
+
+
+\exe{origin=set1,difficulty=1}{
+	Calculer de tête le coefficient
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=5pt]
+		\item
+		en $x$ de $(x+3)(x-4)$ ;
+		\item
+		en $x^2$ de $(1+x+x^2+x^3)(2x^2 + 3x - 5)$ ; \columnbreak
+		\item
+		en $x^6$ de $\left(3-4x-x^3+7x^4 + 2x^5\right)^2$ ;  et
+		\item
+		en $x^{50}$ de \mbox{$(1 + x^{25} + x^{50} + x^{100})(1 - x^{25} - x^{50} - x^{100})$}.
+	\end{enumerate}
+	\end{multicols}
+}{exe:coeff-reading}{
+	\begin{enumerate}
+		\item
+		Seuls les produits $x\times(-4)$ et $3\times x$ contribuent au terme en $x$.
+		Le coefficient en $x$ est donc $-4+3 = -1$.
+		
+		On pourra vérifier que $(x+3)(x-4) = x^2 -x - 12$.
+		\item
+		Seuls les produits $1\times 2x^2$ ; $x \times 3x$ ; et $x^2 \times(-5)$ contribuent au terme en $x^2$.
+		Le coefficient en $x^2$ est donc $2+3-5 = 0$.
+		
+		On pourra vérifier que $(1+x+x^2+x^3)(2x^2 + 3x - 5) = 2x^5 + 5x^4 - 2x - 5$.
+		\item
+		Remarquons que $\left(3-4x-x^3+7x^4 + 2x^5\right)^2 = \left(3-4x-x^3+7x^4 + 2x^5\right)\left(3-4x-x^3+7x^4 + 2x^5\right)$.
+		Ainsi, seuls les produits $-4x\times2x^5$ ; $-x^3 \times (-x^3)$ ; et $2x^5 \times(-4x)$ contribuent au terme en $x^6$.
+		Le coefficient en $x^6$ est donc $-8 + 1 - 8 = -15$.
+		
+		On pourra vérifier que $\left(3-4x-x^3+7x^4 + 2x^5\right)^2 = 4x^{10} + 28x^9 + 45x^8 -14x^7 - 15x^6 - 44x^5 -6x^3 + 16x^2 -24x + 9$ (merci Wolfram !).
+		\item
+		Seuls les produits $1\times(-x^{50})$ ; $x^{25} \times (-x^{25})$ ; et $x^{50} \times 1$ contribuent au terme en $x^{50}$
+		Le coefficient de $x^{50}$ est donc $-1 -1 +1 = -1$.
+		
+		On pourra vérifier que $(1 + x^{25} + x^{50} + x^{100})(1 - x^{25} - x^{50} - x^{100}) = -x^{200} - 2x^{150} -2x^{125} -x^{100} - 2x^{75} -x^{50} + 1$.
+	\end{enumerate}
+}
+
+\exe{origin=set1,difficulty=1}{
+	Calculer le coefficient 
+	%\begin{multicols}{2}
+	\begin{enumerate}[itemsep=5pt]
+		\item
+		en $x^6$ de $(3x^2 + 7x - 3)(7x - 2x^4 + 3)$
+		\item
+		constant de $\left(17 + 31320x - 10^{31}x^2 - \frac13 x^7\right)\left(41x^2 + 76x - 2\right)$ ;
+		\item
+		en $x$ de $(x+3)(x-4)(x-8)$ ;
+		\item
+		en $x^2$ de $(x+1)(x-1)(x+3)(x+6)(x-2)$ ;
+		\item
+		en $x^6$ de $(1+x)^7$.
+	\end{enumerate}
+	%\end{multicols}
+	\emph{Il est possible de vérifier ses résultats à l'aide de WolframAlpha (\href{https://www.wolframalpha.com/input?i=\%28x\%2B1\%29\%28x-1\%29\%28x\%2B3\%29\%28x\%2B6\%29\%28x-2\%29}{https://www.wolframalpha.com/}).}
+}{exe:coeff-reading-3}{
+	\begin{enumerate}
+		\item
+		Seul le produit $3x^2 \times (-2x^6)$ contribue au terme en $x^6$.
+		Le coefficient en $x^6$ est donc $-6$.
+		\item
+		Seul le produit $17\times(-2)$ contribue au terme constant.
+		Le coefficient constant est donc $-34$.
+		\item
+		Trois produits contribuent au terme en $x$ : parmi les trois parenthèses, il faut choisir $x$ une fois, et la constante les deux autres fois.
+		Les produits contribuant au terme en $x$ sont donc $x\times(-4)\times(-8)$ ; $3\times x\times(-8)$ ; et $3\times(-4)\times x$.
+		Le coefficient en $x$ est donc $32-24-12 = -4$.
+		
+		On pourra vérifier que $(x+3)(x-4)(x-8) = x^3 -9x^2-4x+96$.
+		\item
+		en $x^2$ de $(x+1)(x-1)(x+3)(x+6)(x-2)$ ;
+		Il s'agit ici de choisir $x$ deux fois parmis les cinq parenthèses.
+		Il existe ${5 \choose 2} = 10$ façons de faire. Celles-ci sont
+		\begin{multicols}{2}
+		\begin{enumerate}[label=Produit \arabic* :]
+			\item
+			$x\times x \times 3\times6\times(-2) = -36x^2$ ;
+			\item
+			$x\times(-1)\times x \times6\times(-2) = 12x^2$ ;
+			\item
+			$x\times(-1)\times3\times x\times(-2) = 6x^2$ ;
+			\item
+			$x\times(-1)\times3\times6\times x = -18x^2$ ;
+			\item
+			$1\times x\times x \times 6\times(-2) = -12x^2$ ;
+			\item
+			$1\times x \times 3 \times x \times(-2) = -6x^2$ ;
+			\item
+			$1\times x \times 3 \times6\times x = 18x^2$ ;
+			\item
+			$1\times(-1)\times x \times x \times (-2) = 2x^2$ ;
+			\item
+			$1\times(-1)\times x \times6\times x = -6x^2$ ; et
+			\item
+			$1\times(-1)\times3\times x \times x = -3x^2$. (ouf !)
+		\end{enumerate}
+		\end{multicols}
+		Le coefficient en $x^2$ est donc $-36+12+6-18-12-6+18+2-6-3 = -43$. 
+		
+		Notons que le correcteur s'y est pris à deux fois pour obtenir le bon résultat, vérifié par WolframAlpha qui fournit $(x+1)(x-1)(x+3)(x+6)(x-2) = x^5 +7x^4-x^3 -43x^2 +36$.
+		\item
+		Comme $(1+x)^7 = (1+x)(1+x)(1+x)(1+x)(1+x)(1+x)(1+x)$, pour obtenir $x^6$, il faut choisir $x$ six foix parmi les sept parenthèses, et 1 une fois.
+		Il existe 7 façons de faire, le choix de $x$ pouvant être fait en première, deuxième, troisième, ..., ou septième parenthèse.
+		Le coefficient en $x^6$ est donc 7.
+		
+		On pourra vérifier douloureusement que $(1+x)^7 = x^7 +7x^6 + 21x^5 + 35x^4 + 35x^3 + 21x^2 + 7x + 1$.
+		Question ouverte : pourquoi les coefficients forment-ils un palindrome ?
+	\end{enumerate}
+}
+
+\exe{origin=set1,}{
+	Montrer que le coefficient constant d'un polynôme $p$ est égal à $p(0)$.
+	
+	Quel est le coefficient constant de $p(x) = (x-1)^{231} - (x-1)^{436}$ ?
+}{exe:coeff-const}{
+	Si $p(x) = a_0 + a_1x + a_2x^2 + \dots + a_d x^d$ où $d=\deg(p)$, alors $p(0) = a_0 + 0 + 0 + \dots + 0 = a_0$, le coefficient constant.
+	
+	Le coefficient constant de $p(x) = (x-1)^{231} - (x-1)^{436}$ est donc
+		\[ p(0) = (-1)^{231} - (-1)^{436} = -1 - (1) = -2, \]
+	car $(-1)^n$ vaut $+1$ si $n$ est pair, et $-1$ si $n$ est impair.
+}
+
+\exe{origin=set1,difficulty=1}{
+	Montrer que le polynôme $x + 1$ est combinaison linéaire des polynômes $x + 3$ et $x+5$.
+	
+	La combinaison trouvée est-elle unique ?
+}{exe:comb-lin-poly}{
+	Nous posons, pour $\alpha, \beta\in\R$ deux nombres réels,
+		\[ x+1 = \alpha(x+3) + \beta(x+5) = (\alpha+\beta)x + (3\alpha + 5\beta). \]
+	D'après le cours, l'ensemble $\{ 1 ; x \}$ est linéaire indépendant sur $\R$ et la combinaison linéaire de $x+1 = 1\times(x) + 1\times(1)$ est unique.
+	Il suit donc que
+		\[ \sys{\alpha + \beta = 1}{3\alpha + 5\beta = 1}. \]
+	Une façon de résoudre le système est d'écrire $\alpha = 1-\beta$ d'après la première équation, et de la substituer dans la deuxième :
+		\begin{align*}
+			3(1-\beta) + 5\beta &= 1, \\
+			3 + 2\beta &= 1, \\
+			2\beta = -2, \\
+			\beta = -1.
+		\end{align*}
+	Par conséquent, $\alpha = 1-(-1) = 2$.
+	Vérifions notre solution :
+		\[ 2(x+3) + (-1)(x+5) = 2x + 6 -x-5 = x+1. \]
+	La résolution du système nous ayant donné qu'une seule solution, celle-ci est unique. 
+}
+
+\exe{origin=set1,}{
+	Montrer que le polynôme $x^2 - 5x + 6$ n'est pas combinaison linéaire des polynômes $x - 2$ et $x-3$.
+}{exe:not-comb-lin-poly}{
+	Une combinaison linéaire $\alpha(x-2) + \beta(x-3)$ avec $\alpha, \beta\in\R$ deux nombres réels ne peut pas être égale à $x^2 -5x + 6$ car le coefficient en $x^2$ de la combinaison est $0$, alors que le coefficient en $x^2$ de $x^2 -5x+6$ est 1.
+}
+
+
+\exe{origin=set1,difficulty=0}{
+	Soit $S = \bigset{ -1 ; 0 ; 1 } \subseteq \R$ un ensemble à trois éléments.
+	Considérons l'ensemble $S[x]$ des polynômes à coefficients dans $S$, ainsi que $p(x) = x^3 - x$.
+	\begin{enumerate}
+		\item Est-ce que $p(x) \in S[x]$ ? Justifier.
+		\item Est-ce que $p$ est le polynôme nul de $S[x]$ ?
+		\item Est-ce que $p$ est la fonction nulle sur $S$ ? C'est la fonction qui envoie chaque élément \mbox{de $S$ sur $0$.}
+	\end{enumerate}
+	\emph{Conclusion : il est donc important de distinguer polynôme et fonction polynomiale.}
+}{exe:fonction-nulle-S}{
+	Il s'agit de montrer que $f(x) = 0$ pour tout $x\in S$.
+	Ceci se vérifie par le calcul : $f(0) = f(1) = f(-1) = 0$.
+}
+
+\exe{origin=set1,}{
+	Donner la définition de l'indépendance linéaire sur $\R$ d'une famille de polynômes.
+}{exe:def-LI}{
+	Il existe une combinaison linéaire nulle et non triviale.
+}
+
+\exe{origin=set1,}{
+	Est-ce que la famille de polynômes $\bigset{ x^2+4x - 2 ; x+2 ; 50 } \subseteq\R[x]$ est linéairement indépendante sur $\R$ ? 
+}{exe:lin-indep2}{
+	Oui : pour $\alpha, \beta, \gamma\in\R$ trois nombres réels, l'équation
+		\[ \alpha(x^2 + 4x-2) + \beta(x+2) + \gamma(50) = 0 \]
+	est équivalente à
+		\[ \alpha x^2 + (4\alpha + \beta)x + (-2\alpha + 2\beta + 50\gamma) = 0. \]
+	D'après l'indépendant linéaire de $\{ 1 ; x ; x^2 \}$, nous obtenons le système
+		\[ \systeme{\alpha = 0{,},4\alpha + \beta = 0{,},-2\alpha + 2\beta + 50\gamma = 0.}. \]
+	La première équation donne immédiatement $\alpha =0$, qui peut disparaître des autres équations.
+	La deuxième se simplifie donc en $\beta = 0$.
+	La dernière se simplifie alors en $50\gamma = 0$ et donc $\gamma = 0$.
+	
+	Nous avons donc démontré que $\alpha=\beta=\gamma=0$ et que la seule combinaison linéaire nulle est la combinaison triviale : la famille est linéairement indépendante sur $\R$.
+}
+
+\exe{origin=set1,}{
+	Est-ce que la famille de polynômes $\bigset{ x+1 ; x+2 } \subseteq\R[x]$ est libre sur $\R$ ?
+}{exe:lin-indep1}{
+	Oui : pour $\alpha, \beta \in \R$ deux nombres réels, l'équation
+		\[ \alpha(x+1) + \beta(x+2) = 0 \]
+	est équivalente à
+		\[ (\alpha+\beta)x + (\alpha + 2\beta) = 0. \]
+	D'après l'indépendant linéaire de $\{ 1 ; x \}$, nous obtenons le système
+		\[ \sys{\alpha+\beta = 0}{\alpha+2\beta = 0}. \]
+	En soustrayant la première équation à la deuxième, nous obtenons
+		\begin{align*}
+			\alpha + 2\beta - (\alpha + \beta) &= 0-0, \\
+			\beta &=0.
+		\end{align*}
+	La première équation donne alors $\alpha = 0$ ce qui conclut.
+}
+
+\exe{origin=set1,}{
+	Est-ce que la famille de polynômes $\bigset{ 2x^2+4x - 2 ; x^2 + x + 1 ; x-2 } \subseteq\R[x]$ est libre sur $\R$ ?
+}{exe:lin-indep3}{
+	La famille est liée car
+		\[ (2x^2 + 4x - 2) - 2(x^2 + x + 1) - 2(x-2) = 0. \]
+}
+
+
+
+
+\exe{origin=set1,difficulty=0}{
+	Démontrer que $x-1$ divise $x^8 - 1$.
+}{exe:diviseur-x-m-1}{
+	Comme vu dans le cours, la relation classique de somme géométrique
+		\[ (1-q)(1 + q + q^2 + \dots + q^{n}) = 1-q^{n+1} \]
+	permet de voir que $1-x$ divise $1-x^{n+1}$ pour tout $n\in\N$.
+	
+	Dans notre cas,
+		\[ x^{8}-1 = (x-1) (1+x+x^2 +x^3 +x^4+x^5+x^6+x^7), \]
+	que l'on vérifiera bien sûr en développant le produit !
+	Nous remarquerons alors l'apparition d'une somme téléscopique : chaque terme annule le terme précédent et en ajoute un nouveau.
+}
+
+\exe{origin=set1,difficulty=1}{
+	Montrer que si $f(x)$ divise $g(x)$ dans $\R[x]$, alors
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item  $f(-x)$ divise $g(-x)$ ; et
+		\item $f(x+1)$ divise $g(x+1)$.
+	\end{enumerate}
+	\end{multicols}
+	En conclure que 
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item  $x+1$ divise $x^8 - 1$ ; et que
+		\item  $x$ divise $(x+1)^{1204} - 1$.
+	\end{enumerate}
+	\end{multicols}
+	
+	Est-ce que $x+1$ divise toujours $x^n - 1$ pour $n\geq2$ ?
+}{exe:diviseur-x-p-1}{
+	\begin{enumerate}
+		\item
+		Si $f|g$, alors $g(x) = f(x)q(x)$ avec $q\in\R[x]$.
+		En remplaçant $x$ par $-x$, nous trouvons que $g(-x) = f(-x)q(-x)$, ce qui signifie que $f(-x)$ divise $g(-x)$.
+		\item  
+		Il s'agit de faire exactement la même chose en remplaçant $x$ par $x+1$ dans l'identité $g(x) = f(x)q(x)$.
+	\end{enumerate}
+	
+	\begin{enumerate}
+		\item
+		Comme $x-1$ divise $x^{8}-1$, remplacer $x$ par $-x$ donne que $-x-1$ divise $(-x)^8 -1 = x^8 - 1$ car $8$ est pair.
+		La division polynomiale ignorant les constante, $-(-x-1)$ divise aussi $x^8 -1$, comme requis.
+		\item  
+		Comme $x-1$ divise $x^{1204} -1$ (somme géométrique, à nouveau),remplacer $x$ par $x+1$ donne que $x$ divise $(x+1)^{1204} - 1$.
+	\end{enumerate}
+}
+
+% todo : x² - 1 divise x^{120} - 1 par exemple pour les racines.
+
+\exe{origin=set1,difficulty=1}{
+	Démontrer que $x-1$ divise $x^3 - 1 + 2x - 2x^2$.
+}{exe:diviseur-x-m-1-2}{
+	Il s'agit de trouver $q(x)\in\R[x]$ tel que 
+		\[ x^3 -1 +2x -2x^2 = (x-1)q(x). \]
+	Première remarque : le degré de $q$ doit être égal à 2, et son coefficient dominant doit être égal à 1.
+	Donc $q(x) = x^2 + q'(x)$ avec $\deg(q') \leq 1$.
+	Ainsi
+		\begin{align}
+			x^3 + 1 +2x -2x^2 &= (x-1)\left (x^2 + q'(x)\right), \\
+			x^3 + 1 +2x -2x^2  &= (x-1)x^2 + (x-1)q'(x), \\
+			x^3 + 1 +2x -2x^2 &= x^3 -x^2 + (x-1)q'(x), \\
+			1 + 2x -3x^2 &= (x-1)q'(x).
+		\end{align}
+	Nous avons donc réduit notre problème à la division de $1+2x-3x^2$ par $x-1$.
+	Continuous en annulant une nouvelle fois le terme dominant du dividende : $\deg(q') = 1$ et son coefficient dominant doit être égale à $-3$.
+	Donc $q'(x) = -3x + c$ avec $c\in\R$ et
+		\begin{align*}
+			1+2x-3x^2 &= (x-1)(-3x + c), \\
+			1+2x-3x^2 &= -3x^2 +3x + (x-1)c, \\
+			1-x &= (x-1)c.
+		\end{align*}
+	Bien sûr $c=-1$ fonctionne, donc finalement
+		\[ q(x) = x^2 -3x - 1. \]
+	Nous avons procédé à la division euclidienne de $x^3 -1+2x-2x^2$ par $x-1$ en annulant le terme dominant à chaque itération.
+}
+
+\exe{origin=set1,difficulty=2}{
+	Supposons la famille $\{ p_1 ; p_2 ; p_3 \} \subseteq \R[x]$ libre.
+	Montrer que les familles 
+	\begin{align*}
+		\mathcal{F}_1 = \bigset{ p_1 ; p_2 + p_1 ; p_3 } && \et && \mathcal{F}_2 = \bigset{ p_1 + p_2 ; p_2 + p_3 ; p_1 + p_2 + p_3 } 
+	\end{align*}
+	sont également libres.
+}{exe:libre-to-libre}{
+	Soient $\alpha, \beta, \gamma\in\R$ trois nombres réels tels que
+		\[ \alpha p_1 + \beta(p_2+p_1) + \gamma p_3 = 0. \]
+	Alors
+		\[ (\alpha+\beta)p_1 + \beta p_2 + \gamma p_3 = 0, \]
+	et, par indépendance linéaire de $\{ p_1 ; p_2 ; p_3 \}$, nous avons le système
+		\[ \systeme{\alpha+\beta=0{,},\beta = 0{,},\gamma  = 0.}, \]
+	dont la seule solution est bien sûr $\alpha=\beta=\gamma=0$.
+	Ceci montre l'indépendance linéaire de $\mathcal{F}_1$.
+	
+	De façon analogue pour $\alpha, \beta, \gamma\in\R$ trois nombres réels tels que
+		\[ \alpha (p_1+p_2) + \beta(p_2+p_3) + \gamma (p_1+p_2+p_3) = 0, \]
+	nous avons
+		\[ (\alpha + \gamma)p_1 + (\alpha + \beta + \gamma)p_2 + (\beta+\gamma)p_3 = 0. \]
+	Par l'indépendance linéaire de $\{p_1 ; p_2 ; p_3\}$, nous obtenons le système
+		\[ \systeme{\alpha+\gamma=0{,},\alpha+\beta+\gamma=0{,},\beta+\gamma=0}. \]
+	Le résoudre aboutit à $\alpha=\beta=\gamma=0$, ce qui montre l'indépendance linéaire de $\mathcal{F}_2$.
+}
+
+
+\exe{origin=set1,}{
+	Vrai ou faux ? Montrer que chaque assertion est vraie ou donner un contre-exemple.
+	\begin{enumerate}[itemsep=10pt]
+		\item
+		Si $f|g$ dans $\R[x]$, alors $\deg(f) \leq \deg(g)$.
+		\item
+		Si $f$ divise $g$ dans $\R[x]$, alors $(3f)$ divise aussi $g$.
+		\item
+		Si $f$ divise $g$ dans $\R[x]$, alors $f$ divise aussi $(3g)$.
+		\item
+		Soient $f, g\in\R[x]$. Alors $\deg(f+g) = \max\{\deg(f) ; \deg(g)\}$.
+		\item
+		Si $f|g$ dans $\R[x]$, alors $f|g^2$ dans $\R[x]$ aussi.
+		\item
+		Le polynôme $(1-x)^{22}$ est unitaire.
+	\end{enumerate}
+}{exe:TF-polynomes}{
+	\begin{enumerate}
+		\item
+		Faux uniquement à cause du polynôme nul $g=0$. 
+		Tous les polynômes divisent le polynôme nul. 
+		\item
+		Vrai car si $g=fq$, alors $g = (3f) (\frac13 q)$.
+		\item
+		Vrai car si $g=fq$, alors $3g = f (3q)$.
+		\item
+		Il faut et il suffit que la somme des coefficients de degré $\max\{\deg(f) ; \deg(g)\}$ soit non nulle.
+		Si $g(x) = x^2 + 1$ et $f(x) = -x^2$ par exemple, alors $\deg(f+g) = 0$.
+		\item
+		Vrai car si $g = fq$, alors $g^2 = f(qg) = fq'$.
+		\item
+		Vrai : son coefficient dominant, en $x^{22}$ est donné par $(-1)^{22} = 1$ car $22$ est pair.
+	\end{enumerate}
+	
+}
+
+
+\exe{origin=set1,difficulty=1}{
+	Montrer que la famille $\bigset{ 1 ; \sqrt{2} } \subseteq\R$ est linéairement indépendante sur $\Q$.
+}{exe:lin-indep4}{
+	Soient $p, q\in\Q$ tels que $p + \sqrt2 q = 0$.
+	Supposons par contradiction que $q\neq0$.
+	Alors $\sqrt2 = \frac{-p}q \in \Q$, car le produit de deux rationnels est un rationnel.
+	Comme $\sqrt2$ est irrationnel, ceci est une contradiction, et $q=0$. Il suit donc que $p=0$ aussi, ce qui conclut.
+}
+
+\exe{origin=set1,difficulty=2}{
+	Montrer que la famille $\bigset{ 1 ; \sqrt{2} ; \sqrt{3} } \subseteq\R$ est linéairement indépendante sur $\Q$.
+}{exe:lin-indep23}{
+	Supposons que $p + q\sqrt2 + r\sqrt3 = 0$ avec $p, q, r \in\Q$.
+	En isolant $r\sqrt3$ et en mettant au carré, nous obtenons
+		\[ p^2 + 2pq\sqrt2 + 2q^2 = 3r^2. \]
+	Par indépendance linéaire de $\{ 1 ; \sqrt2 \}$ sur $\Q$, nous avons nécessairement $pq = 0$.
+	Deux alternatives s'offrent donc à nous : $p=0$ ou $q=0$.
+	
+	Si $q=0$, alors $p+r\sqrt3 = 0$, et on montre de façon analogue à l'exercice \ref{exe:lin-indep4} que $p=r=0$ en utilisant que $\sqrt3$ est irrationnel.
+	
+	Si $p=0$, alors $q\sqrt2 + r\sqrt3 = 0$. 
+	En multipliant par $\sqrt2$, nous obtenons $2q + r\sqrt6 = 0$.
+	Le nombre $\sqrt6$ était irrationnel lui aussi, nous obtenons $q=r=0$.
+	
+}
+
+\exe{origin=set1,difficulty=3}{
+	Est-ce que la famille des racines carrées de nombres premiers s'arrêtant à un certain $p$ est libre sur $\Q$ ? $$\mathcal{S}_p=\bigset{ 1 ; \sqrt{2} ; \sqrt{3} ; \sqrt{5} ; \sqrt{7} ; \sqrt{11} ; \dots ; \sqrt{p} } \subseteq \R$$
+	% S for quadratic surds :)
+}{exe:lin-indep-primes}{
+	La réponse est oui ; la démonstration se fait par récurrence forte en généralisant la stratégie de l'exercice \ref{exe:lin-indep23}.
+}
+
+
+\exe{difficulty=2}{
+	Soit $F_1, F_2 \subseteq \R[x]$ deux familles de polynômes.
+	Nommons $V_1$ et $V_2$ l'ensemble de toutes les combinaisons linéaires de $F_1$ et $F_2$ respectivement.
+	
+	Montrer que, pour un polynôme $f$ combinaison linéaire de $F_1 \cup F_2$,
+	\begin{align*}
+		V_1 \cap V_2 = \{ 0 \} && \iff && f = v_1 + v_2 \text{ se décompose de façon unique avec $v_1\in V_1$ et $v_2\in V_2$}.
+	\end{align*}
+	Lorsque la décomposition est unique, nous dirons alors que $V_1$ et $V_2$ sont en \emphindex{somme directe}, notée $V_1 \oplus V_2$.
+}{exe:direct-sum}{
+	todo
+}
+
+
+
+\exe{difficulty=1}{
+	Le but de cet exercice est de construire l'ensemble $\R[x]$ dans lequel les monômes $\{ 1 ; x ; x^2 ; \dots \}$ sont linéairement indépendants sur $\R$ à l'aide des suites.
+	
+	Considérons à cette fin l'ensemble $\hat{\R}^\infty$ des suites réelles ayant seulement un nombre fini de termes non nuls.
+	\begin{enumerate}
+		\item
+		Montrer que toute suite $a\in\hat{\R}^\infty$ prend la forme
+			\[ a = (a_0, a_1, \dots, a_d, 0, 0, 0,\dots). \]
+	\end{enumerate}
+	Nous verrons donc dans la suite un polynôme  $a_0 + a_1 x + \dots + a_d x^d$ comme une suite $a = (a_0, a_1, a_2, \dots, a_d, 0, 0, 0,\dots)$ de $\hat{\R}^\infty$.
+	\begin{enumerate}[resume]
+		\item
+		À quelle suite correspond chaque polynôme suivant ?
+		\begin{multicols}{2}
+		\begin{enumerate}
+			\item Le polynôme nul.
+			\item Le polynôme $1$.
+			\item Le polynôme $x$.
+			\item Le polynôme $x^2$.
+		\end{enumerate}
+		\end{multicols}
+		\item
+		Comment définir l'addition $a+b$ ainsi que les multiplication $\alpha a$ et $a \cdot b$ pour $\alpha\in\R$ et $a, b\in\hat{\R}^\infty$ ?
+		\item
+		Montrer que les suites $\{ e_0 ; e_1 ; \dots ; e_d \}$ sont linéairement indépendantes sur $\R$, où
+			\[ e_i = ( 0, 0, \dots, 0, \underbrace{1}_{\text{position $i+1$}}, 0, 0, \dots ). \]
+		%Ces suites sont appelées \emphindex{vecteurs canoniques}.
+	\end{enumerate}
+}{exe:Rx-constr}{
+
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 2 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+\exe{origin=set2}{
+	Vrai ou faux ?
+	%\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		$1$ est une racine de $x - 1$.
+		\item
+		$-1$ est une racine de $x^3 - 1$. %\columnbreak
+		\item
+		$3$ est une racine de $(x+3)(x-2)(x+7)^4(x^2 - 1)$.
+		\item
+		$-1$ est racine de $2(1-x)^{34} - (1-x)^{35}$.
+	\end{enumerate}
+	%\end{multicols}
+}{exe:VF-is-racine}{
+	testaut
+}
+
+
+\exe{origin=set2}{
+	Poser les divisions euclidiennes de
+	\begin{enumerate}
+		\item
+		$x^3 - x$ par $x-1$ ;
+		\item
+		$3x^3 + 6x^2 - 3x + 1$ par $x^2 + 1$ ;
+	\end{enumerate}
+}{exe:euclidean-division-poly}{
+	testexe
+}
+
+\exe{origin=set2}{
+	Donner un polynôme $p\in\R[x]$ ayant les caractéristiques suivantes :
+	\begin{enumerate}
+		\item
+		$\deg(p) = 12$ ; 
+		\item
+		$1$ est une racine de $p$ de multiplicité $2$ ;
+		\item
+		$-4$ est une racine de $p$ de multiplicité $3$ ;
+		\item
+		Le coefficient dominant de $p$ est irrationnel.
+	\end{enumerate}
+}{exe:poly-with-constraints}{
+	testexe
+}
+
+
+
+\exe{}{
+	Considérons l'équation quadratique $3x^2-7x+4= 0$ pour $x\in\R$.
+	Montrer que $1$ est racine de l'équation et en déduire l'autre racine.
+}{exe:euclide-poly}{
+	todo
+}
+
+
+\exe{}{
+	Trouver une racine triviale (évidente) puis factoriser le polynôme $f(x) = 7x^2 - 10x + 3$ pour trouver sa deuxième racine.
+}{exe:euclide-poly2}{
+	todo
+}
+
+
+\exe{}{
+	Considérons le polynôme $f(x) = 21x^3 - 7x^2 - 9x + 3$.
+	Montrer, par le calcul, que $\frac13$ est une racine de $f$.
+	En déduire les autres racines de $f$.
+	
+	\emph{Indication : poser la division euclidienne de $f$ par $3x-1$ plutôt que par $x-\frac13$ pour simplifier les calculs.}
+}{exe:euclide-poly3}{
+	$f(x) = (3x-1)(7x^2-3)$ donc les racines sont $\frac13$ et $\pm\sqrt{\frac37}$.
+}
+
+
+\exe{}{
+	Montrer que $x^2 - 1$ divise $x^{2026}-1$.
+}{exe:xsq-m-1}{
+	
+}
+
+\exe{}{
+	Considérons le polynôme $f(x) = 4x^3 - 6x^2 - 2x + 3$.
+	Montrer, par le calcul, que $\frac32$ est une racine de $f$.
+	En déduire les autres racines de $f$.
+}{exe:8}{
+		\[ (2x - 3)(2x^2 - 1) = 4x^3 - 2x -6x^2 + 3. \]
+	On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
+	Or l'équation $2x^2 - 1 = 0$ est équivalente à $x^2 = \dfrac12$.
+	En prenant la racine et en utilisant que $\sqrt{x^2} = |x|$, on obtient
+		\[ |x| = \sqrt{\dfrac12} = \dfrac1{\sqrt2}. \]
+	Les deux valeurs $\pm \dfrac1{\sqrt2}$ (notation $\pm$ pour \og plus ou moins \fg) sont donc solutions.
+	On en déduit que l'ensemble des solutions de \eqref{eq:2} est $\left\{ \dfrac32 ; \pm \dfrac1{\sqrt2} \right\} = \left\{ \dfrac32 ; \dfrac1{\sqrt2} ; - \dfrac1{\sqrt2} \right\}$
+
+}
+
+
+\exe{difficulty=1}{
+	Montrer le théorème de Taylor bis : 
+	soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $a\in\R$ un réel quelconque.
+	Alors
+		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(a)}{k!} (x-a)^k.\]
+}{exe:taylor-poly-2}{
+	todo
+}
+
+
+
+\exe{}{
+	Considérons le polynôme
+		\[ f(x) = (x-3)^2 - (x-3)^4 + 3(x-3)^5. \]
+	Calculer $f(3), f'(3), f''(3), f'''(3), f^{(\text{iv})}(3)$, et $f^{(\text{v})}(3)$.
+}{exe:f-shift-derivatives}{
+
+}
+
+
+\exe{difficulty=2}{
+	Considérons le \emphindex{symbole de Pochhammer} défini par
+		\begin{align*}
+			(x)_0 = 1, && \et && (x)_n = x(x-1)(x-2)\cdots(x-n+1) \text{ pour $n\in\N^*$, }
+		\end{align*}
+	ainsi que l'opérateur de différence $\Delta$ qui associe à chaque $f\in\R[x]$ le polynôme 
+		\[ (\Delta f)(x) = f(x+1)-f(x). \]
+	
+	Montrer que, pour tout $n\in\N^*$, l'identité suivante est vraie dans $\R[x]$.
+		\[ \Delta(x)_n = n\cdot(x)_{n-1} \]
+}{exe:Pochhammer}{
+
+}
+
+\exe{difficulty=1}{
+	Considéronts la famille $F$ suivante.
+		\[ F = \bigset{ (x-1)(x-2)(x-3) ; x(x-2)(x-3) ; x(x-1)(x-3) ; x(x-1)(x-2) } \]
+	\begin{enumerate}
+		\item
+		Lister les racines de chaque polynôme de $F$.
+		\item
+		\underline{Sans développer} les expressions, montrer que la famille $F$ est linéairement \mbox{indépendante sur $\R$.}
+	\end{enumerate}
+}{exe:unique-roots}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Le but de cet exercice est de généraliser l'exercice \ref{exe:unique-roots}.
+	
+	Considérons une famille de polynômes $\bigset{ f_1, f_2, \dots, f_n} \subseteq \R[x]$ telle que pour tout $i=1, 2, \dots n$, il existe un nombre $a_i\in\R$ qui est racine de $f_j$ pour tout $j\neq i$, mais n'est pas racine de $f_i$.
+	Montrer que la famille est linéairement indépendante sur $\R$.
+}{exe:unique-roots2}{
+	todo
+}
+
+
+\exe{origin=set2,}{
+	Vrai ou faux ? Montrer que chaque assertion est vraie ou donner un contre-exemple.
+	\begin{enumerate}[itemsep=10pt]
+		\item
+		Soient $f, g\in\R[x]$. Alors $\deg(fg) = \deg(f)+\deg(g)$.
+		\item
+		Un polynôme constant de $\R[x]$ est de degré nul.
+		\item
+		$124(x+1)$ divise $2x^5 -x^4 - 3x^3 + x^2 -3x - 4$ dans $\R[x]$.
+		\item
+		Si $f$ divise $g$ dans $\R[x]$, alors toutes les racines de $f$ sont des racines de $g$.
+		\item
+		Si toutes les racines de $f$ sont des racines de $p$, alors $f$ divise $p$ dans $\R[x]$.
+	\end{enumerate}
+}{exe:TF-polynomes2}{
+	\begin{enumerate}
+		\item
+		Vrai car le coefficient dominant de $fg$ est le produit des coefficients dominants de $f$ et de $g$.
+		Le cas $f=0$ est spécial et à traiter séparément.
+		\item
+		Faux à cause du polynôme nul de degré $\minfty$ par convention.
+		\item
+		Vrai car $-1$ est racine du deuxième polynôme.
+		\item
+		Vrai car si $g = fq$, et que $a$ est une racine de $f$, alors $g(a) = f(a)q(a) = 0q(a) = 0$.
+		\item
+		Faux car la multiplicité d'une racine de $f$ peut être trop élevée.
+		Un contre-exemple est donc $f(x) = (x-1)^2$ et $g(x) = x-1$ : toutes les racines de $f$ (donc $1$) sont des racines de $g$, mais $f$ ne divise pas $g$ car son degré est strictement supérieur et $g$ est non nul.
+	\end{enumerate}
+	
+}
+
+\exe{}{
+	Montrer qu'une fonction polynomiale de $\R[x]$ de degré 3 admet au moins une racine réelle.
+}{exe:deg3-root}{
+	todo
+}
+
+\exe{difficulty=2}{
+	Montrer la \emphindex{règle du produit} : pour deux polynômes $f, g\in\R[x]$,
+		\[ (fg)' = f'g + g'f. \]
+}{exe:deriv-prod}{
+	À gauche, le coefficient en $x^n$ de $fg$ est égal à
+		\[ \sum_{i+j=n} f_i g_j. \]
+	Le coefficient en $x^{n-1}$ de $fg$ est donc égal à
+		\[ n\sum_{i+j=n} f_i g_j. \]
+	À droite, le coefficient en $x^{n-1}$ de $f'g$ est égal à
+		\[ \sum_{i+j=n-1} f'_ig_j = \sum_{i+j=n-1} (i+1)f_{i+1}g_j = \sum_{i+j=n} if_ig_j. \]
+	Le coefficient en $x^{n-1}$ de $g'f$ est égal à
+		\[ \sum_{i+j=n-1} f_ig'_j = \sum_{i+j=n-1} f_i (j+1)g_{j+1} = \sum_{i+j=n} f_ijg_j. \]
+	Le coefficient en $x^{n-1}$ de $f'g + g'f$ est donc égal à
+		\[ \sum_{i+j=n} f_ijg_j +  \sum_{i+j=n} if_ig_j = \sum_{i+j=n} (i+j)f_ig_j = n\sum_{i+j=n} f_i g_j. \]
+	Les coefficients de $(fg)'$ et $f'g+g'f$ sont donc égaux et les polynômes sont égaux.
+}
+
+
+\exe{difficulty=1}{
+	Soit $f$ une fonction dérivable en 0.
+	Montrer que 
+		\[ f(x) = f(0) + f'(0)x + g(x), \]
+	où $g(x) = o(x)$ dans le sens suivant : 
+		\[ \lim_{x \to 0} \frac{g(x)}x = 0. \]
+}{exe:taylor-C1}{
+	Posons $g(x) = f(x) - f(0) - f'(0)x$.
+	Pour $x\neq0$, nous avons
+		\[ \frac{g(x)}x = \frac{f(x) - f(0)}{x-0} - f'(0). \]
+	Lorsque $x$ tend vers $0$,  $\frac{f(x) - f(0)}{x-0}$ tend vers $f'(0)$ par définition de $f'(0)$.
+	Il suit donc que $\frac{g(x)}x$ tend vers 0 comme requis.
+	
+	Remarque : si $f\in C^2(\R)$, il s'avère que $g(x) = \O(x^2)$, c'est-à-dire que $\frac{g(x)}{x^2}$ reste borné lorsque $x$ tend vers $0$ (ce qui est plus fort que $g=o(x)$).
+	Nous aurons en fait 
+		\[ f(x) = f(0) + f'(0)x + \frac{f''(0)}2 x^2 + o(x^2). \]
+}
+
+\exe{difficulty=2}{
+	Soit $f\in\R[x]$ un polynôme à coefficients réels.
+	Supposons que $z\in\C$ soit une racine complexe de $f$.
+	\begin{enumerate}
+		\item
+		Montrer que le conjugué $\overline{z}$ est aussi un racine de $f$.
+		\item
+		En déduire que $x^2 - 2\RE(z) x + |z|^2$ divise $f$ dans $\R[x]$.
+	\end{enumerate}
+	Un polynôme est dit \emphindex{irréductible} si ses seuls diviseurs sont les constantes et les multiples de lui-même.
+	\begin{enumerate}[resume]
+		\item
+		En admettant le théorème fondamental de l'algèbre, montrer que les polynômes irréductibles de $\R[x]$ sont nécessairement de degré 1 ou 2.
+	\end{enumerate}
+}{exe:irr-in-R}{
+
+}
+
