@@ -197,7 +197,7 @@
 		\[ x+1 = \alpha(x+3) + \beta(x+5) = (\alpha+\beta)x + (3\alpha + 5\beta). \]
 	D'après le cours, l'ensemble $\{ 1 ; x \}$ est linéaire indépendant sur $\R$ et la combinaison linéaire de $x+1 = 1\times(x) + 1\times(1)$ est unique.
 	Il suit donc que
-		\[ \sys{\alpha + \beta = 1}{3\alpha + 5\beta = 1}. \]
+		\[ \systeme{\alpha + \beta = 1, \\ 3\alpha + 5\beta = 1.} \]
 	Une façon de résoudre le système est d'écrire $\alpha = 1-\beta$ d'après la première équation, et de la substituer dans la deuxième :
 		\begin{align*}
 			3(1-\beta) + 5\beta &= 1, \\
@@ -246,7 +246,7 @@
 	est équivalente à
 		\[ \alpha x^2 + (4\alpha + \beta)x + (-2\alpha + 2\beta + 50\gamma) = 0. \]
 	D'après l'indépendant linéaire de $\{ 1 ; x ; x^2 \}$, nous obtenons le système
-		\[ \systeme{\alpha = 0{,},4\alpha + \beta = 0{,},-2\alpha + 2\beta + 50\gamma = 0.}. \]
+		\[ \systeme{\alpha = 0, \\ 4\alpha + \beta = 0, \\ -2\alpha + 2\beta + 50\gamma = 0.} \]
 	La première équation donne immédiatement $\alpha =0$, qui peut disparaître des autres équations.
 	La deuxième se simplifie donc en $\beta = 0$.
 	La dernière se simplifie alors en $50\gamma = 0$ et donc $\gamma = 0$.
@@ -262,7 +262,7 @@
 	est équivalente à
 		\[ (\alpha+\beta)x + (\alpha + 2\beta) = 0. \]
 	D'après l'indépendant linéaire de $\{ 1 ; x \}$, nous obtenons le système
-		\[ \sys{\alpha+\beta = 0}{\alpha+2\beta = 0}. \]
+		\[ \systeme{\alpha+\beta = 0, \\ \alpha+2\beta = 0.} \]
 	En soustrayant la première équation à la deuxième, nous obtenons
 		\begin{align*}
 			\alpha + 2\beta - (\alpha + \beta) &= 0-0, \\
@@ -371,7 +371,7 @@
 	Alors
 		\[ (\alpha+\beta)p_1 + \beta p_2 + \gamma p_3 = 0, \]
 	et, par indépendance linéaire de $\{ p_1 ; p_2 ; p_3 \}$, nous avons le système
-		\[ \systeme{\alpha+\beta=0{,},\beta = 0{,},\gamma  = 0.}, \]
+		\[ \systeme{\alpha+\beta=0, \\ \beta = 0, \\ \gamma  = 0,} \]
 	dont la seule solution est bien sûr $\alpha=\beta=\gamma=0$.
 	Ceci montre l'indépendance linéaire de $\mathcal{F}_1$.
 	
@@ -380,7 +380,7 @@
 	nous avons
 		\[ (\alpha + \gamma)p_1 + (\alpha + \beta + \gamma)p_2 + (\beta+\gamma)p_3 = 0. \]
 	Par l'indépendance linéaire de $\{p_1 ; p_2 ; p_3\}$, nous obtenons le système
-		\[ \systeme{\alpha+\gamma=0{,},\alpha+\beta+\gamma=0{,},\beta+\gamma=0}. \]
+		\[ \systeme{\alpha+\gamma=0, \\ \alpha+\beta+\gamma=0, \\ \beta+\gamma=0.} \]
 	Le résoudre aboutit à $\alpha=\beta=\gamma=0$, ce qui montre l'indépendance linéaire de $\mathcal{F}_2$.
 }
 
