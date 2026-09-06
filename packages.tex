@@ -76,8 +76,10 @@
 
 % package systeme pour les systèmes d'équations bien alignés
 \usepackage{systeme}
-%\sysalign{r,r}
-%\syseqspace{3pt}
-%\syssignspace{3pt}
+% add \alpha \beta \gamma as variables
+% put \\ as separator so commas don't return to line
+\setsysteme{sort={\alpha, \beta, \gamma}, eq sep = \\, align={r,r}}
+% use : 
+% \systeme{ \alpha + 2\beta = 4, \\ \beta = 8.} 
 
-\newcommand{\sys}[2]{\systeme{#1{,}, #2.}}
+

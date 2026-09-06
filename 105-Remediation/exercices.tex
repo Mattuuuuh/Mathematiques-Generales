@@ -133,22 +133,48 @@
 	\end{enumerate}
 
 }{exe:Samoyeau6}{
-	sol1
+	\begin{enumerate}
+		\item
+		D'abord, une fraction $\frac45$ de la marchandise est vendue.
+		Il reste donc $1-\frac45 = \frac15$ de la marchandise.
+		
+		Ensuite, $\frac34$ de ce qu'il reste est vendu.
+		L'expression « $\frac34$ de $\frac15$ » correspond au calcul $\frac34 \times \frac15 = \frac3{20}$.
+		
+		Finalement, $\frac45 + \frac3{20} = \frac{19}{20}$ de la marchandise est vendue en tout.
+		\item  
+		L'expression « $\frac{19}{20}$ de 262 000 » correspond au calcul $\frac{19}{20} \times 262~000$.
+		Or, comme $\frac{19}{20} = 1 - \frac{1}{20}$, nous avons
+			\[ \frac{19}{20}\times 262~000 = \left(1-\frac1{20}\right) \times 262~000 = 262~000 - \frac1{20}\times262~000. \]
+		Il suffit donc de calculer $\frac1{20}$ de 262 000, ce qui n'est pas trop difficile car $\frac1{20} = \frac12 \times \frac1{10}$, il suffit donc de diviser par 2 puis par 10.
+		Ainsi, $\frac1{20} \times 262~000 = 13~100$ et $\frac{19}{20}\times 262~000 = 262~000 - 13~100 = 248~900$.
+	\end{enumerate}
 }
 
 \exe{difficulty=0}{
 	Une usine française de voitures vend $\frac{1}{3}$ de ses voitures en Allemagne, $\frac{1}{4}$ de ce qui reste en Espagne et le reste en France. Quelle proportion de voitures de cette usine reste en France?
-
 }{exe:Samoyeau7}{
-	sol1
+	D'abord, $\frac13$ est vendu, et il reste $1-\frac13 = \frac23$.
+	
+	Ensuite, « $\frac14$ de $\frac23$ » correspond au calcul $\frac14 \times \frac23 = \frac16$, proportion de vendue en plus.
+	
+	Au totale, la proportion vendue est égale à $\frac13 + \frac16 = \frac12$, et donc la proportion invendue est $1-\frac12 = \frac12$.
 }
 
 \exe{difficulty=0}{
 	Amaya et Mariza ont deux tablettes de chocolat, une au chocolat noir et une au chocolat au lait qui sont de même proportion. 
 	Amaya a mangé $\frac{1}{4}$ des $\frac{2}{3}$ de la tablette au chocolat au lait. Mariza a mangé la moitié des $\frac{3}{4}$ de la tablette de chocolat noir. Laquelle a mangé le plus de chocolat? 
-
 }{exe:Samoyeau8}{
-	sol1
+	Amaya a mangé « $\frac14$ de $\frac23$ », ce qui correspond au calcul $\frac14\times\frac23 = \frac16$.
+	
+	Mariza a mangé « $\frac12$ de $\frac34$ », ce qui correspond au calcul $\frac12 \times \frac34 = \frac38$.
+	
+	Pour comparer deux fractions, il suffit de les mettre au même dénominateur et de comparer les numérateurs.
+	Ici, en mettant sur $24$, on trouve
+		\[ \frac16 = \frac4{24} < \frac{9}{24} = \frac38, \]
+	car $4 < 9$.
+	
+	En conclusion, Mariza a mangé plus de chocolat car les tablettes sont supposées identiques au départ.
 }
 
 \exe{difficulty=0}{
@@ -159,7 +185,15 @@
 	\end{enumerate} 
 
 }{exe:Samoyeau9}{
-	sol1
+	\begin{enumerate}
+		\item  
+		La somme des proportion fait $1$, donc le reste est donné par $1 - \frac13 - \frac5{12} - \frac16 = \frac1{12}$.
+		
+		Pierre a parcouru $\frac1{12}$ de la distance totale en kayak.
+		\item 
+		L'expression « $\frac1{12}$ de $24$ » correspond au calcul $\frac1{12} \times 24 = 2$.
+		La distance est donc égale à 2km.
+	\end{enumerate} 
 }
 
 \exe{difficulty=0}{
@@ -170,7 +204,7 @@
 	L'exprimer sous forme de fraction irréductible.
 
 }{exe:Samoyeau10}{
-	sol1
+	WolframAlpha arrive ici à la rescousse et nous donne $\zeta = 	-\frac{3400}{651}$, résultat qu'on croira aveuglément.
 }
 
 \exe{difficulty=0}{
@@ -179,7 +213,12 @@
 		A=\frac{1}{2}, && B=\frac{1}{6}, && C=\frac{5}{12}, &&D=\frac{3}{4}, &&E=\frac{2}{3}.
 	\end{align*}
 }{exe:Samoyeau2}{
-	sol1
+	Pour comparer deux fractions, il suffit de les mettre au même dénominateur et de comparer les numérateurs.
+	Ici, en mettant sur $24$, on trouve
+	\begin{align*}
+		A=\frac{12}{24}, && B=\frac{4}{24}, && C=\frac{10}{24}, &&D=\frac{18}{24}, &&E=\frac{16}{24}.
+	\end{align*}
+	Il suit donc que $B < C < A < E < D$ par inspection des numérateurs.
 }
 
 
@@ -279,7 +318,11 @@
 \exe{difficulty=2}{
 	En s'inspirant de l'exercice \ref{exe:frac-continue-sqrt2}, calculer sans calculatrice un rationnel s'approchant de $\sqrt5$ à $10^{-3}$ près.
 }{exe:frac-continue-sqrt5}{
-	todo
+	Comme $2 < \sqrt5 < 3$, il est tentant d'écrire $\sqrt5 = 2 + \frac1{x}$ pour un certain $x\in\R$.
+	Ce nombre $x$ vérifie donc
+		\[ x = \frac1{\sqrt5 - 2} = \frac{\sqrt5+2}{(\sqrt5-2)(\sqrt5+2)} = \frac{\sqrt5+2}{5-4} =  \sqrt5 +2. \]
+	Par conséquent
+		\[ \sqrt5 = 2 + \frac1{2+\sqrt5} = 2 + \cfrac{1}{2+2+\cfrac{1}{2+\sqrt5}} = 2 + \cfrac{1}{4 + \cfrac1{2+\sqrt5}} = \dots \]
 }
 
 \exe{difficulty=1}{
@@ -301,7 +344,22 @@
 		Un nombre irrationnel à la puissance d'un nombre irrationnel est irrationnel.
 	\end{enumerate}
 }{exe:VF-rationnels}{
-	todo
+	\begin{enumerate}
+		\item
+		Vrai.
+		\item
+		Vrai.
+		\item
+		Faux car $2^{\frac12} = \sqrt2$ qui n'est pas rattionnel.
+		\item
+		Faux car $2^2 = 4$ qui est rationnel.
+		\item
+		Vrai car si la somme était rationnelle, alors un nombre irrationnelle serait différence de deux rationnels et serait donc rationnel d'après le premier point.
+		\item
+		Faux car $\sqrt2 + (-\sqrt2) = 0$ est rationnel.
+		\item[7. $(\star\star)$]
+		Faux car soit $\sqrt2^{\sqrt2}$ est rationnel et donc un contre-exemple, soit $\left(\sqrt2^{\sqrt2}\right)^{\sqrt2} = 2$ est rationnel et donc un contre-exemple.
+	\end{enumerate}
 }
 
 
@@ -405,19 +463,19 @@
 	\begin{center}
 	\begin{tabular}{ccc|c|c}
 		Équation 1 & Symbole & Équation 2 & Opération & \thead{Les équations sont-\\ elles équivalentes ?} \\ \hline
-		$3x + 2y = 1$ & {$\iff$} & $6x  + 4y = 2$ & {$\times2$} & {Oui} \\ \hline
-		$-x + 2y = 1$ & {$\iff$} & $-x + 2y - 1 = 0$ & {$-1$} & {Oui} \\ \hline
+		$3x + 2y = 1$ & {$\iff$} & $6x  + 4y = 2$ & $\times2$ ou $\times\frac12$ & {Oui} \\ \hline
+		$-x + 2y = 1$ & {$\iff$} & $-x + 2y - 1 = 0$ & {$-1$ ou $+1$} & {Oui} \\ \hline
 		$3x + 2y = 1$ & {$\centernot\iff$} & $-3x - 5y = -3$ & & {Non} \\ \hline
-		$x^2 = -3x$ & {$\impliedby$} & $x = -3$ & & {Non} \\ \hline
+		$x^2 = -3x$ & {$\impliedby$} & $x = -3$ &$\times x$ & {Non} \\ \hline
 		$-10x - y = 3$ & {$\implies$} & $0=0$ & {$\times0$} & {Non} \\ \hline
 		$x-y= 3$ & {$\iff$} & $-x + y = -3$ & {$\times(-1)$} & {Oui} \\ \hline
-		$x -y = 0$ &{$\iff$} & $x=y$ & {$+y$} & {Oui} \\ \hline
+		$x -y = 0$ &{$\iff$} & $x=y$ & {$+y$ ou $-y$} & {Oui} \\ \hline
 		$-x + 2y = 3$ & {$\implies$} & $0=0$ & {$\times0$} & {Non} \\ \hline
-		$2x + 3y + 4 = 2x + 3y + 5$ & {$\iff$} & $1=0$ & {$+(-2x-3y)$} & {Oui} \\ \hline
+		$2x + 3y + 4 = 2x + 3y + 5$ & {$\iff$} & $1=0$ & $+(-2x-3y)$ ou $-(-2x-3y)$ & {Oui} \\ \hline
 		$-x - y = 1$ & {$\centernot\iff$} & $-x - y = 1$ & & {Non} \\ \hline
-		$0=0$ & {$\impliedby$} & $23x - 10y = 6$ & & {Non} \\ \hline
+		$0=0$ & {$\impliedby$} & $23x - 10y = 6$ & $\times0$ & {Non} \\ \hline
 		$x + 2y = 3$ & {$\implies$} & $x^2 + 2yx = 3x$ & {$\times x$} & {Non} \\ \hline
-		$x-3y  =0$ & {$\iff$} & $-2x+6y = 0$ & {$\times(-2)$} & {Oui} \\ \hline
+		$x-3y  =0$ & {$\iff$} & $-2x+6y = 0$ & {$\times(-2)$ ou $\times\frac{-1}2$} & {Oui} \\ \hline
 		$-2x + 3y = -3$ & {$\centernot\iff$} & $4x - 6y = -6$ & & {Non} \\ \hline
 		$x^2 = x$ & {$\impliedby$} & $x = 1$ & & {Non} \\ \hline
 		$x = 3$ & {$\implies$} & $x^2 = 9$ & {Mise au carré} & {Non} \\ \hline
@@ -629,72 +687,6 @@
 		\[ x = \dfrac{ad+bc}{bd}. \]
 }
 
-\exe{}{
-	Résoudre les équations suivantes pour $x\in\R$ non nul. Exprimer $x$ sous la forme $q \sqrt{r}$ avec $q\in\Q$ rationnel et $r\in\N$ le plus petit possible.
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $\dfrac3x = \dfrac73.$
-		\item $ \dfrac7x  =\dfrac1x + 2$
-		\item $\dfrac{16}x  =\dfrac{\sqrt{3}}2$
-		\item $-\dfrac2x =4\sqrt{3}$
-		\item $\dfrac9{-x}  =\dfrac{\sqrt{6}}5$
-		\item $-\dfrac3x =\dfrac57\sqrt{7}$
-		\item $-\dfrac9{2x}  =\dfrac{\sqrt{11}}3$
-		\item $\dfrac2{7x} =-\sqrt{14}$
-	\end{enumerate}
-	\end{multicols}
-}{exe:eq-sqrt}{}
-
-
-
-\exe{}{
-	On souhaite connaître les solutions de l'équation du troisième degré d'inconnue $x\in\R$ :
-		\begin{align}
-			4x^3 - 6x^2 - 2x + 3  = 0. \label{eq:2}
-		\end{align}
-	\begin{enumerate}
-		\item Montrer que $4x^3 - 6x^2 - 2x + 3 = (2x-3) \left(2x^2-1\right)$.
-		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:2}.
-	\end{enumerate}
-}{exe:eq8}{
-
-	\begin{enumerate}
-		\item On part toujours de la forme factorisée qu'on développe par double distributivité.
-		On utilise aussi que $x^2 \cdot x = x \cdot x \cdot x = x^3$.
-			\[ (2x - 3)(2x^2 - 1) = 4x^3 - 2x -6x^2 + 3. \]
-		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
-		Or l'équation $2x^2 - 1 = 0$ est équivalente à $x^2 = \dfrac12$.
-		En prenant la racine et en utilisant que $\sqrt{x^2} = |x|$, on obtient
-			\[ |x| = \sqrt{\dfrac12} = \dfrac1{\sqrt2}. \]
-		Les deux valeurs $\pm \dfrac1{\sqrt2}$ (notation $\pm$ pour \og plus ou moins \fg) sont donc solutions.
-		On en déduit que l'ensemble des solutions de \eqref{eq:2} est $\left\{ \dfrac32 ; \pm \dfrac1{\sqrt2} \right\} = \left\{ \dfrac32 ; \dfrac1{\sqrt2} ; - \dfrac1{\sqrt2} \right\}$
-	\end{enumerate}
-
-}
-
-
-\exe{}{
-	On souhaite connaître les solutions de l'équation du quatrième degré d'inconnue $x\in\R$ :
-		\begin{align}
-			16x^4 - 24x^2 + 9  = 0. \label{eq:3}
-		\end{align}
-	\begin{enumerate}
-		\item Montrer que $16x^4 - 24x^2 + 9 = \left(4x^2-3\right)^2$.
-		\item En déduire l'ensemble des solutions de l'équation \eqref{eq:3}.
-	\end{enumerate}
-}{exe:eq9}{
-
-	\begin{enumerate}
-		\item On part toujours de la forme factorisée qu'on développe à l'aide de l'identité remarquable $(a-b)^2 = a^2 + b^2 -2ab$.
-		On utilise aussi que $(x^2)^2 = x^2 \cdot x^2 = x\cdot x\cdot x\cdot x = x^4$.
-			\[ (4x^2 - 3)^2 = (4x^2)^2 + 3^2 - 2\cdot(4x^2)\cdot3 = 16x^4 + 9 -24x^2. \]
-		\item On utilise que le produit est nul si et seulement si un des deux facteurs est nul.
-		Ici, les deux facteurs sont les mêmes, car $(4x^2 - 3)^2 = (4x^2 - 3)(4x^2 - 3)$, donc on se remet à résoudre $(4x^2 - 3) = 0$.
-		Ceci est équivalent à $x^2 = \dfrac34$, et donc l'ensemble des $x$ vérifiant \eqref{eq:3} est donné par $\left\{ \pm \sqrt{\dfrac34} \right\} = \left\{ \pm \dfrac12\sqrt{3} \right\}= \left\{ \dfrac12\sqrt{3} ;  -\dfrac12\sqrt{3} \right\}$.
-	\end{enumerate}
-
-}
-
 
 
 
@@ -759,7 +751,41 @@
 		\item $\dfrac2{7x} =-\sqrt{14}$
 	\end{enumerate}
 	\end{multicols}
-}{exe:eq-sqrt}{}
+}{exe:eq-sqrt}{
+	Nous avons, pour $x\neq0$,
+		\begin{align*}
+			 \frac{a}x &= \frac{b}c \\
+			  \frac{a}x \times x &= \frac{b}c \times x \\
+			  a &= \frac{b}c x \\
+			  x &= a \times \frac{c}{b} = \frac{a\times c}{b}
+		\end{align*}
+	non sans rappeler le produit en croix !
+	Les équations sont équivalentes ici car $x$ est supposé non nul ce qui rend la multiplication par $x$ une opération réversible.
+	
+	De plus, nous utilisons que 
+		\[ \frac1{\sqrt{d}} = \frac{1\times\sqrt{d}}{\sqrt{d} \times \sqrt{d}} = \frac1d \sqrt{d} \]
+	pour obtenir la forme requise par l'énoncé.
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=10pt]
+		\item
+		$x = \dfrac{3\times3}{7} = \dfrac97$.
+		\item
+		$\dfrac6x = 2$, donc $ x = \dfrac62 = 3$.
+		\item
+		$ x = \dfrac{16\times2}{\sqrt3} = \dfrac{32}{\sqrt3} = \dfrac{32}{3} \sqrt3$.
+		\item
+		$ x = \dfrac{-2}{4\sqrt3} = \dfrac{-1}6 \sqrt3$.
+		\item
+		$x = \dfrac{9\times5}{\sqrt6} = \dfrac{15}{2}\sqrt6$.
+		\item
+		$ x = \dfrac{-3\times7}{5\sqrt7} = \dfrac{-3}5 \sqrt7$.
+		\item
+		$x = \dfrac{-9\times3}{2\sqrt{11}} = \dfrac{-27}{22}\sqrt{11}$.
+		\item
+		$x = \dfrac{2}{-7\sqrt{14}} = \dfrac{-1}{49}\sqrt{14}$
+	\end{enumerate}
+	\end{multicols}
+}
 
 
 
@@ -834,7 +860,7 @@
 	\begin{enumerate}
 		\item
 		Trouver un entier naturel $a \in \N$ non nul tel que
-			\[ 365{,}2422 \approx 365 + \dfrac1a.\]
+			\[ 365,2422 \approx 365 + \dfrac1a.\]
 
 		\item
 		En déduire la règle d'année bissextile du calendrier julien.
@@ -854,7 +880,7 @@
 	\begin{enumerate}
 		\item
 		Trouver un entier naturel $b \in \N$ tel que
-			\[ 365{,}2422 \approx 365 + \dfrac14 - \dfrac{b}{400}.\]
+			\[ 365,2422 \approx 365 + \dfrac14 - \dfrac{b}{400}.\]
 
 		\item
 		En déduire la règle d'année bissextile du calendrier grégorien.
@@ -868,7 +894,7 @@
 	\begin{enumerate}
 		\item
 		Trouver un entier naturel $c \in \N$ tel que
-			\[ 365{,}2422 \approx 365 + \dfrac14 - \dfrac{3}{400} - \dfrac{c}{4000}.\]
+			\[ 365,2422 \approx 365 + \dfrac14 - \dfrac{3}{400} - \dfrac{c}{4000}.\]
 
 		\item 
 		Créer une nouvelle règle d'année bissextile.
@@ -876,7 +902,55 @@
 		Calculer le nombre d'années avant que votre calendrier soit en retard d'un jour.
 	\end{enumerate}
 	\end{enumerate}
-}{exe:calendrier}{}
+}{exe:calendrier}{
+	\begin{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+				\[ 365,2422 \approx 365 + \dfrac1a \iff 0,2422 \approx \frac1a \iff a \approx \frac1{0,2422} \approx 4,13. \]
+			Ainsi $a=4$ est l'entier naturel le plus proche de résoudre l'équation.
+			\item
+			Pour qu'une année ait $365 + \frac14$ jours en moyenne, il faut qu'elle ait $365$ jours et $366$ jours une fois tous les quatre ans.
+			C'est l'année bissextile : les ans multiples de 4 ont un jour en plus, le 29 février.
+			C'est le cas de l'année 2028, par exemple.
+			
+			\item
+			L'erreur commise est égale à $365,2422 - (365 + \frac14) = -0.0078$.
+			Il y a donc trop de jours dans le calendrier qu'il n'en faudrait, exactement $0,0078$ jours en trop.
+			Après 1 600 ans, il y aura donc un décalage de $1600 \times 0,0078 = 12,48$ jours.
+			Un tel décalage se remarque dans l'arrivée des saisons servant à l'organisation des temps de récoltes.
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+				\[ 365,2422 \approx 365 + \dfrac14 - \dfrac{b}{400} \iff 0,0078 \approx \frac{b}{400} \iff b \approx 400\times0,0078 = 3,12. \]
+			Ainsi $b=3$ est l'entier naturel le plus proche de résoudre l'équation.
+			\item
+			Pour qu'une année ait $365 + \frac14 - \frac3{400}$ jours en moyenne, il faut garder la règle de l'année bissextile mais soustraire trois jours tous les 400 ans.
+			Une façon de faire est de soustraire un jour du calendrier tous les 100 ans, sauf les multiples de 400.
+			Une année est donc dite bissextile si elle est multiple de 4 sauf multiple de 100 mais pas de 400.
+			
+			\item
+			L'erreur commise est égale à $365,2422 - (365 + \frac14 - \frac3{400}) = -0.0003$.
+			Il y a donc trop de jours dans le calendrier qu'il n'en faudrait, exactement $0,0003$ jours en trop.
+			Au bout de $n$ années, il y aura $0,0003 \times n$ jours en trop.
+			Pour atteindre 1 jour en trop il faut donc que $0,0003 \times n \approx 1 \iff n \approx \frac1{0,0003} \approx 3~333,33$.
+			
+			En conclusion, après 3 333 années du calendrier grégorien, celui-ci aura accumulé 1 jour de retard.
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+			On trouve $c=1$.
+			\item
+			Il faut soustraire un jour du calendrier tous les 4 000 ans.
+			Une année bissextile pourrait donc être tous les multiples 4, sauf les multiples de 100 pas multiples de 400, et sauf multiples de 4 000.
+			\item 
+			Après un an, l'erreur commis est de $5\times10^{-5} = 0,00005$ jours en trop dans le calendrier.
+			Il faut donc $\frac1{5\times^{-5}} = 0,2 \times 10^5 = 20~000$ années pour que ce calendrier soit en retard d'un jour.
+		\end{enumerate}
+	\end{enumerate}
+}
 
 
 
