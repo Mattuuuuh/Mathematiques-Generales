@@ -180,37 +180,5 @@
 % emdash in mathmode
 \newcommand{\dash}{\text{---}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ENVIRONMENTS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% two columns toc
-\newcommand{\twocolstableofcontents}{
-	\renewcommand*\contentsname{}
-	\begin{center}  
-		{\Large \bfseries TABLE DES MATIÈRES \bigskip}    
-	\end{center}
-	\hrule
-	\begin{multicols}{2}\setlength{\columnseprule}{1pt}
-		\titleformat{\chapter}{}{}{0pt}{} 
-		\titlespacing*{\chapter}{0pt}
-		{*7} %  % vertical space before the title <<<<<<<<<<
-		{*-15}  %  idem after title (in ex units + glue) <<<<<<<<<<<
-		\tableofcontents
-	\end{multicols}
-	\hrule
-}
 
-% python minted
-\newcommand{\python}[1]{
-\inputminted[
-		linenos,
-		gobble=0,
-		breaklines=true, % otherwise it breaks for no apparent reason?
-		breakafter=,,
-		fontsize=\normalsize,
-		numbersep=8pt,
-		tabsize=4, % tab ident = 4 spaces
-		fontfamily=courier, %important pour les signes <, >
-]{python}{python/#1.py}
-}

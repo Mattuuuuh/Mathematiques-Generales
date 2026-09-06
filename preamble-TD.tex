@@ -50,7 +50,12 @@
 
 \usepackage{ifthen}
 \renewcommand{\ExerciseHeader}{
-	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {\textbf{\hyperref[\ExerciseLabel-Answer]{\theExercise}.}};\!
+	\tikz[baseline=(R.base)]\node[draw,rectangle, thick, inner sep=2pt](R) {%
+		\textbf{%
+			\refAnswer{\ExerciseLabel}.%
+		}%
+	};\!
+	%
 	\ifnum\ExerciseDifficulty=0
 	\else
 		(\theExerciseDifficulty)
