@@ -9,7 +9,10 @@
 \exe{}{
 	Calculer la valeur de $6\choose3$ et interpréter le résultat.
 }{exe:6choose3}{
-
+	Par définition,
+		\[ {6 \choose 3} = \frac{6!}{3!3!} = \frac{6\times5\times4\times3\times2\times1}{(3\times2\times1)^2} = 20. \]
+	Interprétation : il existe 20 sous-ensembles de $\{ 1 ; 2 ; 3 ; 4 ; 5 ; 6\}$ de 3 éléments.
+	Ou : il existe 20 façon de choisir 3 éléments parmi 6 en ignorant l'ordre des éléments choisis.
 }
 
 \exe{}{
@@ -42,7 +45,48 @@
 		La banque a-t-elle eu raison de forcer l'utilisation de 4 chiffres différents ?	
 	\end{enumerate}
 }{exe:bank}{
-
+	\begin{enumerate}
+		\item
+		Combien y a-t-il
+		\begin{enumerate}
+			\item
+			Un code est une liste $( \_ ; \_ ; \_ ; \_)$ de quatre chiffres de 0 à 9.
+			Chaque chiffre a donc 10 possibilités, et au total il y a $10\times10\times10\times10 = 10~000$ combinaisons possibles.
+			\item
+			Le quatrième chiffre n'a plus que 5 possibilités, ce qui donne $10\times10\times10\times5 = 5~000$ combinaisons possibles.
+			\item
+			Comptons plutôt les codes ne contenant jamais 7 : il y a en $9^4 = 6~561$ car chaque numéro du code a $9$ possibilités.
+			Les codes contenant au moins une fois 7 sont donc au nombre de $10^4 - 9^4 = 3~439$.
+			\item
+			Comptons les codes ayant un 7 en première positions et aucun autre 7 : $(7 ; \_ ; \_ ; \_)$ avec $9\times9\times9 = 729$ possibilités.
+			Les codes ayant un 7 en deuxième position sont au même nombre, idem pour la troisième et quatrième position.
+			En ajoutant les résultats nous ne comptons aucun code en double car chaque code contient un unique 7 en des positions différentes.
+			Il y a donc $4\times729 = 2~916$ différents codes.
+		\end{enumerate}
+		\item
+		Une banque force son utilisateur a utiliser 4 chiffres différents pour augmenter la sécurité.
+		Combien y a-t-il
+		\begin{enumerate}
+			\item
+			On compte ici les arrangements : dans la liste $( \_ ; \_ ; \_ ; \_)$, le premier chiffre a 10 possibilités, le deuxième 9, le troisième 8, et le quatrième 7.
+			Il y a donc $10\times9\times8\times7 = 5~040$ codes différents.
+			\item
+			Au lieu de compter à partir du premier chiffre du code, ce qui changerait potentiellement le nombre de possibilités du dernier (si un pair est choisi), comptons à partir de la fin.
+			Le dernier chiffre a 5 possibilités (0 ; 2 ; 4 ; 6 ; 8), l'avant-dernier en a 9 car il est différent du dernier, puis 8, puis 7.
+			Donc le nombre de tels codes est $5\times9\times8\times7 = 2~520$.
+			\item
+			Comptons les codes ayant un 7 en première positions et aucun autre 7 : $(7 ; \_ ; \_ ; \_)$ avec $9\times8\times7 = 504$ possibilités.
+			Les codes ayant un 7 en deuxième position sont au même nombre, idem pour la troisième et quatrième position.
+			En ajoutant les résultats nous ne comptons aucun code en double car chaque code contient un unique 7 en des positions différentes.
+			Il y a donc $4\times507 = 2~016$ différents codes.
+		\end{enumerate}
+		\item
+		D'une part, une attaque « force brute » (c'est-à-dire où l'on teste toutes les combinaisons possibles) est plus efficace plus il y a de combinaisons possibles.
+		Pour cela, interdire les chiffres doubles est contre-productif car le nombre de code a été pratiquement divisé par deux : avant répétition, il y a $10^4 = 10~000$ codes possibles, alors que sans répétition il y a $10\times9\times8\times7 = 5~040$ codes possibles.
+		
+		D'autre part, un code qui contient plusieurs fois le même code (par exemple $(1;1;1;1)$) est plus facile à reconnaître en regardant le propriétaire de la carte le taper.
+		Pour cela, interdire les chiffres doubles peut s'avérer utile !
+	\end{enumerate}
 }
 
 \exe{}{
@@ -50,10 +94,15 @@
 	On déplace le pion de case en case afin d'atteindre la case supérieure droite.
 	Le pion peut soit se déplacer d'une case vers le haut, soit d'une case vers la droite. Il est donc impossible de faire une boucle.
 	En combien de façons différentes peut-il atteindre la case supérieure droite ?
-	
-	
 }{exe:binom2}{
-
+	Les seuls mouvements du pions sont « Haut », qu'on notera $H$, et « Droite », noté $D$.
+	Du point de départ jusqu'au point d'arrivée, le pion doit faire exactement trois fois $H$, et trois fois $D$.
+	L'ordre des$H$ et $D$ détermine le chemin pris par le pion : deux mots différents correspondent à deux chemins différents et vice versa.
+	Un exemple de mot est « HHDHDD » ; un autre est « DHDHDH ».
+	
+	Pour compter le nombre de mots différents, il suffit de placer les 3 $H$ dans les 6 positions possibles, les $D$ remplissant les trous.
+	Un mot est donc associé à un unique choix de 3 emplacements parmi les 6 possibles dans lesquels mettre un $H$.
+	Il y a donc ${6 \choose 3} = 20$ mots et donc chemins possibles. 
 }
 
 
@@ -64,7 +113,11 @@
 	
 	\emph{Indication : montrer qu'un $m$-arrangement de $[n]$ correspond à une unique fonction $f$ strictement croissante.}
 }{exe:strict-increasing}{
-
+	Un choix de $m$ éléments parmi $n$ aboutit à une unique fonction strictement croissante car il n'existe qu'une seule façon de ranger $m$ entiers distincts par ordre croissant.
+	
+	Plus rigoureusement, l'application qui associe à chaque fonction $f : [m] \rightarrow [n]$ l'ensemble $\{ f(1) ; f(2) ; \dots ; f(m) \} \subseteq [n]$ est une bijection des fonctions strictement croissantes vers les sous-ensembles de $[n]$ contenant $m$ éléments.
+	La surjectivité découle de la possibilité de ranger tout ensemble par ordre croissant et d'ainsi définir une fonction pré-image strictement croissante.
+	L'injectivité découle de l'unicitié de cet ordre croissant.
 }
 
 \exe{difficulty=1}{
@@ -73,7 +126,21 @@
 	montrer que
 		\[ \sum_{k=0}^{n} {n \choose k} {n \choose n-k} = {2n \choose n}. \]
 }{exe:id-newton}{
-	todo
+	D'après le binôme de Newton,
+		\[ (1+x)^{2n} = \sum_{k=0}^{2n} {2n \choose k} x^k. \]
+	Son coeffiicent en $x^n$ est donc bien $2n \choose n$.
+	
+	De plus,
+		\[ (1+x)^n (1+x)^n = \left[ {n \choose 0} + {n \choose 1}x + {n \choose 2}x^2 + \dots + {n \choose n}x^n \right]\left[ {n \choose 0} + {n \choose 1}x + {n \choose 2}x^2 + \dots + {n \choose n}x^n \right]. \]
+	Les produits contribuant au terme $x^n$ sont donc
+		\[ {n \choose 0} \times {n \choose n}x^n \]
+	et 
+		\[ {n \choose 1}x \times {n\choose n-1} x^{n-1} \]
+	et
+		\[ {n \choose 2}x^2 \times {n\choose n-2}x^{n-2} \]
+	etc...
+	Par conséquent nous trouvons
+		\[ {2n \choose n} = {n \choose 0}{n \choose n} + {n \choose 1}{n \choose n-1} + {n \choose 2}{n \choose n-2} + \dots + {n \choose n}{n \choose 0} =  \sum_{k=0}^{n} {n \choose k} {n \choose n-k}. \]
 }
 
 \exe{}{
@@ -81,7 +148,9 @@
 	
 	Écrire un programme informatique permettant de vérifier son résultat.
 }{exe:divisors}{
-	todo
+	Le principe d'inclusion-exclusion permet de trouver 280.
+
+	\input{exe:divisors.py}
 }
 
 \exe{difficulty=1}{
@@ -90,7 +159,9 @@
 	
 	Écrire un programme informatique permettant de vérifier son résultat.
 }{exe:divisors-hard}{
-	todo
+	Le principe d'inclusion-exclusion permet de trouver 783.
+	
+	\input{exe:divisors-hard.py}
 }
 
 
@@ -103,7 +174,19 @@
 		\[ S = \bigset{ (p, h) \tq \text{ $p$ et $h$ partagent un côté } }. \]
 	En comptant $|S|$ de deux façons différentes, montrer que $5p = 3h$ et en déduire le nombre de pentagones et d'hexagones sur le ballon.
 }{exe:double-counting}{
-	sol 1
+	Calculons $|S|$ en parcourant tous les pentagones $p$ et en comptant les couples $(p, h)$ appartenant à $S$.
+	Comme chaque pentagone est entouré de cinq hexagones, il existe $5$ couples $(p, h)$ exactement.
+	Par conséquent, $|S| = 5p$ car nous ajoutons $p$ fois $5$.
+	
+	Calculons $|S|$ en parcourant tous les hexagones $h$ et en comptant les couples $(p, h)$ appartenant à $S$.
+	Comme chaque hexagone est entouré de trois pentagones, il existe $3$ couples $(p, h)$ exactement.
+	Par conséquent, $|S| = 3h$ car nous ajoutons $h$ fois $3$.
+	
+	Finalement, $5p = 3h$.
+	Comme $p+h = 32$ d'après l'énoncé, nous obtenons un système
+		\[ \systeme{p+h = 32, \\ 5p = 3h.} \]
+	dont nous déduisons que $3p + 3h = 96$ et donc $3p + 5h = 96$ et $h = \frac{96}{8} = 12$.
+	Puis $h = 32-p = 20$.
 }
 
 \exe{}{
@@ -116,8 +199,6 @@
 %	  	\item 
 %	  	Quelle est la probabilité que deux clients exactement reçoivent leur lettre ?
 	 \end{enumerate}
-
-
 }{exe:derangement}{
 	 \begin{enumerate}
 		  \item 
@@ -136,13 +217,24 @@
 
 	Montrer que parmi 7 entiers relatifs, la différence de deux d'entre eux est un multiple de 6.
 }{exe:pidgin-whole0}{
-
+	L'ensemble $\{ 0 ; 1 ; 2 ; 3 ; 4 ; 5 \}$ fonctionne : aucune différence n'est un multiple de 6.
+	
+	
+	Pour raisonner plus généralement sur sept entiers, nous utilisons le principe des chaussettes dans les tiroirs : en mettant $n+1$ chaussettes dans $n$ tiroirs, un tiroir contient nécessairement plus de deux chaussettes.
+	
+	Comme il existe six restes possibles modulo 6, parmi les sept entiers relatifs, deux d'entre eux auront nécessairement le même reste : ils sont congrus modulo 6.
+	Leur différence est donc congrue à 0 modulo 6, c'est-à-dire que c'est un multiple de 6.
 }
 
 \exe{}{
 	Montrer que parmi 100 personnes, 9 d'entre elles sont nécessairement nées le même mois de l'année.
 }{exe:pidgin-whole1}{
-
+	Nous utilisons le principe des chaussettes dans les tiroirs généralisé.
+	
+	Rangeons chaque personne dans une boite correspondant à son mois de naissance.
+	Supposons qu'aucun mois ne contienne 9 personnes : chaque mois contient donc moins de 8 personnes.
+	Au total, il y aura donc moins de $12\times 8 = 96$ personnes rangées.
+	Ceci n'est pas possible car 100 personnes ont été rangées.
 }
 
 
@@ -151,7 +243,13 @@
 	
 	\emph{Exemple : 111100 qui n'est malheureusement pas multiple de 23.}
 }{exe:pidgin-whole2}{
-
+	Considérons la suite d'entiers
+		\[ \bigset{ 0 ; 1 ; 11 ; 111 ; 1111 ; \dots ; \underbrace{11...11}_{\text{$23$ fois}} }, \]
+	et leur reste modulo 23.
+	Il existe 23 restes différents, mais 24 nombres dans l'ensemble.
+	Le principe des chaussettes dans les tiroirs implique que deux éléments partagent le même reste modulo 23.
+	Leur différence (grand moins petit) est donc un multiple de 23 et a la forme requise.
+	La plus grande telle différence est $\underbrace{11...11}_{\text{$23$ fois}} - 0 \leq 10^{24}$ comme requis.
 }
 
 \exe{difficulty=1}{
@@ -163,5 +261,16 @@
 		\[ \frac{n!}{k_1! k_2! \cdots k_m!} = {n \choose k_1, k_2, \dots, k_m} \in \N \]
 	est un \emph{coefficient multinomial}.
 }{exe:multinomial}{
-	todo
+	Prenons les éléments de $[n] = \{ 1 ; 2 ; \dots ; n \}$ et découpons-les en $m$ ensembles de taille $k_1, k_2, \dots, k_m$.
+	Comptons le nombre d'ensembles distincts obtenus.
+	Pour cela, partons de listes ordonnées, et divisons par le nombre de permutation à l'interieur de chaque liste pour compter le nombre d'ensembles.
+	
+	Prenons une permutations de $[n]$. Il en existe $n!$.
+	Les $k_1$ premiers éléments sont comptés un facteur $k_1!$ en trop si l'on ne souhaite pas garder l'ordre.
+	Les $k_2$ suivants sont comptés un facteur $k_2!$ en trop.
+	Etc...
+	Au total, le nombre de partitionnements de $[n]$ en sous-ensembles (donc sans regarder l'ordre) est égal à 
+		\[  \frac{n!}{k_1! k_2! \cdots k_m!} = {n \choose k_1, k_2, \dots, k_m} \in \N. \]
+		
+	Remarque : le coefficient multinomial apparaît lorsqu'on souhaite développer $(1+x+y)^n$ puis $(1+x+y+z)^n$, etc...
 }
