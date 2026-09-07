@@ -50,8 +50,8 @@
 
 
 \exe{difficulty=1}{
-	Considérons $\R[x]$, l'ensemble des polynômes à coefficients réels, comme $\R$-espace vectoriel.
-	Soit $E = \End(\R[x])$ l'ensemble des endomorphismes (applications $\R$-linéaires) de $\R[x]$ muni de l'opérateur de composition $\circ$.
+	Considérons $\R[X]$, l'ensemble des polynômes à coefficients réels, comme $\R$-espace vectoriel.
+	Soit $E = \End(\R[X])$ l'ensemble des endomorphismes (applications $\R$-linéaires) de $\R[X]$ muni de l'opérateur de composition $\circ$.
 	\begin{enumerate}
 		\item
 		Montrer que $E$ est stable pour $\circ$ ; que la loi $\circ$ est associative ; et qu'elle admet un élément neutre.
@@ -143,12 +143,23 @@
 }
 
 \exe{}{
-	Montrer que
+	Montrer d'abord que $15\Z \subseteq 5\Z$.
+	
+	Montrer en suite, plus généralement, que, pour $a, b\in\Z$,
 		\begin{align*}
 			a | b && \iff && b\Z \subseteq a\Z.
 		\end{align*}
-}{exe:divide-include}{
-	todo
+	\emph{Conclusion : les relations de division et d'inclusion d'idéaux sont liées mais l'ordre est inversé.}
+}{exe:divide-include-Z}{
+	Un multiple de 15 est un multiple de 5 donc $15\Z = 5(3\Z) \subseteq 5\Z$.
+	
+	\underline{Direction $\implies$.}
+	
+	Si $a|b$ dans $\Z$, $b = aq$ avec $q\in\Z$, et donc $b\Z = a(q\Z) \subseteq a\Z$.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Si $b\Z \subseteq a\Z$, alors $b \in a\Z$ et donc $b = aq$ avec un $q\in\Z$.
 }
 
 
@@ -219,10 +230,291 @@
 }
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 2 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\exe{}{
+	Considérons $\Z, \R[X], \C[X], \Q[X]$ les anneaux avec addition et multiplication usuelles.
+	\begin{enumerate}
+		\item
+		Énumérer les unités de $\Z$.
+		\item
+		Décrire les irréductibles de $\Z$.
+		\item
+		Décrire les inversibles de $\R[X]$.
+		\item
+		Montrer que $X^2 + 1$ est irréductible dans $\R[X]$.
+		\item
+		Montrer que $6X^2 + 6$ est irréductible dans $\R[X]$.
+		\item
+		Montrer que $X^2 + 1$ est réductible dans $\C[X]$.
+		\item
+		Donner un polynôme de $\Q[X]$ qui est irréductible dans $\Q[X]$ mais réductible dans $\R[X]$
+	\end{enumerate}
+}{exe:irr-in-Z-Rx-Cx}{
+	\begin{enumerate}
+		\item
+		Les unités sont les éléments inversibles multiplicativement : $\Z^\times = \{ +1 ; -1 \}$.
+		\item
+		Les $\pm p$ sont irréductibles car si $\pm p = a \times b$, alors $a$ ou $b$ est unité.
+		Les autres entiers relatifs sont réductibles.
+		\item
+		Les inversibles de $\R[X]$ sont les constantes non nulles : si $pq = 1$ dans $\R[X]$, alors $p$ et $q$ sont nécessairement constants et non nuls car $\deg(pq) = \deg(p) + \deg(q) = 0$.
+		\item
+		Si $X^2 + 1 = pq$ avec $p, q$ des diviseurs propres (donc non constants), alors $p$ et $q$ sont linéaires et admettent une racines dans $\R$.
+		Ce n'est bien sûr pas le cas de $X^2 + 1$.
+		\item
+		Si $6X^2 + 6$ se réduit, alors $6X^2 + 6 = pq$, et $X^2 + 1 = (\frac16 p)q$.
+		Comme $X^2 + 1$ est irréductible, ce n'est pas possible.
+		\item
+		$X^2 + 1 = (X+i)(X-i)$ dans $\C[X]$.
+		\item
+		$X^2 - 2 = (X+\sqrt2)(X-\sqrt2)$ fonctionne.
+	\end{enumerate}
+}
+
+\exe{}{
+	Soit $A$ un anneau commutatif unitaire et $u\in A^\times$ un élément inversible de $A$.
+	Montrer que
+	\begin{align*}
+		\text{$a$ est irréductible} && \iff && \text{$u\cdot a$ est irréductible}.
+	\end{align*}
+}{exe:irr-up-to-unit}{
+	\underline{Direction $\implies$.}
+	
+	Si $a$ est irréductible, il n'a aucun facteur propre (ni unité, ni $a$ fois une unité).
+	Supposons par contradiction que $u\cdot a$ soit réductible :
+		\[ u \cdot a = p \cdot q, \]
+	avec $p, q \in A$ deux facteurs propres.
+	
+	Alors, comme $u$ est inversible,
+		\[ a = (u^{-1} p) \cdot q, \]
+	ce qui contredit l'irréducibilité de $a$.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Si $u \cdot a$ est irréductible, alors $u^{-1} (u \cdot a)$ l'est par la direction $\implies$ déjà traitée.
+	Donc $a$ est irréductible.
+}
+
+\exe{}{
+	Montrer que l'anneau $(\Z, +, \cdot)$ est principal : tout idéal $I$ est généré par un seul élément.
+	
+	\emph{Indication : prendre un $n\in I$ de valeur absolue minimale non nul et montrer que $I = n\Z$.}
+}{exe:Z-is-principal}{
+	Soit $I\subseteq\Z$ un idéal.
+	Prenons un élément $n \in I-\{0 \}$ de valeur absolue minimale (il y en a deux : $n$ et $-n$).
+	Montrons que $I = \japb{n} = n\Z$.
+	
+	\underline{Inclusion $\supseteq$.}
+	
+	Il est clair que $n\Z \subseteq I$ car $(I,+)$ est un groupe : l'élément neutre $0$ appartient à $I$, et comme $n\in I$, la stabilité de $+$ et l'existence d'un inverse additif implique que $n+n = 2n \in I$, et $-n \in I$. 
+	En répétant les sommes, $n\Z \subseteq I$.
+	
+	\underline{Inclusion $\subseteq$.}
+	
+	Soit $x\in I$. La division euclidienne de $x$ par $n$ donne
+		\[ x = nq + r, \]
+	avec $|r| < |n|$ (la valeur absolue est ajoutée car nous somme dans $\Z$ et que $x$ peut être un nombre négatif !).
+	Comme $I$ est un idéal, $nq \in I$ par stabilité par multiplication externe, et $x - nq \in I$ par stabilité de l'addition interne.
+	Par suite, $r\in I$.
+	Comme $n$ a été choisi de valeur absolue minimale non nul, nous avons nécessairement $r=0$ et donc $x \in n\Z$.
+}
 
 
+\exe{}{
+	Soit $A$ un anneau commutatif et $a\in A$ générant un idéal $I$ :
+		\[ I = \japb{a}. \]
+	On rappelle que $I$ est le plus petit idéal contenant $a$.
+	
+	Montrer que
+		\[ I = a \cdot A  = \bigset{ a \cdot x \tq x \in A }. \]
+	\emph{Exemple : dans $\Z$, $\japb{15} = 15\Z$.}
+}{exe:gen-as-sum-of-ideals}{
+	Soit $J$ un idéal contenant $a$.
+	Montrons que $J$ contient $a\cdot A$ et que $a \cdot A$ est un idéal : ceci montrera que $\japb{a} = a\cdot A$.
+	
+	D'une part, par stabilité externe d'un idéal, $a\in J$ implique $a \cdot A \subseteq J$.
+	
+	D'autre pat, $a\cdot A$ est un idéal car $(a \cdot A, +)$ est un groupe (élément neutre, stabilité, et inverse sont les seules propriétés à vérifier) et car $a\cdot A$ est stable par multiplication par un élément de $A$ : $a \cdot A \cdot x \subseteq a\cdot A$ pour tout $x\in A$.
+}
+
+\exe{}{
+	Soit $A$ un anneau commutatif et certains éléments $a_1, a_2, \dots, a_n \in A$ générant un idéal $I$ :
+		\[ I = \japb{a_1, a_2, \dots, a_n}. \]
+	On rappelle que $I$ est le plus petit idéal contenant $a_1, a_2, \dots, a_n$.
+	
+	Montrer que
+		\[ I = a_1 \cdot A + a_2 \cdot A + \dots + a_n \cdot A. \]
+	\emph{Exemple : dans $\Z$, $\japb{78, 66, 24} = 78\Z + 66\Z + 24\Z$.}
+}{exe:gen-as-sum-of-ideals2}{
+	Analogue à \ref{exe:gen-as-sum-of-ideals} : tout idéal contenant $a_1, \dots, a_n$ contient nécessairement les multiples de ces éléments ainsi que les sommes.
+	Il suffit alors de montrer que $a_1 A + \dots + a_n A$ est un idéal, ce qui n'est pas trop difficile.
+}
+
+\exe{}{
+	Soit $A$ un anneau commutatif et certains éléments $a_1, a_2, \dots, a_n \in A$.
+	Montrer que pour tout idéal $I$,
+	\begin{align*}
+		\japb{ a_ 1, a_2, \dots, a_n } \subseteq I && \iff && a_1 \in I, a_2 \in I, \dots, a_n \in I.
+	\end{align*}
+	\emph{Conclusion : un idéal est inclus dans un autre dès que tous ses générateurs le sont.}
+}{exe:gen-incl-ideal-incl}{
+	La direction $\implies$ est claire car les générateurs appartiennent à l'idéal généré par ceux-ci.
+	
+	Pour la direction $\impliedby$, supposons $a_1 \in I, a_2 \in I, \dots, a_n \in I$.
+	Alors, comme $I$ est stable par multiplication externe par un élément de $A$, nous avons
+		\[ a_1 \cdot A \subseteq I, a_2 \cdot A \subseteq I, \cdots, a_n \cdot A \subseteq I. \]
+	De plus, comme $I$ est stable par addition interne, nous avons
+		\[ a_1 A + a_2 A + \dots + a_n A \subseteq I, \]
+	comme requis.
+}
+
+\exe{}{
+	Soit $A$ un anneau commutatif unitaire et $u\in A^\times$ un élément inversible de $A$.
+	Montrer que, pour tout $a\in A$,
+		\[ \japb{ a } = \japb{u \cdot a} \]
+	\emph{ Conclusion : multiplier un générateur par un inversible ne change pas l'idéal généré.}
+}{exe:ideal-up-to-unit}{
+	D'après l'exercice \ref{exe:gen-incl-ideal-incl}, il suffit de montrer que le générateur du premier idéal est inclus dans le deuxième, et inversement.
+	Or, clairement, $u\cdot a \in \japb{a}$, et $a \in \japb{u \cdot a}$ car $a = u^{-1} (u\cdot a)$.
+}
+
+\exe{}{
+	Soit $A$ un anneau commutatif et $a, b\in A$ deux éléments.
+	Montrer que
+	\begin{align*}
+		a|b && \iff && \japb{b} \subseteq \japb{a}.
+	\end{align*}
+}{exe:divide-include}{
+	\underline{Direction $\implies$.}
+	
+	Si $a|b$, alors $b=a\cdot q$ avec $q\in A$. Ainsi $b \in \japb{a} = a \cdot A$ donc $\japb{b} \subseteq \japb{a}$ par inclusion du générateur (voir exercice \ref{exe:gen-incl-ideal-incl}.)
+	
+	\underline{Direction $\impliedby$.}
+	
+	Si $\japb{b}\subseteq \japb{a}$, alors $b \in \japb{b}$ et donc $b \in \japb{a} = a \cdot A$.
+	Il existe donc un $q\in A$ tel que $b = aq$.
+}
 
 
+\exe{}{
+	Montrer l'équivalence suivante dans $\Z$.
+	\begin{align*}
+		a = bq + r && \iff && \begin{pmatrix} 0 & 1 \\ 1 & -q \end{pmatrix} \begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} b \\ r \end{pmatrix}.
+	\end{align*}
+}{exe:div-euclide-matrix}{
+	Calcul matriciel.
+}
+
+\exe{}{
+	Calculer $\pgcd(78, 66)$ à l'aide de l'algorithme d'Euclide.
+	Utiliser la formulation matricielle pour trouver $u, v\in\Z$ tels que
+		\[ 78u + 66v = \pgcd(78, 66). \]
+}{exe:Bezout-Z}{
+	Les divisions euclidiennes successives sont les suivantes.
+	\begin{align*}
+		78 &= 66\times 1 + 12 \\
+		66 &= 12 \times 5 + 6 \\
+		12 &= 6 \times 2 + 0
+	\end{align*}
+	Le dernier reste non nul est 6, c'est le PGCD.
+	
+	En formulation matricielle, l'exercice \ref{exe:div-euclide-matrix} donne
+	\begin{align*}
+		\begin{pmatrix} 0 & 1 \\ 1 & -2 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ 1 & -5 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ 1 & -1 \end{pmatrix}  \begin{pmatrix} 78 \\ 66 \end{pmatrix} &=  \begin{pmatrix} 6 \\ 0 \end{pmatrix}, \\
+		\begin{pmatrix} -5 & 6 \\ 11 & -13 \end{pmatrix} \begin{pmatrix} 78 \\ 66 \end{pmatrix} &=  \begin{pmatrix} 6 \\ 0 \end{pmatrix}.
+	\end{align*}
+	La première ligne donne :
+		\[ 78\times(-5) + 66\times(6) = 6, \]
+	qu'on vérifiera bien sûr !
+}
+
+\exe{}{
+	Soit $A$ un anneau commutatif unitaire principal, et $a, b\in A$ deux éléments.
+	Nous savons donc que $\japb{a, b} = \japb{d}$ avec $d\in A$.
+	
+	Montrer que $d$ vérifie
+	\begin{enumerate}
+		\item
+		$d | a$ et $d|b$ ; et
+		\item
+		si $d'|a$ et $d'|b$, alors $d|d'$.
+	\end{enumerate}
+	\emph{Conclusion : le PGCD existe et est unique à multiplication par unité près dans un anneau principal.}
+}{exe:gcd-principal-ideal}{
+	\begin{enumerate}
+		\item
+		Comme $\japb{a, b} = \japb{d}$, alors $a \in \japb{d} = d\cdot A$ et donc $d$ divise $a$.
+		De façon identique, $d$ divise $b$.
+		\item
+		Si $d'|a$ et $d'|b$, alors $d'\in aA + bA = \japb{a, b} = \japb{d} = d\cdot A$.
+		Il suit donc que $d$ divise $d'$.
+	\end{enumerate}
+}
+
+\exe{}{
+	Trouver $u, v\in\Z$ tels que $18u + 23v = 1$.
+	
+	En déduire la valeur de $18^{-1}$ dans $\F_{23}$ (le corps des entiers modulo 23).
+}{exe:Bezout-18-23}{
+	Les divisions successives
+	\begin{align*}
+		23 &= 18 \times 1 + 5, \\
+		18 &= 5 \times3 + 3, \\
+		5 &= 3 \times 1 + 2, \\
+		3 &= 2 \times 1 + 1 \\
+		2 &= 1 \times 2 + 0
+	\end{align*}
+	Donne la relation matricielle
+	\begin{align*}
+		\begin{pmatrix} 0 & 1 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 1 & -3 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 1 & -1 \end{pmatrix}
+		 \begin{pmatrix} 23 \\ 18 \end{pmatrix} &=  \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \\
+		\begin{pmatrix} -7 & 9 \\ 18 & -23 \end{pmatrix} \begin{pmatrix} 23 \\ 18 \end{pmatrix} &=  \begin{pmatrix} 1 \\ 0 \end{pmatrix}.
+	\end{align*}
+	La première ligne donne donc $23 \times (-7) + 18 \times (9) = 1$.
+	
+	Modulo $23$, cette relation donne $18 \times 9 = 1 \mod 23$ et donc l'inverse de 18 est 9 dans $\F_{23}$.
+}
+
+\exe{}{
+	Poser la division euclidienne de
+	\begin{enumerate}[itemsep=10pt]
+		\item
+		$X^4 + 2X + 1$ par $2X^2 - 1$ dans $\Q[X]$ ;
+		\item
+		$X^3 + 5X^2 + 2X$ par $\pi X^2 + 3$ dans $\R[X]$ ;
+		\item
+		$X^2 + 7X + 2$ par $18X + 1$ dans $\F_{23}[X]$ ;
+	\end{enumerate}
+}{exe:euclidean-div-Qx-Cx-Fp}{
+	La division euclidienne fonctionne en annulant le terme dominant du dividende en lui soustrayant des multiples du diviseur.
+	Pour $a(x) = a_n X^n + \dots$ et $b(X) = b_m X^m + \dots$ et $m < n$, alors l'opération
+		\[ a - b \times (a_n b_m^{-1} X^{n-m}) \]
+	permet d'annuler le coefficient de $a$, avant de répéter.
+	\begin{enumerate}
+		\item
+		En posant, 
+		\polylongdiv[style=D]{X^4 + 2X + 1}{2X^2 - 1}
+		
+		donc $(X^4 + 2X + 1) = (2X^2 - 1) (\frac12 X^2 + \frac14) + (2X + \frac54)$.
+		\item
+		D'abord,
+			\[ X^3 + 5X^2 + 2X - \frac1{\pi}X(\pi X^2 + 3) = 5X^2 + (2-\frac3{\pi})X, \]
+		puis
+			\[  5X^2 + (2-\frac3{\pi})X - \frac5{\pi} (\pi X^2 + 3) = (2-\frac3{\pi})X  - \frac{15}{\pi}. \]
+		et donc finalement
+			\[ X^3 + 5X^2 + 2X = (\frac1{\pi} X + \frac5{\pi}) (\pi X^2 + 3) + (2-\frac3{\pi})X  - \frac{15}{\pi}. \]
+		\item 
+		L'inverse de $18$ est $9$ dans $\F_{23}$ d'après l'exercice \ref{exe:Bezout-18-23}, donc 
+			\[ X^2 + 7X + 2 - (18X+1)(9X) = -2X + 2 \mod 23\]
+		puis 
+			\[ -2X + 2 + 2(18X+1)(9) = 20 \mod 23 \]
+		et donc finalement
+			\[ X^2 + 7X + 2 = (18X+1)(9X - 18) + 20 \mod 23. \]
+	\end{enumerate}
+}
 
 
 
