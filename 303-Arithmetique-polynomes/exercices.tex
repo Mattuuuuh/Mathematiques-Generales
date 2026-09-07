@@ -501,11 +501,11 @@
 		donc $(X^4 + 2X + 1) = (2X^2 - 1) (\frac12 X^2 + \frac14) + (2X + \frac54)$.
 		\item
 		D'abord,
-			\[ X^3 + 5X^2 + 2X - \frac1{\pi}X(\pi X^2 + 3) = 5X^2 + (2-\frac3{\pi})X, \]
+			\[ X^3 + 5X^2 + 2X - \frac1{\pi}X\left(\pi X^2 + 3\right) = 5X^2 + \left(2-\frac3{\pi}\right)X, \]
 		puis
-			\[  5X^2 + (2-\frac3{\pi})X - \frac5{\pi} (\pi X^2 + 3) = (2-\frac3{\pi})X  - \frac{15}{\pi}. \]
+			\[  5X^2 + \left(2-\frac3{\pi}\right)X - \frac5{\pi} \left(\pi X^2 + 3\right) = \left(2-\frac3{\pi}\right)X  - \frac{15}{\pi}. \]
 		et donc finalement
-			\[ X^3 + 5X^2 + 2X = (\frac1{\pi} X + \frac5{\pi}) (\pi X^2 + 3) + (2-\frac3{\pi})X  - \frac{15}{\pi}. \]
+			\[ X^3 + 5X^2 + 2X = \left(\frac1{\pi} X + \frac5{\pi}\right) \left(\pi X^2 + 3\right) + \left(2-\frac3{\pi}\right)X  - \frac{15}{\pi}. \]
 		\item 
 		L'inverse de $18$ est $9$ dans $\F_{23}$ d'après l'exercice \ref{exe:Bezout-18-23}, donc 
 			\[ X^2 + 7X + 2 - (18X+1)(9X) = -2X + 2 \mod 23\]
@@ -517,7 +517,77 @@
 }
 
 
+\exe{difficulty=1}{
+	Soit $p\in\N$ un premier impair.
+	\begin{enumerate}
+		\item
+		Montrer que le polynôme $ax^2 + bx + c \in \Z[x]$ avec $p\nmid a$ est réductible dans $\F_p[x]$ si et seulement si le discriminant $\Delta = b^2 - 4ac$ est un carré parfait modulo $p$.
+		\item 
+		En déduire un polynôme de $\Z[x]$ irréductible dans $\F_5[x]$ mais réductible dans $\F_7[x]$.
+		\item
+		Montrer que $x^2 + x + 1$ est irréductible dans $\F_2[x]$.
+	\end{enumerate}
+}{exe:discr-Fp}{
+	Le polynôme est de degré 2 et est donc réductible si et seulement s'il admet une racine dans $\F_p$.
+	Les équations suivantes sont équivalentes et admettent une solution si et seulement si $\Delta$ est un carré parfait.
+	\begin{align*}
+		ax^2 + bx + c = 0 \\
+		4a^2x^2 + 4abx + 4ac = 0 \\
+		(2ax+b)^2 - b^2 + 4ac = 0 \\
+		(2ax+b)^2 = \Delta
+	\end{align*}
+	Nous avons utilisé ici que $p\neq2$ pour avoir que $4$ est inversible dans $\F_p$, et que $p\nmid a$ pour que $a$ soit inversible dans $\F_p$.
 
+	Les carrés parfaits de $\F_5$ sont $\bigset{ 0 ; 1 ; 4 }$.
+	Ceux de $\F_7$ sont $\bigset{ 0 ; 1 ; 4 ; 2 }$.
+	Obtenir $\Delta = 2$ est donc notre unique chance et le polynôme $x^2 - 2$ un candidat évident.
+	Celui-ci est irréductible dans $\F_5[x]$ mais se décompose comme $(x-3)(x+3)$ dans $\F_7[x]$.
+	
+	Il existe des tables de polynômes irréductibles pour chaque corps fini, dans lesquelles nous pouvons trouver 
+	\begin{itemize}[label=$\bullet)$]
+		\item $x^2 + x + 1$, de discriminant 2 dans $\F_5$ (irréductible) et 3 dans $\F_7$ (irréductible) ;
+		\item $x^2 + x + 2$, de discriminant 3 dans $\F_5$ (irréductible) et 0 dans $\F_7$ (réductible) ;
+		\item $x^2 + 4x + 1$, de discriminant 2 dans $\F_5$ (irréductible) et 5 dans $\F_7$ (irréductible) ;
+		\item etc...
+	\end{itemize}
+}
+
+
+\exe{}{
+	Montrer que le polynôme $x^2 - 1$ se décompose de deux façons différentes dans $\sfrac{\Z}{8\Z}[x]$.
+	
+	\emph{Conclusion : l'anneau $\sfrac{\Z}{8\Z}[x]$ n'est pas factoriel car la décomposition n'est pas unique, même à permutation ou multiplication par constante près.}
+}{exe:Zo8Zx-non-factoriel}{
+	L'élément 1 admet quatre racines carrés dans $\Z/8\Z$ !
+	Celles-ci sont $\pm1$ et $\pm3$.
+	Ainsi $x^2 - 1 = (x+1)(x-1) = (x+3)(x-3)$ dans l'anneau.
+}
+
+
+\exe{difficulty=1}{
+	Soient $a, b \in\Z[i]$, $b\neq0$.
+	Montrer qu'il existe $q, r\in\Z[i]$ vérifiant $a = bq+r$ et $|r| < |b|$.
+}{exe:Zi-euclidien}{
+	Le ratio $\frac{a}{b}$ appartient à $\Q[i] = \{p + qi \tq p, q \in \Q \}$.
+	Notons donc $\frac{a}b = p + qi$ avec $p, q \in \Q$, et $u, v$ les entiers les plus proches de $p, q$ respectivement.
+	Autrement dit, $|p-u| \leq \frac12$ et $|q-v| \leq \frac12$.
+	
+	Avec ce choix, 
+		\[ \left| \frac{a}b  - (u+vi) \right|^2 = (p-u)^2 + (q-v)^2 \leq \frac14 + \frac14 = \frac12. \]
+	En multipliant par $|b|$, on trouve
+		\[ | a - (u+vi) b | \leq \frac12 |b|, \]
+	ce qui conclut en posant $q=u+vi$ et $r = a-qb$ vérifiant $|r| \leq \frac12|b| < |b|$.
+}
+
+
+
+\exe{}{
+	Le polynôme $f(x) = x^4+x^3+x^2+x+1$ est-il irréductible dans $\F_5[x]$ ?
+}{exe:irreductible-F5}{
+	$f(1) = 0$ dans $\F_5$ donc $x-1$ divise $f(x)$ dans $\F_5[x]$.
+	En posant la division euclidienne, on trouve
+		\[ x^4 + x^3+ x^2 + x + 1 = (x-1)(x^3 + 2x^2 + 3x + 4) \mod 5. \]
+}
 
 
 
