@@ -526,7 +526,16 @@
 	\end{enumerate}
 	%\end{multicols}
 }{exe:VF-is-racine}{
-	testaut
+	\begin{enumerate}
+		\item
+		Vrai car $1-1 = 0$.
+		\item
+		Faux car $(-1)^3 - 1 = -1-1 = -2 \neq 0$.
+		\item
+		Faux car $(3+3)(3-2)(3+7)^4(3^2 - 1) \neq$ car aucun des facteurs n'est nul.
+		\item
+		Vrai car $2(1-(-1))^{34} - (1-(-1))^{35} = 2\times2^{34} - 2^{35} = 0$.
+	\end{enumerate}
 }
 
 
@@ -539,7 +548,12 @@
 		$3x^3 + 6x^2 - 3x + 1$ par $x^2 + 1$ ;
 	\end{enumerate}
 }{exe:euclidean-division-poly}{
-	testexe
+	\begin{enumerate}
+		\item
+		$\polylongdiv[style=D]{x^3 - x}{x-1}$ donc $x^3 -x = (x-1)(x^2 + x)$.
+		\item
+		$\polylongdiv[style=D]{3x^3 + 6x^2 - 3x + 1}{x^2 + 1}$ donc $3x^3 + 6x^2 -3x + 1 = (x^2 + 1)(3x + 6) + (-6x - 5)$.
+	\end{enumerate}
 }
 
 \exe{origin=set2}{
@@ -555,23 +569,38 @@
 		Le coefficient dominant de $p$ est irrationnel.
 	\end{enumerate}
 }{exe:poly-with-constraints}{
-	testexe
+	Le polynôme doit être composé de $(x-1)^2$ et de $(x+4)^3$ ainsi que d'autres facteurs qui ne s'annulent pas en $1$ ni $-4$ et qui permettrons d'obtenir un degré 12.
+	Par exemple,
+		\[ f(x) = (x-1)^2(x+4)^3 (x+1)^7. \]
+	Le problème est que le coefficient dominant de $f$ est 1 (obtenu en choisissant $x$ dans chaque facteur), donc
+		\[ p(x) = \sqrt2 (x-1)^2 (x+4)^3 (x+1)^7, \]
+	lui, fonctionne.
 }
 
 
 
 \exe{}{
 	Considérons l'équation quadratique $3x^2-7x+4= 0$ pour $x\in\R$.
-	Montrer que $1$ est racine de l'équation et en déduire l'autre racine.
+	Montrer que $1$ est racine de l'équation et en déduire l'autre racine à l'aide d'une division euclidienne.
 }{exe:euclide-poly}{
-	todo
+	En remplaçant $x$ par 1, on trouve bien $3-7+4 = 0$.
+	La division euclidienne de $3x^2 -7x + 4$ par $x-1$ donne
+	
+	$\polylongdiv[style=D]{3x^2 -7x + 4}{x-1}$ et donc $3x^2 - 7x + 4 = (x-1)(3x-4)$.
+	
+	Il suit donc que $3x-4 = 0 \iff x= \frac43$ est l'autre racine de l'équation.
 }
 
 
 \exe{}{
 	Trouver une racine triviale (évidente) puis factoriser le polynôme $f(x) = 7x^2 - 10x + 3$ pour trouver sa deuxième racine.
 }{exe:euclide-poly2}{
-	todo
+	La somme des coefficients est nulle, donc $f(1) = 0$.
+	La division euclidienne de $7x^2 - 10x + 3$ par $x-1$ donne
+	
+	$\polylongdiv[style=D]{7x^2 -10x + 3}{x-1}$ et donc $7x^2 - 10x + 3 = (x-1)(7x -3)$.
+	
+	L'autre racine de $f$ est donc $7x - 3 = 0 \iff x = \frac37$.
 }
 
 
@@ -582,16 +611,22 @@
 	
 	\emph{Indication : poser la division euclidienne de $f$ par $3x-1$ plutôt que par $x-\frac13$ pour simplifier les calculs.}
 }{exe:euclide-poly3}{
-	$f(x) = (3x-1)(7x^2-3)$ donc les racines sont $\frac13$ et $\pm\sqrt{\frac37}$.
+	Par division euclidienne, $f(x) = (3x-1)(7x^2-3)$, donc les racines sont $\frac13$ et $\pm\sqrt{\frac37}$.
 }
 
 
 \exe{}{
 	Montrer que $x^2 - 1$ divise $x^{2026}-1$.
 }{exe:xsq-m-1}{
-	
+	Le nombre 1 est racine de $x^{2026} - 1$, donc $x-1$ divise $x^{2026}-1$ dans $\R[x]$ :
+		\[ x^{2026} - 1 = (x-1)q(x). \]
+	De plus, $-1$ est racine de $x^{2026}-1$, donc $(-1-1)q(-1) = 0 \iff q(-1) = 0$.
+	Par suite, $-1$ est racine de $q(x)$ et $x+1$ divise $q(x)$ :
+		\[ x^{2026} - 1 = (x-1)(x+1)q'(x) = (x^2 -1)q'(x). \]
 }
 
+
+% NOT USED
 \exe{}{
 	Considérons le polynôme $f(x) = 4x^3 - 6x^2 - 2x + 3$.
 	Montrer, par le calcul, que $\frac32$ est une racine de $f$.
@@ -614,7 +649,12 @@
 	Alors
 		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(a)}{k!} (x-a)^k.\]
 }{exe:taylor-poly-2}{
-	todo
+	Il suffit d'appliquer le théorème de Taylor à la fonction $g(x) = f(x+a)$.
+	Comme $g'(x) = f'(x+a)$, et $g^{(k)}(x) = f^{(k)}(x+a)$ pour tout $k\in\N^*$,
+	nous avons
+		\[ f(x+a) = g(x) = \sum_{k=0}^d \frac{g^{(k)}(0)}{k!} x^k = \sum_{k=0}^d \frac{f^{(k)}(a)}{k!} x^k. \]
+	En remplaçant $x$ par $x-a$, nous obtenons bien
+		\[ f(x) = \sum_{k=0}^d \frac{f^{(k)}(a)}{k!} (x-a)^k. \]
 }
 
 
@@ -624,7 +664,16 @@
 		\[ f(x) = (x-3)^2 - (x-3)^4 + 3(x-3)^5. \]
 	Calculer $f(3), f'(3), f''(3), f'''(3), f^{(\text{iv})}(3)$, et $f^{(\text{v})}(3)$.
 }{exe:f-shift-derivatives}{
-
+	D'après le théorème de Taylor bis,
+		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(3)}{k!} (x-3)^k = 0 + 0(x-3) + (x-3)^2 + 0(x-3)^3 - (x-3)^4 + \frac1{12}(x-3)^5. \]
+	Par identification des coefficients, nous avons
+	\begin{align*}
+		\frac{f(3)}{0!} = 0, && \frac{f'(3)}{1!} = 0, && \frac{f''(3)}{2!} = 1, && \frac{f'''(3)}{3!} = 0, && \frac{f^{(iv)}(3)}{4!} = -1, && \frac{f^{(v)}(3)}{5!} = \frac1{12}.
+	\end{align*}
+	et donc
+	\begin{align*}
+		f(3) = 0, && f'(3) = 0, && f''(3) = 2, && f'''(3) = 0, && f^{(iv)}(3) = -24, && \frac{f^{(v)}(3)}{5!} = 10.
+	\end{align*}
 }
 
 
@@ -639,7 +688,22 @@
 	Montrer que, pour tout $n\in\N^*$, l'identité suivante est vraie dans $\R[x]$.
 		\[ \Delta(x)_n = n\cdot(x)_{n-1} \]
 }{exe:Pochhammer}{
+	Remarquons que les racines de $(x)_n$ sont exactement $0 ; 1 ; 2 ; \dots ; n-1$ pour $n\geq1$.
+	De plus, si $x^*$ et $x^* +1$ sont deux racines de $f$, alors $x^*$ est racine de $\Delta(f)$ car $\Delta(f)(x^*) = f(x^* + 1)- f(x^*)$.
 
+	Pour $n\geq 2$, posons $f(x) = \Delta(x)_n$ et identifions toutes les racines de $f$.
+	D'après la remarque, les racines $\{ 0; 1 ; \dots ; n-2 \}$ sont des racines de $f$.
+	Il suit donc que $x(x-1)\dots(x-n+2) = (x)_{n-1}$ divise $f(x)$ dans $\R[x]$.
+	
+	Regardons les termes dominants de $f(x)$, en $x^n$ et $x^{n-1}$ :
+	\begin{align*}
+		f(x) &= (x+1)(x+2)\dots(x+n) - x(x+1)\dots(x+n-1) = x^n + (1 + 2 + 3 + \dots + n)x^{n-1} + \underbrace{...}_{\text{puissances de $x$ inférieures}} - \bigl[ x^n + (0 + 1 + 2 + \dots + n-1)x^{n-1} + \underbrace{...}_{\text{puissances de $x$ inférieures}} \bigr] \\
+		&= 0x^n + nx^{n-1} + \underbrace{...}_{\text{puissances de $x$ inférieures}}.
+	\end{align*}
+	Par conséquent, $\deg(f) = n-1$, mais $(x)_{n-1}$ divise $f(x)$ et est aussi de degré $n-1$.
+	Il suit que $f(x) = c \cdot (x)_{n-1}$ pour une constante $c\in\R$.
+	Comme $(x)_{n-1}$ est unitaire, mais que $f(x) = nx^{n-1} + ...$, nous avons nécessairement $c=n$.
+	
 }
 
 \exe{difficulty=1}{
@@ -652,7 +716,31 @@
 		\underline{Sans développer} les expressions, montrer que la famille $F$ est linéairement \mbox{indépendante sur $\R$.}
 	\end{enumerate}
 }{exe:unique-roots}{
-	todo
+	\begin{enumerate}
+		\item
+		\begin{enumerate}[label=Polynôme \arabic* :]
+			\item
+			Les racines sont $1 ; 2; 3$.
+			\item
+			Les racines sont $0 ; 2; 3$.
+			\item
+			Les racines sont $0 ; 1 ; 3$.
+			\item
+			Les racines sont $0 ; 1 ; 2$.
+		\end{enumerate}
+		\item
+		Soient $\alpha, \beta, \gamma, \delta \in\R$ quatre nombres réels tels que
+			\[ \alpha(x-1)(x-2)(x-3) + \beta x(x-2)(x-3) + \gamma x(x-1)(x-3) + \delta x(x-1)(x-2) = 0. \]
+		En évaluant en $x=0$, nous obtenons
+			\[ \alpha \times (-6) = 0 \iff \alpha = 0. \]
+		En évaluant en $x=1$, nous obtenons
+			\[ \beta \times 2 = 0 \iff \beta = 2. \]
+		En évaluant en $x=2$, nous obtenons
+			\[ \gamma \times (-2) = 0 \iff \gamma = 0. \]
+		En évaluant en $x=3$, nous obtenons finalement
+			\[ \delta \times 6 = 0 \iff \delta = 0. \]
+		La seule combinaison linéaire nulle est la combinaison linéaire triviale : les polynômes sont linéairement indépendants sur $\R$.
+	\end{enumerate}
 }
 
 \exe{difficulty=2}{
@@ -661,7 +749,12 @@
 	Considérons une famille de polynômes $\bigset{ f_1, f_2, \dots, f_n} \subseteq \R[x]$ telle que pour tout $i=1, 2, \dots n$, il existe un nombre $a_i\in\R$ qui est racine de $f_j$ pour tout $j\neq i$, mais n'est pas racine de $f_i$.
 	Montrer que la famille est linéairement indépendante sur $\R$.
 }{exe:unique-roots2}{
-	todo
+	Soient $\alpha_1, \dots, \alpha_n \in\R$ des nombres réels tels que
+		\[ \alpha_1 f_1 + \alpha_2 f_2 + \dots + \alpha_n f_n = 0. \]
+	En évaluant en $x=a_i$, nous obtenons
+		\[ \alpha_i f_i(a_i) = 0 \iff \alpha_i = 0, \]
+	car $f_j(a_i) = 0$ pour tout $j\neq i$, et $f_i(a_i) \neq 0$.
+	Ceci étant vrai pour tout $i=1 ; 2 ; \dots ; n$, nous concluons que la seule combinaison linéaire nulle est la combinaison triviale : la famille est libre sur $\R$.
 }
 
 
@@ -677,13 +770,13 @@
 		\item
 		Si $f$ divise $g$ dans $\R[x]$, alors toutes les racines de $f$ sont des racines de $g$.
 		\item
-		Si toutes les racines de $f$ sont des racines de $p$, alors $f$ divise $p$ dans $\R[x]$.
+		Si toutes les racines de $f$ sont des racines de $g$, alors $f$ divise $g$ dans $\R[x]$.
 	\end{enumerate}
 }{exe:TF-polynomes2}{
 	\begin{enumerate}
 		\item
 		Vrai car le coefficient dominant de $fg$ est le produit des coefficients dominants de $f$ et de $g$.
-		Le cas $f=0$ est spécial et à traiter séparément.
+		Le cas $f=0$ est vrai par convention que $\deg(0) = \minfty$.
 		\item
 		Faux à cause du polynôme nul de degré $\minfty$ par convention.
 		\item
@@ -692,7 +785,7 @@
 		Vrai car si $g = fq$, et que $a$ est une racine de $f$, alors $g(a) = f(a)q(a) = 0q(a) = 0$.
 		\item
 		Faux car la multiplicité d'une racine de $f$ peut être trop élevée.
-		Un contre-exemple est donc $f(x) = (x-1)^2$ et $g(x) = x-1$ : toutes les racines de $f$ (donc $1$) sont des racines de $g$, mais $f$ ne divise pas $g$ car son degré est strictement supérieur et $g$ est non nul.
+		Un contre-exemple est donc $f(x) = (x-1)^2$ et $g(x) = x-1$ : toutes les racines de $f$ (donc que $1$) sont des racines de $g$, mais $f$ ne divise pas $g$ car son degré est strictement supérieur et $g$ est non nul.
 	\end{enumerate}
 	
 }
@@ -700,7 +793,7 @@
 \exe{}{
 	Montrer qu'une fonction polynomiale de $\R[x]$ de degré 3 admet au moins une racine réelle.
 }{exe:deg3-root}{
-	todo
+	C'est une application du théorème des valeurs intermédiaires.
 }
 
 \exe{difficulty=2}{
@@ -741,7 +834,7 @@
 
 \exe{difficulty=2}{
 	Soit $f\in\R[x]$ un polynôme à coefficients réels.
-	Supposons que $z\in\C$ soit une racine complexe de $f$.
+	Supposons que $z\in\C$ soit une racine complexe non réelle de $f$.
 	\begin{enumerate}
 		\item
 		Montrer que le conjugué $\overline{z}$ est aussi un racine de $f$.
@@ -754,12 +847,36 @@
 		En admettant le théorème fondamental de l'algèbre, montrer que les polynômes irréductibles de $\R[x]$ sont nécessairement de degré 1 ou 2.
 	\end{enumerate}
 }{exe:irr-in-R}{
-
+	\begin{enumerate}
+		\item
+		Comme $f$ est à coefficients réels et que $\overline{z}^n = \overline{z^n}$ pour tout $n\in\N$ et $z\in\C$, nous avons que $0 = \overline{0} = \overline{f(z)} = f(\overline{z})$.
+		\item
+		Comme la racine $z$ n'est pas réelle, $\overline{z} \neq z$ et nous avons trouvé deux racines de $f$ dans $\C$.
+		Le polynôme $g(x) = (x-z)(x-\overline{z})$ divise donc $f$ dans $\C[x]$.
+		
+		Or $g$ est à coefficients réels, car $g(x) = x^2 - 2\RE(z) x + |z|^2$.
+		La division euclidienne de $f$ par $g$ dans $\R[x]$ a donc un sens et nous allons montrer qu'elle correspond à celle dans $\C[x]$.
+		Soient $q, r\in\R[x]$ tels que
+			\[ f = gq + r, \]
+		avec $\deg(r) < \deg(g) = 2$.
+		Alors $r$ est une fonction affine réelle qui s'annule en $z$ et en $\overline{z} \neq z$, car $r= f-gq$.
+		Or, dans $\R$ comme dans $\C$, l'équation $ax+b = 0$ n'a plus de deux solutions que dans le cas $a=b=0$ (si $a\neq 0$, alors la solution est unique, et si $a=0, b\neq0$, alors il n'y a pas de solution).
+		Il suit donc que $r = 0$ et que $g$ divise $f$ dans $\R[x]$.
+		\item
+		Un polynôme $f\in\R[x]$ de degré supérieur ou égal à 3 admettra nécessairement une racine complexe d'après le théorème fondamental de l'algèbre.
+		Si cette racine $r$ est réelle, alors $x-r$ est un diviseur propre de $f(x)$ qui est réductible.
+		Si cette racine n'est pas réelle, alors $(x-r)(x-\overline{r})$ est un diviseur propre de $f(x)$ qui est également réductible.
+	\end{enumerate}
 }
 
 \exe{}{
 	Calculer la division euclidienne de $a(x) = 2x^3 + 3x^2 - 5$ par $b(x) = x+11$ et en déduire la valeur de $a(-11)$.
+	
+	% c'e'st pas ouf car c'est plus compliqué de calculer la division que l'image
+	 % car on trouve (x+1)(2x^2 -19x + 209).
+	 % peut--être avec de meilleurs choix ?
+	 % c'est tiré de Ullman, Aho, Hopcroft.
 }{exe:div-for-image}{
-	todo
+	$\polylongdiv[style=D]{2x^3 + 3x^2 - 5}{x+11}$
 }
 
