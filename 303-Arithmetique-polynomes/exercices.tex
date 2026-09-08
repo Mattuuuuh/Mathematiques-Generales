@@ -11,14 +11,43 @@
 	Montrer que l'ensemble des périodes de $f$ suivant est un groupe commutatif lorsque muni de l'addition $+$ usuelle.
 		\[ P_f = \bigset{ p \in \R \tq f(x+p) = f(x) ~ \forall x\in\R } \]
 }{exe:groupe-periodes}{
-	
+	Vérifions les axiomes du groupe.
+	\begin{enumerate}
+		\item[Stabilité de $+$ :] 
+		soient $p, q \in P_f$.
+		Alors $f(x+p) = f(x) = f(x+q)$ pour tout $x\in\R$.
+		Par conséquent, $f(x+p+q) = f\bigpar{ (x+p) + q } = f(x+p) = f(x)$ pour tout $x\in\R$.
+		Donc $p+q\in P_f$.
+		\item[Existence d'un inverse :] 
+		soit $p\in P_f$.
+		Alors $f(x+p) = f(x)$ pour tout $x\in\R$.
+		En substituant $x-p$ à la place de $x$, et comme $\R- p = \R$, nous obtenons $f(x) = f(x-p)$ pour tout $x\in\R$.
+		Donc $-p \in P_f$.
+		\item[Existence d'un élément neutre :]
+		L'élément neutre est $0 \in P_f$car $f(x+0) = f(x)$ pour tout $x\in\R$.
+		\item[Associativité de $+$ :]
+		héritée comme sous-groupe de $(\R, +)$.
+		\item[commutativité de $+$ :]
+		héritée comme sous-groupe de $(\R, +)$.
+	\end{enumerate}
 }
 
 \exe{}{
 	Soit $A$ un anneau unitaire. 
 	Montrer que $\bigpar{ A^\times,  \cdot  }$ est un groupe.
 }{exe:units-group}{
-	todo
+	Vérifions les axiomes du groupe.
+	\begin{enumerate}
+		\item[Stabilité de $\cdot$ :] 
+		soient $a, b \in A^\times$.
+		Alors $(b^{-1} a^{-1}) (ab) = 1$ et donc $ab \in A^\times$
+		\item[Existence d'un inverse :] 
+		par définition, être unité est être inversible
+		\item[Existence d'un élément neutre :]
+		L'élément neutre est 1, inversible car $1\cdot1 = 1$.
+		\item[Associativité de $\cdot$ :]
+		héritée de l'associativité de l'anneau $(A, +, \cdot)$.
+	\end{enumerate}
 }
 
 
@@ -45,7 +74,15 @@
 	
 	\emph{Remarque : un groupe est entièrement décrit par sa table de multiplication.}
 }{exe:D6}{
-	todo
+	\begin{enumerate}
+		\item
+		Les éléments de $G$ permuttent $A, B,$ et $C$.
+		Il y a en a donc que plus $3! = 6$.
+		\item
+		Nous distinguons $D_6 = \{ 1 ; r ; r^2 ; s ; sr ; sr^2 \}$ qui sont les 6 permutations de $S_6$.
+		\item
+		C'est la loi de $S_6$. Une tableau $6\times6$ peut être écrite en se souvenant que la loi est lue de droite à gauche, comme celle de la composition.
+	\end{enumerate}
 }
 
 
@@ -64,7 +101,25 @@
 	\end{enumerate}
 	\emph{Conclusion : $E$ n'est pas un groupe.}
 }{exe:inv-gauche-not-droite}{
-	Il y a en fait une infinité d'inverses à gauche et à droite !
+	\begin{enumerate}
+		\item
+		L'identité est une application linéaire, élément neutre de $\circ$.
+		La compositions de deux applications linéaires est une application linéaire car 
+			\[ f(g(x+\lambda y)) = f( g(x) + \lambda g(y)) = f(g(x) + \lambda f(g(y)). \]
+		\item
+		L'inverse à gauche est la division par $x$, possible car après application de $m_x$, le coefficient constant est nul.
+		Il n'existe pas d'inverse à droite car il n'est pas possible de diviser par $x$ avant la multiplication par $x$ tout en restant un polynôme.
+		En effet, le résultat de $m_x (p)$ a nécessairement un coefficient constant nul, et il n'existe pas de $p$ tel que $m_x(p) = 1$.
+		L'application est donc non surjective et un inverse à droite ne peut pas exister, sans quoi nous aurions$m_x (m^ {-1}_x (1) ) = 1$.
+		\item
+		La dérivation perd l'information du coefficient constant.
+		Il existe donc de nombreux inverses à droite, correspondant à l'intégration et à l'ajout d'une constante quelconque.
+		Cependant, un inverse à gauche ne peux pas exister car les polynômes constants admettent la même dérivée.
+		Comme l'application $\partial$ n'est pas injective, un inverse à gauche ne peut pas exister, sans quoi nous aurions $\partial^{-1} (\partial(1)) = 1 = \partial^{-1}(\partial(2)) = 2$.
+		\item
+		La multiplication par une constante non nulle est un élément inversible.
+		Attention : l'ajout d'une constante n'est pas une application linéaire, car $f(x+y) = x+y+c \neq f(x) + f(y) = x+y+2c$.
+	\end{enumerate}
 }
 
 \exe{difficulty=1}{
@@ -124,7 +179,14 @@
 		$n \cdot I \subseteq I$ pour tout $n\in\Z$.
 	\end{enumerate}
 }{exe:6Z-ideal}{
-
+	\begin{enumerate}
+		\item
+		Seules la stabilité, et l'existence d'inverse et d'élément neutre sont à vérifier. 
+		Le reste est hérité comme sous-groupe de $(\Z, +)$.
+		Succintement : la somme de deux multiples de 6 est un multiple de 6 ; 0 est un multiple de 6 ; et l'opposé d'un multiple de 6 est un multiple de 6.
+		\item
+		Nous avons $n \cdot 6\Z = (6n) \cdot \Z = 6 (n\cdot\Z) \subseteq n\Z$.
+	\end{enumerate}
 }
 
 \exe{}{
@@ -132,34 +194,33 @@
 		\[ 6u + 15v = 3, \]
 	puis montrer que $6\Z + 15\Z = 3\Z$.
 }{exe:6Z-p-15Z}{
-
+	$(u ; v) = (-2 ; 1)$ fonctionne.
+	
+	\underline{Inclusion $\subseteq$.}
+	
+	Si $x \in 6\Z + 15\Z$, alors $x=6m+15n$ avec $m, n\in\Z$.
+	Donc $x = 3(2m+5n) \in 3\Z$ car $2m+5n \in \Z$.
+	
+	\underline{Inclusion $\supseteq$.}
+	
+	Si $x\in3\Z$, alors $x=3n$ avec $n\in\Z$.
+	Donc $x = (6\times(-2) + 15\times(1))n = 6(-2n) + 15(n) \in 6\Z + 15\Z$ car $-2n\in\Z$ et $n\in\Z$.
 }
 
 \exe{}{
 	Montrer que $6\Z \cap 15\Z = 30\Z$.
 }{exe:6Z-cap-15Z}{
-
-
-}
-
-\exe{}{
-	Montrer d'abord que $15\Z \subseteq 5\Z$.
+	\underline{Inclusion $\subseteq$.}
 	
-	Montrer en suite, plus généralement, que, pour $a, b\in\Z$,
-		\begin{align*}
-			a | b && \iff && b\Z \subseteq a\Z.
-		\end{align*}
-	\emph{Conclusion : les relations de division et d'inclusion d'idéaux sont liées mais l'ordre est inversé.}
-}{exe:divide-include-Z}{
-	Un multiple de 15 est un multiple de 5 donc $15\Z = 5(3\Z) \subseteq 5\Z$.
+	Si $x \in 6\Z \cap 15\Z$, alors $x=6m=15n$ avec $m, n\in\Z$.
+	Dans la décomposition en facteurs premiers de $x$, nous trouvons donc $2\times3\times m$ et $3\times 5 \times n$.
+	Par unicité de cette dernière, nous trouvons $2\times3\times5 = 30$.
+	Donc $x\in30\Z$.
 	
-	\underline{Direction $\implies$.}
+	\underline{Inclusion $\supseteq$.}
 	
-	Si $a|b$ dans $\Z$, $b = aq$ avec $q\in\Z$, et donc $b\Z = a(q\Z) \subseteq a\Z$.
-	
-	\underline{Direction $\impliedby$.}
-	
-	Si $b\Z \subseteq a\Z$, alors $b \in a\Z$ et donc $b = aq$ avec un $q\in\Z$.
+	Si $x\in30\Z$, alors $x=30n$ avec $n\in\Z$.
+	Donc $x = 6(5n) = 15(2n) \in 6\Z \cap 15\Z$.
 }
 
 
@@ -183,13 +244,33 @@
 		\item Montrer que chaque élément non nul est soit un diviseur de zéro, soit inversible.
 	\end{enumerate}
 }{exe:ring-of-maps}{
-	todo
+	\begin{enumerate}
+		\item
+		L'élément neutre de $+$ est la fonction identiquement nulle.
+		L'élément neutre de $\cdot$ est la fonction identiquement 1.
+		\item
+		Soit $f\in A$ non nulle.
+		Si $f(x^*) = 0$ pour un certain $x^* \in \R$, alors $f$ divise zéro.
+		En effet, la fonction $g(x) = \begin{cases*} 1 & si $x\neq x^*$, \\ 0 & si $x=x^*$. \end{cases*}$ est non nulle et vérifie $f\cdot g = 0$.
+		
+		Inversement, si $f(x) \neq 0$ pour tout $x\in\R$, alors tout $g\in A$ vérifiant $f\cdot g=0$ implique que $f(x)g(x) = 0$ et donc que $g(x) = 0$ pour tout $x\in\R$.
+		Une fonction ne s'annulant jamais n'est donc pas un diviseur de zéro.
+		
+		Les diviseurs de zéro sont donc les fonctions non nulles qui s'annulent en au moins un antécédent.
+		\item
+		Si $f\in A$ est non nulle et n'est pas diviseur de zéro, alors $f(x) \neq 0$ pour tout $x\in\R$.
+		Il suit donc que la fonction $g(x) = \frac1{f(x)}$ est donc inverse multiplicatif, et $f$ est inversible.
+	\end{enumerate}
 }
 
 \exe{}{
 	Soit $A$ un anneau unitaire.
 	Montrer qu'une unité $u\in A^\times$ n'est pas un diviseur de zéro.
 }{exe:unit-not-zero-divisor}{
+	Si $u$ est diviseur de zéro, alors il existe un $v$ non nul tel que $uv = 0$.
+	Si, de surcroît, $u$ est unité, alors
+		\[ v = (u^{-1}u)v = u^{-1} (uv) = 0, \]
+	une contradiction.
 }
 
 \exe{difficulty=0}{
@@ -197,7 +278,8 @@
 		\[ E = \left\{ \begin{pmatrix} a & -b \\ b & a \end{pmatrix} \tq a, b \in \R \right\}. \]
 	Montrer que $E$ est un corps lorsque muni de l'addition et de la multiplication usuelles des matrices.
 }{exe:C-as-matrix}{
-	todo
+	Exercice calculatoire où on s'aidera de l'inverse suivant, lorsque $(a, b) \neq (0, 0)$.
+		\[ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}^{-1} = \frac1{a^2 + b^2} \begin{pmatrix} a & b \\ -b & a \end{pmatrix} \]
 }
 
 \exe{difficulty=1}{
@@ -206,7 +288,11 @@
 	
 	Trouver l'inverse de 6 dans $\F_{15}$ à l'aide de l'exercice \ref{exe:6Z-p-15Z}.
 }{exe:Fp-field}{
-	todo
+	L'existence l'inverse multiplicatif pose question ici.
+	Or, tout $k \in \F_p$ non nul fait partie de $\{ 1 ; 2 ; 3 \dots ; p-1 \}$ et est donc premier avec $p$.
+	Le théorème de Bézout implique l'existence de $u, v\in\Z$ tels que
+		\[ ku + pv = 1. \]
+	En prenant la relation modulo $p$, nous obtenons $ku = 1 \mod p$ et donc $k$ est inversible.
 }
 
 \exe{difficulty=1}{
@@ -219,20 +305,70 @@
 		Montrer que $\bigpar{A-\{1\}, \circ}$ est un groupe si et seulement si $A$ est un corps.
 	\end{enumerate}
 }{exe:circle-op}{
-	todo
+	\begin{enumerate}
+		\item 
+		\begin{align*}
+			a \circ (b \circ c) = a \circ (b+c-bc) = a+b+c-bc - ab- ac + abc && \et && 
+			(a \circ b)\circ c = (a+b-ab) \circ c = a+b-ab + c -ac -bc+ abc
+		\end{align*}
+		\item		
+		\underline{Implication $\implies$.}
+		
+		Si $\bigpar{A-\{1\}, \circ}$ est un groupe, tout $a$ différent de 1 dispose d'un inverse pour la loi $\circ$.
+		Il existe $b\in A-\{1\}$ tel que $a\circ b = 0$.
+		Alors $a + b -ab = 0$ et donc $(a-1)(b-1) = 1$.
+		Il suit que $a-1$ est inversible.
+		Tout élément non nul s'écrit $a-1$ avec $a\neq1$ donc tout élément non nul de $A$ est inversible : $A$ est un corps.
+		
+		\underline{Implication $\impliedby$.}
+		
+		Supposons $A$ un corps.
+		
+		La loi $\circ$ est stable car si $a, b\neq1$, alors $a+b-ab \neq 1$. En effet, sinon, 
+		$a+b(1-a) = 1$ et $b(1-a) = 1-a$. Comme $1-a$ est inversible car non nul, nous trouvons $b=1$, une contradiction.
+		
+		De plus, pour tout $a\in A-\{1\}$, $1-a$ est inversible et donc nous pouvons poser $b = a(a-1)^{-1}$.
+		D'abord, $b\neq1$, car sinon $a+1 = a$ et $1 = 0$.
+		Et enfin, nous avons
+		$a \circ b = a + b - ab = a + (1-a)b  =a-a = 0$.
+		L'inverse existe donc pour la loi $\circ$.
+	\end{enumerate}
 }
 
 
 \exe{}{
 	Montrer que tout corps est intègre : aucun élément non nul ne divise zéro.
 }{exe:field-integral}{
-
+	Si $ab = 0$ dans un corps, alors soit $a =0$ , soit $a$ est inversible et $b = a^{-1} 0 = 0$.
 }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% SET 2 %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+\exe{}{
+	Montrer d'abord que $15\Z \subseteq 5\Z$.
+	
+	Montrer en suite, plus généralement, que, pour $a, b\in\Z$,
+		\begin{align*}
+			a | b && \iff && b\Z \subseteq a\Z.
+		\end{align*}
+	\emph{Conclusion : les relations de division et d'inclusion d'idéaux sont liées mais l'ordre est inversé.}
+}{exe:divide-include-Z}{
+	Un multiple de 15 est un multiple de 5 donc $15\Z = 5(3\Z) \subseteq 5\Z$.
+	
+	\underline{Direction $\implies$.}
+	
+	Si $a|b$ dans $\Z$, $b = aq$ avec $q\in\Z$, et donc $b\Z = a(q\Z) \subseteq a\Z$.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Si $b\Z \subseteq a\Z$, alors $b \in a\Z$ et donc $b = aq$ avec un $q\in\Z$.
+}
+
 
 \exe{}{
 	Considérons $\Z, \R[X], \C[X], \Q[X]$ les anneaux avec addition et multiplication usuelles.
@@ -457,7 +593,7 @@
 \exe{}{
 	Trouver $u, v\in\Z$ tels que $18u + 23v = 1$.
 	
-	En déduire la valeur de $18^{-1}$ dans $\F_{23}$ (le corps des entiers modulo 23).
+	En déduire la valeur de $18^{-1}$ dans $\F_{23}$, le corps des entiers modulo 23.
 }{exe:Bezout-18-23}{
 	Les divisions successives
 	\begin{align*}
@@ -518,7 +654,7 @@
 
 
 \exe{difficulty=1}{
-	Soit $p\in\N$ un premier impair.
+	Soit $p\in\N$ un nombre premier impair.
 	\begin{enumerate}
 		\item
 		Montrer que le polynôme $ax^2 + bx + c \in \Z[x]$ avec $p\nmid a$ est réductible dans $\F_p[x]$ si et seulement si le discriminant $\Delta = b^2 - 4ac$ est un carré parfait modulo $p$.
@@ -554,9 +690,9 @@
 
 
 \exe{}{
-	Montrer que le polynôme $x^2 - 1$ se décompose de deux façons différentes dans $\sfrac{\Z}{8\Z}[x]$.
+	Montrer que le polynôme $x^2 - 1$ se décompose de deux façons différentes dans $\sfrac{\Z}{8\Z}[x]$ (en ignorant la permutation des facteurs ou la multiplication des facteurs par une unité).
 	
-	\emph{Conclusion : l'anneau $\sfrac{\Z}{8\Z}[x]$ n'est pas factoriel car la décomposition n'est pas unique, même à permutation ou multiplication par constante près.}
+	\emph{Conclusion : l'anneau $\sfrac{\Z}{8\Z}[x]$ n'est pas factoriel car la décomposition n'est pas unique.}
 }{exe:Zo8Zx-non-factoriel}{
 	L'élément 1 admet quatre racines carrés dans $\Z/8\Z$ !
 	Celles-ci sont $\pm1$ et $\pm3$.
