@@ -90,8 +90,8 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 
 
 \notations{
-
-	Considérons le triangle $OAX$ où $O(0;0)$, $A(a;b)$ et $X(x ; y)$.
+	%
+	%Considérons le triangle $OAX$ où $O(0;0)$, $A(a;b)$ et $X(x ; y)$.
 	Deux vecteurs $u, v\in\R^2$ sont perpendiculaires dès que les droites $(OU)$ et $(OV)$ sont perpendiculaires, où $O(0;0)$, $U(u_1;u_2)$ et $V(v_1 ; v_2)$
 }
 
@@ -202,6 +202,20 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	\end{multicols}
 }{dfn:Rn}
 
+\def{indépendance linéaire}{
+	De façon analogue à la définition \ref{dfn:indep-lin-poly}, des vecteurs $v_1 ; v_2 ; \dots ; v_k \in \R^n$ sont linéairement indépendants dès que
+	\begin{align*}
+		\alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_k v_k = 0 && \implies && \alpha_1=\alpha_2=\dots=\alpha_k = 0.
+	\end{align*}
+}{dfn:indep-lin-vec}
+
+\prop{}{
+	De façon analogue à la proposition \ref{prop:indep-unicite}, si $v$ est combinaison linéaire de vecteurs linéairement indépendants, alors cette combinaison est unique.
+}{prop:indep-unicite-vec}
+
+\nomen{
+	Deux vecteurs sont \emphindex{colinéaires} s'ils sont multiples l'un de l'autre.
+}
 
 \notation{
 	Dans la suite, nous noterons les coordonnées d'un vecteur $u\in\R^n$ par
@@ -257,8 +271,9 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	\begin{enumerate}
 		\item linéaire à gauche : $\japb{\alpha x + \beta y, z} = \alpha\japb{x, z} + \beta \japb{y, z}$ ;
 		\item linéaire à droite : $\japb{x, \alpha y + \beta z} = \alpha\japb{x, y} + \beta \japb{x, z}$ ; 
-		\item définie positive : $\japb{x, x} \geq 0$ avec égalité si et seulement si $x=0$ ; et
-		\item symétrique : $\japb{x, y} = \japb{y, x}$.
+		\item symétrique : $\japb{x, y} = \japb{y, x}$ ;
+		\item définie : $\japb{x, x} = 0$ si et seulement si $x=0$ ;
+		\item positive : $\japb{x, x} \geq 0$.
 	\end{enumerate}
 }{thm:bilinearite-scalaire}
 
@@ -350,15 +365,43 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 %}{thm:ineg-tri}
 
 
-\section{Intersections : premiers systèmes}
+\section{Systèmes : la dualité entre intersections et combinaisons linéaires}
 
-\subsection{Deux inconnues}
+\ex{}{
+	
+}{ex:deux-trois-inconnues}
 
-\subsection{Trois inconnues}
+\nomen{
+	Une \emphindex{heuristique} est une règle pragmatique qui fonctionne la plupart du temps.
+	Elle donne, par exemple, une idée de stratégie de recherche, ou d'aspect d'une solution, sans être toujours optimale, ou vraie.
+}
 
-%\section{Système d'équations linéaires}
+\heur{
+	En voyant un système d'équations comme certaines contraintes imposées aux variables libres, on obtient l'heuristique
+		\begin{center}
+			( degrés de liberté ) = ( nombre de variables ) -- ( nombre de contraintes )
+		\end{center}
+	Le degré de liberté donne la forme des solutions : aucun degré de liberté correspond à une unique solution ; un degré de liberté correspond à une droite ; deux degrés à un plan ; etc...
+	
+	L'équation $y = x + 1$, à deux variables et une contrainte, représente une droite.
+	
+	Le système à deux variables et deux contraintes
+		\[ \begin{cases*} a = 2b + 3, \\ 2a + b = -1. \end{cases*} \]
+	n'a aucun degré de liberté : il n'y a \emph{probablement} qu'une seule solution.
+}
 
 %Heuristique degrés liberté = variable - équations.
+%
+% dualité : v_1, .. v_n indep lin
+% 
+
+% bien mais il faut la dimension. dim n => tout R^n
+%\exe{}{
+%	Soient $v_1, \dots v_n \in\R^n$.
+%	Montrer que le système $\alpha_1 v_1 + \dots + \alpha_n v_n = 0$ admet une unique solution si et seulement si le système $\alpha_1 v_1 + \dots + \alpha_n v_n = v$ admet une unique solution pour tout $v\in\R^n$.
+%}{exe:unique-sol-homogene}{
+%	Les vecteurs sont linéairement indépendants si et seulement si les combinaisons linéaires sont uniques.
+%}
 
 \section*{Exercices supplémentaires}
 \addcontentsline{toc}{section}{Exercices supplémentaires}
@@ -369,24 +412,24 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	\setlength{\columnsep}{1cm}
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*), itemsep=20pt]
-		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \systeme{\,,\,}$
-		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \systeme{\,,\,}$
-		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \systeme{\,,\,}$
-		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \systeme{\,,\,}$
-		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff\systeme{\,,\,}$
-		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff\systeme{\,,\,}$
+		\item $\systeme{x + 3y = 3, \\  -2x + 2y = 2.}$ % \iff \systeme{\,,\,}$
+		\item $\systeme{x - 7y = 1, \\  -3x + 5y = 13.}$ % \iff \systeme{\,,\,}$
+		\item $\systeme{2x - y = 3, \\  -x + 2y = -5.}$ % \iff \systeme{\,,\,}$
+		\item $\systeme{4x  - y = -4, \\   x + 5y = 2.}$ % \iff  \systeme{\,,\,}$
+		\item $\systeme{-2x - 2y = -5, \\  3x + 7y = 10.}$ % \iff\systeme{\,,\,}$
+		\item $\systeme{7x - y = 10, \\  5x + 2y = 1.}$ % \iff\systeme{\,,\,}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:2}{
 	\setlength{\columnsep}{1cm}
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*), itemsep=20pt]
-		\item $\systeme{x + 3y = 3{,}, -2x + 2y = 2.} \iff \systeme{2x+6y=6{,},-2x+2y=2.}$
-		\item $\systeme{x - 7y = 1{,}, -3x + 5y = 13.} \iff \systeme{3x - 21y = 3{,}, -3x + 5y = 13.}$
-		\item $\systeme{2x - y = 3{,}, -x + 2y = -5.} \iff \systeme{2x - y = 3{,}, -2x + 4y = -10.}$
-		\item $\systeme{4x  - y = -4{,},  x + 5y = 2.} \iff  \systeme{4x  - y = -4{,},  -4x - 20y = -8.}$
-		\item $\systeme{-2x - 2y = -5{,}, 3x + 7y = 10.} \iff\systeme{-6x - 6y = -15{,}, 6x + 14y = 20.}$
-		\item $\systeme{7x - y = 10{,}, 5x + 2y = 1.} \iff \systeme{35x - 5y = 50{,}, -35x - 14y = -7.}$
+		\item $\systeme{x + 3y = 3, \\  -2x + 2y = 2.}$ % \iff \systeme{2x+6y=6, \\ -2x+2y=2.}$
+		\item $\systeme{x - 7y = 1, \\  -3x + 5y = 13.}$ % \iff \systeme{3x - 21y = 3, \\  -3x + 5y = 13.}$
+		\item $\systeme{2x - y = 3, \\  -x + 2y = -5.}$ % \iff \systeme{2x - y = 3, \\  -2x + 4y = -10.}$
+		\item $\systeme{4x  - y = -4, \\   x + 5y = 2.}$ % \iff  \systeme{4x  - y = -4, \\   -4x - 20y = -8.}$
+		\item $\systeme{-2x - 2y = -5, \\  3x + 7y = 10.}$ % \iff\systeme{-6x - 6y = -15, \\  6x + 14y = 20.}$
+		\item $\systeme{7x - y = 10, \\  5x + 2y = 1.}$ % \iff \systeme{35x - 5y = 50, \\  -35x - 14y = -7.}$
 	\end{enumerate}
 	\end{multicols}
 }
@@ -437,15 +480,15 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\roman*), itemsep=20pt]
-		\item $\sys{2x+4y=0}{-2x -2y = 2}$
-		\item $\sys{-6x+3y=-3}{x -3y = -2}$
-		\item $\sys{x+y = 2}{x+y=2}$
-		\item $\sys{8x-4y = 6+2x-y}{7x+12y=-5+y}$
-		\item $\sys{x-y = 1}{-x+y=10}$
-		\item $\sys{\frac12 x - \frac23 y= -1}{ ,\frac15 x + \frac72 y= 5}$
-		\item $\sys{2x - 8y = 2}{-4x+16y=-1}$
-		\item $\sys{5x + y = -2x-1-y}{8x = -1+2y}$
-		\item $\systeme[yx]{2y + 12x = -3{,}, , {-6}x=y + \frac32}$
+		\item $\systeme{2x+4y=0, \\ 2x -2y = 2.}$
+		\item $\systeme{-6x+3y=-3, \\ x -3y = -2.}$
+		\item $\systeme{x+y = 2, \\ x+y=2.}$
+		\item $\systeme{8x-4y = 6+2x-y, \\ 7x+12y=-5+y.}$
+		\item $\systeme{x-y = 1, \\ -x+y=10.}$
+		\item $\systeme{\frac12 x - \frac23 y= -1, \\ \frac15 x + \frac72 y= 5.}$
+		\item $\systeme{2x - 8y = 2, \\ -4x+16y=-1.}$
+		\item $\systeme{5x + y = -2x-1-y, \\ 8x = -1+2y.}$
+		\item $\systeme{2y + 12x = -3,\\ -6x=y + \frac32.}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:4}{\, \\
@@ -490,7 +533,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 			\[ b_3^* = b_3 - \frac{\japb{b_3, b_1^*}}{\japb{b_1^*, b_1^*}} b_1^* - \frac{\japb{b_3, b_2^*}}{\japb{b_2^*, b_2^*}} b_2^* \]
 		est orthogonal à $b_1^*$ et $b_2^*$.
 	\end{enumerate}
-	\emph{Remarque : ce procédé peut continuer et porte le nom d\emphindex{algorithme de Gram-Schmidt}.}
+	\emph{Remarque : cet algorithme peut continuer et porte le nom de \emphindex{procédé de Gram-Schmidt}.}
 }{exe:gram-schmidt}{
 	todo
 }
@@ -504,7 +547,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 		\item
 		Que dire du discriminant du polynôme quadratique $f$ ?
 		\item
-		En conclure l'\emphindex{inégalité de Cauchy-Schwarz} :
+		En déduire l'\emphindex{inégalité de Cauchy-Schwarz} :
 			\[ \abs{\japb{u, v}} \leq \norm{u} \norm{v}. \]
 		\item
 		Montrer l'égalité suivante pour n'importe quels réels $x_1, \dots, x_n \in \R$.
@@ -536,10 +579,10 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 
 \shipoutExercise
 
-\section*{Solutions}
-\addcontentsline{toc}{section}{Solutions}
-
-\shipoutAnswer
+%\section*{Solutions}
+%\addcontentsline{toc}{section}{Solutions}
+%
+%\shipoutAnswer
 
 
 
