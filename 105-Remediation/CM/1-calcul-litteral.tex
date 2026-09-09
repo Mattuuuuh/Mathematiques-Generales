@@ -106,358 +106,358 @@
 		. \]
 }{}
 
-\newpage
-\addcontentsline{toc}{section}{Exercices}
-\fancyhead[C]{\textbf{Chapitre \thechapter~— Exercices}}
-
-
-\exe{}{
-	Développer et réduire les expressions suivantes pour obtenir une expression de la forme
-		\[ ax^2 + bx + c, \]
-	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
-	
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $x + 2x + 3x$
-		\item $(1+3x) - (8 - 2x)$
-		\item $x - 2(2-x)$
-		\item $x(3-x) + 8(x+1)$
-		\item $(x+3)(x-1) - 2x + 1$
-		\item $(x+1)^2 + 4x - 4$
-		\item $(3x-1)^2 - 9x^2 - 4$
-		\item $x(3x-1)  + 3x^2 +12$
-	\end{enumerate}
-	\end{multicols}
-}{exe:dev-red}{}
-
-\exe{}{
-	Développer les expressions algébriques suivantes pour obtenir une expression de la forme
-		\[ ax^2 + bx + c, \]
-	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
-		\begin{multicols}{2}
-		\begin{enumerate}
-			\item $f(x) = (1+x)^2$
-			\item $g(x) = (x-3)^2$
-			\item $h(x) = (3-x)^2$
-			\item $F(x) = (3 + 2x)^2$
-			\item $G(x) = (3x - 7)^2$
-			\item $H(x) = (-7x - 2)^2$
-		\end{enumerate}
-		\end{multicols}
-}{exe:id-rem}{
-	\begin{align*}
-		f(x) &= (1+x)^2 = 1^2 + 2(1)(x) + x^2 = 1 + 2x + x^2 \\
-		g(x) &= (x-3)^2 = x^2 - 2(x)(3) + 3^2 = x^2 - 6x + 9 \\
-		h(x) &= (3-x)^2 = 3^2 - 2(3)(x) + x^2 = 9 - 6x + x^2 \\
-		F(x) &= (3 + 2x)^2 = 3^2 + 2(3)(2x) + (2x)^2 = 9 + 12x + 4x^2 \\
-		G(x) &= (3x - 7)^2 = (3x)^2 - 2(3x)(7) + 7^2 = 9x^2 - 42x + 49 \\
-		H(x) &= (-7x - 2)^2 = (7x + 2)^2 = (7x)^2 + 2(7x)(2) + 2^2 = 49x^2 + 28x + 4
-	\end{align*}
-
-}
-
-
-
-\exe{}{
-	Développer les expressions suivantes.
-		\begin{multicols}{3}
-		\begin{enumerate}%[label=\arabic*)]
-			\item $\left(1+\sqrt2\right)\left(1-\sqrt2\right)$
-			\item $\left(1+\sqrt2\right)^2$
-			\item $\left(1-\sqrt2\right)^2$
-			\item $\left(\sqrt{3} - 2\sqrt2\right)^2$
-			\item $\left(\sqrt5x + 2 \right)^2$
-			\item $\left(\sqrt5x - \sqrt7\right)^2$
-		\end{enumerate}
-		\end{multicols}
-}{exe:développement-sqrt}{
-	\begin{enumerate}
-		\item $\left(1+\sqrt2\right)\left(1-\sqrt2\right) = 1-\sqrt2^2 = 1-2 = -1$
-		\item $\left(1+\sqrt2\right)^2 = 1 + \sqrt2^2 + 2\sqrt2 = 3 + 2\sqrt2$
-		\item $\left(1-\sqrt2\right)^2 = 1 + 2 - 2\sqrt2 = 3 - 2\sqrt2$
-		\item $\left(\sqrt{3} - 2\sqrt2\right)^2 = 3 + 4\times2 - 2\times\sqrt3\times2\times\sqrt2 = 11 - 4\sqrt6$
-		\item $\left(\sqrt5x + 2 \right)^2 = 5x^2 + 4 + 4\sqrt5x$
-		\item $\left(\sqrt5x - \sqrt7\right)^2 = 5x^2 + 7 - 2\sqrt{35}x$
-	\end{enumerate}
-}
-
-\exe{, difficulty=1}{
-	En étant donné que  $\cos^2(x) + \sin^2(x) = 1$ pour tout $x\in\R$ et que
-		\begin{align*}
-			\sin(15\degree) = \dfrac{\sqrt{6}-\sqrt{2}}4 && \text{ et } && \cos(36\degree) = \dfrac{1+\sqrt{5}}4,
-		\end{align*}
-	vérifier que $\cos(15\degree) = \frac{\sqrt{6}+\sqrt{2}}4$ et donner la valeur \textbf{exacte} de $\sin(36\degree)$.
-}{exe:c2-s2-1}{
-	Premièrement, vérifions l'égalité $\sin^2(15^\circ) + \cos^2(15^\circ) = 1$ avec les valeurs fournies.
-	\begin{align*}
-		\left(\frac{\sqrt{6}+\sqrt{2}}4\right)^2 + \left(\dfrac{\sqrt{6}-\sqrt{2}}4\right)^2 
-		&= \frac{6+2+2\sqrt{12}}{16} + \frac{6+2-2\sqrt{12}}{16} \\
-		&= \frac{8+8}{16} = 1
-	\end{align*}
-	Or, pour un $y$ donnée, il y a deux solutions $x$ à l'équation $x^2 + y^2 = 1$ : une positive, et l'autre négative.
-	Comme $\frac{\sqrt{6}+\sqrt{2}}4 > 0$, on a trouvé la solution positive, bien égale à $\cos(15^\circ)$ car celui-ci est positif d'après le cours.
-	
-	Deuxièmement, $\sin(36^\circ)$ est la solution $x\in\R$ positive de
-		\begin{align*}
-			x^2 + \cos^2(36^\circ) &= 1 \\
-			x^2 &= 1 - \left(\dfrac{1+\sqrt{5}}4\right)^2 \\
-			x^2 &= 1 - \dfrac{1+5+2\sqrt5}{16} \\
-			x^2 &= \dfrac{10 - 2 \sqrt5}{16} = \dfrac{5-\sqrt5}8
-		\end{align*}
-	Par conséquent, $\sin(36^\circ) = \sqrt{\frac{5-\sqrt5}8}$.
-}
-
-
-\exe{, difficulty=2}{
-	Supposons que le polynôme du second degré $p(x) = ax^2 + bx + c$ s'écrive de la forme $p(x) = a'(x-\alpha)^2 - \beta$.
-	Montrer, par identification des coefficients en $x^2, x, 1$ que $a'=a$, puis que $\alpha = \frac{-b}{2a}$, et enfin que $\beta = \frac{b^2 - 4ac}{4a}$.
-	
-	Écrire $p(x) = 3x^2 - 3x - 1$ sous la forme $a(x-\alpha)^2 - \beta$ puis déduire le minimum de $p$ ainsi que l'antécédent le réalisant.
-	
-	\emph{La quantité $b^2 - 4ac$ est le \emphindex{discriminant} du polynôme et est notée $\Delta$ (lu « delta »).}
-}{exe:déterminant-2nddeg}{
-%	À rendre pour possibilité de points bonus à la prochaine évaluation.
-%	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+%\newpage
+%\addcontentsline{toc}{section}{Exercices}
+%\fancyhead[C]{\textbf{Chapitre \thechapter~— Exercices}}
+%
+%
+%\exe{}{
+%	Développer et réduire les expressions suivantes pour obtenir une expression de la forme
+%		\[ ax^2 + bx + c, \]
+%	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
 %	
-%	Le lemme suivant est (sans doute) nécessaire. Il peut être admis ou démontré.
+%	\begin{multicols}{2}
+%	\begin{enumerate}
+%		\item $x + 2x + 3x$
+%		\item $(1+3x) - (8 - 2x)$
+%		\item $x - 2(2-x)$
+%		\item $x(3-x) + 8(x+1)$
+%		\item $(x+3)(x-1) - 2x + 1$
+%		\item $(x+1)^2 + 4x - 4$
+%		\item $(3x-1)^2 - 9x^2 - 4$
+%		\item $x(3x-1)  + 3x^2 +12$
+%	\end{enumerate}
+%	\end{multicols}
+%}{exe:dev-red}{}
+%
+%\exe{}{
+%	Développer les expressions algébriques suivantes pour obtenir une expression de la forme
+%		\[ ax^2 + bx + c, \]
+%	où $a, b, c \in\R$ sont des nombres réels (possiblement nuls).
+%		\begin{multicols}{2}
+%		\begin{enumerate}
+%			\item $f(x) = (1+x)^2$
+%			\item $g(x) = (x-3)^2$
+%			\item $h(x) = (3-x)^2$
+%			\item $F(x) = (3 + 2x)^2$
+%			\item $G(x) = (3x - 7)^2$
+%			\item $H(x) = (-7x - 2)^2$
+%		\end{enumerate}
+%		\end{multicols}
+%}{exe:id-rem}{
+%	\begin{align*}
+%		f(x) &= (1+x)^2 = 1^2 + 2(1)(x) + x^2 = 1 + 2x + x^2 \\
+%		g(x) &= (x-3)^2 = x^2 - 2(x)(3) + 3^2 = x^2 - 6x + 9 \\
+%		h(x) &= (3-x)^2 = 3^2 - 2(3)(x) + x^2 = 9 - 6x + x^2 \\
+%		F(x) &= (3 + 2x)^2 = 3^2 + 2(3)(2x) + (2x)^2 = 9 + 12x + 4x^2 \\
+%		G(x) &= (3x - 7)^2 = (3x)^2 - 2(3x)(7) + 7^2 = 9x^2 - 42x + 49 \\
+%		H(x) &= (-7x - 2)^2 = (7x + 2)^2 = (7x)^2 + 2(7x)(2) + 2^2 = 49x^2 + 28x + 4
+%	\end{align*}
+%
+%}
+%
+%
+%
+%\exe{}{
+%	Développer les expressions suivantes.
+%		\begin{multicols}{3}
+%		\begin{enumerate}%[label=\arabic*)]
+%			\item $\left(1+\sqrt2\right)\left(1-\sqrt2\right)$
+%			\item $\left(1+\sqrt2\right)^2$
+%			\item $\left(1-\sqrt2\right)^2$
+%			\item $\left(\sqrt{3} - 2\sqrt2\right)^2$
+%			\item $\left(\sqrt5x + 2 \right)^2$
+%			\item $\left(\sqrt5x - \sqrt7\right)^2$
+%		\end{enumerate}
+%		\end{multicols}
+%}{exe:développement-sqrt}{
+%	\begin{enumerate}
+%		\item $\left(1+\sqrt2\right)\left(1-\sqrt2\right) = 1-\sqrt2^2 = 1-2 = -1$
+%		\item $\left(1+\sqrt2\right)^2 = 1 + \sqrt2^2 + 2\sqrt2 = 3 + 2\sqrt2$
+%		\item $\left(1-\sqrt2\right)^2 = 1 + 2 - 2\sqrt2 = 3 - 2\sqrt2$
+%		\item $\left(\sqrt{3} - 2\sqrt2\right)^2 = 3 + 4\times2 - 2\times\sqrt3\times2\times\sqrt2 = 11 - 4\sqrt6$
+%		\item $\left(\sqrt5x + 2 \right)^2 = 5x^2 + 4 + 4\sqrt5x$
+%		\item $\left(\sqrt5x - \sqrt7\right)^2 = 5x^2 + 7 - 2\sqrt{35}x$
+%	\end{enumerate}
+%}
+%
+%\exe{, difficulty=1}{
+%	En étant donné que  $\cos^2(x) + \sin^2(x) = 1$ pour tout $x\in\R$ et que
+%		\begin{align*}
+%			\sin(15\degree) = \dfrac{\sqrt{6}-\sqrt{2}}4 && \text{ et } && \cos(36\degree) = \dfrac{1+\sqrt{5}}4,
+%		\end{align*}
+%	vérifier que $\cos(15\degree) = \frac{\sqrt{6}+\sqrt{2}}4$ et donner la valeur \textbf{exacte} de $\sin(36\degree)$.
+%}{exe:c2-s2-1}{
+%	Premièrement, vérifions l'égalité $\sin^2(15^\circ) + \cos^2(15^\circ) = 1$ avec les valeurs fournies.
+%	\begin{align*}
+%		\left(\frac{\sqrt{6}+\sqrt{2}}4\right)^2 + \left(\dfrac{\sqrt{6}-\sqrt{2}}4\right)^2 
+%		&= \frac{6+2+2\sqrt{12}}{16} + \frac{6+2-2\sqrt{12}}{16} \\
+%		&= \frac{8+8}{16} = 1
+%	\end{align*}
+%	Or, pour un $y$ donnée, il y a deux solutions $x$ à l'équation $x^2 + y^2 = 1$ : une positive, et l'autre négative.
+%	Comme $\frac{\sqrt{6}+\sqrt{2}}4 > 0$, on a trouvé la solution positive, bien égale à $\cos(15^\circ)$ car celui-ci est positif d'après le cours.
 %	
-%	\begin{lemma}
-%		Soient $a, b, c, a', b', c'$ six réels. Si l'identité
-%			\[ ax^2 + bx + c = a'x^2 + b'x + c' \]
-%		tient pour tout $x\in\R$, alors $a=a', b=b',$ et $c=c'$.
-%	\end{lemma}
+%	Deuxièmement, $\sin(36^\circ)$ est la solution $x\in\R$ positive de
+%		\begin{align*}
+%			x^2 + \cos^2(36^\circ) &= 1 \\
+%			x^2 &= 1 - \left(\dfrac{1+\sqrt{5}}4\right)^2 \\
+%			x^2 &= 1 - \dfrac{1+5+2\sqrt5}{16} \\
+%			x^2 &= \dfrac{10 - 2 \sqrt5}{16} = \dfrac{5-\sqrt5}8
+%		\end{align*}
+%	Par conséquent, $\sin(36^\circ) = \sqrt{\frac{5-\sqrt5}8}$.
+%}
+%
+%
+%\exe{, difficulty=2}{
+%	Supposons que le polynôme du second degré $p(x) = ax^2 + bx + c$ s'écrive de la forme $p(x) = a'(x-\alpha)^2 - \beta$.
+%	Montrer, par identification des coefficients en $x^2, x, 1$ que $a'=a$, puis que $\alpha = \frac{-b}{2a}$, et enfin que $\beta = \frac{b^2 - 4ac}{4a}$.
 %	
-%	Pour démontrer le lemme, vous pouvez d'abord démontrer le résultat suivant (qui est en fait équivalent).
+%	Écrire $p(x) = 3x^2 - 3x - 1$ sous la forme $a(x-\alpha)^2 - \beta$ puis déduire le minimum de $p$ ainsi que l'antécédent le réalisant.
 %	
-%	\begin{lemma}
-%		Soient $a, b, c$ trois réels. Si l'identité
-%			\[ ax^2 + bx + c = 0 \]
-%		tient pour tout $x\in\R$, alors $a=b=c=0$.
+%	\emph{La quantité $b^2 - 4ac$ est le \emphindex{discriminant} du polynôme et est notée $\Delta$ (lu « delta »).}
+%}{exe:déterminant-2nddeg}{
+%%	À rendre pour possibilité de points bonus à la prochaine évaluation.
+%%	Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+%%	
+%%	Le lemme suivant est (sans doute) nécessaire. Il peut être admis ou démontré.
+%%	
+%%	\begin{lemma}
+%%		Soient $a, b, c, a', b', c'$ six réels. Si l'identité
+%%			\[ ax^2 + bx + c = a'x^2 + b'x + c' \]
+%%		tient pour tout $x\in\R$, alors $a=a', b=b',$ et $c=c'$.
+%%	\end{lemma}
+%%	
+%%	Pour démontrer le lemme, vous pouvez d'abord démontrer le résultat suivant (qui est en fait équivalent).
+%%	
+%%	\begin{lemma}
+%%		Soient $a, b, c$ trois réels. Si l'identité
+%%			\[ ax^2 + bx + c = 0 \]
+%%		tient pour tout $x\in\R$, alors $a=b=c=0$.
+%%		
+%%		On dit alors que $1, x,$ et $x^2$ sont \emph{linéairement indépendants}.
+%%	\end{lemma}
+%%	
+%%	
+%	Forçons l'égalité $p(x) = a'(x-\alpha)^2 - \beta$ et voyons ce que chaque coefficient nous impose.
+%		\begin{align*}
+%			ax^2 + bx + c &= a'(x-\alpha)^2 - \beta \\
+%							&= a'(x^2 + \alpha^2 - 2\alpha x) - \beta \\
+%							&= a'x^2 + (-2a'\alpha)x + (a'\alpha^2 - \beta)
+%		\end{align*}
+%	 Les coefficients en $x^2$ doivent être égaux, donc $a' = a$ est forcé.
+%	 L'équation devient donc
+%	 	\[ ax^2 + bx + c = ax^2 + (-2a\alpha)x + (a\alpha^2-\beta). \]
+%	Les coefficients en $x$ doivent être égaux, donc $b = -2a\alpha$ est forcé.
+%	Il suit donc que
+%		\[ \alpha = \dfrac{-b}{2a}. \]
+%	L'équation devient donc
+%		\[ ax^2 + bx + c = ax^2 + bx + \left(\dfrac{b^2}{4a} - \beta\right). \]
+%	Le coefficients constants (en 1) doivent être égaux, donc $c = \dfrac{b^2}{4a} - \beta$.
+%	Il suit donc que
+%		\[ \beta = \dfrac{b^2}{4a} - c = \dfrac{b^2 - 4ac}{4a}, \]
+%	comme requis.
+%	
+%	Dans le cas de $p(x) = 3x^2 - 3x - 1$, on spécialise les formules pour $\alpha$ et $\beta$ lorsque $a=3, b=-3,$ et $c=-1$ pour trouver
+%		\begin{align*}
+%			\alpha = \dfrac{-(-3)}{2\times3} = \dfrac12 && \et && \beta = \dfrac{(-3)^2 - 4\times3\times(-1)}{4\times3} = \dfrac{21}{12} = \dfrac74.
+%		\end{align*}
+%	Par conséquent,
+%		\[ 3x^2  - 3x -1 = 3\left(x - \dfrac12\right)^2 - \dfrac74, \]
+%	égalité qu'on peut vérifier en redéveloppant le membre de droite pour se rassurer :
+%		\begin{align*}
+%			3\left(x - \dfrac12\right)^2 - \dfrac74 &= 3\left[ x^2 + \dfrac14 - x\right] - \dfrac74, \\
+%												&= 3x^2 + \dfrac34 - 3x - \dfrac74, \\
+%												&= 3x^2 - 3x - 1 = p(x).
+%		\end{align*}
+%	En conclusion, $p$ atteint son minimum $-\frac74$ en $x^\star = \frac12$.
+%}
+%
+%
+%\exe{, difficulty=2}{
+%	On appelle \emph{nombre de Mersenne}\footnotemark 
+%	un nombre prenant la forme $2^n - 1$ avec $n\in\N$.
+%	\begin{enumerate}
+%		\item
+%		Donner les 15 plus petits nombres de Mersenne.
+%		\item
+%		Parmis ces nombres, lesquels sont premiers ? L'utilisation d'un ordinateur est pertinente.
+%		\item
+%		Que dire des exposants $n$ lorsque $2^n -1$ est premier ?
+%		\item
+%		Montrer que pour tout $q\in\R$ et $d\geq1$ entier,
+%			\[ (q-1)\left(1+q+q^2 + q^3 + \cdots + q^{d-1}\right) = q^d - 1. \]
+%		\item
+%		En déduire que si $n$ n'est pas premier, alors $2^n -1$ n'est pas premier non plus. 
+%	\end{enumerate}
+%}{exe:Mersenne}{
+%	%À rendre pour possibilité de points bonus à la prochaine évaluation.
+%	%Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+%	
+%	%Voici un programme Python permettant de trouver les diviseurs d'un nombre.
+%	%\python{diviseurs}
+%}
+%\footnotetext{Marin Mersenne (1588-1648), physicien, mathématicien, musicologue et philosophe français.}
+%
+%\exe{, difficulty=2}{
+%	Ce exercice traite du \emph{théorème des deux carrés} de Fermat\footnotemark.
+%	On dit que $n\in\N$ est somme de deux carrés si $n=a^2 + b^2$ avec $a, b \in \N$ entiers.
+%	\begin{enumerate}
+%		\item 
+%		Montrer que 2 et 4 sont somme de deux carrés, mais que 3 et 7 ne le sont pas.
+%		%\item 
+%		%Montrer qu'un nombre de la forme $4k+3$ où $k\in\N$ ne peut pas être somme de deux carrés.
+%		%
+%		%\emph{Indication : justifier qu'un entier est nécessairement de la forme $4k, 4k+1, 4k+2,$ ou $4k+3$ et montrer que seules les deux premières formes sont possibles pour son carré.}
+%		\item\label{q:3}
+%		Développer $(ax - by)^2 + (ay + bx)^2$ et en déduire que si $m$ et $n$ sont somme de deux carrés, alors le produit $mn$ aussi.
+%		\item\label{q:4}
+%		Décomposer 85 en facteurs premiers, écrire chaque facteur comme somme de deux carrés, et en déduire l'écriture de 85 comme somme de deux carrés à l'aide de la question \ref{q:3}.
+%		\item
+%		Décomposer $12~240 = a^2 \times b$ avec $a, b$ entiers et $b$ le plus petit possible.
+%		L'écrire comme somme de deux carrés à l'aide des questions \ref{q:3} et \ref{q:4}.
+%	\end{enumerate}
+%}{exe:star2}{
+%	%À rendre pour possibilité de points bonus à la prochaine évaluation.
+%	%Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
+%	
+%	\underline{Discussion}
+%	
+%	%La question 2 deviendra évidente lors de l'étude de l'arithmétique modulaire (programme de Terminale).
+%	%Essentiellement, les opérations arithmétiques restent cohérentes lorsqu'on étudie uniquement les restes après division euclidienne par 4. 
+%	%En particulier, le reste du carré est le carré du reste (propriété à montrer !).
+%	%Les seuls restes possibles pour un carré sont donc $0^2 = 0, 1^2 = 1, 2^2 = 4,$ de reste $0$ et $3^2 = 9$, de reste 1. 
+%	%On voit donc que les seuls restes 0 et 1 sont possibles.
+%	
+%	Nous avons montré que si chaque premier $p$ divisant $n$ et apparaissant dans sa décomposition avec une puissance impaire est somme de deux carrés, alors $n$ est somme de deux carrés (les puissances paires étant déjà des carrés).
+%	
+%	Le théorème des deux carrés de Fermat énonce que la direction inverse est également vraie.
+%	De plus, il énonce que si un premier $p$ n'est pas de la forme $4k+3$ (donc $p=2$ ou $p=4k+1$), alors $p$ est somme de deux carrés.
+%}
+%\footnotetext{Pierre de Fermat (1607 - 1665), magistrat et mathématicien français.}
+%
+%
+%\exemulticols{difficulty=1}{
+%	Pour quel $N\in\N$ la moyenne de la série ci-contre est-elle 10 ?
+%}{
+%		\begin{center}
+%		\begin{tabular}{|c|c|c|c|c|}\hline
+%		Valeur   & 0 & 16 & 8 & 12 \\ \hline
+%		Effectif & 2 & 5 & N & 7  \\ \hline
+%		\end{tabular}
+%		\end{center}
+%}{exe:stats08}{
+%	Il existe deux façons de procéder : la recherche locale ou la résolution d'une équation.
+%	
+%	\underline{Première méthode}
+%	
+%	Explorons d'abord la première méthode. Il s'agit de tester une première valeur de $N$, et de décider de la direction (augmenter $N$ ou diminuer $N$) qui permettra de s'approcher de la solution.
+%	
+%	Si $N = 0$, alors la moyenne est donnée par
+%		\[ \frac{0\times2+16\times5+8\times0+12\times7}{2+5+0+7} \approx 11,7. \]
+%	Comme le but étant d'atteindre 10, il est cohérent d'augmenter le nombre de notes en-dessous de 10 pour baisser la moyenne.
+%	En augmentant $N$, au augmente donc l'effectif de la note 8, qui va baisser la moyenne.
+%	
+%	Si $N=10$, alors la moyenne est donnée par
+%		\[ \frac{0\times2+16\times5+8\times10+12\times7}{2+5+10+7} \approx 10,2. \]
+%	Ceci ne suffit pas mais nous évoluons dans la bonne direction !
+%	
+%	Si $N=20$, alors la moyenne est donnée par
+%		\[ \frac{0\times2+16\times5+8\times20+12\times7}{2+5+20+7} \approx 9,5. \]
+%	Nous sommes allés trop loin : il faut diminuer $N$ pour augmenter la moyenne.
+%	
+%	Comme $N \in ]10 ; 20[$, on peut tester $N=15$ et décider d'une direction pour diviser le nombre de valeurs candidates par deux : c'est la dichotomie.
+%
+%	Si $N=15$, alors la moyenne est donnée par
+%		\[ \frac{0\times2+16\times5+8\times15+12\times7}{2+5+15+7} \approx 9,79. \]
+%	Par conséquent, $N \in ]10 ; 15[$.
+%	
+%	Si $N=12$, alors la moyenne est donnée par
+%		\[ \frac{0\times2+16\times5+8\times12+12\times7}{2+5+12+7} = 10, \]
+%	et nous avons trouvés notre $N$ !
+%
+%	\underline{Deuxième méthode}
+%
+%	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
+%	
+%		\begin{align*}
+%			\overline{X} &= 10 \\
+%			\frac{0\times2+16\times5+8\times N+12\times7}{2+5+N+7} &= 10 \\
+%			0  + 80 + 8\cdot N + 84 &= 10 \cdot(14 + N) \\
+%			164 + 8 \cdot N &= 140 + 10 \cdot N \\
+%			164-140 &= 2 \cdot N \\
+%			N &= 12		
+%		\end{align*}
+%
+%	$12$ est bien un entier naturel, donc $N=12$ est l'unique solution.
+%	Remarquons d'ailleurs que nousa vons démontré l'unicité de la solution en plus de l'avoir obtenue.
+%}
+%
+%
+%% TODO: fix leur/leurs ça me saoule ça je dois apprendre
+%\exe{,difficulty=1}{
+%	Un élève reçoit deux notes, 7 et 14, et son méchant professeur souhaite modifier leur coefficient afin que l'élève ait une moyenne inférieure à 10.
+%	\begin{enumerate}
+%		\item
+%		Calculer la moyenne des notes lorsque leurs coefficients sont égaux.
+%		\item
+%		Que dire sur les coefficients pour que la moyenne pondérée soit inférieure à 10 ?
+%		\item
+%		Trouver deux coefficients tels que la moyenne soit \emph{exactement} de 10.
 %		
-%		On dit alors que $1, x,$ et $x^2$ sont \emph{linéairement indépendants}.
-%	\end{lemma}
-%	
-%	
-	Forçons l'égalité $p(x) = a'(x-\alpha)^2 - \beta$ et voyons ce que chaque coefficient nous impose.
-		\begin{align*}
-			ax^2 + bx + c &= a'(x-\alpha)^2 - \beta \\
-							&= a'(x^2 + \alpha^2 - 2\alpha x) - \beta \\
-							&= a'x^2 + (-2a'\alpha)x + (a'\alpha^2 - \beta)
-		\end{align*}
-	 Les coefficients en $x^2$ doivent être égaux, donc $a' = a$ est forcé.
-	 L'équation devient donc
-	 	\[ ax^2 + bx + c = ax^2 + (-2a\alpha)x + (a\alpha^2-\beta). \]
-	Les coefficients en $x$ doivent être égaux, donc $b = -2a\alpha$ est forcé.
-	Il suit donc que
-		\[ \alpha = \dfrac{-b}{2a}. \]
-	L'équation devient donc
-		\[ ax^2 + bx + c = ax^2 + bx + \left(\dfrac{b^2}{4a} - \beta\right). \]
-	Le coefficients constants (en 1) doivent être égaux, donc $c = \dfrac{b^2}{4a} - \beta$.
-	Il suit donc que
-		\[ \beta = \dfrac{b^2}{4a} - c = \dfrac{b^2 - 4ac}{4a}, \]
-	comme requis.
-	
-	Dans le cas de $p(x) = 3x^2 - 3x - 1$, on spécialise les formules pour $\alpha$ et $\beta$ lorsque $a=3, b=-3,$ et $c=-1$ pour trouver
-		\begin{align*}
-			\alpha = \dfrac{-(-3)}{2\times3} = \dfrac12 && \et && \beta = \dfrac{(-3)^2 - 4\times3\times(-1)}{4\times3} = \dfrac{21}{12} = \dfrac74.
-		\end{align*}
-	Par conséquent,
-		\[ 3x^2  - 3x -1 = 3\left(x - \dfrac12\right)^2 - \dfrac74, \]
-	égalité qu'on peut vérifier en redéveloppant le membre de droite pour se rassurer :
-		\begin{align*}
-			3\left(x - \dfrac12\right)^2 - \dfrac74 &= 3\left[ x^2 + \dfrac14 - x\right] - \dfrac74, \\
-												&= 3x^2 + \dfrac34 - 3x - \dfrac74, \\
-												&= 3x^2 - 3x - 1 = p(x).
-		\end{align*}
-	En conclusion, $p$ atteint son minimum $-\frac74$ en $x^\star = \frac12$.
-}
-
-
-\exe{, difficulty=2}{
-	On appelle \emph{nombre de Mersenne}\footnotemark 
-	un nombre prenant la forme $2^n - 1$ avec $n\in\N$.
-	\begin{enumerate}
-		\item
-		Donner les 15 plus petits nombres de Mersenne.
-		\item
-		Parmis ces nombres, lesquels sont premiers ? L'utilisation d'un ordinateur est pertinente.
-		\item
-		Que dire des exposants $n$ lorsque $2^n -1$ est premier ?
-		\item
-		Montrer que pour tout $q\in\R$ et $d\geq1$ entier,
-			\[ (q-1)\left(1+q+q^2 + q^3 + \cdots + q^{d-1}\right) = q^d - 1. \]
-		\item
-		En déduire que si $n$ n'est pas premier, alors $2^n -1$ n'est pas premier non plus. 
-	\end{enumerate}
-}{exe:Mersenne}{
-	%À rendre pour possibilité de points bonus à la prochaine évaluation.
-	%Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
-	
-	%Voici un programme Python permettant de trouver les diviseurs d'un nombre.
-	%\python{diviseurs}
-}
-\footnotetext{Marin Mersenne (1588-1648), physicien, mathématicien, musicologue et philosophe français.}
-
-\exe{, difficulty=2}{
-	Ce exercice traite du \emph{théorème des deux carrés} de Fermat\footnotemark.
-	On dit que $n\in\N$ est somme de deux carrés si $n=a^2 + b^2$ avec $a, b \in \N$ entiers.
-	\begin{enumerate}
-		\item 
-		Montrer que 2 et 4 sont somme de deux carrés, mais que 3 et 7 ne le sont pas.
-		%\item 
-		%Montrer qu'un nombre de la forme $4k+3$ où $k\in\N$ ne peut pas être somme de deux carrés.
-		%
-		%\emph{Indication : justifier qu'un entier est nécessairement de la forme $4k, 4k+1, 4k+2,$ ou $4k+3$ et montrer que seules les deux premières formes sont possibles pour son carré.}
-		\item\label{q:3}
-		Développer $(ax - by)^2 + (ay + bx)^2$ et en déduire que si $m$ et $n$ sont somme de deux carrés, alors le produit $mn$ aussi.
-		\item\label{q:4}
-		Décomposer 85 en facteurs premiers, écrire chaque facteur comme somme de deux carrés, et en déduire l'écriture de 85 comme somme de deux carrés à l'aide de la question \ref{q:3}.
-		\item
-		Décomposer $12~240 = a^2 \times b$ avec $a, b$ entiers et $b$ le plus petit possible.
-		L'écrire comme somme de deux carrés à l'aide des questions \ref{q:3} et \ref{q:4}.
-	\end{enumerate}
-}{exe:star2}{
-	%À rendre pour possibilité de points bonus à la prochaine évaluation.
-	%Ni correction ni points ne seront attribués à un travail suspect ou ne démontrant pas une bonne compréhension de l'exercice.
-	
-	\underline{Discussion}
-	
-	%La question 2 deviendra évidente lors de l'étude de l'arithmétique modulaire (programme de Terminale).
-	%Essentiellement, les opérations arithmétiques restent cohérentes lorsqu'on étudie uniquement les restes après division euclidienne par 4. 
-	%En particulier, le reste du carré est le carré du reste (propriété à montrer !).
-	%Les seuls restes possibles pour un carré sont donc $0^2 = 0, 1^2 = 1, 2^2 = 4,$ de reste $0$ et $3^2 = 9$, de reste 1. 
-	%On voit donc que les seuls restes 0 et 1 sont possibles.
-	
-	Nous avons montré que si chaque premier $p$ divisant $n$ et apparaissant dans sa décomposition avec une puissance impaire est somme de deux carrés, alors $n$ est somme de deux carrés (les puissances paires étant déjà des carrés).
-	
-	Le théorème des deux carrés de Fermat énonce que la direction inverse est également vraie.
-	De plus, il énonce que si un premier $p$ n'est pas de la forme $4k+3$ (donc $p=2$ ou $p=4k+1$), alors $p$ est somme de deux carrés.
-}
-\footnotetext{Pierre de Fermat (1607 - 1665), magistrat et mathématicien français.}
-
-
-\exemulticols{difficulty=1}{
-	Pour quel $N\in\N$ la moyenne de la série ci-contre est-elle 10 ?
-}{
-		\begin{center}
-		\begin{tabular}{|c|c|c|c|c|}\hline
-		Valeur   & 0 & 16 & 8 & 12 \\ \hline
-		Effectif & 2 & 5 & N & 7  \\ \hline
-		\end{tabular}
-		\end{center}
-}{exe:stats08}{
-	Il existe deux façons de procéder : la recherche locale ou la résolution d'une équation.
-	
-	\underline{Première méthode}
-	
-	Explorons d'abord la première méthode. Il s'agit de tester une première valeur de $N$, et de décider de la direction (augmenter $N$ ou diminuer $N$) qui permettra de s'approcher de la solution.
-	
-	Si $N = 0$, alors la moyenne est donnée par
-		\[ \frac{0\times2+16\times5+8\times0+12\times7}{2+5+0+7} \approx 11,7. \]
-	Comme le but étant d'atteindre 10, il est cohérent d'augmenter le nombre de notes en-dessous de 10 pour baisser la moyenne.
-	En augmentant $N$, au augmente donc l'effectif de la note 8, qui va baisser la moyenne.
-	
-	Si $N=10$, alors la moyenne est donnée par
-		\[ \frac{0\times2+16\times5+8\times10+12\times7}{2+5+10+7} \approx 10,2. \]
-	Ceci ne suffit pas mais nous évoluons dans la bonne direction !
-	
-	Si $N=20$, alors la moyenne est donnée par
-		\[ \frac{0\times2+16\times5+8\times20+12\times7}{2+5+20+7} \approx 9,5. \]
-	Nous sommes allés trop loin : il faut diminuer $N$ pour augmenter la moyenne.
-	
-	Comme $N \in ]10 ; 20[$, on peut tester $N=15$ et décider d'une direction pour diviser le nombre de valeurs candidates par deux : c'est la dichotomie.
-
-	Si $N=15$, alors la moyenne est donnée par
-		\[ \frac{0\times2+16\times5+8\times15+12\times7}{2+5+15+7} \approx 9,79. \]
-	Par conséquent, $N \in ]10 ; 15[$.
-	
-	Si $N=12$, alors la moyenne est donnée par
-		\[ \frac{0\times2+16\times5+8\times12+12\times7}{2+5+12+7} = 10, \]
-	et nous avons trouvés notre $N$ !
-
-	\underline{Deuxième méthode}
-
-	La contrainte $\overline{X} = 10$ se traduit par l'égalité suivante à résoudre pour $N\in\N$.
-	
-		\begin{align*}
-			\overline{X} &= 10 \\
-			\frac{0\times2+16\times5+8\times N+12\times7}{2+5+N+7} &= 10 \\
-			0  + 80 + 8\cdot N + 84 &= 10 \cdot(14 + N) \\
-			164 + 8 \cdot N &= 140 + 10 \cdot N \\
-			164-140 &= 2 \cdot N \\
-			N &= 12		
-		\end{align*}
-
-	$12$ est bien un entier naturel, donc $N=12$ est l'unique solution.
-	Remarquons d'ailleurs que nousa vons démontré l'unicité de la solution en plus de l'avoir obtenue.
-}
-
-
-% TODO: fix leur/leurs ça me saoule ça je dois apprendre
-\exe{,difficulty=1}{
-	Un élève reçoit deux notes, 7 et 14, et son méchant professeur souhaite modifier leur coefficient afin que l'élève ait une moyenne inférieure à 10.
-	\begin{enumerate}
-		\item
-		Calculer la moyenne des notes lorsque leurs coefficients sont égaux.
-		\item
-		Que dire sur les coefficients pour que la moyenne pondérée soit inférieure à 10 ?
-		\item
-		Trouver deux coefficients tels que la moyenne soit \emph{exactement} de 10.
-		
-		\emph{Indication : supposer que la somme des coefficients est égale à 1.}
-		% est-ce que ça va vraiment aider, ça ?
-	\end{enumerate}
-}{exe:moyenne-ponderee}{
-	\begin{enumerate}
-		\item
-		%D'après l'exercice \ref{exe:3}, lorsque les coefficients sont égaux, ils peuvent être supposés tous les deux égaux à 1.
-		Lorsque les coefficients sont égaux, ils peuvent être supposés tous les deux égaux à 1.
-		On obtient donc une moyenne classique $\frac{7+14}{2} = 10,5$.
-		\item
-		Pour obtenir une moyenne pondérée inférieure à 10, il faut augmenter le poids de la note la plus basse.
-		Le coefficient associé à 7 doit donc être supérieur à celui associé à 14.
-		\item
-		Posons $c>0$ le coefficent associé à 7.
-		Nous pouvons diviser les coefficients par leur somme sans changer la moyenne pondérée, et donc supposer que la somme des coefficients vaut 1. 
-		Le coefficient associé à 14 est donc $1-c$, et la moyenne pondérée vaut
-			\[ \frac{7\times c + 14\times(1-c)}{1} = 7c + 14(1-c). \]
-		La contrainte de l'énoncé nous permet donc d'obtenir
-			\begin{align*}
-				7c+14(1-c) &= 10, \\
-				7c + 14 - 14c &= 10, \\
-				-7c &= -4, \\
-				c &= \frac47.
-			\end{align*}
-		Les coefficients sont donc $\frac47$ et $\frac37$.
-		Notons qu'une stratégie de recherche par dichotomie comme à l'exercice \ref{exe:stats08} n'aurait pas abouti car les nombres $\frac47$ et $\frac37$ ne sont pas décimaux : leur développement décimal est infini.
-	\end{enumerate}
-}
-
-
-\exe{, difficulty=2}{
-	On dit d'une série qu'elle est symétrique autour de 0 si chaque valeur $x$ de la série peut être associée à une unique valeur $-x$ de la série.
-	Ainsi $(-1 ; 0 ; 2 ; -2 ; 1)$ est symétrique autour de 0 mais $(1 ; 0 ; -1 ; -1)$ ne l'est pas.
-	\begin{enumerate}
-		\item
-		Montrer qu'une série symétrique autour de 0 a une moyenne nulle.
-		\item
-		Soit $n\geq1$ un entier naturel.
-		À l'aide de la linéarité de la moyenne, montrer que la série statistique $(0 ; 1 ; 2 ; \hdots ; n-1 ; n)$ a pour moyenne $\frac{n}2$.
-		\item
-		En déduire que
-			\[ 1 + 2 + 3 + \dots + (n-1) + n = \dfrac{n(n+1)}2 \]
-		\item
-		Calculer sans calculatrice la valeur de la somme $1 + 2 + 3 + \hdots+ 9~999 + 10~000$.
-	\end{enumerate}
-}{exe:somme-triangle}{
-%	À rendre pour possibilité de points bonus...
-
-	Indication pour la première partie :
-%	montrer que la série est symétrique par rapport à $\frac{n}2$.
-%	Chaque valeur $\frac{n}2 - k$ a une sœur $\frac{n}2 + k$.
-%	Sommer les valeurs sœurs ensemble pour simplifier le calcul de la moyenne.
-	calculer la nouvelle moyenne après avoir soustrait $\frac{n}2$ à chaque valeur de la série statistique et utiliser la linéarité de la moyenne.
-}
+%		\emph{Indication : supposer que la somme des coefficients est égale à 1.}
+%		% est-ce que ça va vraiment aider, ça ?
+%	\end{enumerate}
+%}{exe:moyenne-ponderee}{
+%	\begin{enumerate}
+%		\item
+%		%D'après l'exercice \ref{exe:3}, lorsque les coefficients sont égaux, ils peuvent être supposés tous les deux égaux à 1.
+%		Lorsque les coefficients sont égaux, ils peuvent être supposés tous les deux égaux à 1.
+%		On obtient donc une moyenne classique $\frac{7+14}{2} = 10,5$.
+%		\item
+%		Pour obtenir une moyenne pondérée inférieure à 10, il faut augmenter le poids de la note la plus basse.
+%		Le coefficient associé à 7 doit donc être supérieur à celui associé à 14.
+%		\item
+%		Posons $c>0$ le coefficent associé à 7.
+%		Nous pouvons diviser les coefficients par leur somme sans changer la moyenne pondérée, et donc supposer que la somme des coefficients vaut 1. 
+%		Le coefficient associé à 14 est donc $1-c$, et la moyenne pondérée vaut
+%			\[ \frac{7\times c + 14\times(1-c)}{1} = 7c + 14(1-c). \]
+%		La contrainte de l'énoncé nous permet donc d'obtenir
+%			\begin{align*}
+%				7c+14(1-c) &= 10, \\
+%				7c + 14 - 14c &= 10, \\
+%				-7c &= -4, \\
+%				c &= \frac47.
+%			\end{align*}
+%		Les coefficients sont donc $\frac47$ et $\frac37$.
+%		Notons qu'une stratégie de recherche par dichotomie comme à l'exercice \ref{exe:stats08} n'aurait pas abouti car les nombres $\frac47$ et $\frac37$ ne sont pas décimaux : leur développement décimal est infini.
+%	\end{enumerate}
+%}
+%
+%
+%\exe{, difficulty=2}{
+%	On dit d'une série qu'elle est symétrique autour de 0 si chaque valeur $x$ de la série peut être associée à une unique valeur $-x$ de la série.
+%	Ainsi $(-1 ; 0 ; 2 ; -2 ; 1)$ est symétrique autour de 0 mais $(1 ; 0 ; -1 ; -1)$ ne l'est pas.
+%	\begin{enumerate}
+%		\item
+%		Montrer qu'une série symétrique autour de 0 a une moyenne nulle.
+%		\item
+%		Soit $n\geq1$ un entier naturel.
+%		À l'aide de la linéarité de la moyenne, montrer que la série statistique $(0 ; 1 ; 2 ; \hdots ; n-1 ; n)$ a pour moyenne $\frac{n}2$.
+%		\item
+%		En déduire que
+%			\[ 1 + 2 + 3 + \dots + (n-1) + n = \dfrac{n(n+1)}2 \]
+%		\item
+%		Calculer sans calculatrice la valeur de la somme $1 + 2 + 3 + \hdots+ 9~999 + 10~000$.
+%	\end{enumerate}
+%}{exe:somme-triangle}{
+%%	À rendre pour possibilité de points bonus...
+%
+%	Indication pour la première partie :
+%%	montrer que la série est symétrique par rapport à $\frac{n}2$.
+%%	Chaque valeur $\frac{n}2 - k$ a une sœur $\frac{n}2 + k$.
+%%	Sommer les valeurs sœurs ensemble pour simplifier le calcul de la moyenne.
+%	calculer la nouvelle moyenne après avoir soustrait $\frac{n}2$ à chaque valeur de la série statistique et utiliser la linéarité de la moyenne.
+%}
 
 
 
@@ -468,11 +468,11 @@
 
 
 
-\newpage
-\addcontentsline{toc}{section}{Solutions}
-\fancyhead[C]{\textbf{Chapitre \thechapter~— Solutions}}
-
-\shipoutAnswer
+%\newpage
+%\addcontentsline{toc}{section}{Solutions}
+%\fancyhead[C]{\textbf{Chapitre \thechapter~— Solutions}}
+%
+%\shipoutAnswer
 
 
 
