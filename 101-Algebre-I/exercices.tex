@@ -522,7 +522,7 @@
 		\item
 		$3$ est une racine de $(x+3)(x-2)(x+7)^4(x^2 - 1)$.
 		\item
-		$-1$ est racine de $2(1-x)^{34} - (1-x)^{35}$.
+		$-1$ est une racine de $2(1-x)^{34} - (1-x)^{35}$.
 	\end{enumerate}
 	%\end{multicols}
 }{exe:VF-is-racine}{
@@ -543,16 +543,16 @@
 	Poser les divisions euclidiennes de
 	\begin{enumerate}
 		\item
-		$x^3 - x$ par $x-1$ ;
+		$x^3 - x$ par $x-1$ ; et de
 		\item
-		$3x^3 + 6x^2 - 3x + 1$ par $x^2 + 1$ ;
+		$3x^3 + 6x^2 - 3x + 1$ par $2x^2 + 1$ ;
 	\end{enumerate}
 }{exe:euclidean-division-poly}{
 	\begin{enumerate}
 		\item
 		$\polylongdiv[style=D]{x^3 - x}{x-1}$ donc $x^3 -x = (x-1)(x^2 + x)$.
 		\item
-		$\polylongdiv[style=D]{3x^3 + 6x^2 - 3x + 1}{x^2 + 1}$ donc $3x^3 + 6x^2 -3x + 1 = (x^2 + 1)(3x + 6) + (-6x - 5)$.
+		$\polylongdiv[style=D]{3x^3 + 6x^2 - 3x + 1}{2x^2 + 1}$ donc $3x^3 + 6x^2 -3x + 1 = (2x^2 + 1)(\frac32x + 3) + (-\frac92x - 2)$.
 	\end{enumerate}
 }
 
@@ -566,14 +566,17 @@
 		\item
 		$-4$ est une racine de $p$ de multiplicité $3$ ;
 		\item
+		Le coefficient constant de $p$ est nul ; et
+		\item
 		Le coefficient dominant de $p$ est irrationnel.
 	\end{enumerate}
 }{exe:poly-with-constraints}{
 	Le polynôme doit être composé de $(x-1)^2$ et de $(x+4)^3$ ainsi que d'autres facteurs qui ne s'annulent pas en $1$ ni $-4$ et qui permettrons d'obtenir un degré 12.
+	Comme le coefficient constant de $p$ est $p(0) = 0$, alors $0$ est également une racine de $p$ et $p$ doit admettre un facteur $x$.
 	Par exemple,
-		\[ f(x) = (x-1)^2(x+4)^3 (x+1)^7. \]
+		\[ f(x) = (x-1)^2(x+4)^3 x(x+1)^6. \]
 	Le problème est que le coefficient dominant de $f$ est 1 (obtenu en choisissant $x$ dans chaque facteur), donc
-		\[ p(x) = \sqrt2 (x-1)^2 (x+4)^3 (x+1)^7, \]
+		\[ p(x) = \sqrt2 (x-1)^2 (x+4)^3 x(x+1)^6, \]
 	lui, fonctionne.
 }
 
@@ -606,11 +609,13 @@
 
 \exe{}{
 	Considérons le polynôme $f(x) = 21x^3 - 7x^2 - 9x + 3$.
-	Montrer, par le calcul, que $\frac13$ est une racine de $f$.
+	Montrer par le calcul que $\frac13$ est une racine de $f$.
 	En déduire les autres racines de $f$.
 	
 	\emph{Indication : poser la division euclidienne de $f$ par $3x-1$ plutôt que par $x-\frac13$ pour simplifier les calculs.}
 }{exe:euclide-poly3}{
+	\[ \polylongdiv[style=D]{21x^3 -7x^2 -9x + 3}{3x-1} \]
+
 	Par division euclidienne, $f(x) = (3x-1)(7x^2-3)$, donc les racines sont $\frac13$ et $\pm\sqrt{\frac37}$.
 }
 
@@ -642,19 +647,33 @@
 
 }
 
+\exe{}{
+	Soient $k, n\in\N$.
+	Montrer que la $k$-ième dérivée de $x^n$ est égale à $0$ si $n<k$ et $\frac{n!}{(n-k)!} x^{n-k}$ sinon.
+	En particulier, $(x^n)^{(n)} = n!$.
+}{exe:deriv-xn}{
+	Si $n\geq k$, alors
+		\[ (x^n)^{(k)} = n \times (x^{n-1})^{(k-1)} = n\times(n-1)\times \dots \times(n-k+1)x^{n-k} = \frac{n!}{(n-k)!}x^{n-k}. \]
+	Si $n < k$, alors, d'après ce qui a été vu au-dessus,
+		\[ (x^n)^{(n)} = n! \]
+	est un polynôme constant. Dériver une nouvelle fois le rend nul, donc
+		\[ (x^n)^{(k)} = 0. \]
+}
+
 
 \exe{difficulty=1}{
-	Montrer le théorème de Taylor bis : 
-	soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $a\in\R$ un réel quelconque.
+	Montrer le corollaire du théorème de Taylor vu en classe : 
+	soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $\alpha\in\R$ un réel quelconque.
 	Alors
-		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(a)}{k!} (x-a)^k.\]
+		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^k.\]
+	\emph{Indication : appliquer le théorème de Taylor au polynôme $f(x+\alpha)$.}
 }{exe:taylor-poly-2}{
-	Il suffit d'appliquer le théorème de Taylor à la fonction $g(x) = f(x+a)$.
-	Comme $g'(x) = f'(x+a)$, et $g^{(k)}(x) = f^{(k)}(x+a)$ pour tout $k\in\N^*$,
+	Il suffit d'appliquer le théorème de Taylor au polynôme $g(x) = f(x+a)$.
+	Comme $g'(x) = f'(x+\alpha)$, et $g^{(k)}(x) = f^{(k)}(x+\alpha)$ pour tout $k\in\N^*$,
 	nous avons
-		\[ f(x+a) = g(x) = \sum_{k=0}^d \frac{g^{(k)}(0)}{k!} x^k = \sum_{k=0}^d \frac{f^{(k)}(a)}{k!} x^k. \]
-	En remplaçant $x$ par $x-a$, nous obtenons bien
-		\[ f(x) = \sum_{k=0}^d \frac{f^{(k)}(a)}{k!} (x-a)^k. \]
+		\[ f(x+\alpha) = g(x) = \sum_{k=0}^d \frac{g^{(k)}(0)}{k!} x^k = \sum_{k=0}^d \frac{f^{(k)}(\alpha)}{k!} x^k. \]
+	En remplaçant $x$ par $x-\alpha$, nous obtenons bien
+		\[ f(x) = \sum_{k=0}^d \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^k. \]
 }
 
 
@@ -662,20 +681,95 @@
 \exe{}{
 	Considérons le polynôme
 		\[ f(x) = (x-3)^2 - (x-3)^4 + 3(x-3)^5. \]
-	Calculer $f(3), f'(3), f''(3), f'''(3), f^{(\text{iv})}(3)$, et $f^{(\text{v})}(3)$.
+	Calculer $f(3), f'(3), f''(3), f'''(3), f^{(4)}(3)$, et $f^{(5)}(3)$ à l'aide du théorème de Taylor (exercice \ref{exe:taylor-poly-2}).
 }{exe:f-shift-derivatives}{
-	D'après le théorème de Taylor bis,
+	D'après le théorème de Taylor,
 		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(3)}{k!} (x-3)^k = 0 + 0(x-3) + (x-3)^2 + 0(x-3)^3 - (x-3)^4 + \frac1{12}(x-3)^5. \]
 	Par identification des coefficients, nous avons
 	\begin{align*}
-		\frac{f(3)}{0!} = 0, && \frac{f'(3)}{1!} = 0, && \frac{f''(3)}{2!} = 1, && \frac{f'''(3)}{3!} = 0, && \frac{f^{(iv)}(3)}{4!} = -1, && \frac{f^{(v)}(3)}{5!} = \frac1{12}.
+		\frac{f(3)}{0!} = 0, && \frac{f'(3)}{1!} = 0, && \frac{f''(3)}{2!} = 1, && \frac{f'''(3)}{3!} = 0, && \frac{f^{(4)}(3)}{4!} = -1, && \frac{f^{(5)}(3)}{5!} = \frac1{12}.
 	\end{align*}
 	et donc
 	\begin{align*}
-		f(3) = 0, && f'(3) = 0, && f''(3) = 2, && f'''(3) = 0, && f^{(iv)}(3) = -24, && \frac{f^{(v)}(3)}{5!} = 10.
+		f(3) = 0, && f'(3) = 0, && f''(3) = 2, && f'''(3) = 0, && f^{(4)}(3) = -24, && \frac{f^{(5)}(3)}{5!} = 10.
 	\end{align*}
 }
 
+
+\exe{difficulty=2}{
+	Soit $f\in\R[x]$ un polynôme à coefficients réels et $\alpha\in\R$ un réel quelconque.
+	%
+	Montrer, à l'aide du théorème de Taylor, que $\alpha$ est une racine de multiplicité $m$ si et seulement si 
+		\begin{align*}
+		 f(\alpha) = f'(\alpha) = \cdots = f^{(m-1)}(\alpha) = 0 && \et && f^{(m)}(\alpha) \neq 0.
+		\end{align*}
+}{exe:mult-from-diff}{
+	\underline{Direction $\impliedby$.}
+	
+	Supposons que
+	\begin{align*}
+		 f(\alpha) = f'(\alpha) = \cdots = f^{(m-1)}(\alpha) = 0 && \et && f^{(m)}(\alpha) \neq 0.
+	\end{align*}
+	Déjà, $d = \deg(f) > m$ car la $m$-ième dérivée de $f$ n'est pas nulle.
+	
+	Alors, d'après le théorème de Taylor,
+	\begin{align*}
+		f(x) &= \sum_{k=0}^{d} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^k = \sum_{k=m}^{d} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^k 
+		\\
+		&= (x-\alpha)^m  \sum_{k=m}^{d} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^{k-m}
+		\\
+		&= (x-\alpha)^m q(x),
+	\end{align*}
+	donc $(x-\alpha)^m$ divise bien $f(x)$.
+	Il faut désormais montrer que $(x-\alpha)^{m+1}$ ne divise pas $f(x)$ pour conclure.
+	Or,
+	\begin{align*}
+		f(x) &= x-\alpha)^m  \sum_{k=m}^{d} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^{k-m}
+		\\
+		&= \frac{f^{(m)}(\alpha)}{m!} (x-\alpha)^m + (x-\alpha)^{m+1} \sum_{k=m+1}^{d} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^{k-m-1}
+		\\
+		&= (x-\alpha)^{m+1} \tilde{q}(x) + \frac{f^{(m)}(\alpha)}{m!} (x-\alpha)^m 
+	\end{align*}
+	est exactement la division euclidienne de $f(x)$ par $(x-\alpha)^{m+1}$ car $\deg(x-\alpha)^m = m < \deg(x-\alpha)^{m+1} = m+1$.
+	
+	Or, le reste n'est pas nul car $f^{(m)}(\alpha) \neq 0$ par hypothèse, donc nous concluons que $(x-\alpha)^{m+1}$ ne divise pas $f(x)$, comme requis.
+	
+	\underline{Direction $\implies$.}
+	
+	Supposons que $\alpha\in\R$ soit une racine de $f$ de multiplicité $m\in\N^*$.
+	Considérons l'unique entier naturel $k\in\N^*$ vérifiant
+	\begin{align*}
+		 f(\alpha) = f'(\alpha) = \cdots = f^{(k-1)}(\alpha) = 0 && \et && f^{(k)}(\alpha) \neq 0.
+	\end{align*}
+	Il existe car $f(\alpha) = 0$ parce que $\alpha$ est une racine de $f$, et il est unique parce qu'il correspond au premier moment où la suite des $f^{(i)}(\alpha)$ est non nulle.
+	
+	D'après la direction $\impliedby$ déjà montrée, $\alpha$ est une racine de $f$ multiplicité $k$.
+	Par conséquent, $k=m$, et nous avons bien
+	\begin{align*}
+		 f(\alpha) = f'(\alpha) = \cdots = f^{(m-1)}(\alpha) = 0 && \et && f^{(m)}(\alpha) \neq 0.
+	\end{align*}
+	
+%%% useless lol
+%
+%	Si $\alpha\in\R$ est une racine de $f$ de multiplicité $m$, alors $(x-\alpha)^m$ divise $f$ mais $(x-\alpha)^{m+1}$ ne divise pas $f$.
+%	Le théorème de Taylor donne la division euclidienne de $f(x)$ par $(x-\alpha)^m$ dont le reste doit donc être nul :
+%	\begin{align*}
+%		f(x) &= \sum_{k=0}^{d} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^k 
+%		\\
+%		&= \sum_{k=0}^{m-1} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^k + (x-\alpha)^m q(x)
+%		&= (x-\alpha)^m q(x) + 0
+%	\end{align*}
+%	Par conséquent, la somme $\sum_{k=0}^{m-1} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^k $ est égale au polynôme nul.
+%	
+%	Or, le degré de $(x-\alpha)^k$ est égal à $k$, donc seul $(x-\alpha)^{m-1}$ contribue en facteur $x^{m-1}$ dont le coefficient doit être nul.
+%	Il suit donc que $ \frac{f^{(m-1)}(\alpha)}{(m-1!} = 0 \iff f^{(m-1)}(\alpha) = 0$, et que la somme s'arrête au terme $k=m-2$ :
+%		\[ \sum_{k=0}^{m-2} \frac{f^{(k)}(\alpha)}{k!} (x-\alpha)^k  = 0. \]
+%	De façon analogue, seul $(x-\alpha)^{m-2}$ contribue au coefficient en $x^{m-2}$, et $f^{(m-2)}(\alpha) = 0$.
+%	
+%	En répétant le raisonnement, nous obtenons bien que $f(\alpha) = f'(\alpha) = \cdots = f^{(m-1)}(\alpha) = 0$.
+%	Si $f^{(m)}(\alpha)$ était nul, nous aurions que $\alpha$ est une racine de multiplicité au moins $m+1$ d'après la direction $\impliedby$ déjà traitée.
+%	Ce n'est pas le cas donc $f^{(m)}(\alpha)= 0$.
+}
 
 \exe{difficulty=2}{
 	Considérons le \emphindex{symbole de Pochhammer} défini par
@@ -687,9 +781,10 @@
 	
 	Montrer que, pour tout $n\in\N^*$, l'identité suivante est vraie dans $\R[x]$.
 		\[ \Delta(x)_n = n\cdot(x)_{n-1} \]
+	\emph{Indication : quelles sont les racines de $(x)_{n-1}$ et de $\Delta(x)_n$ ?}
 }{exe:Pochhammer}{
 	Remarquons que les racines de $(x)_n$ sont exactement $0 ; 1 ; 2 ; \dots ; n-1$ pour $n\geq1$.
-	De plus, si $x^*$ et $x^* +1$ sont deux racines de $f$, alors $x^*$ est racine de $\Delta(f)$ car $\Delta(f)(x^*) = f(x^* + 1)- f(x^*)$.
+	De plus, si $x^*$ et $x^* +1$ sont deux racines de $f$, alors $x^*$ est racine de $\Delta(f)$ car $\Delta(f)(x^*) = f(x^* + 1)- f(x^*) = 0-0=0$.
 
 	Pour $n\geq 2$, posons $f(x) = \Delta(x)_n$ et identifions toutes les racines de $f$.
 	D'après la remarque, les racines $\{ 0; 1 ; \dots ; n-2 \}$ sont des racines de $f$.
@@ -697,17 +792,19 @@
 	
 	Regardons les termes dominants de $f(x)$, en $x^n$ et $x^{n-1}$ :
 	\begin{align*}
-		f(x) &= (x+1)(x+2)\dots(x+n) - x(x+1)\dots(x+n-1) = x^n + (1 + 2 + 3 + \dots + n)x^{n-1} + \underbrace{...}_{\text{puissances de $x$ inférieures}} - \bigl[ x^n + (0 + 1 + 2 + \dots + n-1)x^{n-1} + \underbrace{...}_{\text{puissances de $x$ inférieures}} \bigr] \\
+		f(x) &= (x+1)(x+2)\cdots(x+n) - x(x+1)\cdots(x+n-1) \\
+		&= x^n + (1 + 2 + 3 + \dots + n)x^{n-1} + \underbrace{...}_{\text{puissances de $x$ inférieures}} \\
+		&- \left[ x^n + (0 + 1 + 2 + \dots + n-1)x^{n-1} + \underbrace{...}_{\text{puissances de $x$ inférieures}} \right] \\
 		&= 0x^n + nx^{n-1} + \underbrace{...}_{\text{puissances de $x$ inférieures}}.
 	\end{align*}
 	Par conséquent, $\deg(f) = n-1$, mais $(x)_{n-1}$ divise $f(x)$ et est aussi de degré $n-1$.
 	Il suit que $f(x) = c \cdot (x)_{n-1}$ pour une constante $c\in\R$.
-	Comme $(x)_{n-1}$ est unitaire, mais que $f(x) = nx^{n-1} + ...$, nous avons nécessairement $c=n$.
+	Comme $(x)_{n-1}$ est unitaire, mais que $f(x) = nx^{n-1} + ...$, nous obtenons $c=n$.
 	
 }
 
-\exe{difficulty=1}{
-	Considéronts la famille $F$ suivante.
+\exe{difficulty=0}{
+	Considérons la famille $F$ suivante.
 		\[ F = \bigset{ (x-1)(x-2)(x-3) ; x(x-2)(x-3) ; x(x-1)(x-3) ; x(x-1)(x-2) } \]
 	\begin{enumerate}
 		\item
@@ -743,7 +840,7 @@
 	\end{enumerate}
 }
 
-\exe{difficulty=2}{
+\exe{difficulty=1}{
 	Le but de cet exercice est de généraliser l'exercice \ref{exe:unique-roots}.
 	
 	Considérons une famille de polynômes $\bigset{ f_1, f_2, \dots, f_n} \subseteq \R[x]$ telle que pour tout $i=1, 2, \dots n$, il existe un nombre $a_i\in\R$ qui est racine de $f_j$ pour tout $j\neq i$, mais n'est pas racine de $f_i$.
@@ -761,8 +858,8 @@
 \exe{origin=set2,}{
 	Vrai ou faux ? Montrer que chaque assertion est vraie ou donner un contre-exemple.
 	\begin{enumerate}[itemsep=10pt]
-		\item
-		Soient $f, g\in\R[x]$. Alors $\deg(fg) = \deg(f)+\deg(g)$.
+		%\item
+		%Soient $f, g\in\R[x]$. Alors $\deg(fg) = \deg(f)+\deg(g)$.
 		\item
 		Un polynôme constant de $\R[x]$ est de degré nul.
 		\item
@@ -771,12 +868,14 @@
 		Si $f$ divise $g$ dans $\R[x]$, alors toutes les racines de $f$ sont des racines de $g$.
 		\item
 		Si toutes les racines de $f$ sont des racines de $g$, alors $f$ divise $g$ dans $\R[x]$.
+		\item
+		Un polynôme non nul de $\R[x]$ de degré $n\in\N$ admet au plus $n$ racines distinctes.
 	\end{enumerate}
 }{exe:TF-polynomes2}{
 	\begin{enumerate}
-		\item
-		Vrai car le coefficient dominant de $fg$ est le produit des coefficients dominants de $f$ et de $g$.
-		Le cas $f=0$ est vrai par convention que $\deg(0) = \minfty$.
+		%\item
+		%Vrai car le coefficient dominant de $fg$ est le produit des coefficients dominants de $f$ et de $g$.
+		%Le cas $f=0$ est vrai par convention que $\deg(0) = \minfty$.
 		\item
 		Faux à cause du polynôme nul de degré $\minfty$ par convention.
 		\item
@@ -786,6 +885,9 @@
 		\item
 		Faux car la multiplicité d'une racine de $f$ peut être trop élevée.
 		Un contre-exemple est donc $f(x) = (x-1)^2$ et $g(x) = x-1$ : toutes les racines de $f$ (donc que $1$) sont des racines de $g$, mais $f$ ne divise pas $g$ car son degré est strictement supérieur et $g$ est non nul.
+		\item
+		Vrai. Par contradiction, si $\alpha_1, \dots, \alpha_{n+1}$ sont des racines distinctes de $f$, alors $\prod_{i=1}^{n+1} (x-\alpha_i)$ divise $f$ dans $\R[x]$.
+		Or, le produit est de degré $n+1$ et $f$ est de degré $n$, ce qui n'est pas possible car $f$ est supposé non nul.
 	\end{enumerate}
 	
 }
@@ -841,7 +943,7 @@
 		\item
 		En déduire que $x^2 - 2\RE(z) x + |z|^2$ divise $f$ dans $\R[x]$.
 	\end{enumerate}
-	Un polynôme est dit \emphindex{irréductible} si ses seuls diviseurs sont les constantes et les multiples de lui-même.
+	Un polynôme est dit \emphindex{irréductible} s'il est non constant et si ses seuls diviseurs sont les constantes et les multiples de lui-même.
 	\begin{enumerate}[resume]
 		\item
 		En admettant le théorème fondamental de l'algèbre, montrer que les polynômes irréductibles de $\R[x]$ sont nécessairement de degré 1 ou 2.
@@ -880,3 +982,22 @@
 	$\polylongdiv[style=D]{2x^3 + 3x^2 - 5}{x+11}$
 }
 
+
+\exe{difficulty=1}{
+	%Soit $f\in C^1(\R)$ une fonction continûment dérivable.
+	Soit $f:\R\rightarrow\R$ une fonction dérivable en 0.
+	Montrer que 
+		\[ f(x) = f(0) + f'(0)x + g(x), \]
+	où $g(x) = o(x)$ dans le sens suivant : 
+		\[ \lim_{x \to 0} \frac{g(x)}x = 0. \]
+}{exe:Taylor-C1}{
+	Posons $g(x) = f(x) - f(0) - f'(0)x$.
+	Pour $x\neq0$, nous avons
+		\[ \frac{g(x)}x = \frac{f(x) - f(0)}{x-0} - f'(0). \]
+	Lorsque $x$ tend vers $0$,  $\frac{f(x) - f(0)}{x-0}$ tend vers $f'(0)$ par définition de $f'(0)$.
+	Il suit donc que $\frac{g(x)}x$ tend vers 0 comme requis.
+	
+	Remarque : si $f\in C^2(\R)$, il s'avère que $g(x) = \O(x^2)$, c'est-à-dire que $\frac{g(x)}{x^2}$ reste borné lorsque $x$ tend vers $0$ (ce qui est plus fort que $g=o(x)$).
+	Nous aurons en fait 
+		\[ f(x) = f(0) + f'(0)x + \frac{f''(0)}2 x^2 + o(x^2). \]
+}
