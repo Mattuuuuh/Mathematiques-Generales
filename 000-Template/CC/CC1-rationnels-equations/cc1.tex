@@ -15,12 +15,11 @@ Consignes particulières :
 	Sauf mention du contraire, toutes les réponses doivent être justifiées.
 	Les réponses non justifiées ne seront pas prises en compte.
 	\item
-	L'évaluation fait \pageref{lastpage} page. La somme des points est \total{points}.
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
 \end{itemize}
 
 \marginpar{[pts]}
 \hrule
-
 
 \thm{}{
 	Soit $f(x) = ax + b$ une fonction affine sur $\R$.
@@ -32,7 +31,7 @@ Consignes particulières :
 
 \exe{2}{
 	Compléter, sans justifier, le théorème \ref{thm:1} vu en classe.
-	\fillwithrules
+	\fillwithlines{2cm}
 }{exe:fa1}{
 	\[ a = \dfrac{y_B - y_A}{x_B - y_A} = \dfrac{y_A - y_B}{x_A - y_B}. \]
 }
