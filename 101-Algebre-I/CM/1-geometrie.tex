@@ -202,7 +202,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	\end{multicols}
 }{dfn:Rn}
 
-\def{indépendance linéaire}{
+\dfn{indépendance linéaire}{
 	De façon analogue à la définition \ref{dfn:indep-lin-poly}, des vecteurs $v_1 ; v_2 ; \dots ; v_k \in \R^n$ sont linéairement indépendants dès que
 	\begin{align*}
 		\alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_k v_k = 0 && \implies && \alpha_1=\alpha_2=\dots=\alpha_k = 0.
@@ -210,7 +210,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 }{dfn:indep-lin-vec}
 
 \prop{}{
-	De façon analogue à la proposition \ref{prop:indep-unicite}, si $v$ est combinaison linéaire de vecteurs linéairement indépendants, alors cette combinaison est unique.
+	De façon analogue à la proposition \ref{prop:indep-unicite-poly}, si $v$ est combinaison linéaire de vecteurs linéairement indépendants, alors cette combinaison est unique.
 }{prop:indep-unicite-vec}
 
 \nomen{
@@ -575,6 +575,15 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 		\item
 		En prenant $u$ le vecteur dont toutes les coordonnées sont 1 et $v$ dont les coordonnées sont $|x_1|, \dots, |x_n|$, l'inégalité de Cauchy-Schwarz donne le résultat attendu.
 	\end{enumerate}
+}
+
+\exe{difficulty=2}{
+	Considérons une série numérique $(a_n)_{n\in\N}$ telle que $\sum_{n\in\N} a_n^2 < \infty$.
+	Montrer, à l'aide de l'inégalité de Cauchy-Schwarz (exercice \ref{exe:Cauchy-Schwarz}) que
+		\[ \sum_{n\in\N} \frac{|a_n|}{n^s} < \infty \]
+	pour tout $s>\frac12$.
+}{exe:Cauchy-Schwarz-application}{
+
 }
 
 \shipoutExercise
