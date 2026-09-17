@@ -1,0 +1,105 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[16/09/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\fancyhead[C]{\textbf{MG105 --- Contrôle Continu 1}}
+
+\null\vspace{-20pt}
+Code Apprenant :  \rule{3cm}{.1pt} ou Nom : \hrulefill
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+%\hrule
+
+\exe{4}{
+	Exprimer le nombre $q$ suivant sous forme de fraction d'entiers.
+		\[ q = \frac23 \times \frac{~~5~~}{\frac12} + \frac56 + 1. \]
+
+	\fillwithlines{4cm}
+}{exe:Q}{
+
+}
+
+\exe{4}{
+	Matthieu passe un tiers de sa vie à dormir.
+	Lorsqu'il est éveillé, il passe $\frac25$ de son temps à travailler. Le reste du temps, il lit des livres.
+	
+	\begin{enumerate}
+		\item
+		Quelle proportion de son temps Matthieu passe-t-il à lire ?
+		\item
+		En une semaine (7 jours de 24 heures), combien d'heures Matthieu passe-t-il à lire ?
+		Une valeur numérique (avec virgule) est attendue.
+	\end{enumerate}
+
+	\fillwithlines{7cm}
+}{exe:contexte}{
+
+}
+
+\exe{2}{
+	Donner le nombre rationnel $x\in\Q$ vérifiant
+		\[ 3-4x = 7x + 1. \]
+
+	\fillwithlines{4cm}
+}{exe:eq-lin}{
+
+}
+
+\newpage
+
+\exe{3}{
+	Donner le nombre rationnel $x\in\Q$ différent de 2 vérifiant
+		\[ \frac3{x-2} + 1 = 2-\frac7{x-2}. \]
+
+	\fillwithlines{4cm}
+}{exe:eq-inv}{
+
+}
+
+\exe{2}{
+	Développer et réduire l'expression factorisée suivante.
+		\[ \left(3x^2 - 5\right)^2 \]
+
+	\fillwithlines{4cm}
+}{exe:calcul-litteral}{
+
+}
+
+\exe{2}{
+	Donner toutes les solutions $x\in\R$ de l'équation suivante.
+		\[ (7x + 1)(2-x) = 0. \]
+
+	\fillwithlines{4cm}
+}{exe:prod-zero}{
+
+}
+
+\exe{3}{
+	Donner toutes les solutions $x\in\R$ de l'équation suivante.
+		\[ 7x^2 = 3. \]
+	Une réponse de la forme $q \sqrt{r}$ est attendue, où $q\in\Q$ est un rationnel et $r\in\N$ un entier naturel.
+
+	\fillwithlines{5cm}
+}{exe:sqrt}{
+
+}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+\end{document}
