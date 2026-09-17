@@ -752,7 +752,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 			\item si $a|d$ et $b|d$, alors $p|d$.
 		\end{enumerate}
 		\item
-		Montrer que $ab = \ppcm(a,b)\cdot\pgcd(a,b)$.
+		Montrer que $ab = c\ppcm(a,b)\cdot\pgcd(a,b)$, où $c\in\K$ est une constante, produit des coefficients dominants de $a$ et $b$.
 	\end{enumerate}
 }{exe:ppcm}{
 	$au + bv = \pgcd(a,b)$ \\
@@ -831,7 +831,7 @@ Penser aussi à $\F_p$ ou $\Qsqrt2$.
 }
 
 \exe{}{
-	Trouver la décomposition de chaque polynôme suivant dans les anneaux $\C[x] ; \R[x] ; \Q[x] ; \F_3[x]$.
+	Trouver une décomposition en facteurs irréductibles de chaque polynôme suivant dans les anneaux $\C[x] ; \R[x] ; \Q[x] ; \F_3[x]$.
 	\begin{multicols}{4}
 	\begin{enumerate}
 		\item $x^2 + 2$
@@ -1293,7 +1293,7 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 }{exe:xn-n-p-irr}{
 	\begin{enumerate}
 		\item
-		Si $f$ est réductible dans $\Q[x]$, alors, comme $f$ est unitaire de $\Z[x]$, le lemme de Gauss (polynômes) \ref{lem:Gauss} garantit que $f$ est réductible dans $\Z[x]$.
+		Si $f$ est réductible dans $\Q[x]$, alors, comme $f$ est unitaire (donc primitif) de $\Z[x]$, le lemme de Gauss (polynômes) \ref{lem:Gauss} garantit que $f$ est réductible dans $\Z[x]$.
 		\item
 		Soit $z\in\C$ tel que $f(z) = 0$.
 		Alors $z^n + z + p = 0$, et donc $2 < |p| \leq |z| + |z|^n$.

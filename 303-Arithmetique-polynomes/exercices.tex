@@ -727,3 +727,186 @@
 
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 3 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+
+\exe{}{
+	Montrer qu'un polynôme $f$ de $\K[x]$ de degré 2 ou 3 est réductible si et seulement s'il admet une racine dans $\K$.
+}{exe:irr-deg23}{
+	\underline{Direction $\implies$.}
+	
+	Si se scinde comme $f=ab$ avec ni $a$ ni $b$ constants, alors soit $a$ soit $b$ est de degré 1 car $\deg(a) + \deg(b) = \deg(f)$.
+	Le facteur de degré 1 implique donc l'existence d'une racine dans le corps.
+	
+	 
+	\underline{Direction $\impliedby$.}
+	
+	Si $r\in\K$ vérifie $f(r) = 0$, alors $x-r$ divise $f$ dans $\K[x]$ d'après l'exercice \ref{exe:root-factor}.
+	Le polynôme $f$ est donc réductible.
+}
+
+
+
+\exe{}{
+	Trouver une décomposition en facteurs irréductibles de chaque polynôme suivant dans les anneaux $\C[x] ; \R[x] ; \Q[x] ; \F_3[x]$.
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $x^2 + 2$
+		\item $x^2 - 1$
+		\item $x^2 - 2$
+		\item $x^3 + x^2 + 2x + 2$
+	\end{enumerate}
+	\end{multicols}
+}{exe:UFD-examples}{
+	Chaque polynôme est réductible si et seulement si nous pouvons trouver une racine dans le corps, d'après l'exercice \ref{exe:irr-deg23}.
+	\begin{enumerate}
+		\item $x^2 + 2$.
+		\begin{enumerate}[label=Dans~, labelsep=0pt,]
+			\item$\C[x]$ :  $x^2 + 2 = (x + \sqrt2i)(x-\sqrt2i)$.
+			\item$\R[x]$ : $x^2 + 2$ est irréductible.
+			\item$\Q[x]$ : $x^2 + 2$ est irréductible.
+			\item$\F_3[x]$ : $x^2 + 2 = x^2 - 1 = (x+1)(x-1)$.
+		\end{enumerate}
+		\item $x^2 - 1 = (x+1)(x-1)$ dans chaque anneau.
+		\item $x^2 - 2$.
+		\begin{enumerate}[label=Dans~, labelsep=0pt,]
+			\item$\C[x]$ :  $x^2 - 2 = (x+\sqrt2)(x-\sqrt2)$.
+			\item$\R[x]$ : $x^2 - 2 = (x+\sqrt2)(x-\sqrt2)$.
+			\item$\Q[x]$ : $x^2-2$ est irréductible.
+			\item$\F_3[x]$ : $x^2-2$ est irréductible.
+		\end{enumerate}
+		\item $x^3 + x^2 + 2x + 2$ dont $-1$ est une racine et qui se factorise donc par $x+1$ dans chaque anneau.
+		\begin{enumerate}[label=Dans~, labelsep=0pt,]
+			\item$\C[x]$ :  $x^3 + x^2 + 2x + 2 = (x+1)(x^2+2) = (x+1)(x+\sqrt2i)(x-\sqrt2i)$
+			\item$\R[x]$ : $x^3 + x^2 +2x +2 = (x+1)(x^2 + 2)$
+			\item$\Q[x]$ : $x^3 + x^2 + 2x + 2 = (x+1)(x^2 + 2)$
+			\item$\F_3[x]$ : $x^3 + x^2 + 2x + 2 = (x+1)(x^2 -1) = (x+1)^2(x-1)$
+		\end{enumerate}
+	\end{enumerate}
+}
+
+\exe{}{
+	Montrer que l'anneau $\Z[x]$ n'est pas principal : il n'existe pas de polynôme $f\in\Z[x]$ tel que $(2, x) = (f)$.
+}{exe:Zx-non-principal}{
+	Par contradiction, si $f\in\Z[x]$ existait, nous aurions que $2 \in (f)$ et $x \in (f)$.
+	En d'autre termes, $f$ divise 2, et $f$ divise $x$.
+	Les diviseurs de 2 sont $\{ -2 ; -1 ; 1 ; 2 \}$ dans $\Z[x]$.
+	Les diviseurs de $x$ sont $\{ -x ; x ; -1 ; 1 \} $ dans $\Z[x]$.
+	Ainsi $f= \pm1$, mais alors $(f) = (1) = \Z[x]$ tout entier.
+	Ce qui signifiera que $(2, x) = \Z[x]$ : tout polynôme de $\Z[x]$ est une combinaison de $2$ et $x$.
+	Ce n'est bien sûr pas vrai car 1 n'en est pas une :
+	\begin{align*}
+		1 = x u(x) + 2v(x) && \stackrel{x=0}{\implies} && 1 = 2v(0) \in 2\Z.
+	\end{align*}
+	En d'autre termes, le coefficient constant d'une combinaison de $2$ et $x$ est nécessairement pair, ce qui n'est pas le cas du polynôme $1$.
+}
+
+\exe{}{
+	Calculer le PGCD de $x^3 - 3x^2 - 5x - 1$ et $x^3 + x^2 + 5x + 5$ dans $\Q[x]$.
+}{exe:gcd-poly}{
+	Faisons l'algorithme d'Euclide jusqu'à atteindre le dernier reste non nul.
+	D'après le cours, c'est un multiple constant du PGCD (qui est défini comme unitaire).
+	Remarquons que, comme les idéaux générés ne changent pas lorsqu'on multiplie un générateur par une constante non nulle, nous pouvons nous permettre de simplifier les divisions en multipliant les diviseurs et dividendes tout au long.
+	
+	D'abord,
+		\[ x^3 - 3x^2 - 5x - 1 = (x^3 + x^2 + 5x + 5) + (-4x^2 -10x-6). \]
+	Remplaçons le reste par $2x^2 + 5x + 3$ et le dividende par $2x^3+ 2x^2 + 10x + 10$ pour simplifier la suite.
+	Nous avons alors
+		\[ \polylongdiv[style=D]{2x^3 +2 x^2 + §0x + §0}{2x^2 +5x+3} \]
+	Donc
+		\[ 2x^3 +2 x^2 + 10x + 10 = (2x^2 + 5x+3)\left(x - \frac32\right) + \left(\frac{9}2 x + \frac{9}2\right). \]
+	Prenons comme reste $x+1$ pour simplifier la dernière division.
+		\[ \polylongdiv[style=D]{2x^2 +5x+3}{x+1} \]
+	Donc 
+		\[ 2x^2 + 5x + 3 = (x+1)(2x+3) + 0, \]
+	et le dernier reste non nul est $x+1$.
+	Ce polynôme est bien unitaire, donc c'est le PGCD recherché.
+}
+
+\exe{}{
+	Dans cet exercice, nous considérons une autre définition du PGCD, dont l'existence est claire, mais l'unicité ne l'est pas.
+	
+	Soient $a, b\in\K[x]$ deux polynômes à coefficients dans $\K$.
+	Un plus grand diviseur commun prime (PGCD') et $a$ et $b$ dans $\K[x]$ est un polynôme $d\in\K[x]$ de degré maximal vérifiant
+	\begin{enumerate}
+		\item $d$ divise $a$ et $b$ dans $\K[x]$ ; et
+		\item $d$ est unitaire.
+	\end{enumerate}
+	
+	Montrer que $\pgcd'(a,b)$ est unique et qu'il est égal à $\pgcd(a,b)$.
+}{exe:pgcd-other-def}{
+	Notons $p = \pgcd(a,b)$ et $p'=\pgcd'(a,b)$.
+	
+	D'abord, comme $p'$ divise $a$ et $b$ dans $\K[x]$, alors $p'$ divise $p$, par définitions.
+	
+	Ensuite, comme $p$ divise $a$ et $b$ dans $\K[x]$, alors $\deg(p) \leq \deg(p')$, à nouveau par définitions.
+	
+	Il suit donc que $p=p'$ en utilisant leur caractère unitaire. %et l'exercice \ref{exe:div-deg-eq}.
+}
+
+
+
+\exe{difficulty=0}{
+	Soient $a, b\in\K[x]$.
+	Le PPCM est défini comme le polynôme unitaire vérifiant
+		\[ (a) \cap (b) = \bigl( \ppcm(a, b) \bigr). \]
+	Son existence est garantie car $(a) \cap (b)$ est un idéal de $\K[x]$ qui est principal.
+	\begin{enumerate}
+		\item
+		Montrer que le PPCM est l'unique polynôme unitaire $p\in\K[x]$ vérifiant
+		\begin{enumerate}
+			\item $a|p$ et $b|p$ ; et
+			\item si $a|d$ et $b|d$, alors $p|d$.
+		\end{enumerate}
+		\item[2.$(\star\star)$]
+		Montrer que $ab = c\ppcm(a,b)\cdot\pgcd(a,b)$, où $c\in\K$ est une constante, produit des coefficients dominants de $a$ et $b$.
+	\end{enumerate}
+}{exe:ppcm}{
+	\begin{enumerate}
+		\item
+		Soit $p = \ppcm(a,b)$, vérifiant $(a) \cap (b) = (p)$.
+		\begin{enumerate}
+			\item
+			Comme $p \in (p) = (a) \cap (b)$, nous avons $p\in(a)$ et $p\in(b)$.
+			Donc $a|p$ et $b|p$.
+			\item
+			Soit $d\in\K[x]$ tel que $a|d$ et $b|d$.
+			Alors $d\in(a)$ et $d\in(b)$.
+			D'où $d\in(a)\cap(b) = (p)$ et donc $p|d$.
+		\end{enumerate}
+		\item
+		Comme $\pgcd(a,b)$ divise $a$ et $b$ dans $\K[x]$, nous savons que
+			\[ p = \frac{ab}{\pgcd(a,b)} = \frac{a}{\pgcd(a,b)}b = a \frac{b}{\pgcd(a,b)} \]
+		est un polynôme de $\K[x]$.
+		Montrons qu'il est multiple constant de $\ppcm(a,b)$.
+		Pour cela, nous nous aidons de la première question.
+		\begin{enumerate}
+			\item
+			Clairement, $a$ divise $p$ et $b$ divise $p$.
+			\item
+			De plus, soit $a|d$ et si $b|d$ pour un $d\in\K[x]$.
+			Nous souhaitons montrer que $p|d$.
+			
+			D'abord, $d = aq$ pour un $q\in\K[x]$.
+			Nous voulons que $d = pq' = a \frac{b}{\pgcd(a,b)} q'$ pour un certain $q'\in\K[x]$.
+			Il faut donc qu'on puisse écrire $q = \frac{b}{\pgcd(a,b)}q'$ et donc que $\pgcd(a,b)q = bq'$, autrement dit que $b$ divise $\pgcd(a,b)q$.
+			
+			Pour cela, la relation de Bézout suivante nous permet de dire
+				\[ au+bv = \pgcd(a,b) \stackrel{\times q}{\implies} du + bqv = \pgcd(a,b)q. \]	
+			Nous en déduisons que, comme$b$ divise $d$ et lui-même, $b$ divise $\pgcd(a,b)q$.
+			D'où 
+				\[ d = p \frac{\pgcd(a,b)q}{b}, \]
+			et $p|d$ comme requis !
+		\end{enumerate}
+	\end{enumerate}
+}
+
+
+
+
+
