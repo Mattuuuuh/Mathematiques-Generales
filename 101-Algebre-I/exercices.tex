@@ -1001,3 +1001,338 @@
 	Nous aurons en fait 
 		\[ f(x) = f(0) + f'(0)x + \frac{f''(0)}2 x^2 + o(x^2). \]
 }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 3 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+\exe{}{
+	Calculer les combinaisons linéaires dans $\R^n$ suivantes.
+	\begin{align*}
+		u = \begin{pmatrix} 7 \\ -2 \\ 4 \end{pmatrix}  + \begin{pmatrix} -2 \\ -1 \\ 4 \end{pmatrix}
+		&&
+		v = -2\begin{pmatrix}2 \\ -\pi \\ \frac12 \end{pmatrix}
+		&&
+		w = 3\begin{pmatrix}2\\-4\\3\end{pmatrix} + \begin{pmatrix}2\\4\\-1\end{pmatrix}
+		&&
+		z = 2\begin{pmatrix} 1\\-1\\3\\-7\end{pmatrix} - 10\begin{pmatrix}-1\\-1\\2\\3\end{pmatrix}
+	\end{align*}
+}{exe:calcul-vectoriel}{
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item
+		$\begin{pmatrix} 7 \\ -2 \\ 4 \end{pmatrix}  + \begin{pmatrix} -2 \\ -1 \\ 4 \end{pmatrix} = \begin{pmatrix} 9 \\ -1 \\ 0 \end{pmatrix}$
+		\item
+		$-2\begin{pmatrix}2 \\ -\pi \\ \frac12 \end{pmatrix} = \begin{pmatrix}-4 \\ 2\pi \\ -1 \end{pmatrix} \in \R^3$
+		\item
+		$3\begin{pmatrix}2\\-4\\3\end{pmatrix} + \begin{pmatrix}2\\4\\-1\end{pmatrix} = \begin{pmatrix}3\times2+2\\3\times(-4)+4\\3\times3+(-1)\end{pmatrix} =\begin{pmatrix}8\\-8\\8\end{pmatrix}$
+		\item
+		$2\begin{pmatrix} 1\\-1\\3\\-7\end{pmatrix} - 10\begin{pmatrix}-1\\-1\\2\\3\end{pmatrix} = \begin{pmatrix}12\\8\\-14\\-44\end{pmatrix}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{}{
+	Pour chaque paire de vecteurs suivante, sont-ils orthogonaux ?
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item $\pvec12$ et $\pvec{-1}{-2}$
+		\item $\pvec12$ et $\pvec{-2}{1}$
+		\item $\pvec{-6}{-3}$ et $\pvec{1}{-2}$
+		\item $\pvec{-6}{-3}$ et $\pvec{-1}{2}$
+		\item $\begin{pmatrix}2 \\ 4 \\ -3 \end{pmatrix}$ et $\begin{pmatrix}5 \\ -1 \\ -2 \end{pmatrix}$
+		\item $\begin{pmatrix}2 \\ 4 \\ -3 \end{pmatrix}$ et $\begin{pmatrix}-5 \\ 1 \\ 2 \end{pmatrix}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:is-orth}{
+	todo
+}
+
+
+
+\exe{}{
+	Est-ce que la famille de vecteurs suivante est linéairement indépendante sur $\R$ ?
+		\[ \left\{ \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix} ; \begin{pmatrix} 0 \\ 2 \\ 4 \end{pmatrix} ; \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} \right\} \]
+}{exe:lin-indep-vec}{
+
+}
+
+\exe{difficulty=1}{
+	Soit $a\in\R$. Donner un vecteur orthogonal à $\pvec1a$.
+}{exe:vec-orth}{
+	todo
+}
+
+\exe{difficulty=0}{
+	Si $u, v\in\R^n$ sont orthogonaux, montrer que $u$ et $-v$ le sont aussi puis que $u$ et $\lambda v$ le sont aussi pour tout $\lambda\in\R$.
+	%Interpréter géométriquement.
+}{exe:vec-orth-lin}{
+	todo
+}
+
+
+
+
+\exe{}{
+	Calculer la distance entre les points $P(3;4;2;-8)$ et $Q(-2;2;-3;2)$ dans $\R^4$.
+}{exe:dist-4d}{
+	todo
+}
+
+\exe{}{
+	Soient $u, v$ deux vecteurs de $\R^n$. Montrer l'identité remarquable
+		\[ \norm{u+v}^2 = \norm{u}^2 + \norm{v}^2 + 2\scal{u, v}. \]
+}{exe:id-rem-scal}{
+	todo
+}
+
+\exe{difficulty=1}{
+	Soient $v_1, \dots, v_n \in \R^n$ une famille orthonormale : $\japb{v_i, v_j} = 0$ si $i\neq j$, et $1$ sinon.
+	\begin{enumerate}
+		\item 
+		Montrer l'identité de Pythagore 
+			\[ \norm{v_1 + v_2 + \dots + v_n}^2 = \norm{v_1}^2 + \norm{v_2}^2 + \dots + \norm{v_n}^2 \]
+		\item
+		Montrer que la famille est linéairement indépendante sur $\R$.
+	\end{enumerate}
+}{exe:base-orthonormale}{
+
+}
+
+
+
+
+\exe{, difficulty=0}{
+	Pour chaque système d'équations d'inconnues $x, y \in \R$, donner un système équivalent tel que les coefficients multipliant $x$ soient opposés (c'est-à-dire leur somme soit nulle).
+	\setlength{\columnsep}{1cm}
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $\systeme{x + 3y = 3, \\  -2x + 2y = 2.}$ % \iff \systeme{\,,\,}$
+		\item $\systeme{x - 7y = 1, \\  -3x + 5y = 13.}$ % \iff \systeme{\,,\,}$
+		\item $\systeme{2x - y = 3, \\  -x + 2y = -5.}$ % \iff \systeme{\,,\,}$
+		\item $\systeme{4x  - y = -4, \\   x + 5y = 2.}$ % \iff  \systeme{\,,\,}$
+		\item $\systeme{-2x - 2y = -5, \\  3x + 7y = 10.}$ % \iff\systeme{\,,\,}$
+		\item $\systeme{7x - y = 10, \\  5x + 2y = 1.}$ % \iff\systeme{\,,\,}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:systeme2}{
+	\setlength{\columnsep}{1cm}
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $\systeme{x + 3y = 3, \\  -2x + 2y = 2.}$ % \iff \systeme{2x+6y=6, \\ -2x+2y=2.}$
+		\item $\systeme{x - 7y = 1, \\  -3x + 5y = 13.}$ % \iff \systeme{3x - 21y = 3, \\  -3x + 5y = 13.}$
+		\item $\systeme{2x - y = 3, \\  -x + 2y = -5.}$ % \iff \systeme{2x - y = 3, \\  -2x + 4y = -10.}$
+		\item $\systeme{4x  - y = -4, \\   x + 5y = 2.}$ % \iff  \systeme{4x  - y = -4, \\   -4x - 20y = -8.}$
+		\item $\systeme{-2x - 2y = -5, \\  3x + 7y = 10.}$ % \iff\systeme{-6x - 6y = -15, \\  6x + 14y = 20.}$
+		\item $\systeme{7x - y = 10, \\  5x + 2y = 1.}$ % \iff \systeme{35x - 5y = 50, \\  -35x - 14y = -7.}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Pour chaque système de l'exercice \ref{exe:2}, 
+		\begin{enumerate}
+			\item combiner les équations pour trouver $y$ ; 
+			\item trouver $x$ ; 
+			\item vérifier que le couple $(x ;y)$ obtenu soit bien solution du système initial.
+		\end{enumerate}
+}{exe:systeme3}{ \, \\
+	\begin{enumerate}[label=Système \roman*) :, itemsep=20pt, leftmargin=80pt]
+		\item La somme des deux équations donne
+			\[ 8y = 8 \iff y = 1. \]
+		En remplaçant $y$ par $1$ dans la première équation, on trouve $x + 3 = 3$, et donc $x =0$.
+			\[ (x ; y ) = (0; 1). \]
+		
+		\item La somme des deux équations donne
+			\[ -16y = 16 \iff y = -1. \]
+		En remplaçant $y$ par $-1$ dans la première équation, on trouve $x + 7 = 1$, et donc $x =-6$.
+			\[ (x ; y ) = (-6; -1). \]
+		
+		\item La somme des deux équations donne
+			\[ 3y = -7 \iff y = -\frac73. \]
+		En remplaçant $y$ par $-\frac73$ dans la première équation, on trouve $2x +\frac73 = 3$, et donc $x =\frac13$.
+			\[ (x ; y ) = \left(\frac13; -\frac73 \right). \]
+		
+		\item La somme des deux équations donne
+			\[ -21y = -12 \iff y = \frac{12}{21} = \frac47. \]
+		En remplaçant $y$ par $ \frac47$ dans la deuxième équation, on trouve $x +\frac{20}7 = 2$, et donc $x =-\frac67$.
+			\[ (x ; y ) = \left(-\frac67; \frac47 \right). \]
+		
+		\item La somme des deux équations donne
+			\[ 8y = 5 \iff y = \frac58. \]
+		En remplaçant $y$ par $\frac58$ dans la deuxième équation, on trouve $3x +\frac{35}8 = 10 \iff x =\frac{45}{24} = \frac{15}8$.
+			\[ (x ; y ) = \left(\frac{15}8; \frac58 \right). \]
+		
+		\item La somme des deux équations donne
+			\[ -19y = 43 \iff y = -\frac{43}{19}. \]
+		En remplaçant $y$ par $-\frac{43}{19}$ dans la première équation, on trouve $7x +\frac{43}{19}= 10 \iff x =\frac{147}{133} = \frac{21}{19}$.
+			\[ (x ; y ) = \left( \frac{21}{19};  -\frac{43}{19} \right). \]
+	\end{enumerate}
+}
+
+\exe{}{
+	Donner les solutions réelles $(x; y)$ des systèmes suivantes.
+	
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $\systeme{2x+4y=0, \\ 2x -2y = 2.}$
+		\item $\systeme{-6x+3y=-3, \\ x -3y = -2.}$
+		\item $\systeme{x+y = 2, \\ x+y=2.}$
+		\item $\systeme{8x-4y = 6+2x-y, \\ 7x+12y=-5+y.}$
+		\item $\systeme{x-y = 1, \\ -x+y=10.}$
+		\item $\systeme{\frac12 x - \frac23 y= -1, \\ \frac15 x + \frac72 y= 5.}$
+		\item $\systeme{2x - 8y = 2, \\ -4x+16y=-1.}$
+		\item $\systeme{5x + y = -2x-1-y, \\ 8x = -1+2y.}$
+		\item $\systeme{2y + 12x = -3,\\ -6x=y + \frac32.}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:systeme4}{\, \\
+	
+	\begin{enumerate}[label=\roman*), itemsep=20pt]
+		\item $(x ; y) = (-2 ; 1)$
+		\item $(x ; y) = (1;1)$
+		\item Les deux équations sont redondantes : on a en fait qu'une seule contrainte pour deux variables et donc un degré liberté. Pour chaque choix de $x$, on peut trouver un $y$ tel que $(x;y)$ soit solution.
+		L'ensemble des solutions est
+			\[ \{ (x ; y) \text{ tq. } x+y=2, x, y \in \R \} = \{ (x ; y) \text{ tq. } y = -x + 2, \text{ où $x$ parcourt $\R$} \} = \Ccal_f, \]
+		où $f(x) = -x+2$.
+		\item $(x ; y) = \left(\frac{17}{29} ; -\frac{24}{29}\right)$
+		\item Les deux équations sont contradictoires et aucune solution n'existe.
+		\item $(x ; y) = \left(-\frac{10}{113} ; \frac{162}{113}\right)$
+		\item Les deux équations sont contradictoires et aucune solution n'existe.
+		\item $(x ; y) = \left(-\frac{2}{15} ; -\frac{1}{30}\right)$
+		\item Les deux équations sont redondantes : on a en fait qu'une seule contrainte pour deux variables et donc un degré liberté. Pour chaque choix de $x$, on peut trouver un $y$ tel que $(x;y)$ soit solution.
+		L'ensemble des solutions est
+			\[ \left\{ (x ; y) \text{ tq. } -6x -y = \frac32, x, y \in \R \right\} = \left\{ (x ; y) \text{ tq. } y= -6x - \frac32 \text{ où $x$ parcourt $\R$} \right\} = \Ccal_f, \]
+		où $f(x) =-6x - \frac32$.
+	\end{enumerate}
+}
+
+
+
+\exe{}{
+	Soient $u = \begin{pmatrix}1\\3\\-4\end{pmatrix}$ et $v = \begin{pmatrix} 1 \\ -1 \\ 0\end{pmatrix}$.
+	Quel $\lambda\in\R$ choisir pour que les vecteurs $v$ et $u-\lambda v$ soient orthogonaux ?
+	
+	En déduire le point de plus proche de $P(1;3;-4)$ appartenant à la droite $\R v$.
+}{exe:Fourier-coeff}{
+
+}
+
+\exe{}{
+	Trouver le point le plus proche de $P(2;-1;0)$ appartenant à $(2; 1; -1) + \R \begin{pmatrix}2\\0\\-1\end{pmatrix}$.
+}{exe:proj-orth-R3}{
+
+}
+
+\exe{}{
+	Soient $u = \begin{pmatrix}34\\17\\-17\end{pmatrix}$, $v = \begin{pmatrix} 0 \\ -1 \\ -1\end{pmatrix}$ et  $w = \begin{pmatrix} 2 \\ -2 \\ 1\end{pmatrix}$.
+	Quels $\lambda, \mu\in\R$ choisir pour que fois les vecteurs $v$ et $u-\lambda v-\mu w$ soient orthogonaux et les vecteurs $w$ et $u-\lambda v -\mu w$ soient orthogonaux ?
+	Poser un système de deux équations à deux inconnues puis le résoudre.
+	
+	En déduire le point de plus proche de $P(34;17;-17)$ appartenant au plan $\R v + \R w$.
+}{exe:proj-orth-plan}{
+
+}
+
+\exe{difficulty=1}{
+	Montrer que la famille $\mathcal{F}$ suivante est orthonormée.
+		\[ \mathcal{F} = \left\{ \frac1{\sqrt6}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} ; \frac1{\sqrt6}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix} ; \frac1{\sqrt6}\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix} \right\} \]
+	Exprimer le point
+		\[ P(5 ;  5 ; -2 ) \]
+	comme combinaison linéaire des vecteurs de $\mathcal{F}$.
+	
+	\emph{Indication : ignorer les $\frac1{\sqrt6}$ pour simplifier les calculs et les rajouter à la fin.}
+		
+	En déduire $Q$, le point le plus proche de $P$ appartenant au plan $\R\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} + \R\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix}$.
+}{exe:proj-orthonormal}{
+
+}
+
+\exe{difficulty=2}{
+	Soient $b_1^*, b_2, b_3 \in\R^3$ trois vecteurs linéairement indépendants.
+	\begin{enumerate}
+		\item
+		Montrer que 
+			\[ b_2^* = b_2 - \frac{\japb{b_2, b_1^*}}{\japb{b_1^*, b_1^*}} b_1^* \]
+		est orthogonal à $b_1^*$.
+		\item
+		Montrer que 
+			\[ b_3^* = b_3 - \frac{\japb{b_3, b_1^*}}{\japb{b_1^*, b_1^*}} b_1^* - \frac{\japb{b_3, b_2^*}}{\japb{b_2^*, b_2^*}} b_2^* \]
+		est orthogonal à $b_1^*$ et $b_2^*$.
+	\end{enumerate}
+	\emph{Remarque : cet algorithme peut continuer et porte le nom de \emphindex{procédé de Gram-Schmidt}.}
+}{exe:Gram-Schmidt}{
+	todo
+}
+
+
+
+\exe{difficulty=1}{
+	Soient $u, v$ deux vecteurs non nuls de $\R^2$ et $\theta$ l'angle dirigé de $u$ vers $v$.
+	%En adaptant la preuve du théorème \ref{thm:ab-orth}, montrer que
+	Montrer que
+		\[ \scal{u, v} = \norm{u}\norm{v}\cos(\theta). \]
+}{exe:prod-scal-2d}{
+	todo
+}
+
+
+\exe{difficulty=1}{
+	Soient $u, v\in\R^n$ deux vecteurs linéairement indépendants.
+	\begin{enumerate}
+		\item
+		Développer la fonction quadratique $f(t) = \norm{u + tv}^2$.
+		\item
+		Que dire du discriminant du polynôme quadratique $f$ ?
+		\item
+		En déduire l'\emphindex{inégalité de Cauchy-Schwarz} :
+			\[ \abs{\japb{u, v}} \leq \norm{u} \norm{v}. \]
+		\item
+		Montrer l'égalité suivante pour n'importe quels réels $x_1, \dots, x_n \in \R$.
+			\[ |x_1| + \dots + |x_n| \leq \sqrt{n} \sqrt{x_1^2 + \dots + x_n^2} \]
+	\end{enumerate}
+}{exe:Cauchy-Schwarz}{
+	\begin{enumerate}
+		\item
+		\begin{align*}
+			f(t) &= \norm{u + tv}^2, \\
+			&= \norm{u}^2 + \norm{tv}^2 + 2\japb{u, tv}, \\
+			&= t^2 \norm{v}^2 + 2t \japb{u, v} + \norm{u}^2.
+		\end{align*}
+		\item
+		Le polynôme est toujours positif ou nul car c'est le carré d'une norme.
+		Son discriminant est donc négatif ou nul car $f$ n'admet qu'une ou aucune racine.
+		\item
+		\begin{align*}
+			\Delta = b^2 - 4ac &\leq 0, \\
+			\left(2\japb{u, v}\right)^2 - 4\norm{v}^2\norm{u}^2 &\leq 0, \\
+			4\left(\japb{u, v}^2 - \norm{v}^2\norm{u}^2\right) &\leq 0, \\
+			\japb{u, v}^2 &\leq  \norm{v}^2\norm{u}^2, \\
+			\abs{\japb{u, v}} &\leq \norm{u} \norm{v}.
+		\end{align*}
+		\item
+		En prenant $u$ le vecteur dont toutes les coordonnées sont 1 et $v$ dont les coordonnées sont $|x_1|, \dots, |x_n|$, l'inégalité de Cauchy-Schwarz donne le résultat attendu.
+	\end{enumerate}
+}
+
+\exe{difficulty=2}{
+	Considérons une série numérique $(a_n)_{n\in\N}$ telle que $\sum_{n\in\N} a_n^2 < \infty$.
+	Montrer, à l'aide de l'inégalité de Cauchy-Schwarz (exercice \ref{exe:Cauchy-Schwarz}) que
+		\[ \sum_{n\in\N} \frac{|a_n|}{n^s} < \infty \]
+	pour tout $s>\frac12$.
+}{exe:Cauchy-Schwarz-application}{
+
+}
+
+
+
+
+
+
+
+
+
