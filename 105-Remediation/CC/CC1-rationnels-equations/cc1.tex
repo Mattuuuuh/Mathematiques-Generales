@@ -27,7 +27,12 @@ Consignes particulières :
 
 	\fillwithlines{4cm}
 }{exe:Q}{
-
+	\begin{align*}
+		q &= \frac23 \times 5 \times \frac21 + \frac56 + 1 \\
+		&= \frac{20}3 + \frac56 + 1 \\
+		&= \frac{40}6 + \frac56 + \frac66 \\
+		&= \frac{51}6
+	\end{align*}
 }
 
 \exe{4}{
@@ -44,7 +49,17 @@ Consignes particulières :
 
 	\fillwithlines{7cm}
 }{exe:contexte}{
-
+	\begin{enumerate}
+		\item
+		Le temps passé éveillé correspond à $1-\frac13 = \frac23$ de la vie de Matthieu.
+		Comme $\frac25$ du temps éveillé est passé à travailler, $1-\frac25 = \frac35$ du temps éveillé est passé à lire.
+		Ceci correspond à $\frac35\times\frac23 = \frac25$.
+		\item
+		Il s'agit de calculer $\frac25$ de $7\times24$.
+		Pour diviser par 5, il suffit de multiplier par 2 et de diviser par 10.
+			\[ \frac25 \times 7\times 24 = \frac{336}5 = \frac{672}{10} = 67,2. \]
+		La réponse attendue est donc $67,2$ heures.
+	\end{enumerate}
 }
 
 \exe{2}{
@@ -53,7 +68,7 @@ Consignes particulières :
 
 	\fillwithlines{4cm}
 }{exe:eq-lin}{
-
+	\[ 3-4x = 7x + 1 \iff 3-1 = 7x+4x \iff 2 = 11x \iff x=\frac2{11} \]
 }
 
 \newpage
@@ -65,6 +80,7 @@ Consignes particulières :
 	\fillwithlines{4cm}
 }{exe:eq-inv}{
 
+		\[ \frac3{x-2} + 1 = 2-\frac7{x-2} \iff \frac{10}{x-2} = 1 \iff 10 = x-2 \iff x = 12 \]
 }
 
 \exe{2}{
@@ -73,7 +89,8 @@ Consignes particulières :
 
 	\fillwithlines{4cm}
 }{exe:calcul-litteral}{
-
+	En utilisant $(a-b)^2 = (a)^2 + (b)^2 - 2(a)(b)$, par exemple, nous obtenons
+		\[ \left(3x^2 - 5\right)^2  = 9x^4 + 25 - 30x^2. \]
 }
 
 \exe{2}{
@@ -82,7 +99,7 @@ Consignes particulières :
 
 	\fillwithlines{4cm}
 }{exe:prod-zero}{
-
+	Le produit nul implique $7x+1 = 0 \iff x = -\frac17$ ou $2-x = 0 \iff x = 2$.
 }
 
 \exe{3}{
@@ -92,7 +109,9 @@ Consignes particulières :
 
 	\fillwithlines{5cm}
 }{exe:sqrt}{
-
+		\[ 7x^2 = 3 \iff x^2 = \frac37 \iff |x| = \sqrt{\frac37} \iff x = \pm \sqrt{\frac37}. \]
+	Comme $\sqrt{\frac37} = \frac{\sqrt3}{\sqrt7} = \frac17 \sqrt{21}$, nous obtenons les deux solutions
+		\[ \left\{ \frac17\sqrt{21} ; - \frac17\sqrt{21} \right\} \] 
 }
 
 %%%%%%%%%%%
@@ -100,6 +119,6 @@ Consignes particulières :
 \label{lastpage}
 \newpage
 \fancyhead[C]{\textbf{Solutions}}
-%\shipoutAnswer
+\shipoutAnswer
 
 \end{document}

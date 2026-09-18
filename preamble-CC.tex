@@ -120,6 +120,12 @@
 
 \input{../../../macros}
 
+% add points inside environments
+% example : \begin{enumerate} \item \points{2} blabla \item \points{1} bla \end{enumerate}
+\newcommand{\points}[1]{
+	\leavevmode\marginpar{\makebox{[#1]}}\ignorespaces%
+	\addtocounter{points}{#1}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PACKAGE-SPECIFIC ENVIRONMENTS

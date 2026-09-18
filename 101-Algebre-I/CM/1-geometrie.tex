@@ -357,6 +357,13 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	todo
 }
 
+\notation{
+	Dans ce qui suit, nous pourrons voir un point comme un vecteur, et lui appliquer toute la structure des vecteurs (somme, produit par un scalaire, produit scalaire, etc...).
+	
+	Ainsi, nous pouvons écrire, pour deux points $A, B\in\R^n$, que la longueur du segment $[AB]$ est donnée par
+		\[ AB = \norm{\vec{AB}} = \norm{B - A} = \norm{A - B}. \]
+}
+
 % inégalités triangulaire et Cauchy-Schwarz sont Algèbre IV
 %\thm{inégalité triangulaire}{
 %	La norme euclidienne vérifie l'\emphindex{inégalité triangulaire} :
@@ -365,15 +372,206 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 %}{thm:ineg-tri}
 
 
-\section{Systèmes : la dualité entre intersections et combinaisons linéaires}
+\dfn{}{
+	Une famille $\{ v_1 ; \dots ; v_k \} \subseteq \R^n$ est \emphindex{orthonormée} ou \emphindex{orthonormale} dès que
+	\begin{enumerate}
+		\item
+		elle est \emphindex{orthogonale} :
+			\[ \japb{v_i, v_j} = 0 \qquad \forall i \neq j ; \]
+		\item
+		les vecteurs sont \emphindex{unitaires} :
+			\[ \norm{u_i} = 1 \qquad \forall i. \]
+	\end{enumerate}
+}{dfn:orthonormee}
+
+\notation{
+	Une famille orthonormée vérifie donc
+		\[ \japb{v_i, v_j} = \delta_{ij}, \]
+	où $\delta_{ij} = \begin{cases*} 1 & si $i=j$, \\ 0 & si $i\neq j$. \end{cases*}$ est le \emphindex{symbole de Kronecker}.
+}
+
+\nt{
+	Il est facile de passe d'une famille orthogonale composée de vecteurs non nuls à une famille orthonormée : il suffit de \emphindex{normaliser} les vecteurs, c'est-à-dire les diviser par leur norme.
+}
 
 \ex{}{
+	Dans $\R^n$, la famille composée des $n$ vecteurs suivants est orthonormée.
+		\[ \left\{ \begin{pmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end{pmatrix} ; \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix} ; \begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix} ; \dots ; \begin{pmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix} \right\} \] 
+	Le $i$-ème vecteur ($i=1, 2, \dots, n$) est construit, rempli avec des $0$, et avec un unique $1$ en $i$-ème position.
+	Ces vecteurs s'appellent des \emphindex{vecteurs canoniques}. La famille s'appelle la \emphindex{base canonique}.
+}{ex:base-canonique}
+
+\thm{de Pythagore}{
+	Une famille $\{ v_1 ; \dots ; v_k \} \subseteq \R^n$ orthogonale de vecteurs non nuls est linéairement indépendante sur $\R$.
 	
-}{ex:deux-trois-inconnues}
+	De plus, pour tous $\alpha_1, \dots, \alpha_k \in \R$ des nombres réels,
+		\[ \norm{ \alpha_1 v_1 + \dots + \alpha_k v_k}^2 = \alpha_1^2\norm{v_1}^2 + \dots + \alpha_k^2\norm{v_k}^2 . \]
+}{thm:Pythagore}
+
+\pf{}{
+	Toute combinaison linéaire nulle prend la forme
+		\[  \alpha_1 v_1 + \dots + \alpha_k v_k = 0 \]
+	pour certains $\alpha_i\in\R$ réels.
+	
+	Le produit scalaire de cette combinaison avec un vecteur $v_i$ est égal à
+		\[ \japb{  \alpha_1 v_1 + \dots + \alpha_k v_k , v_i } = \japb{0, v_i }. \]
+	Or, $\japb{0, v_i} = 0$ et, par linéarité du produit scalaire,
+		\[ \japb{  \alpha_1 v_1 + \dots + \alpha_k v_k , v_i } = \alpha_1 \japb{v_1, v_i} + \dots + \alpha_k \japb{v_k, v_i} = \alpha_i, \]
+	car tous les produits scalaires sont nuls sauf $\japb{v_i, v_i}$ qui est non nul car $v_i$ est supposé non nul.
+	Par conséquent, $\alpha_i = 0$ pour tout $i=1, \dots, k$.
+	L'unique combinaison linéaire nulle est la combinaison triviale et les vecteurs sont linéairements indépendants.
+	
+	Montrons désormais l'identité de Pythagore.
+	Comme $\norm{u}^2 = \japb{u, u}$, nous avons, pour tous $\alpha_1, \dots, \alpha_k \in \R$ des nombres réels,
+		\[ \norm{ \alpha_1 v_1 + \dots + \alpha_k v_k}^2 = \japb{\alpha_1 v_1 + \dots + \alpha_k v_k, \alpha_1 v_1 + \dots + \alpha_k v_k}. \]
+	Par bilinéarité du produit scalaire et orthogonalité de la famille, cette quantité est égale à
+		\[ \japb{ \sum_{i=1}^k \alpha_iv_i, \sum_{j=1}^k \alpha_jv_j} = \sum_{i, j = 1}^{k} \alpha_i \alpha_j \japb{v_i, v_j} = \sum_{i=1}^k \alpha_i^2 \norm{v_i}^2. \]
+}
+
+\subsection{Application : projeté orthogonal}
+
+Le but de cette section est de trouver un point $Q$ appartenant à une droite ou un plan et le plus proche d'un point $P$ donné.
+L'unicité d'un tel point n'est pas claire \apriori, mais nous verrons qu'il est bien unique et que c'est un projeté orthogonal.
+
+
+\prop{}{
+	Soit $P\in\R^n$ un point, $v\in\R^n$ un vecteur non nul, et $\R v = \{ k v \tq k \in \R \}$ la droite engendrée par $v$.
+	Soit $Q$ le point le plus proche de $P$ appartenant à la droite. Autrement dit,
+		\[ Q = \arg\min_{k\in\R} \norm{ P - kv }. \]
+	Alors
+		\[ Q = \frac{\japb{P, v}}{\japb{v, v}} v. \]
+}{prop:point-sur-droite}
+
+\pf{}{
+	Cherchons le nombre $\lambda\in\R$ tel que $P-\lambda v$ soit perpendiculaire à $v$.
+	\begin{align*}
+		\japb{P - \lambda v, v} &= 0 \\
+		\japb{P, v} - \lambda \japb{v, v} &= 0 \\
+		\lambda &= \frac{\japb{P, v}}{\japb{v, v}}
+	\end{align*}
+	Posons $w=P - \lambda v$.
+	Soit $Q = \mu v$, où $\mu\in\R$ est un nombre, un point quelconque de la droite $\R v$.
+	
+	Par construction, $w$ et $v$ sont orthogonaux, donc le théorème de Pythagore \ref{thm:Pythagore} nous donne 
+	\begin{align*}
+		\norm{P-Q}^2 &= \norm{w + \lambda v - \mu v}^2 \\
+				&= \norm{w + (\lambda-\mu)v}^2 \\
+				&= \norm{w}^2 + (\lambda-\mu)^2 \norm{v}^2
+	\end{align*}
+	Quelque soit $\mu\in\R$, le carré  $(\lambda-\mu)^2$ est positif, et est nul uniquement en $\mu = \lambda$.
+	
+	La distance $\norm{P-Q}^2$ atteint donc son unique minimum en $\mu=\lambda$, et $Q^* = \lambda v$ est bien le point le plus proche de $P$ appartenant à la droite $\R v$.
+}
+
+\nomen{
+	Le coefficient $\frac{\japb{P, v}}{\japb{v, v}}$ s'appelle \emphindex{coefficient de Fourier}.
+	Nous le retrouverons lors de l'étude des séries de Fourier en analyse.
+}
+
+\nt{
+	Une droite qui ne passe pas par l'origine prend la forme $R + \R v$ avec $R$ un point et $v$ un vecteur.
+	Trouver un point $Q$ de la droite le plus proche de $P$.
+	Le point $Q$ minimise donc $\norm{ P - (R+ k v)} = \norm{ (P-R) - kv}$ pour $k\in\R$.
+	Ceci est entièrement équivalent à trouver le point le plus proche de $P-R$ appartenant à la droite $\R v$.
+	La proposition \ref{prop:point-sur-droite} s'applique donc.
+	L'interprétation géométrique est la suivante : en décalant tout l'espace de $R$, la droite passe par l'origine et le point $P$ devient $P-R$.
+}
+
+\prop{}{
+	Soit $P\in\R^n$ un point, $v, w\in\R^n$ deux vecteurs orthogonaux non nuls, et $\R v + \R w = \{ k v + k' w \tq k, k' \in \R \}$ le plan engendré par $v$ et $w$.
+	Soit $Q$ le point le plus proche de $P$ appartenant à la droite. Autrement dit,
+		\[ Q = \arg\min_{P' \in \R v + \R w} \norm{ P - P' }. \]
+	Alors
+		\[ Q =\frac{\japb{P, v}}{\japb{v, v}} v + \frac{\japb{P, w}}{\japb{w, w}} w. \]
+}{prop:point-sur-plan}
+
+\pf{}{
+	Soit $Q =\frac{\japb{P, v}}{\japb{v, v}} v + \frac{\japb{P, w}}{\japb{w, w}} w$.
+	Montrons que $P-Q$ est orthogonal à $v$ et à $w$.
+	D'abord, comme $\japb{w, v} = 0$ par orthogonalité supposée de $v$ et $w$,
+	\begin{align*}
+		 \japb{Q, v} &= \japb{ \frac{\japb{P, v}}{\japb{v, v}} v + \frac{\japb{P, w}}{\japb{w, w}} w, v} \\
+		 		&= \frac{\japb{P, v}}{\japb{v, v}} \japb{v, v} + \frac{\japb{P, w}}{\japb{w, w}} \japb{w, v} \\
+		 		&= \japb{P, v}
+	\end{align*}
+	il suit donc que $\japb{P-Q, v} = \japb{P, v} - \japb{Q, v} = 0$.
+	Ensuite, $\japb{P-Q, w} = 0$ de façon similaire.
+	
+	Posons désormais $\alpha_v = \frac{\japb{P, v}}{\japb{v, v}}$ et $\alpha_w = \frac{\japb{P, w}}{\japb{w, w}}$ pour simplifier les notations.
+	Nous avons toujours $Q = \alpha_v v + \alpha_w w$.
+	
+	Alors, pour tout $kv + k'w$ appartenant au plan $\R v + \R w$, où $k, k'\in\R$ sont des nombres, nous avons
+	\begin{align*}
+		\norm{P - kv - k'w}^2 &= \norm{P - Q + (\alpha_v - k)v + (\alpha_w - k')w}^2 \\
+				&= \norm{P-Q}^2 + (\alpha_v - k)^2 \norm{v}^2 + (\alpha_w - k')^2 \norm{w}^2
+	\end{align*}
+	d'après le théorème de Pythagore \ref{thm:Pythagore}.
+	
+	Cette quantité est minimale uniquement lorsque $k=\alpha_v$ et $k'=\alpha_w$, en utilisant la positivité du carré $x^2 \geq 0$ pour $x\in\R$, égal à zéro uniquement en $x=0$.
+}
+
+\exe{}{
+	Soient $u = \begin{pmatrix}1\\3\\-4\end{pmatrix}$ et $v = \begin{pmatrix} 1 \\ -1 \\ 0\end{pmatrix}$.
+	Quel $\lambda\in\R$ choisir pour que les vecteurs $v$ et $u-\lambda v$ soient orthogonaux ?
+	
+	En déduire le point de plus proche de $P(1;3;-4)$ appartenant à la droite $\R v$.
+}{exe:Fourier-coeff}{
+
+}
+
+\exe{}{
+	Trouver le point le plus proche de $P(2;-1;0)$ appartenant à $(2; 1; -1) + \R \begin{pmatrix}2\\0\\-1\end{pmatrix}$.
+}{exe:proj-orth-R3}{
+
+}
+
+\exe{}{
+	Soient $u = \begin{pmatrix}34\\17\\-17\end{pmatrix}$, $v = \begin{pmatrix} 0 \\ -1 \\ -1\end{pmatrix}$ et  $w = \begin{pmatrix} 2 \\ -2 \\ 1\end{pmatrix}$.
+	Quels $\lambda, \mu\in\R$ choisir pour que fois les vecteurs $v$ et $u-\lambda v-\mu w$ soient orthogonaux et les vecteurs $w$ et $u-\lambda v -\mu w$ soient orthogonaux ?
+	Poser un système de deux équations à deux inconnues puis le résoudre.
+	
+	En déduire le point de plus proche de $P(34;17;-17)$ appartenant au plan $\R v + \R w$.
+}{exe:proj-orth-plan}{
+
+}
+
+\exe{difficulty=1}{
+	Montrer que la famille $\mathcal{F}$ suivante est orthonormée.
+		\[ \mathcal{F} = \left\{ \frac1{\sqrt6}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} ; \frac1{\sqrt6}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix} ; \frac1{\sqrt6}\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix} \right\} \]
+	Exprimer le point
+		\[ P(5 ;  5 ; -2 ) \]
+	comme combinaison linéaire des vecteurs de $\mathcal{F}$.
+	
+	\emph{Indication : ignorer les $\frac1{\sqrt6}$ pour simplifier les calculs et les rajouter à la fin.}
+		
+	En déduire $Q$, le point le plus proche de $P$ appartenant au plan $\R\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} + \R\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix}$.
+}{exe:proj-orthonormal}{
+
+}
+
+\section{Systèmes : la dualité entre intersections et combinaisons linéaires}
+
+\nt{
+	Les chapitres précédents nous ont amenés à résoudre certains systèmes, notamment pour vérifier ou invalider une indépendance linéaire.
+	Lorsque nous vérifiions l'indépendance linéaire des trois vecteurs $\begin{pmatrix} 1 \\ 2\end{pmatrix}, \begin{pmatrix}3\\4\end{pmatrix}, et \begin{pmatrix}5\\6\end{pmatrix}$, nous résolvons le système
+		\[ \systeme[sort={\alpha,\beta,\gamma}]{\alpha + 3\beta + 5\gamma = 0, \\ 2\alpha + 4\beta + 6\gamma = 0}. \]
+	La \emphindex{dualité} est le fait de voir le système, non pas en colonnes, mais en lignes.
+	Changeons les noms des variables. Le système devient
+		\[ \systeme{x + 3y + 5z = 0, \\ 2x + 4y + 6z = 0}. \]
+	Voyons désormais la première équation comme celle du plan de $\R^3$ orthogonal à $\begin{pmatrix}1\\3\\5\end{pmatrix}$, et la deuxième équation comme celle du plan de $\R^3$ orthogonal à $\begin{pmatrix}2\\4\\6\end{pmatrix}$.
+	Géométriquement, l'intersection de deux plans aboutit à une droite, et le caractère infini du nombre de solutions du système devient clair (et donc l'existence d'une solution non triviale).
+	En particulier, trois vecteurs de $\R^2$ ne peuvent pas être linéairement indépendants.
+}
+
+Nous verrons, dans un chapitre futur, la proposition suivante.
+
+\prop{}{
+	Si  la famille $\{ v_1 ; \dots ; v_k \} \subseteq \R^n$ est linéairement indépendante sur $\R$, alors $k\leq n$.
+}{prop:k-leq-n}
 
 \nomen{
 	Une \emphindex{heuristique} est une règle pragmatique qui fonctionne la plupart du temps.
-	Elle donne, par exemple, une idée de stratégie de recherche, ou d'aspect d'une solution, sans être toujours optimale, ou vraie.
+	Elle donne, par exemple, une stratégie de recherche ou un aspect de solution, sans être toujours optimale, ou vraie.
 }
 
 \heur{
@@ -382,13 +580,53 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 			( degrés de liberté ) = ( nombre de variables ) -- ( nombre de contraintes )
 		\end{center}
 	Le degré de liberté donne la forme des solutions : aucun degré de liberté correspond à une unique solution ; un degré de liberté correspond à une droite ; deux degrés à un plan ; etc...
-	
-	L'équation $y = x + 1$, à deux variables et une contrainte, représente une droite.
-	
-	Le système à deux variables et deux contraintes
-		\[ \begin{cases*} a = 2b + 3, \\ 2a + b = -1. \end{cases*} \]
-	n'a aucun degré de liberté : il n'y a \emph{probablement} qu'une seule solution.
 }
+
+\ex{}{
+	L'équation $y = x + 1$, à deux variables et une contrainte, a un degré de liberté : c'est une droite.
+	Géométriquement, une équation cartésienne est $-x+y = 1$, et la droite est donc perpendiculaire au vecteur $\pvec{-1}1$.
+	
+	Considérons désormais le système à deux variables et deux contraintes suivant.
+		\[ \begin{cases*} a = 2b + 3, \\ 2a + b = -1. \end{cases*} \]
+	Géométriquement, ceci correspond à l'intersection de deux droites d'équations cartésiennes $x-2y=3$ et $2x+y=-1$.
+	Heuristiquement, ce système n'a aucun degré de liberté : il n'y a \emph{probablement} qu'une seule solution.
+	Résoudre le système permet de nous en assurer.
+	
+	Considérons maintenant le système à trois variables et deux contraintes suivant.
+		\[ \systeme{3x-2y+7z = 1, \\ x + y + 2z = 0.} \]
+	Géométriquement, ceci correspond à l'intersection de deux plans, le premier orthogonal au vecteur $\begin{pmatrix}3\\-2\\1\end{pmatrix}$, et le deuxième orthogonal au vecteur $\begin{pmatrix}1\\1\\2\end{pmatrix}$.
+	Nous nous attendons donc à obtenir un solution en forme de droite.
+	Heuristiquement, ce système a un degré de liberté (3 variables moins 2 contraintes).
+	
+	Vérifions que c'est bien le cas algébriquement.
+	\begin{align*}
+		\systeme{3x-2y+7z = 1, \\ x + y + 2z = 0.} &&\iff && \systeme{x + y + 2z = 0, \\ 3x-2y+7z = 1.}
+		&& \iff && \systeme{x + y + 2z = 0, \\ -5y+z = 1.} \\ && \iff && \systeme{x +11y = -2, \\ -5y+z =  1.}  
+		&& \iff && \systeme{x = -11y-2, \\ z = 5y+1.}
+	\end{align*}
+	L'ensemble des solutions est donc donné par
+	
+	\begin{align*}
+		\left\{ \begin{pmatrix} -11y-2 \\ y \\ 5y+1 \end{pmatrix} \tq y\in\R \right\} &= \left\{ \begin{pmatrix} -2 \\ 0 \\ 1 \end{pmatrix} + \begin{pmatrix} -11 \\ 1 \\ 5 \end{pmatrix}y \tq y\in\R \right\}
+		\\	&= \begin{pmatrix}-2\\0\\1\end{pmatrix} + \begin{pmatrix}-11\\1\\5\end{pmatrix} \R.
+	\end{align*}
+	C'est donc bien une droite, celle engendrée par le vecteur $\begin{pmatrix}-11\\1\\5\end{pmatrix}$, et passant par le point $(-2;0;1)$.
+	
+	{Vérification : les points en $y=0$ et $y=1$ sont $(x ; y ; z) = (-2 ; 0 ; 1)$ et $(x ; y ; z) = (-13 ; 1 ; 6)$ et sont bien solutions du système.}
+}{ex:heuristique}
+
+\ex{}{
+	L'heuristique ne fonctionne pas tout le temps. Un exemple clair est le doublement d'équations.
+	Deux équations identiques dans un système n'en valent qu'une.
+	Par exemple, le système
+		\[ \systeme{2x+3y = 1, \\ 4x+6y=2. } \]
+	correspond à une droite, car les deux équations sont équivalentes.
+	Géométriquement, les vecteurs orthogonaux $\pvec23$ et $\pvec46$ sont colinéaires : ils sont multiples l'un de l'autre.
+	%\emphindex{colinéaires} : ils sont multiples l'un de l'autre.
+	Remarquons d'ailleurs que, en voyant le système par colonnes par dualité, les vecteurs $\pvec24$ et $\pvec36$ sont également colinéaires.
+	
+	Généralement, dans un système, si une équation peut être obtenue à l'aide d'une combinaison linéaire des autres, elle est redondante.
+}{ex:heuristique2}
 
 %Heuristique degrés liberté = variable - équations.
 %
