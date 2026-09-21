@@ -8,9 +8,43 @@
 
 \subsection{Opérations élémentaires}
 
-\subsection{Méthode du pivot}
+% Type I 
+% 
+% def permutation de [n]
+% def matrice P_sigma e_i = e_sigma-1(i) 
+% donc P_sigma (lignes) = sigma(lignes)
+% inverse P_sigma = P_sigma-1 = P_sigma^T
+% 
+% Type II
+% matrices diagonales D_i(lambda) = (1, .., 1, lambda, 1, .., 1)
+% donc D_i(lambda) (lignes) = lignes avec i-ème x lambda
+% D_i(lambda)^-1 = D_i(1/lambda)
+% 
+% Type III
+% G_ij(lambda) = I + lambda en (j, i)
+% donc G_ij(lambda)(lignes) = lignes avec j-ième = j-ième + lambda x i-ème
+% G_ij(lambda)^-1 = G_ij(-lambda)
 
-\subsection{Inversibilité à gauche et à droite}
+
+\subsection{Méthode du pivot et forme échelonnée réduite}
+
+% Soit A (m x n). On veut créer B inversible tq BA soit le plus simple possible
+% exemples matrices simples
+% def échelonnée
+% def échelonne réduite
+% thm : existe B inversible tq BA soit échelonnée réduite
+
+\section{Espaces et sous-espaces vectoriels}
+
+% corollaire : A est inversible si et seulement si elle est carrée (m=n) et sa forme échelonnée réduite est l'identité
+% corollaire-prop du chapitre 2 : si k vecteurs de Rn sont L.I., alors k<=n.
+% thm : A est inversible ssi carrée et ses colonnes sont L.I. ssi carrée et ses lignes sont L.I.
+% 
+% famille génératrice
+% expression Im(A) = { Ax }_x
+% expression Vect(v_i) = span(v_i).
+% base : génératrice + L.I.
+% base de Rn a exactement n vecteurs
 
 \prop{}{
 	Soit $M\in\R^{n \times n}$ une matrice où $n\in\N^*$.
@@ -23,11 +57,20 @@
 	todo
 }
 
-\section{Résolution de système linéaire}
+\section{Résolution de système linéaire : matrice augmentée}
 
-\subsection{Matrice augmentée}
+% Ax = b lorsque A est inversible donne une unique solutoin <=> colonnes de A forment une base
+% mais en général peut-être que A a des colonnes redondantes ou pas assez de colonnes, et x est peut-être dans le span de A
+%
+% echelonnage de (A | b) donne
+% B(A | b) = (C | Bb) = (C|b') échelonnée réduite
+% Donc A x = b <=> Cx = b'
+% thm : si C a une ligne nulle alors que b' n'est pas nul, aucune solution. Sinon, solutions selon la dimension de C (nb variables) - (nb contraintes).
+% remarque : on s'en fiche totalement de B en fait.
+% exemple Kressner ou autre
+% https://www.epfl.ch/labs/anchp/wp-content/uploads/2018/05/ch3.pdf
 
-\subsection{Forme échelonnée réduite}
+
 
 
 \section*{Exercices supplémentaires}
@@ -35,10 +78,10 @@
 
 \shipoutExercise
 
-\section*{Solutions}
-\addcontentsline{toc}{section}{Solutions}
-
-\shipoutAnswer
+%\section*{Solutions}
+%\addcontentsline{toc}{section}{Solutions}
+%
+%\shipoutAnswer
 
 
 
