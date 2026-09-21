@@ -1,0 +1,123 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[21/09/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\fancyhead[C]{\textbf{MG105 --- Contrôle Continu 1bis}}
+
+\null\vspace{-20pt}
+Code Apprenant :  \rule{3cm}{.1pt} ou Nom : \hrulefill
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+%\hrule
+
+\exe{4}{
+	Exprimer le nombre $q$ suivant sous forme de fraction d'entiers.
+		\[ q = \frac52 \times \frac{~~2~~}{\frac35} + \frac5{12} - 1. \]
+
+	\fillwithlines{4cm}
+}{exe:Q}{
+	\begin{align*}
+		q &= \frac52 \times 2\times \frac53 + \frac5{12} - 1 \\
+		&= \frac{50}6 + \frac5{12} + 1 \\
+		&= \frac{100}{12} + \frac5{12} + \frac{12}{12} \\
+		&= \frac{117}{12}
+	\end{align*}
+}
+
+\exe{4}{
+	Camara Laye, écrivain né en Guinée, a passé les trois quarts de sa vie, et le reste en France.
+	En France, il a passé $\frac45$ de son temps à travailler. Le reste de son temps passé en France, il écrivait ses livres.
+	
+	\begin{enumerate}
+		\item
+		Quelle proportion de sa vie Camara Laye a-t-il passé à écrire en France ?
+		\item
+		Camara Laye est mort à l'âge de 52 ans.
+		Combien d'années a-t-il passé à écrire en France ?
+		Une valeur numérique (avec virgule) est attendue.
+	\end{enumerate}
+
+	\fillwithlines{7cm}
+}{exe:contexte}{
+	\begin{enumerate}
+		\item
+		Le temps passé en France correspond à $1-\frac34 = \frac14$ de la vie de Camara Laye.
+		Comme $\frac45$ du temps en France est passé à travailler, $1-\frac45 = \frac15$ du temps en France est passé à écrire.
+		Ceci correspond à $\frac15\times\frac14 = \frac1{10}$.
+		\item
+		Il s'agit de calculer $\frac1{20}$ de 52.
+			\[ \frac1{20}\times52 = \frac{26}{10} = 2,6\]
+		La réponse attendue est donc $2,6$ années.
+	\end{enumerate}
+}
+
+\exe{2}{
+	Donner le nombre rationnel $x\in\Q$ vérifiant
+		\[ 4-5x = 8x + 2. \]
+
+	\fillwithlines{4cm}
+}{exe:eq-lin}{
+	\[ 4-5x = 8x+2 \iff 4-2 = 8x + 5x \iff 2 = 13x \iff x = \frac2{13} \]
+}
+
+\newpage
+
+\exe{3}{
+	Donner le nombre rationnel $x\in\Q$ différent de 3 vérifiant
+		\[ \frac6{x-3} + 2 = 3-\frac5{x-3}. \]
+
+	\fillwithlines{4cm}
+}{exe:eq-inv}{
+		\[ \frac6{x-3} + 2 = 3-\frac5{x-3} \iff \frac{11}{x-3} = 1 \iff x-3 = 11 \iff x = 14 \]
+}
+
+\exe{2}{
+	Développer et réduire l'expression factorisée suivante.
+		\[ \left(3 - 5x^2\right)^2 \]
+
+	\fillwithlines{4cm}
+}{exe:calcul-litteral}{
+	En utilisant $(a-b)^2 = (a)^2 + (b)^2 - 2(a)(b)$, par exemple, nous obtenons
+		\[ \left(3 - 5x^2\right)^2  = 9 + 25x^4 - 30x^2. \]
+}
+
+\exe{2}{
+	Donner toutes les solutions $x\in\R$ de l'équation suivante.
+		\[ (4-x)(8x + 3) = 0. \]
+
+	\fillwithlines{4cm}
+}{exe:prod-zero}{
+	Le produit nul implique $4-x = 0 \iff x = 4$ ou $8x+3 = 0 \iff x = -\frac38$.
+}
+
+\exe{3}{
+	Donner toutes les solutions $x\in\R$ de l'équation suivante.
+		\[ 11x^2 = 2. \]
+	Une réponse de la forme $q \sqrt{r}$ est attendue, où $q\in\Q$ est un rationnel et $r\in\N$ un entier naturel.
+
+	\fillwithlines{5cm}
+}{exe:sqrt}{
+		\[ 11x^2 = 2 \iff x^2 = \frac2{11} \iff |x| = \sqrt{\frac2{11}} \iff x = \pm \sqrt{\frac2{11}}. \]
+	Comme $\sqrt{\frac2{11}} = \frac{\sqrt2}{\sqrt{11}} = \frac1{11} \sqrt{22}$, nous obtenons les deux solutions
+		\[ \left\{ \frac1{11}\sqrt{22} ; - \frac1{11}\sqrt{22} \right\} \] 
+}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+\end{document}
