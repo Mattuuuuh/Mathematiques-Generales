@@ -36,6 +36,10 @@
 	Une matrice $u \in \R^{1 \times n}$ est un \emphindex{vecteur ligne} ou \emphindex{vecteur couché}.
 }
 
+\nt{
+	Les vecteurs de $\R^n$ sont des vecteurs colonnes de $\R^{n\times1}$ par convention.
+}
+
 \subsection{Opérations sur les matrices}
 
 \dfn{multiplication par un scalaire}{
@@ -97,7 +101,7 @@
 		\begin{align*}
 			M = \begin{pmatrix} A & B \\ C & D \end{pmatrix} && \et && N  =\begin{pmatrix} A' & B' \\ C' & D' \end{pmatrix}
 		\end{align*}
-	où $A, B, C, D, A', B', C',$ et $D'$ sont elles-mêmes des matrices appelée « blocs ».
+	où $A, B, C, D, A', B', C',$ et $D'$ sont elles-mêmes des matrices appelées « blocs ».
 	\begin{enumerate}
 		\item
 		Quelles conditions poser sur les tailles des blocs pour que les produits $AA'$, $AB'$, $BC'$, $BD'$, $CA'$, $CB'$, $DC'$, et $DD'$ aient un sens ?
@@ -284,7 +288,7 @@
 
 \cor{}{
 	Soit $A\in\R^{n\times n}$ une matrice carrée.
-	Montrer l'équivalence suivante
+	Alors
 	\begin{align*}
 		\bigpar{\text{$A$ est inversible}} && \iff && \bigpar{\text{pour tout $b\in\R^n$, le système $Ax = b$ admet une unique solution $x\in\R^n$}}
 	\end{align*}
@@ -516,10 +520,10 @@
 
 \shipoutExercise
 
-\section*{Solutions}
-\addcontentsline{toc}{section}{Solutions}
-
-\shipoutAnswer
+%\section*{Solutions}
+%\addcontentsline{toc}{section}{Solutions}
+%
+%\shipoutAnswer
 
 
 
