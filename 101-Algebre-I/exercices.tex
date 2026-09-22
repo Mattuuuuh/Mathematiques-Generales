@@ -684,14 +684,14 @@
 	Calculer $f(3), f'(3), f''(3), f'''(3), f^{(4)}(3)$, et $f^{(5)}(3)$ à l'aide du théorème de Taylor (exercice \ref{exe:taylor-poly-2}).
 }{exe:f-shift-derivatives}{
 	D'après le théorème de Taylor,
-		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(3)}{k!} (x-3)^k = 0 + 0(x-3) + (x-3)^2 + 0(x-3)^3 - (x-3)^4 + \frac1{12}(x-3)^5. \]
+		\[ f(x) = \sum_{k=0}^{d} \frac{f^{(k)}(3)}{k!} (x-3)^k = 0 + 0(x-3) + (x-3)^2 + 0(x-3)^3 - (x-3)^4 + 3(x-3)^5. \]
 	Par identification des coefficients, nous avons
 	\begin{align*}
-		\frac{f(3)}{0!} = 0, && \frac{f'(3)}{1!} = 0, && \frac{f''(3)}{2!} = 1, && \frac{f'''(3)}{3!} = 0, && \frac{f^{(4)}(3)}{4!} = -1, && \frac{f^{(5)}(3)}{5!} = \frac1{12}.
+		\frac{f(3)}{0!} = 0, && \frac{f'(3)}{1!} = 0, && \frac{f''(3)}{2!} = 1, && \frac{f'''(3)}{3!} = 0, && \frac{f^{(4)}(3)}{4!} = -1, && \frac{f^{(5)}(3)}{5!} = 3.
 	\end{align*}
 	et donc
 	\begin{align*}
-		f(3) = 0, && f'(3) = 0, && f''(3) = 2, && f'''(3) = 0, && f^{(4)}(3) = -24, && \frac{f^{(5)}(3)}{5!} = 10.
+		f(3) = 0, && f'(3) = 0, && f''(3) = 2, && f'''(3) = 0, && f^{(4)}(3) = -24, &&f^{(5)}(3) = 360.
 	\end{align*}
 }
 
