@@ -1,0 +1,177 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[01/10/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\fancyhead[C]{\textbf{MG101 --- Contrôle Continu 2}}
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	%\item
+	%Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\hrule 
+
+\marginpar{[pts]}
+
+
+\exe{4}{
+	Vrai ou faux ? Cocher la bonne réponse \underline{sans justifier}.
+	
+	Une bonne réponse rapporte $+1$ point. Une mauvaise réponse rapporte $-1$ point. Ne pas répondre rapporte $0$ point.
+	La note minimale de l'exercice est $0$.
+	%\vspace{-20pt}
+	\begin{center}
+	%\def\arraystretch{2}
+	%\setlength\tabcolsep{15pt}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		Les vecteurs $\begin{pmatrix}2 \\ 4 \\ -3 \end{pmatrix}$ et $\begin{pmatrix}5 \\ -1 \\ 2 \end{pmatrix}$ sont orthogonaux
+		& $\square$ & $\square$  \\[30pt]
+		La distance entre les points $P(3;4;2;-8)$ \\ et $Q(-2;2;-3;2)$ de $\R^4$ est égale à $154$
+		& $\square$ & $\square$  \\[10pt]
+		Trois vecteurs de $\R^2$ sont nécessairement \\ linéairement dépendants sur $\R$
+		& $\square$ & $\square$  \\[10pt]
+		L'intersection de deux plans de $\R^3$ est toujours une droite
+		& $\square$ & $\square$ 
+	\end{tabular}
+	\end{center}
+}{exe:TF-poly}{
+	\begin{center}
+	\def\arraystretch{2}
+	\setlength\tabcolsep{15pt}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		Les vecteurs $\begin{pmatrix}2 \\ 4 \\ -3 \end{pmatrix}$ et $\begin{pmatrix}5 \\ -1 \\ 2 \end{pmatrix}$ sont orthogonaux
+		& \checkmark &   \\
+	\end{tabular}
+	\end{center}
+}
+
+
+\exe{4}{
+	Considérons la famille $\mathcal{B}$ suivante, appelée \emphindex{base canonique}\footnotemark de $\R^4$.
+		\[ 
+		\mathcal{B} = \left\{ ~ \begin{pmatrix}1\\0\\0\\0 \end{pmatrix} ; \begin{pmatrix}0\\1\\0\\0 \end{pmatrix} ; \begin{pmatrix}0\\0\\1\\0 \end{pmatrix} ; \begin{pmatrix}0\\0\\0\\1 \end{pmatrix} ~ \right\} \subseteq\R^4
+		\]
+	\begin{enumerate}
+		\item
+		Montrer que la famille $\mathcal{B}$ est orthonormée.
+		\item
+		Montrer que n'importe quel vecteur $v\in\R^4$ s'écrit comme une combinaison linéaire sur $\R$ des vecteurs de $\mathcal{B}$.
+	\end{enumerate}
+}{exe:base-canonique}{
+	
+}
+
+\footnotetext{l'adjectif « canonique » est synonyme de « naturel » ici.}
+
+\fillwithlines{10cm}
+
+
+\newpage
+~
+\marginpar{[pts]}
+
+\exe{4}{
+	Soient $n\in\N^*$ et $u, v \in\R^n$ deux vecteurs.
+	Nous savons que $\japb{u, v} = 5$ et que $\norm{u} = 2$.
+	Calculer la valeur des produits scalaires et normes suivants.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		$\japb{v, u}$
+		\item
+		$\japb{3u, v}$
+		\item
+		%$\japb{u, u}$
+		%\item
+		$\japb{u + v, u}$
+		%\item
+		%$\norm{3u}$
+		\item
+		$\norm{-\frac12u}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:prod-scal-bilin}{
+	
+}
+
+\fillwithlines{6cm}
+
+
+\exe{4}{
+	Soient $n\in\N^*$ et $u, v  \in\R^n$ deux vecteurs.
+	Les vecteurs $u$ et $v$ sont dits « colinéaires » s'ils sont multiples l'un de l'autre : $u = kv$ ou $v = ku$ pour un certain nombre réel $k\in\R$.
+	
+	Montrer que la famille $\{ u, v \}$ est linéairement indépendante sur $\R$ si et seulement si $u$ et $v$ ne sont pas colinéaires.
+}{exe:2-indep-colin}{
+}
+
+\fillwithlines{13cm}
+
+
+%\exe{2}{
+%	Soient $\{  u, v \} \in\R^n$ deux vecteurs non nuls.
+%	Montrer que $u$ et $v-\frac{\japb{u, v}}{\japb{u, u} u$ sont orthogonaux.
+%}{exe:proj-orth-droite}{
+%}
+%
+%\fillwithlines{3cm}
+
+
+%\exe{4}{
+%	Soient $n\in\N^*$, $u, v \in\R^n$ deux vecteurs orthogonaux et $P\in\R^n$ un point.
+%	Posons $E = \R u + \R v$ le plan de toutes les combinaisons linéaires de $u$ et $v$.
+%	
+%	Montrer que
+%		\[ \arg\min_{Q \in E} \norm{P-Q}^2 = \frac{\japb{P, u}}{\japb{u, u}} u + \frac{\japb{P, v}}{\japb{v, v}} v. \]
+%}{exe:proj-orth-plan}{
+%}
+
+\newpage
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\hrule 
+
+\marginpar{[pts]}
+
+\exe{4}{
+	Soient $n\in\N^*$, $u, v \in\R^n$ deux vecteurs non nuls.
+	Posons 
+		\[ v^* = v - \frac{\japb{v, u}}{\japb{u, u}} u \in \R^n. \]
+	\begin{enumerate}
+		\item
+		Montrer que $v^* = 0$ (le vecteur nul) si et seulement si $v = ku$ pour un certain nombre $k\in\R$ réel.
+		\item
+		Montrer que $v^*$ est orthogonal à $u$.
+		\item
+		En déduire que $\norm{v^*} \leq \norm{v}$.
+	\end{enumerate}
+}{exe:Fourier-coeff}{
+}
+
+\fillwithlines{18cm}
+
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+\end{document}
