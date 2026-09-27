@@ -1116,7 +1116,8 @@
 	Soient $u, v$ deux vecteurs de $\R^n$. Montrer l'identité remarquable
 		\[ \norm{u+v}^2 = \norm{u}^2 + \norm{v}^2 + 2\scal{u, v}. \]
 }{exe:id-rem-scal}{
-	todo
+	Par bilinéarité et symétrie du produit scalaire,
+		\[ \norm{u+v}^2 = \japb{u+v, u+v} = \japb{u, u+v} + \japb{v, u+v} = \japb{u, u} + \japb{u, v} + \japb{v, u} + \japb{v, v} = \norm{u}^2 + \norm{v^2} + 2\japb{u, v}. \]
 }
 
 \exe{difficulty=1}{
@@ -1248,13 +1249,43 @@
 	
 	En déduire le point de plus proche de $P(1;3;-4)$ appartenant à la droite $\R v$.
 }{exe:Fourier-coeff}{
+	Nous cherchons le nombre $\lambda\in\R$ vérifiant $\japb{u-\lambda v, v} = 0$.
+	\begin{align*}
+		 \japb{u-\lambda v, v} &= 0 \\ 
+		 \japb{u, v} - \lambda\japb{v, v} &= 0 \\ 
+		 \lambda &= \frac{\japb{u, v}}{\japb{v,v}}
+	 \end{align*}
+	 Dans notre cas, 
+	 	\[ \lambda = \frac{1\times1+3\times(-1)+(-4)\times0}{1^2 + (-1)^2 + 0^2} = \frac{-2}{2} = -1. \]
+	D'après le cours, le point
+		\[ Q = \lambda v = (-1) v = (-1 ; 1 ; 0) \]
+	est le point le plus proche de $P$ appartenant à $\R v$.
+	Redémontrons ce fait pour nous en convaincre : tout point de $\R v$ prend la forme $k v$ avec $k\in\R$ un nombre réel.
+	Par conséquent,
+	\begin{align*}
+		\norm{P - k v}^2 &= \norm{P - \lambda v + (\lambda - k)v}^2 \\
+		&= \norm{P-\lambda v}^2 + \norm{(\lambda-k)v}^2 \\
+		&=  \norm{P-\lambda v}^2 + (\lambda-k)^2 \norm{v}^2 \\
+		&\geq \norm{P-\lambda v}^2
+	\end{align*}
+	en utilisant le théorème de Pythagore, car $P-\lambda v$ est orthogonal à $v$ par construction, et
+	car le carré $(\lambda-k)^2$ est  toujours positif et nul uniquement lorsque $k = \lambda$.
 
 }
 
 \exe{}{
 	Trouver le point le plus proche de $P(2;-1;0)$ appartenant à $(2; 1; -1) + \R \begin{pmatrix}2\\0\\-1\end{pmatrix}$.
 }{exe:proj-orth-R3}{
-
+	D'après le cours, la distance entre $P$ et $A + \R v$ est égale à la distance en $P-A$ et $\R v$ : il suffit de décaler tout l'espace de $-A$.
+	En effet, nous avons simplement, pour tout $k\in\R$,
+		\[ \norm{P - (A + kv)} = \norm{(P-A) - kv} \]
+	Calculons donc $P' = P-A$ comme deux vecteurs.
+		\[ P' = (2;-1;0) - (2;1;-1) = (0;-2;1). \]
+	Le point le plus proche de $P'$ appartenant à $\R v$ est égal à
+		\[ Q = \frac{\japb{P', v}}{\japb{v, v}} v, \]
+	d'après le cours (et l'exercice \ref{exe:Fourier-coeff}).
+	Nous obtenons
+		\[ Q = \frac{0\times2 + (-2)\times0 + 1\times(-1)}{2^2 + 0^2 + (-1)^2} v = \frac{-1}{5} v = -\frac15  \begin{pmatrix}2\\0\\-1\end{pmatrix} = \left(-\frac25 ; 0 ; \frac25\right). \]
 }
 
 \exe{}{
@@ -1264,21 +1295,74 @@
 	
 	En déduire le point de plus proche de $P(34;17;-17)$ appartenant au plan $\R v + \R w$.
 }{exe:proj-orth-plan}{
-
+	Le système à poser est 
+		\[
+		 \systeme[sort={\lambda, \mu}]{\japb{v, u-\lambda v - \mu w} = 0, \\ \japb{w, u-\lambda v - \mu w} = 0.}
+		 \iff
+		 \systeme[sort={\lambda, \mu}]{\japb{v, u} -\lambda \japb{v, v} - \mu \japb{v, w} = 0, \\ \japb{w, u} -\lambda \japb{w, v} - \mu \japb{w, w}= 0.}
+		 \iff
+		 \systeme[sort={\lambda, \mu}]{-2\lambda - \mu = 0, \\ -17 -\lambda - 9 \mu = 0.}
+		\]
+	La première équation donne $\mu = -2\lambda$, et la deuxième $-17 = -\lambda + 18\lambda = 0 \iff \lambda = -1$.
+	Par suite, $\mu = 2$.
+	
+	D'après le cours, le point le plus proche de $P$ appartenant au plan $\R u + \R v$ est exactement 
+		\[ Q = \lambda v + \mu w = -v + 2w = (4 ; -3 ; 3). \]
+	La démonstration est analogue à celle de l'exercice \ref{exe:Fourier-coeff} et utilise le théorème de Pythagore grâce au fait que $P-\lambda v - \mu w$ soit orthogonal à $v$ et à $w$.
 }
 
 \exe{difficulty=1}{
 	Montrer que la famille $\mathcal{F}$ suivante est orthonormée.
-		\[ \mathcal{F} = \left\{ \frac1{\sqrt6}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} ; \frac1{\sqrt6}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix} ; \frac1{\sqrt6}\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix} \right\} \]
+		\[ \mathcal{F} = \left\{ \frac1{3}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} ; \frac1{3}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix} ; \frac1{3}\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix} \right\} \]
 	Exprimer le point
 		\[ P(5 ;  5 ; -2 ) \]
 	comme combinaison linéaire des vecteurs de $\mathcal{F}$.
 	
-	\emph{Indication : ignorer les $\frac1{\sqrt6}$ pour simplifier les calculs et les rajouter à la fin.}
+	\emph{Indication : ignorer les $\frac1{3}$ pour simplifier les calculs et les rajouter à la fin.}
 		
 	En déduire $Q$, le point le plus proche de $P$ appartenant au plan $\R\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} + \R\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix}$.
 }{exe:proj-orthonormal}{
-
+	Il s'agit d'abord de montrer que la famille est orthogonale, puis que chaque vecteur est unité (norme $1$).
+	Nous pouvons factoriser par $\frac1{3}$ grâce à la bilinéarité du produit scalaire et de l'homogénéité de la norme pour simplifier les calculs.
+	Nommons $v_1 =  \frac1{3}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}$ le premier vecteur de la base $\mathcal{F}$.
+	Alors
+	\begin{align*}
+		\norm{v_1} = \frac1{3}\norm{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}} = \frac13 \sqrt{2^2 + 2^2 + 1^2} = \frac13 \sqrt9 = 1.
+	\end{align*}
+	Les autres vecteurs se font similairement.
+	
+	Nommons $v_2 =  \frac1{3}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}$ le deuxèime vecteur de la base $\mathcal{F}$.
+	Alors
+	\begin{align*}
+		\japb{v_1, v_2} =  = \japb{\frac1{3}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \frac1{3}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}} = \frac13 \times \frac13 \japb{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}} = \frac19 (-2 + 4 - 2) = 0.
+	\end{align*}
+	Les autres produits scalaires, $\japb{v_1, v_3} = 0$ et $\japb{v_2, v_3} = 0$ se font similairement, où $\frac1{3}\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix}$.
+	
+	Essayons désormais d'exprimer $P$ comme combinaison linéaire de $v_1, v_2, v_3$.
+	Trouvons les réels $\alpha, \beta, \gamma\in\R$ vérifiant
+		\[ P = \alpha v_1 + \beta v_2 + \gamma v_3. \]
+	Le produit scalaire avec $v_1$ donne, par orthonormalité de la famille,
+		\[ \alpha = \japb{P, v_1} = \frac13 \japb{\begin{pmatrix} 5 \\ 5 \\ -2 \end{pmatrix}, \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}} = \frac13(10+10-2) = 6. \]
+	Le produit scalaire avec $v_2$ donne, par orthonormalité de la famille,
+		\[ \beta = \japb{P, v_2} = \frac13 \japb{\begin{pmatrix} 5 \\ 5 \\ -2 \end{pmatrix}, \begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}} = \frac13(-5 + 10 + 4) = 3. \]
+	Le produit scalaire avec $v_3$ donne, par orthonormalité de la famille,
+		\[ \gamma = \japb{P, v_3} = \frac13 \japb{\begin{pmatrix} 5 \\ 5 \\ -2 \end{pmatrix}, \begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix}} = \frac13(-10+5-4) = -3. \]
+	Par conséquent, le candidat de combinaison est
+		\[ 6v_1 + 3v_2 - 3v_3 = 2\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} +  \begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix} - \begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix} = \begin{pmatrix}5\\5\\-2\end{pmatrix} = P, \]
+	qui est donc bien la combinaison linéaire qui aboutit à $P$.
+	D'après le cours, cette combinaison est unique car la base $\mathcal{F}$ est orthonormée et donc linéairement indépendante.
+	
+	Montrons désormais que la combinaison tronquée de $P$ suivante :
+		\[ Q = 6v_1 - 3v_3 = 2\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} - \begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix} = \begin{pmatrix}6\\3\\0\end{pmatrix} = (6;3;0) \]
+	est le point de $\R v_1 + \R v_3$ le plus proche de $P$.
+	Pour tout $k_1v_1 + k_3v_3 \in \R v_1 + \R v_3$ où $k_1, k_3 \in \R$, nous avons
+	\begin{align*}
+		\norm{P - k_1v_1 - k_3v_3}^2 &= \norm{(6-k_1)v_1 + 3v_2 + (-3-k_3)v_3}^2 \\
+			&= (6-k_1)^2 \norm{v_1}^2 + 9\norm{v_2}^2 + (-3-k_3)^2 \norm{v_3}^2 \\
+			&\geq 9\norm{v_2}^2
+	\end{align*}
+	avec égalité en $k_1 =6$ et $k_3=-3$.
+	
 }
 
 \exe{difficulty=2}{
@@ -1306,7 +1390,14 @@
 	Montrer que
 		\[ \scal{u, v} = \norm{u}\norm{v}\cos(\theta). \]
 }{exe:prod-scal-2d}{
-	todo
+	Il s'agit d'adapter la preuve du théorème du cours qui dit que $\japb{u, v} = 0$ si et seulement si $u$ et $v$ sont orthogonaux.
+	Pour cela, il nous faut le théorème d'Al-Kashi, plus général que celui de Pythagore, qui dit que
+		\[ c^2 = a^2 + b^2 - 2ab\cos(\theta), \]
+	où $\theta$ est l'angle entre les côtés de longueurs $a$ et $b$ d'un triangle scalène.
+	
+	Sous forme vectorielle, celui-ci nous dit que
+		\[ \norm{u - v}^2 = \norm{u}^2 + \norm{v}^2 - 2 \norm{u}\norm{v}\cos(\theta). \]
+	Comme $\norm{u-v}^2 = \norm{u}^2 + \norm{v}^2 - 2\japb{u, v}$ d'après l'exercice \ref{exe:id-rem-scal}, nous concluons.
 }
 
 
