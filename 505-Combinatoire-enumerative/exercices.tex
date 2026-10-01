@@ -400,5 +400,60 @@
 }
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 3  %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\exe{}{
+	Montrer que, pour $f, g, h$ trois fonctions arithmétiques,
+		\[ f*(g*h) (n) = \sum_{\substack{a, b, c \in\N^* : \\ abc=n}} f(a)g(b)h(c) \]
+	et conclure que le produit de convolution est associatif : $f*(g*h) = (f*g)*h$
+}{exe:convo-assoc}{
+
+}
+
+
+\exe{}{
+	Considérons la fonction indicatrice d'Euler $\phi$ donnée par
+		\[ \phi(n) = |\{ 1 \leq k \leq n \tq \pgcd(k, n)=1 \}|. \]
+	\begin{enumerate}
+		\item
+		Calculer $\phi(n)$ pour $n=1 ; 2 ; \dots ; 12$.
+		\item
+		Calculer $(\mathbbm{1}*\phi)(n)$  pour $n=1 ; 2 ; \dots ; 12$, où $\mathbbm{1}(n) = 1 \forall n\in\N^*$.
+		\item
+		En considérant les formes irréductibles des fractions
+		\begin{align*}
+			\frac1n && \frac2n && \frac3n && \dots && \frac{n-1}n && \frac{n}n,
+		\end{align*}
+		montrer que $(\mathbbm{1}*\phi)(n) = n$ pour tout $n\in\N^*$.
+	\end{enumerate}
+}{exe:totient}{
+}
+
+\exe{}{
+	Calculer $\mu(n)$  pour $n=1 ; 2 ; \dots ; 12$ où $\mu$ est la fonction de Möbius.
+}{exe:Mobius}{
+}
+
+
+
+\exe{}{
+	Considérons la fonction arithmétique $D$ définie par
+		\[ D(n) = |\{ 1 \leq k \leq n \tq k | n \}|. \]
+	\begin{enumerate}
+		\item 
+		Calculer $D(n)$  pour $n=1 ; 2 ; \dots ; 12$.
+		\item
+		Montrer que $D(n)$ est impair si et seulement si $n$ est un carré parfait.
+		\item
+		Montrer que
+			\[ \mu*D =\mathbbm{1} \]
+		à l'aide du cours.
+	\end{enumerate}
+}{exe:diviseurs}{
+}
+
 
 
