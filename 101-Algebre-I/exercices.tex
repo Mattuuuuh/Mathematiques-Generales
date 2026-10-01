@@ -1458,31 +1458,61 @@
 \exe{}{
 	Considérons la matrice $M$ suivante.
 	
+	\[ M = \begin{pmatrix} 3 & 7 & -3 & 2 \\ -8 & 4 & -10 & 4 \\ -14 & 1 & -5 & -19 \\ 2 & -6 & 7 & 9 \end{pmatrix}. \]
+	
+	\begin{multicols}{2}
 	\begin{enumerate}
-		\item que vaut $M_12$ ? 
-		\item que vaut $M_23$ ?
+		\item Quelle est la taille de la matrice $M$ ?
+		\item Que vaut $M_{21}$ ?
+		\item Que vaut $M_{12}$ ? 
+		\item Que vaut $M_{34}$ ?
+		%\item Que vaut $M_{43}$ ? 
+		%\item Que vaut $M_{34}$ ?
 	\end{enumerate}
-}{exe:matrix-op}{
+	\end{multicols}
+}{exe:matrix-entries}{
 	todo
 }
 
+
 \exe{}{
+	Considérons les matrices
+	\begin{align*}
+	A =  \begin{pmatrix} -7 & 2 & 0 \\ -2 & 2 & -7 \\ 4 & -6 & -3 \end{pmatrix}, && 
+	B =  \begin{pmatrix} 0 & 0 & -1 \\ 4 & 7 & 0 \\ 2 & -1 & -8 \end{pmatrix}, && 
+	C =  \begin{pmatrix} 0 \\ 1 \\ - 1 \end{pmatrix}.
+	\end{align*}
+	
 	Calculer les sommes et produits matriciels suivants.
 	
+	\begin{multicols}{3}
 	\begin{enumerate}
 		\item $A+B$
 		\item $3A$
-		\item $A-C$
-		\item $I_4+2B$
 		\item $AB$
 		\item $(AB)C$
 		\item $BC$
 		\item $A(BC)$
 	\end{enumerate}
+	\end{multicols}
 }{exe:matrix-op}{
 	todo
 }
 
+
+\exe{}{
+	Exprimer le système d'équations linéaires suivant sous la forme $AX = b$ où $A\in\R^{4\times3}$, $X=\begin{pmatrix}x\\y\\z\end{pmatrix}\in\R^3$, et $b\in\R^4$.
+	\[ \systeme{-x-9y+9z=-3, \\ -4x+7y+4z=-1, \\ 3x-2y-13z=3, \\ -4x + 21y -14z = -5. } \]
+}{exe:system-matrix}{
+	todo
+}
+
+\exe{}{
+	En reprenant les matrices $A$ et $b$ de l'exercice \ref{exe:system-matrix}, calculer les produits $PA$ et $Pb$ où
+		\[ P = \begin{pmatrix} 1 &0&0&0\\0&1&0&0\\0&0&1&0\\1&-2&-1&1\end{pmatrix}. \]
+	En conclure que le système $AX = b$ n'a aucune solution $X\in\R^4$ en le multipliant à gauche par $P$.
+}{exe:system-matrix-contd}{
+}
 
 \exe{}{
 	Montrer que les matrices $A = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ et $B = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$ ne commutent pas : $AB \neq BA$.
@@ -1490,13 +1520,35 @@
 	
 }
 
-\exe{}{
-	Trouver $n\in\N^*$ et deux matrices $A, B\in\R^{n\times n}$ non nulles telles que $AB = 0$, où $0$ désigne la matrice nulle de $\R^{n\times n}$.
-}{exe:Rnn-non-integre}{
-	En $n=1$, $ab=0$ implique $a =0$ ou $b=0$ d'après la propriété du produit nul.
-	En $n=2$, les matrices diagonales $A = \begin{pmatrix}1&\\&\end{pmatrix}$ et $B=\begin{pmatrix}&\\&1\end{pmatrix}$ fonctionnent.
+
+\exe{difficulty=1}{
+	Considérons la matrice $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$.
+	\begin{enumerate}
+		\item
+		Calculer $A^2$ et $A^3$.
+		\item
+		Soit $n\in\N$.
+		Conjecturer une expression pour $A^n$.
+		\item
+		Démontrer la conjecture.
+		%\item
+		%Trouver $A^{-1}$ et montrer par le calcul que c'est bien l'inverse à gauche et à droite de $A$.
+	\end{enumerate}
+}{exe:I-p-E11}{
+	$A^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}$.
 }
 
+
+
+\exe{}{
+	Montrer que les vecteurs $v_1, v_2, \dots, v_k\in\R^n$ sont linéairement indépendants si et seulement si la seule solution $X\in\R^k$ du système
+		\[ \begin{pmatrix} | & | & & | \\ v_1 & v_2 & \cdots & v_k \\ | & | & & | \end{pmatrix} X = 0 \]
+	est le vecteur nul.
+	
+	\emph{Remarque : le $0$ à droite de l'équation correspond au vecteur nul $0 = \begin{pmatrix}0\\0\\\vdots\\0\end{pmatrix} \in \R^n$.}
+}{exe:systeme-colonnes}{
+
+}
 
 \exe{}{
 	Soit $n\in\N^*$, $D\in\R^{n\times n}$ une matrice diagonale :
@@ -1509,26 +1561,17 @@
 
 \exe{}{
 	Montrer que les matrices diagonales de même taille commutent toutes entre elles.
-}{exe:Diag-commute}{
+}{exe:diag-commute}{
 	todo
 }
 
 
-\exe{difficulty=1}{
-	Considérons la matrice $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$.
-	\begin{enumerate}
-		\item
-		Calculer $A^2$ et $A^3$.
-		\item
-		Soit $n\in\N$.
-		Conjecturer une expression pour $A^n$ puis la démontrer.
-		\item
-		Trouver $A^{-1}$ et montrer par le calcul que c'est bien l'inverse à gauche et à droite de $A$.
-	\end{enumerate}
-}{exe:I-p-E11}{
-	$A^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}$.
+\exe{}{
+	Trouver $n\in\N^*$ et deux matrices $A, B\in\R^{n\times n}$ non nulles telles que $AB = 0$, où $0$ désigne la matrice nulle de $\R^{n\times n}$.
+}{exe:Rnn-non-integre}{
+	En $n=1$, $ab=0$ implique $a =0$ ou $b=0$ d'après la propriété du produit nul.
+	En $n=2$, les matrices diagonales $A = \begin{pmatrix}1&\\&\end{pmatrix}$ et $B=\begin{pmatrix}&\\&1\end{pmatrix}$ fonctionnent.
 }
-
 
 
 \exe{difficulty=1}{
@@ -1634,6 +1677,32 @@
 	Par conséquent, $X_n = A^n X_0 = PD^nP^{-1} \begin{pmatrix} 0 \\ 1 \end{pmatrix}$. 
 	Nous nous intéressons donc qu'à la première coordonnée de la deuxième colonne de $PD^n P^{-1}$, qui donne
 		\[ F_n = \frac{\phi_+^n - \phi_-^n}{\sqrt{5}}. \]
+}
+
+
+
+\exe{difficulty=0}{
+	Vrai ou faux ?
+	\begin{enumerate}
+%		\item
+%		Une matrice carrée diagonale est symétrique.
+		\item
+		Une matrice symétrique est carrée.
+		\item
+		Si $AB=0$ dans $\R^{n\times n}$, alors $A=0$ ou $B=0$ (les matrices nulles).
+		\item
+		La matrice nulle $0\in\R^{n\times n}$ est inversible.
+		\item
+		La matrice identité $I_n\in\R^{n\times n}$ est inversible.
+		\item
+		Si $A$ est inversible, alors $A^{-1}$ est aussi inversible.
+		\item
+		Si $A$ et $B$ sont inversibles de même taille alors $A+B$ est inversible.
+		\item
+		Si les lignes de $A\in\R^{2\times2}$ sont colinéaires, alors les colonnes sont également colinéaires.
+	\end{enumerate}
+}{exe:VF-matrices}{
+
 }
 
 
