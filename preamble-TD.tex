@@ -10,6 +10,42 @@
 % date
 \usepackage{advdate}
 
+
+% tikz
+\usepackage{tikz, pgfplots}
+\usepackage{prerex}
+\pgfplotsset{
+	/pgf/number format/.cd,
+	use comma,
+	1000 sep={}
+}
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.misc}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+
+\tikzset{
+	every axis/.style = {clip=true, grid style = {opacity=.5}}
+}
+
 \pagestyle{fancy}
 \fancyhead[L]{Université de Mayotte}
 \fancyhead[C]{\bf Série 1}
