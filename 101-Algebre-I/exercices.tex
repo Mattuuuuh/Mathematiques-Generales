@@ -1458,7 +1458,7 @@
 \exe{}{
 	Considérons la matrice $M$ suivante.
 	
-	\[ M = \begin{pmatrix} 3 & 7 & -3 & 2 \\ -8 & 4 & -10 & 4 \\ -14 & 1 & -5 & -19 \\ 2 & -6 & 7 & 9 \end{pmatrix}. \]
+	\[ M = \begin{pmatrix} 3 & 7 & -3 & 2 \\ -8 & 4 & -10 & 4 \\ -14 & 1 & -5 & -19 \end{pmatrix}. \]
 	
 	\begin{multicols}{2}
 	\begin{enumerate}
@@ -1471,7 +1471,12 @@
 	\end{enumerate}
 	\end{multicols}
 }{exe:matrix-entries}{
-	todo
+	\begin{enumerate}
+		\item La matrice est $3\times4$ : il y a 3 lignes est 4 colonnes.
+		\item $M_{21} = -8$, c'est le nombre situé ligne 2, colonne 1.
+		\item  $M_{12} = 7$, c'est le nombre situé ligne 1, colonne 2.
+		\item $M_{34} = -19$, c'est le nombre situé ligne 3, colonne 4.
+	\end{enumerate}
 }
 
 
@@ -1496,7 +1501,15 @@
 	\end{enumerate}
 	\end{multicols}
 }{exe:matrix-op}{
-	todo
+	\begin{enumerate}
+		\item $A+B = \begin{pmatrix} -7 & 2 & -1 \\ 2 & 9 & -7 \\ 6 & -7 & -11 \end{pmatrix}$ en ajoutant coefficient par coefficient.
+		\item $3A = \begin{pmatrix} -21 & 6 & 0 \\ -6 & 6 & -21 \\ 12 & -18 & -9 \end{pmatrix}$ en distribuant le $\times3$ à chaque coefficient.
+		\item $AB = \begin{pmatrix} 8 & 14 & 7 \\ -6 & 21 & 58 \\ -30 & -39 & 20 \end{pmatrix}$ en utilisant que $(AB)_{ij}$ est le produit scalaire de la ligne $i$ de $A$ avec la colonne $j$ de $B$.
+		\item $(AB)C =  \begin{pmatrix} 8 & 14 & 7 \\ -6 & 21 & 58 \\ -30 & -39 & 20 \end{pmatrix} \cdot \begin{pmatrix} 0 \\ 1 \\ - 1 \end{pmatrix} =  \begin{pmatrix} 7 \\ -37 \\ - 59 \end{pmatrix}$.
+		\item $BC = \begin{pmatrix}1\\7\\7\end{pmatrix}$.
+		\item $A(BC) = \begin{pmatrix} -7 & 2 & 0 \\ -2 & 2 & -7 \\ 4 & -6 & -3 \end{pmatrix} \cdot  \begin{pmatrix}1\\7\\7\end{pmatrix} =  \begin{pmatrix}7\\-37\\-59\end{pmatrix}$.
+	\end{enumerate}
+	Remarquons que $A(BC) = (AB)C$ mais que calculer $A(BC)$ est plus rapide que calculer $(AB)C$ car la matrice $C$ est de plus petite taille.
 }
 
 
@@ -1504,7 +1517,7 @@
 	Exprimer le système d'équations linéaires suivant sous la forme $AX = b$ où $A\in\R^{4\times3}$, $X=\begin{pmatrix}x\\y\\z\end{pmatrix}\in\R^3$, et $b\in\R^4$.
 	\[ \systeme{-x-9y+9z=-3, \\ -4x+7y+4z=-1, \\ 3x-2y-13z=3, \\ -4x + 21y -14z = -5. } \]
 }{exe:system-matrix}{
-	todo
+	Il faut poser $A = \begin{pmatrix}-1&-9&9\\-4&7&4\\3&-2&-13\\-4&21&-14\end{pmatrix}$ et $b=\begin{pmatrix}-3\\-1\\3\\-5\end{pmatrix}$.
 }
 
 \exe{}{
@@ -1512,12 +1525,26 @@
 		\[ P = \begin{pmatrix} 1 &0&0&0\\0&1&0&0\\0&0&1&0\\1&-2&-1&1\end{pmatrix}. \]
 	En conclure que le système $AX = b$ n'a aucune solution $X\in\R^4$ en le multipliant à gauche par $P$.
 }{exe:system-matrix-contd}{
+	Nous obtenons
+		\[  PA = \begin{pmatrix} 1 &0&0&0\\0&1&0&0\\0&0&1&0\\1&-2&-1&1\end{pmatrix}\cdot \begin{pmatrix}-1&-9&9\\-4&7&4\\3&-2&-13\\-4&21&-14\end{pmatrix} =  \begin{pmatrix}-1&-9&9\\-4&7&4\\3&-2&-13\\0&0&0\end{pmatrix} \]
+		et 
+		\[ Pb =  \begin{pmatrix} 1 &0&0&0\\0&1&0&0\\0&0&1&0\\1&-2&-1&1\end{pmatrix}\cdot\begin{pmatrix}-3\\-1\\3\\-5\end{pmatrix} = \begin{pmatrix}-3\\-1\\3\\-9\end{pmatrix}. \]
+	Le système $AX = b$ implique donc que $P(AX) = Pb$.
+	Par associativité du produit matriciel, nous avons $(PA)X = Pb$.
+	Or, la dernière ligne de $PA$ est nulle, mais le dernier coefficient de $Pb$ est $-9$ et n'est pas nul.
+	Une solution $X\in\R^3$ du système $(PA)X = Pb$ impliquerait alors $0 = -9$, ce qui n'est pas possible.
+	Le système n'admet donc aucune solution.
 }
 
 \exe{}{
 	Montrer que les matrices $A = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ et $B = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$ ne commutent pas : $AB \neq BA$.
 }{exe:mult-mat-mat-non-comm}{
-	
+	Par calcul matriciel,
+	\begin{align*}
+		 AB = \begin{pmatrix}0&1\\0&0\end{pmatrix}
+		 && \et &&
+		 BA = \begin{pmatrix}0&0\\0&0\end{pmatrix} = 0.
+	\end{align*}
 }
 
 
@@ -1535,7 +1562,31 @@
 		%Trouver $A^{-1}$ et montrer par le calcul que c'est bien l'inverse à gauche et à droite de $A$.
 	\end{enumerate}
 }{exe:I-p-E11}{
-	$A^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}$.
+	\begin{enumerate}
+		\item
+		Par calcul matriciel,
+		\begin{align*}
+			 A^2 = AA = \begin{pmatrix}1&2\\0&1\end{pmatrix}
+			 && \et &&
+			A^3 = AA^2 = \begin{pmatrix}1&3\\0&1\end{pmatrix}
+		\end{align*}
+		\item
+		Nous pouvons conjecturer que
+			\[ A^n = \begin{pmatrix}1&n\\0&1\end{pmatrix} \]
+		pour tout $n\in\N^*$.
+		\item
+		Raisonnement par récurrence sur $n\in\N^*$.
+		
+		Le cas $n=1$ est bien sûr vrai, et la récurrence est fondée.
+		
+		Supposons que la conjecture soit vraie pour un certain $n\in\N^*$.
+		C'est-à-dire, supposons que$A^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}$ pour un certain $n\in\N^*$.
+		Alors
+		\[ A^{n+1} = AA^{n} = \begin{pmatrix}1&1\\0&1\end{pmatrix}\begin{pmatrix}1&n\\0&1\end{pmatrix} = \begin{pmatrix}1&n+1\\0&1\end{pmatrix}, \]
+		ce qui implique que la conjecture est vraie pour $n+1$.
+		
+		Cette dernière est donc vraie pour tout $n\in\N^*$, ce qui conclut le raisonnement par récurrence.
+	\end{enumerate}
 }
 
 
@@ -1547,7 +1598,12 @@
 	
 	\emph{Remarque : le $0$ à droite de l'équation correspond au vecteur nul $0 = \begin{pmatrix}0\\0\\\vdots\\0\end{pmatrix} \in \R^n$.}
 }{exe:systeme-colonnes}{
-
+	Par calcul matriciel, l'équation
+		\[ \begin{pmatrix} | & | & & | \\ v_1 & v_2 & \cdots & v_k \\ | & | & & | \end{pmatrix} X = 0 \]
+	est équivalente à
+		\[ x_1 v_1 + x_2 v_2 + \dots + x_k v_k = 0, \]
+	où $X = \begin{pmatrix}x_1 \\ x_2 \\ \vdots \\ x_k \end{pmatrix}$.
+	L'équivalence est donc claire en reprenant la définition de l'indépendance linéaire.
 }
 
 \exe{}{
@@ -1556,13 +1612,16 @@
 	Montrer que pour tout $N\in\N^*$
 		\[ D^N = \begin{pmatrix} d_1^N & & & \\ & d_2^N & & \\ & & \ddots & \\ & & & d_n^N \end{pmatrix}. \]
 }{exe:Dpown}{
-	todo
+	Ce résultat est clair lorsque l'on considère la propriété vue en classe : « multiplier à gauche par une matrice diagonale $D$ multiplie chaque ligne $i$ par $D_{ii}$ ».
+	
+	Un raisonnement par récurrence s'applique bien, ici.
 }
 
 \exe{}{
 	Montrer que les matrices diagonales de même taille commutent toutes entre elles.
 }{exe:diag-commute}{
-	todo
+	Le produit $AB$ de deux matrices diagonales  $A$ et $B$ est une matrices diagonales dont les coefficients sont les produits des coefficients diagonaux de $A$ et de $B$.
+	Ce résultat est clair lorsque l'on considère la propriété vue en classe : « multiplier à gauche par une matrice diagonale $D$ multiplie chaque ligne $i$ par $D_{ii}$ ».
 }
 
 
