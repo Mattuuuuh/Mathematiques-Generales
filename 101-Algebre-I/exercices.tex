@@ -1324,19 +1324,19 @@
 }{exe:proj-orthonormal}{
 	Il s'agit d'abord de montrer que la famille est orthogonale, puis que chaque vecteur est unité (norme $1$).
 	Nous pouvons factoriser par $\frac1{3}$ grâce à la bilinéarité du produit scalaire et de l'homogénéité de la norme pour simplifier les calculs.
-	Nommons $v_1 =  \frac1{3}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}$ le premier vecteur de la base $\mathcal{F}$.
+	Nommons $v_1 =  \dfrac1{3}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}$ le premier vecteur de la base $\mathcal{F}$.
 	Alors
 	\begin{align*}
 		\norm{v_1} = \frac1{3}\norm{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}} = \frac13 \sqrt{2^2 + 2^2 + 1^2} = \frac13 \sqrt9 = 1.
 	\end{align*}
 	Les autres vecteurs se font similairement.
 	
-	Nommons $v_2 =  \frac1{3}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}$ le deuxèime vecteur de la base $\mathcal{F}$.
+	Nommons $v_2 =  \dfrac1{3}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}$ le deuxième vecteur de la base $\mathcal{F}$.
 	Alors
 	\begin{align*}
-		\japb{v_1, v_2} =  = \japb{\frac1{3}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \frac1{3}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}} = \frac13 \times \frac13 \japb{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}} = \frac19 (-2 + 4 - 2) = 0.
+		\japb{v_1, v_2} = \japb{\frac1{3}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \frac1{3}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}} = \frac13 \times \frac13 \japb{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix}} = \frac19 (-2 + 4 - 2) = 0.
 	\end{align*}
-	Les autres produits scalaires, $\japb{v_1, v_3} = 0$ et $\japb{v_2, v_3} = 0$ se font similairement, où $\frac1{3}\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix}$.
+	Les autres produits scalaires, $\japb{v_1, v_3} = 0$ et $\japb{v_2, v_3} = 0$ se font similairement, où $\dfrac1{3}\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix}$.
 	
 	Essayons désormais d'exprimer $P$ comme combinaison linéaire de $v_1, v_2, v_3$.
 	Trouvons les réels $\alpha, \beta, \gamma\in\R$ vérifiant
@@ -1434,6 +1434,7 @@
 			\japb{u, v}^2 &\leq  \norm{v}^2\norm{u}^2, \\
 			\abs{\japb{u, v}} &\leq \norm{u} \norm{v}.
 		\end{align*}
+		car la fonction racine carrée est croissante sur $\R_+^*$ et que $\sqrt{x^2} = |x|$ pour tout $x\in\R$.
 		\item
 		En prenant $u$ le vecteur dont toutes les coordonnées sont 1 et $v$ dont les coordonnées sont $|x_1|, \dots, |x_n|$, l'inégalité de Cauchy-Schwarz donne le résultat attendu.
 	\end{enumerate}
