@@ -9,14 +9,35 @@
 		\[ f(r) = 0. \]
 }{dfn:racine}
 
+\lem{de Hamza}{
+	Soit $f\in\K[x]$ un polynôme non constant.
+	Alors $a\in\K$ est une racine de $f$ si et seulement si  $x-a$ divise $f$ dans $\K[x]$.
+}{lem:Hamza}
+
+\pf{}{
+	\underline{Direction $\implies$.}
+	
+	Si $f(a)=0$, alors la division euclidienne de $f$ par $x-a$ dans $\K[x]$ donne
+		\[ f(x) = (x-a)q(x) + r(x), \]
+	où $q, r\in\K[X]$ et $\deg(r)<\deg(x-a) = 1$, et donc où $r(x) = r \in\K$ est un polynôme constant.
+	
+	En $x=a$, nous obtenons que $r=0$ et donc que $x-a$ divise $f$ dans $\K[x]$.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Si $x-a$ divise $f$ dans $\K[x]$, il existe $q\in\K[x]$ tel que $f(x) = (x-a)q(x)$.
+	
+	En $x=a$, nous obtenons $f(a) = 0$, ce qui conclut.
+}
+
 % taken from exe:root-factor
 % maybe talk about roots before... need refactor.
-\exe{}{
-	Soit $f\in\K[x]$ un polynôme non constant.
-	Montrer que si $r\in\K$ est une racine de $f$ si et seulement si  $x-r$ divise $f$ dans $\K[x]$.
-}{exe:root-factor2}{
-	todo
-}
+%\exe{}{
+%	Soit $f\in\K[x]$ un polynôme non constant.
+%	Montrer que si $r\in\K$ est une racine de $f$ si et seulement si  $x-r$ divise $f$ dans $\K[x]$.
+%}{exe:root-factor2}{
+%	todo
+%}
 
 \exe{}{
 	Est-ce que $x^3 - 2x + x -2$ est divisible par $x-2$ dans $\Z[x]$ ?
@@ -33,7 +54,75 @@
 	todo
 }
 
-\section{Théorème fondamental de l'algèbre}
+
+
+\section{Racines $n$-ièmes de l'unité}
+
+\nt{
+	Soit $n\in\N^*$.
+	Le polynôme $x^n - 1 \in\C[x]$ admet pour dérivée formelle $nx^{n-1}$, dont la seule racine est 0.
+	Ainsi, $x^n -1$ est premier avec son polynôme dérivé, et il admet donc $n$ racines complexes distinctes.
+}
+
+\dfn{racine $n$-ième de l'unité}{
+	Soit $z\in\C$ un nombre complexe et $n\in\N^*$.
+	Le nombre $z$ est \emphindex{racine $n$-ième de l'unité} dès que $z^n = 1$.
+}{dfn:racine-unite}
+
+\notation{
+	L'ensemble des nombres complexes de module 1 est noté	
+		\[ \U = \bigset{ z\in\C \tq |z| = 1}. \]
+	
+	Pour $n\in\N^*$, l'ensemble des nombres racines $n$-ièmes de l'unité est noté 
+		\[ \U_n = \bigset{ z \in \C \tq z^n = 1 }. \]
+}
+
+\prop{}{
+	Soit $z\in\C$ un nombre complexe et $n\in\N^*$.
+	Le nombre $z$ est {racine $n$-ième de l'unité} si et seulement si
+		\[ z = e^{2\pi i \frac{k}n} = \cos\left(2\pi \frac{k}n\right) + i \sin\left(2\pi \frac{k}n\right) \]
+	pour un certain $k \in \bigset{0 ; 1 ; 2 ; \dots ; n-1}$.
+	
+	Par conséquent,
+		\[ x^n - 1 = \prod_{k=0}^{n-1} \left(x - e^{2 \pi i \frac{k}n}\right). \]
+}{prop:racine-unite}
+
+\pf{}{
+	Ces $z$ forment un ensemble de $n$ racines de l'unité car $e^{2\pi i} = 1$.
+	Ces racines sont distinctes par unicité de la représentation polaire.
+	Ce sont donc les $n$ racines du polynôme $x^n - 1$ qui est unitaire.
+}
+
+\exe{}{
+	Soit $z\in\C$.
+	Montrer l'implication suivante. La réciproque est-elle vraie ?
+	\begin{center}
+	\begin{tabular}{ccc}
+		$\Bigpar{ \exists n\in\N^* \tq z\in\U_n }$ &  $\implies$ & $\Bigpar{ |z| = 1}$
+	\end{tabular}
+	\end{center}
+}{exe:root-is-unit}{
+	todo
+}
+
+
+\exe{difficulty=1}{
+	Soit $n\in\N$ impair et $\zeta = e^{\frac{2 \pi i}n}$.
+	Montrer l'identité suivante dans $\C[x,y]$.
+		\[ x^n + y^n = \prod_{k=0}^{n-1} \bigpar{x + \zeta^k y} \]
+	Est-elle vraie pour $n\in\N^*$ pair ?
+}{exe:split-xn-p-yn}{
+	todo
+}
+
+\exe{}{
+	Soit $n\in\N^*$.
+	Montrer que $\bigpar{\U_n, \times}$ est un groupe isomorphe à $\bigpar{ \Z/n\Z, +}$ en explicitant l'isomorphisme.
+}{exe:Un-sous-groupe}{
+	todo
+}
+
+\section{L'anneau $\C[x]$ et le théorème fondamental de l'algèbre}
 
 % thm fondamental
 \thm{de d'Alembert, \emphindex{théorème fondamental de l'algèbre}}{
@@ -41,10 +130,10 @@
 	Alors $f$ admet une racine dans $\C$.
 }{thm:fond-alg}
 
-\pf{}{
-	Arrive.
-	\vspace{5cm}
-}
+% TODO
+%\pf{}{
+%	Arrive.
+%}
 
 \cor{}{
 	Soit $f\in\C[x]$ un polynôme à coefficients complexes de coefficient dominant $a\in\C$.
@@ -59,8 +148,8 @@
 }{dfn:alg-clos}
 
 \thm{clôture algébrique}{
-	Pour tout corps $\K$, il existe un sur-corps $\overline{\K}$ qui est algébriquement clos.
-}{thm:cloture-algebrique}
+	Pour tout corps $\K$, il existe un sur-corps $\overline{\K}$ qui est \\algébriquement clos.
+}{thm:cloture-algebrique} 
 	
 \nt{
 	Une démonstration constructive du théorème \ref{thm:cloture-algebrique} fonctionne comme suit :
@@ -249,71 +338,10 @@
 	todo
 }
 
-\section{Racines $n$-ièmes de l'unité}
-
-\nt{
-	Soit $n\in\N^*$.
-	Le polynôme $x^n - 1 \in\C[x]$ admet pour dérivée formelle $nx^{n-1}$, dont la seule racine est 0.
-	Ainsi, $x^n -1$ est premier avec son polynôme dérivé, et il admet donc $n$ racines complexes distinctes.
-}
-
-\dfn{racine $n$-ième de l'unité}{
-	Soit $z\in\C$ un nombre complexe et $n\in\N^*$.
-	Le nombre $z$ est \emphindex{racine $n$-ième de l'unité} dès que $z^n = 1$.
-}{dfn:racine-unite}
-
-\notation{
-	L'ensemble des nombres complexes de module 1 est noté	
-		\[ \U = \bigset{ z\in\C \tq |z| = 1}. \]
-	
-	Pour $n\in\N^*$, l'ensemble des nombres racines $n$-ièmes de l'unité est noté 
-		\[ \U_n = \bigset{ z \in \C \tq z^n = 1 }. \]
-}
-
-\prop{}{
-	Soit $z\in\C$ un nombre complexe et $n\in\N^*$.
-	Le nombre $z$ est {racine $n$-ième de l'unité} si et seulement si
-		\[ z = e^{2\pi i \frac{k}n} = \cos\left(2\pi \frac{k}n\right) + i \sin\left(2\pi \frac{k}n\right) \]
-	pour un certain $k \in \bigset{0 ; 1 ; 2 ; \dots ; n-1}$.
-	
-	Par conséquent,
-		\[ x^n - 1 = \prod_{k=0}^{n-1} \left(x - e^{2 \pi i \frac{k}n}\right). \]
-}{prop:racine-unite}
-
-\pf{}{
-	Ces $z$ forment un ensemble de $n$ racines de l'unité car $e^{2\pi i} = 1$.
-	Ces racines sont distinctes par unicité de la représentation polaire.
-	Ce sont donc les $n$ racines du polynôme $x^n - 1$ qui est unitaire.
-}
-
-\exe{}{
-	Soit $z\in\C$.
-	Montrer l'implication suivante. La réciproque est-elle vraie ?
-	\begin{center}
-	\begin{tabular}{ccc}
-		$\Bigpar{ \exists n\in\N^* \tq z\in\U_n }$ &  $\implies$ & $\Bigpar{ |z| = 1}$
-	\end{tabular}
-	\end{center}
-}{exe:root-is-unit}{
-	todo
-}
+\section*{Exercices supplémentaires}
+\addcontentsline{toc}{section}{Exercices supplémentaires}
 
 
-\exe{difficulty=1}{
-	Soit $n\in\N$ impair et $\zeta = e^{\frac{2 \pi i}n}$.
-	Montrer l'identité suivante dans $\C[x,y]$.
-		\[ x^n + y^n = \prod_{k=0}^{n-1} \bigpar{x + \zeta^k y} \]
-	Est-elle vraie pour $n\in\N^*$ pair ?
-}{exe:split-xn-p-yn}{
-	todo
-}
-
-\exe{}{
-	Soit $n\in\N^*$.
-	Montrer que $\bigpar{\U_n, \times}$ est un groupe isomorphe à $\bigpar{ \Z/n\Z, +}$ en explicitant l'isomorphisme.
-}{exe:Un-sous-groupe}{
-	todo
-}
 
 
 \exe{}{
@@ -327,8 +355,6 @@
 
 }
 
-\section*{Exercices supplémentaires}
-\addcontentsline{toc}{section}{Exercices supplémentaires}
 
 \exe{}{
 	Vrai ou faux ?
@@ -579,10 +605,10 @@
 
 \shipoutExercise
 
-\section*{Solutions}
-\addcontentsline{toc}{section}{Solutions}
-
-\shipoutAnswer
+%\section*{Solutions}
+%\addcontentsline{toc}{section}{Solutions}
+%
+%\shipoutAnswer
 
 
 
