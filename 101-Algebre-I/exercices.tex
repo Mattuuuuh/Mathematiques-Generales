@@ -64,7 +64,7 @@
 }
 
 
-\exe{origin=set1,difficulty=1}{
+\exe{origin=set1,difficulty=0}{
 	Calculer de tête le coefficient
 	\begin{multicols}{2}
 	\begin{enumerate}[itemsep=5pt]
@@ -104,7 +104,7 @@
 	\end{enumerate}
 }
 
-\exe{origin=set1,difficulty=1}{
+\exe{origin=set1,difficulty=0}{
 	Calculer le coefficient 
 	%\begin{multicols}{2}
 	\begin{enumerate}[itemsep=5pt]
@@ -188,7 +188,7 @@
 	car $(-1)^n$ vaut $+1$ si $n$ est pair, et $-1$ si $n$ est impair.
 }
 
-\exe{origin=set1,difficulty=1}{
+\exe{origin=set1,difficulty=0}{
 	Montrer que le polynôme $x + 1$ est combinaison linéaire des polynômes $x + 3$ et $x+5$.
 	
 	La combinaison trouvée est-elle unique ?
@@ -294,7 +294,7 @@
 	Nous remarquerons alors l'apparition d'une somme téléscopique : chaque terme annule le terme précédent et en ajoute un nouveau.
 }
 
-\exe{origin=set1,difficulty=1}{
+\exe{origin=set1,difficulty=0}{
 	Montrer que si $f(x)$ divise $g(x)$ dans $\R[x]$, alors
 	\begin{multicols}{2}
 	\begin{enumerate}
@@ -331,7 +331,7 @@
 
 % todo : x² - 1 divise x^{120} - 1 par exemple pour les racines.
 
-\exe{origin=set1,difficulty=1}{
+\exe{origin=set1,difficulty=0}{
 	Démontrer que $x-1$ divise $x^3 - 1 + 2x - 2x^2$.
 }{exe:diviseur-x-m-1-2}{
 	Il s'agit de trouver $q(x)\in\R[x]$ tel que 
@@ -358,7 +358,7 @@
 	Nous avons procédé à la division euclidienne de $x^3 -1+2x-2x^2$ par $x-1$ en annulant le terme dominant à chaque itération.
 }
 
-\exe{origin=set1,difficulty=2}{
+\exe{origin=set1,difficulty=0}{
 	Supposons la famille $\{ p_1 ; p_2 ; p_3 \} \subseteq \R[x]$ libre.
 	Montrer que les familles 
 	\begin{align*}
@@ -422,7 +422,7 @@
 }
 
 
-\exe{origin=set1,difficulty=1}{
+\exe{origin=set1,difficulty=0}{
 	Montrer que la famille $\bigset{ 1 ; \sqrt{2} } \subseteq\R$ est linéairement indépendante sur $\Q$.
 }{exe:lin-indep4}{
 	Soient $p, q\in\Q$ tels que $p + \sqrt2 q = 0$.
@@ -431,7 +431,7 @@
 	Comme $\sqrt2$ est irrationnel, ceci est une contradiction, et $q=0$. Il suit donc que $p=0$ aussi, ce qui conclut.
 }
 
-\exe{origin=set1,difficulty=2}{
+\exe{origin=set1,difficulty=0}{
 	Montrer que la famille $\bigset{ 1 ; \sqrt{2} ; \sqrt{3} } \subseteq\R$ est linéairement indépendante sur $\Q$.
 }{exe:lin-indep23}{
 	Supposons que $p + q\sqrt2 + r\sqrt3 = 0$ avec $p, q, r \in\Q$.
@@ -456,7 +456,7 @@
 }
 
 
-\exe{difficulty=2}{
+\exe{difficulty=0}{
 	Soit $F_1, F_2 \subseteq \R[x]$ deux familles de polynômes.
 	Nommons $V_1$ et $V_2$ l'ensemble de toutes les combinaisons linéaires de $F_1$ et $F_2$ respectivement.
 	
@@ -471,7 +471,7 @@
 
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Le but de cet exercice est de construire l'ensemble $\R[x]$ dans lequel les monômes $\{ 1 ; x ; x^2 ; \dots \}$ sont linéairement indépendants sur $\R$ à l'aide des suites.
 	
 	Considérons à cette fin l'ensemble $\hat{\R}^\infty$ des suites réelles ayant seulement un nombre fini de termes non nuls.
@@ -661,7 +661,7 @@
 }
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Montrer le corollaire du théorème de Taylor vu en classe : 
 	soit $f\in\R[x]$ un polynôme à coefficients réels de degré $d$ et $\alpha\in\R$ un réel quelconque.
 	Alors
@@ -696,7 +696,7 @@
 }
 
 
-\exe{difficulty=2}{
+\exe{difficulty=0}{
 	Soit $f\in\R[x]$ un polynôme à coefficients réels et $\alpha\in\R$ un réel quelconque.
 	%
 	Montrer, à l'aide du théorème de Taylor, que $\alpha$ est une racine de multiplicité $m$ si et seulement si 
@@ -771,7 +771,7 @@
 %	Ce n'est pas le cas donc $f^{(m)}(\alpha)= 0$.
 }
 
-\exe{difficulty=2}{
+\exe{difficulty=0}{
 	Considérons le \emphindex{symbole de Pochhammer} défini par
 		\begin{align*}
 			(x)_0 = 1, && \et && (x)_n = x(x-1)(x-2)\cdots(x-n+1) \text{ pour $n\in\N^*$, }
@@ -840,7 +840,7 @@
 	\end{enumerate}
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Le but de cet exercice est de généraliser l'exercice \ref{exe:unique-roots}.
 	
 	Considérons une famille de polynômes $\bigset{ f_1, f_2, \dots, f_n} \subseteq \R[x]$ telle que pour tout $i=1, 2, \dots n$, il existe un nombre $a_i\in\R$ qui est racine de $f_j$ pour tout $j\neq i$, mais n'est pas racine de $f_i$.
@@ -898,7 +898,7 @@
 	C'est une application du théorème des valeurs intermédiaires.
 }
 
-\exe{difficulty=2}{
+\exe{difficulty=0}{
 	Montrer la \emphindex{règle du produit} : pour deux polynômes $f, g\in\R[x]$,
 		\[ (fg)' = f'g + g'f. \]
 }{exe:deriv-prod}{
@@ -916,7 +916,7 @@
 }
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soit $f$ une fonction dérivable en 0.
 	Montrer que 
 		\[ f(x) = f(0) + f'(0)x + g(x), \]
@@ -934,7 +934,7 @@
 		\[ f(x) = f(0) + f'(0)x + \frac{f''(0)}2 x^2 + o(x^2). \]
 }
 
-\exe{difficulty=2}{
+\exe{difficulty=0}{
 	Soit $f\in\R[x]$ un polynôme à coefficients réels.
 	Supposons que $z\in\C$ soit une racine complexe non réelle de $f$.
 	\begin{enumerate}
@@ -983,7 +983,7 @@
 }
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	%Soit $f\in C^1(\R)$ une fonction continûment dérivable.
 	Soit $f:\R\rightarrow\R$ une fonction dérivable en 0.
 	Montrer que 
@@ -1075,7 +1075,7 @@
 	La seule solution de ce système étant la solution triviale $\alpha=\beta=\gamma=0$, les vecteurs sont linéairement indépendants.
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soit $a\in\R$. Donner un vecteur orthogonal à $\pvec1a$.
 }{exe:vec-orth}{
 	Le vecteur $\pvec{-a}1$ fonctionne car $\japb{\pvec1a, \pvec{-a}1} = -a+a = 0$.
@@ -1120,7 +1120,7 @@
 		\[ \norm{u+v}^2 = \japb{u+v, u+v} = \japb{u, u+v} + \japb{v, u+v} = \japb{u, u} + \japb{u, v} + \japb{v, u} + \japb{v, v} = \norm{u}^2 + \norm{v^2} + 2\japb{u, v}. \]
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soient $v_1, \dots, v_n \in \R^n$ une famille orthonormale : $\japb{v_i, v_j} = 0$ si $i\neq j$, et $1$ sinon.
 	\begin{enumerate}
 		\item 
@@ -1311,7 +1311,7 @@
 	La démonstration est analogue à celle de l'exercice \ref{exe:Fourier-coeff} et utilise le théorème de Pythagore grâce au fait que $P-\lambda v - \mu w$ soit orthogonal à $v$ et à $w$.
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Montrer que la famille $\mathcal{F}$ suivante est orthonormée.
 		\[ \mathcal{F} = \left\{ \frac1{3}\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} ; \frac1{3}\begin{pmatrix} -1 \\ 2 \\ -2 \end{pmatrix} ; \frac1{3}\begin{pmatrix} -2 \\ 1 \\ 2 \end{pmatrix} \right\} \]
 	Exprimer le point
@@ -1365,7 +1365,7 @@
 	
 }
 
-\exe{difficulty=2}{
+\exe{difficulty=0}{
 	Soient $b_1^*, b_2, b_3 \in\R^3$ trois vecteurs linéairement indépendants.
 	\begin{enumerate}
 		\item
@@ -1384,7 +1384,7 @@
 
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soient $u, v$ deux vecteurs non nuls de $\R^2$ et $\theta$ l'angle dirigé de $u$ vers $v$.
 	%En adaptant la preuve du théorème \ref{thm:ab-orth}, montrer que
 	Montrer que
@@ -1401,7 +1401,7 @@
 }
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soient $u, v\in\R^n$ deux vecteurs linéairement indépendants.
 	\begin{enumerate}
 		\item
@@ -1440,7 +1440,7 @@
 	\end{enumerate}
 }
 
-\exe{difficulty=2}{
+\exe{difficulty=0}{
 	Considérons une série numérique $(a_n)_{n\in\N}$ telle que $\sum_{n\in\N} a_n^2 < \infty$.
 	Montrer, à l'aide de l'inégalité de Cauchy-Schwarz (exercice \ref{exe:Cauchy-Schwarz}) que
 		\[ \sum_{n\in\N} \frac{|a_n|}{n^s} < \infty \]
@@ -1549,48 +1549,6 @@
 }
 
 
-\exe{difficulty=1}{
-	Considérons la matrice $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$.
-	\begin{enumerate}
-		\item
-		Calculer $A^2$ et $A^3$.
-		\item
-		Soit $n\in\N$.
-		Conjecturer une expression pour $A^n$.
-		\item
-		Démontrer la conjecture.
-		%\item
-		%Trouver $A^{-1}$ et montrer par le calcul que c'est bien l'inverse à gauche et à droite de $A$.
-	\end{enumerate}
-}{exe:I-p-E11}{
-	\begin{enumerate}
-		\item
-		Par calcul matriciel,
-		\begin{align*}
-			 A^2 = AA = \begin{pmatrix}1&2\\0&1\end{pmatrix}
-			 && \et &&
-			A^3 = AA^2 = \begin{pmatrix}1&3\\0&1\end{pmatrix}
-		\end{align*}
-		\item
-		Nous pouvons conjecturer que
-			\[ A^n = \begin{pmatrix}1&n\\0&1\end{pmatrix} \]
-		pour tout $n\in\N^*$.
-		\item
-		Raisonnement par récurrence sur $n\in\N^*$.
-		
-		Le cas $n=1$ est bien sûr vrai, et la récurrence est fondée.
-		
-		Supposons que la conjecture soit vraie pour un certain $n\in\N^*$.
-		C'est-à-dire, supposons que$A^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}$ pour un certain $n\in\N^*$.
-		Alors
-		\[ A^{n+1} = AA^{n} = \begin{pmatrix}1&1\\0&1\end{pmatrix}\begin{pmatrix}1&n\\0&1\end{pmatrix} = \begin{pmatrix}1&n+1\\0&1\end{pmatrix}, \]
-		ce qui implique que la conjecture est vraie pour $n+1$.
-		
-		Cette dernière est donc vraie pour tout $n\in\N^*$, ce qui conclut le raisonnement par récurrence.
-	\end{enumerate}
-}
-
-
 
 \exe{}{
 	Montrer que les vecteurs $v_1, v_2, \dots, v_k\in\R^n$ sont linéairement indépendants si et seulement si la seule solution $X\in\R^k$ du système
@@ -1634,110 +1592,12 @@
 }
 
 
-\exe{difficulty=1}{
-	Soit $n\in\N$ et $P, D\in\R^{n\times n}$ des matrices. Supposons $P$ inversible.
-	Montrer que
-		\[ (PD P^{-1})^n = P D^n P^{-1}. \]
-}{exe:pdpinv}{
-	todo
-}
 
-\exe{difficulty=1}{
-	Soit $A \in\R^{n\times n}$ une matrice carrée.
-	Montrer que s'il existe un vecteur $v\in\R^n$ non nul tel que $Av = 0$, alors $A$ n'est pas inversible.
-}{exe:kern-inv}{
-	Démontrons la contraposée en supposans $A$ inversible.
-	Alors tout vecteur $v$ vérifiant $Av=0$ vérifie aussi $A^{-1} (Av) = A^{-1} 0$.
-	Par associativité, $(A^{-1} A) v = 0$, et donc $I_n v = v = 0$.
-	Le vecteur $v$ est donc nul.
-}
-
-\exe{}{
-	Considérons $A = \begin{pmatrix} 1&2\\3&4 \end{pmatrix}$.
-	Montrer par le calcul que
-		\[ A^2 - 5A - 2I = 0 \]
-	puis en déduire l'inverse $A^{-1}$.
-	
-	Vérifier que $A^{-1}$ est bien l'inverse à gauche et à droite de $A$.
-}{exe:p-car-A-inv}{
-	todo
-}
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 5 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
 
 
-
-\exe{difficulty=1}{
-	Soit $M = \begin{pmatrix} a & b \\ c & d\end{pmatrix}\in\R^{2\times2}$ une matrice.
-	
-	\begin{enumerate}
-		\item
-		Montrer que si $ad-bc\neq0$, alors
-			\[ M^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.  \]
-		\item
-		Montrer que si $ad-bc = 0$, alors
-			\[ M \begin{pmatrix} b \\ -a \end{pmatrix}  = M \begin{pmatrix} d \\ -c \end{pmatrix} = 0, \]
-		puis conclure que $M$ n'est pas inversible dans ce cas.
-	\end{enumerate}
-	
-	La quantité $ad-bc$ s'appelle le \emphindex{détérminant} de la matrice $A$.
-}{exe:inv-2x2}{
-	todo
-}
-
-
-\exe{difficulty=1}{
-	Soit $M\in\R^{n\times n}$ une matrice dont les colonnes forment une base orthonormale.
-	Montrer que $M^T M = I$ puis que $M M^T = I$ et en déduire que les lignes de $M$ forment également une base orthonormale.
-}{exe:ortho-matrix}{
-	todo
-}
-
-\exe{}{
-	Considérons la \emphindex{forme quadratique} $f(x, y)= 2x^2 + 3xy - y^2$.
-	\begin{enumerate}
-		\item
-		Donner la matrice $M\in\R^{2\times2}$ symétrique telle que, pour tout $x, y \in \R$,
-			\[ f(x, y) = \begin{pmatrix} x & y \end{pmatrix} \cdot M \cdot \pvec{x}{y}. \]
-		\item
-		Montrer que la matrice $P^T M P$ est diagonale, où $P = \begin{pmatrix} 1 & -0,75 \\ 0 & 1 \end{pmatrix}$.
-		\item
-		Calculer $P^{-1}$ à l'aide de la formule
-			\[ \begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.  \]
-		\item
-		Exprimer les variables $z, t\in\R$ en fonction de $x, y$ pour que $P\pvec{z}{t} = \pvec{x}y$.
-		\item
-		Montrer que $f(x, y) = \alpha_1 z^2 + \alpha_2 t^2$ où $\alpha_1, \alpha_2 \in\R$ sont des réels à déterminer.
-	\end{enumerate}
-}{exe:bilinear-matrix}{
-	todo
-}
-
-\exe{difficulty=2}{
-	Considérons la \emphindex{suite de Fibonacci} $(F_n)_{n \geq 0}$ définie récursivement par 
-		\begin{align*} F_0 = 0, && F_1 = 1, && F_{n+2} = F_{n+1} + F_{n} \quad (n \geq 0). \end{align*}
-	Soit $X_n := \begin{pmatrix} F_n \\ F_{n+1} \end{pmatrix}$ pour $n \geq 0$.
-	Posons également $\phi_+ = \frac{1+\sqrt5}2$ le \emphindex{nombre d'or} et $\phi_- = \frac{1-\sqrt5}2$ son conjugué.
-	\begin{enumerate}
-		\item 
-		Trouver la matrice $A \in \R^{2 \time 2}$ telle que $X_{n+1} = A X_n$.
-		\item 
-		Montrer que $A = P D P^{-1}$ où 
-			\begin{align*}
-				P = \begin{pmatrix} 1  & 1 \\ \phi_+ & \phi_- \end{pmatrix}, && 
-				D = \begin{pmatrix} \phi_+ & 0 \\ 0 & \phi_- \end{pmatrix}, &&
-				\et &&
-				P^{-1} = \frac1{10}\begin{pmatrix} 5-\sqrt5 & 2\sqrt5 \\ 5+\sqrt5 & -2\sqrt5 \end{pmatrix}.
-			\end{align*}
-		\item 
-		En déduire de la relation $X_n = A^n X_0$ une expression fonctionnelle pour $F_n$ en fonction de $n$.
-	\end{enumerate}
-	
-	\emph{Remarque : la forme matricielle donne un méthode rapide de calculer les termes de la suite grâce à l'\emphindex{exponentiation rapide} : 4 opérations matricielles suffisent à calculer $A^{16}$ grâce à des mises au carré successives.}
-}{exe:Fibonacci}{
-	Nous trouvons $A = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$.
-	Par conséquent, $X_n = A^n X_0 = PD^nP^{-1} \begin{pmatrix} 0 \\ 1 \end{pmatrix}$. 
-	Nous nous intéressons donc qu'à la première coordonnée de la deuxième colonne de $PD^n P^{-1}$, qui donne
-		\[ F_n = \frac{\phi_+^n - \phi_-^n}{\sqrt{5}}. \]
-}
 
 
 
@@ -1758,8 +1618,8 @@
 		Si $A$ est inversible, alors $A^{-1}$ est aussi inversible.
 		\item
 		Si $A$ et $B$ sont inversibles de même taille alors $A+B$ est inversible.
-		\item
-		Si les lignes de $A\in\R^{2\times2}$ sont colinéaires, alors les colonnes sont également colinéaires.
+		%\item
+		%Si les lignes de $A\in\R^{2\times2}$ sont colinéaires, alors les colonnes sont également colinéaires.
 	\end{enumerate}
 }{exe:VF-matrices}{
 
@@ -1768,10 +1628,175 @@
 
 
 
+\exe{difficulty=0}{
+	Considérons la matrice $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$.
+	\begin{enumerate}
+		\item
+		Calculer $A^2$ et $A^3$.
+		\item
+		Soit $n\in\N^*$.
+		Conjecturer une expression pour $A^n$.
+		\item
+		Démontrer la conjecture.
+		\item
+		Trouver $A^{-1}$ et montrer par le calcul que c'est bien l'inverse à gauche et à droite de $A$.
+	\end{enumerate}
+}{exe:I-p-E11}{
+	\begin{enumerate}
+		\item
+		Par calcul matriciel,
+		\begin{align*}
+			 A^2 = AA = \begin{pmatrix}1&2\\0&1\end{pmatrix}
+			 && \et &&
+			A^3 = AA^2 = \begin{pmatrix}1&3\\0&1\end{pmatrix}
+		\end{align*}
+		\item
+		Nous pouvons conjecturer que
+			\[ A^n = \begin{pmatrix}1&n\\0&1\end{pmatrix} \]
+		pour tout $n\in\N^*$.
+		\item
+		Raisonnement par récurrence sur $n\in\N^*$.
+		
+		Le cas $n=1$ est bien sûr vrai, et la récurrence est fondée.
+		
+		Supposons que la conjecture soit vraie pour un certain $n\in\N^*$.
+		C'est-à-dire, supposons que$A^n=\begin{pmatrix}1&n\\0&1\end{pmatrix}$ pour un certain $n\in\N^*$.
+		Alors
+		\[ A^{n+1} = AA^{n} = \begin{pmatrix}1&1\\0&1\end{pmatrix}\begin{pmatrix}1&n\\0&1\end{pmatrix} = \begin{pmatrix}1&n+1\\0&1\end{pmatrix}, \]
+		ce qui implique que la conjecture est vraie pour $n+1$.
+		
+		Cette dernière est donc vraie pour tout $n\in\N^*$, ce qui conclut le raisonnement par récurrence.
+	\end{enumerate}
+}
+
+
+\exe{difficulty=0}{
+	Soit $A \in\R^{n\times n}$ une matrice carrée.
+	Montrer que s'il existe un vecteur $v\in\R^n$ non nul tel que $Av = 0$, alors $A$ n'est pas inversible.
+}{exe:kern-inv}{
+	Démontrons la contraposée en supposans $A$ inversible.
+	Alors tout vecteur $v$ vérifiant $Av=0$ vérifie aussi $A^{-1} (Av) = A^{-1} 0$.
+	Par associativité, $(A^{-1} A) v = 0$, et donc $I_n v = v = 0$.
+	Le vecteur $v$ est donc nul.
+}
+
+\exe{}{
+	Considérons $A = \begin{pmatrix} 1&2\\3&4 \end{pmatrix}$.
+	Montrer par le calcul que
+		\[ A^2 - 5A - 2I = 0 \]
+	puis en déduire que 
+		\[ A\left(\frac12A-\frac52I\right) = I \]
+	et donc l'inverse $A^{-1}$.
+	
+	Vérifier que $A^{-1}$ est bien l'inverse à gauche et à droite de $A$.
+}{exe:p-car-A-inv}{
+	todo
+}
+
+
+
+\exe{difficulty=0}{
+	Soit $M = \begin{pmatrix} a & b \\ c & d\end{pmatrix}\in\R^{2\times2}$ une matrice.
+	
+	\begin{enumerate}
+		\item
+		Montrer que si $ad-bc\neq0$, alors
+			\[ M^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.  \]
+		\item
+		Montrer que si $ad-bc = 0$, alors
+			\[ M \begin{pmatrix} b \\ -a \end{pmatrix}  = M \begin{pmatrix} d \\ -c \end{pmatrix} = 0, \]
+		puis conclure que $M$ n'est pas inversible dans ce cas.
+	\end{enumerate}
+	
+	La quantité $ad-bc$ s'appelle le \emphindex{détérminant} de la matrice $A$.
+}{exe:inv-2x2}{
+	todo
+}
 
 
 
 
+\exe{difficulty=0}{
+	Soit $n\in\N^*$ et $P, D\in\R^{n\times n}$ des matrices. Supposons $P$ inversible.
+	Montrer que
+		\[ (PD P^{-1})^n = P D^n P^{-1}. \]
+}{exe:pdpinv}{
+	todo
+}
+
+\exe{difficulty=0}{
+	Considérons la \emphindex{suite de Fibonacci} $(F_n)_{n \geq 0}$ définie récursivement par 
+		\begin{align*} F_0 = 0, && F_1 = 1, && F_{n+2} = F_{n+1} + F_{n} \quad (n \geq 0). \end{align*}
+	Soit $X_n := \begin{pmatrix} F_n \\ F_{n+1} \end{pmatrix}$ pour $n\in\N$.
+	Posons également $\phi_+ = \frac{1+\sqrt5}2$ le \emphindex{nombre d'or} et $\phi_- = \frac{1-\sqrt5}2$ son conjugué.
+	\begin{enumerate}
+		\item 
+		Soit $n\in\N$.
+		Trouver la matrice $A \in \R^{2 \time 2}$ telle que $X_{n+1} = A X_n$ et en déduire que $X_n = A^n X_0$.
+		\item 
+		Montrer que $A = P D P^{-1}$ où 
+			\begin{align*}
+				P = \begin{pmatrix} 1  & 1 \\ \phi_+ & \phi_- \end{pmatrix}, && 
+				D = \begin{pmatrix} \phi_+ & 0 \\ 0 & \phi_- \end{pmatrix}, &&
+				\et &&
+				P^{-1} = \frac1{10}\begin{pmatrix} 5-\sqrt5 & 2\sqrt5 \\ 5+\sqrt5 & -2\sqrt5 \end{pmatrix}.
+			\end{align*}
+		\item 
+		En déduire de l'exercice \ref{exe:pdpinv} une expression fonctionnelle pour $F_n$ en fonction de $n$.
+	\end{enumerate}
+	
+	%\emph{Remarque : la forme matricielle donne un méthode rapide de calculer les termes de la suite grâce à l'\emphindex{exponentiation rapide} : 4 opérations matricielles suffisent à calculer $A^{16}$ grâce à des mises au carré successives.}
+}{exe:Fibonacci}{
+	Nous trouvons $A = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$.
+	Par conséquent, $X_n = A^n X_0 = PD^nP^{-1} \begin{pmatrix} 0 \\ 1 \end{pmatrix}$. 
+	Nous nous intéressons donc qu'à la première coordonnée de la deuxième colonne de $PD^n P^{-1}$, qui donne
+		\[ F_n = \frac{\phi_+^n - \phi_-^n}{\sqrt{5}}. \]
+}
+
+
+
+
+\exe{difficulty=0}{
+	Soit $M\in\R^{n\times n}$ une matrice dont les colonnes forment une base orthonormale.
+	\begin{enumerate}
+		\item 
+		Montrer que $M^T M = I$.
+		\item
+		À l'aide de l'identité $M M^T = I$ donnée par le cours, et en déduire que les lignes de $M$ forment également une base orthonormale.
+	\end{enumerate}
+}{exe:ortho-matrix}{
+	todo
+}
+
+
+
+\exe{}{
+	Montrer l'identité suivante dans $\R$.
+		\[  \begin{pmatrix} x & y \end{pmatrix} \cdot \begin{pmatrix}a&b\\c&d\end{pmatrix} \cdot \pvec{x}{y} = ax^2 + (b+c)xy + dy^2 \]
+}{exe:bilinear-matrix-gen}{
+	todo
+}
+
+
+\exe{}{
+	Considérons la \emphindex{forme quadratique} $f(x, y)= 2x^2 + 3xy - y^2$.
+	\begin{enumerate}
+		\item
+		Donner la matrice $M\in\R^{2\times2}$ symétrique telle que, pour tout $x, y \in \R$,
+			\[ f(x, y) = \begin{pmatrix} x & y \end{pmatrix} \cdot M \cdot \pvec{x}{y}. \]
+		\item
+		Montrer que la matrice $P^T M P$ est diagonale, où $P = \begin{pmatrix} 1 & -0,75 \\ 0 & 1 \end{pmatrix}$.
+		\item
+		Calculer $P^{-1}$ à l'aide de la formule
+			\[ \begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.  \]
+		\item
+		Exprimer les variables $z, t\in\R$ en fonction de $x, y$ pour que $P\pvec{z}{t} = \pvec{x}y$.
+		\item
+		Montrer que $f(x, y) = \alpha_1 z^2 + \alpha_2 t^2$ où $\alpha_1, \alpha_2 \in\R$ sont des réels à déterminer.
+	\end{enumerate}
+}{exe:bilinear-matrix}{
+	todo
+}
 
 
 
