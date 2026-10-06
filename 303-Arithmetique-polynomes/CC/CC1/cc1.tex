@@ -1,0 +1,347 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[6/10/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\fancyhead[C]{\textbf{MG303 --- Contrôle Continu 1}}
+
+%\null\vspace{-20pt}
+%Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	\item
+	Les résultats des chapitres 1 et 2 peuvent être utilisés sans les redémontrer.
+	Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe ni au chapitre 3 (lemme de Hamza, par exemple) :
+	si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation contient \ref{exe:last} problèmes.
+	Les problèmes sont ordonnés par ordre croissant de difficulté. Le dernier problème est difficile.
+	\item
+	Chaque problème rapporte 5 points.
+	Pour les questions vrai/faux, 1 point est accordé pour la bonne réponse, et 4 points pour la preuve ou le contre-exemple.
+	\item
+	L'ensemble $\K$ est un corps et, pour $p\in\N$ premier, l'ensemble $\F_p$ est le corps $\bigpar{\Z/p\Z, +, \cdot}$.
+\end{itemize}
+
+\hrule 
+
+%\marginpar{[pts]}
+
+
+
+
+\exe{}{
+	Soit $p\in\K[X]$.
+	Si $p$ n'admet aucune racine dans $\K$, alors $p$ est irréductible.
+
+
+	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+}{exe:VF1}{
+	C'est faux.
+	
+	Le polynôme $(X^2 +1)^2$ dans l'anneau $\R[X]$ donc une contre-exemple suffisant.
+	
+	Attention en fait que ce n'est pas un contre-exemple dans $\C[X]$ !
+}
+
+
+
+\exe{}{
+	Le polynôme $X^2 + 1$ est irréductible dans $\F_{17}[X]$.
+
+	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+}{exe:VF6}{
+	C'est faux.
+	
+	En $x=4$, nous obtenons $4^2 + 1 = 0 \mod 17$.
+	Il suit donc que $4$ est racine du polynôme et que $X-4$ divise $X^2 + 1$ dans $\F_{17}[X]$.
+	En fait, par parité, $-4$ est aussi racine et 
+		\[ X^2 - 1 = (X-4)(X+4). \]
+}
+
+\exe{}{
+	Soit $p\in\K[X]$.
+	Si $p$ est irréductible et $\deg(p)\geq2$, alors $p$ n'admet aucune racine dans $\K$.
+
+	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+}{exe:VF2}{
+	C'est vrai et c'est une direction du lemme de Hamza.
+	
+	Si $p$ admet une racine $a$ dans $\K$, alors la division euclidienne de $p$ par $x-a$ montrer que $x-a$ divise $p$.
+	Or, comme $\deg(p)\geq2$, cette division donne une réduction de $p$ : $p(x) = (x-a)q(x)$ avec $q$ non unité.
+}
+
+
+
+
+
+\exe{}{
+	Soit $p\in\Z[X]$.
+	Si $p$ est primitif, alors $p$ est irréductible dans $\Z[x]$.
+
+	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+}{exe:VF2.1}{
+	C'est faux.
+	
+	Le produit de deux primitifs est primitif d'après le cours.
+	Il suffit donc de prend $(X^2 + 1)^2 = X^4 + 2X^2 + 1$, par exemple.
+	Ce polynôme est primitif mais se réduit dans $\Z[X]$.
+}
+
+
+
+\exe{}{
+	L'ensemble $\Qsqrt2 = \bigset{ p + q\sqrt2 \tq p, q\in \Q } \subseteq \R$ est un corps lorsque muni de l'addition et de la multiplication usuelles des nombres réels.
+	
+	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+}{exe:VF10-qs2}{
+	C'est vrai.
+	
+	La seule partie difficile est de montrer que si $(p, q) \neq (0, 0)$, alors $p+\sqrt2q$ est inversible dans le corps.
+	Or, comme $p^2 - 2q^2 \neq 0$ car $\sqrt2\not\in\Q$,
+		\[ \frac1{p+\sqrt2q} = \frac{p-\sqrt2q}{p^2 - 2q^2} = \frac{p}{p^2 - 2q^2} - \frac{q}{p^2 - 2q^2} \sqrt2 \in\Qsqrt2. \]
+}
+
+
+
+\exe{}{
+	Calculer le PGCD de $2X^3 - 5X^2 + 5X + 4$ et $-4X^3 +7X + 3$ dans $\Q[X]$.
+}{exe:div-eucl-R}{
+	Nous obtenons $X + \frac12$ après trois divisions euclidiennes.
+}
+
+
+\exe{}{
+	Soient $a, b, c\in\K[X]$ trois polynômes.
+	Montrer que si $a|(bc)$ et $\pgcd(a,b) = 1$, alors $a|c$.
+}{exe:lem:Gauss}{
+	Comme $\pgcd(a,b)=1$, il existe $u, v\in\K[x]$ tels que
+		\[ au + bv = 1. \]
+	En multipliant par $c$, nous obtenons que
+		\[ c = a(uc) + (bc)v \]
+	est divisible par $a$.
+}
+
+
+\exe{}{
+	Soit $\alpha\in\C$ un nombre complexe dit « algébrique », c'est-à-dire qu'il existe un polynôme rationnel $f\in\Q[X]$ annulateur de $\alpha$ : $f(\alpha)=0$.
+	
+	Notons $m\in\Q[X]$ un « polynôme minimal » de $\alpha$, c'est-à-dire un polynôme non nul de $\Q[X]$ de \underline{degré minimal} vérifiant
+	\begin{enumerate}[leftmargin=60pt]
+		\item 
+		$m$ est unitaire ; et
+		\item
+		$m$ est annulateur de $\alpha$ : $m(\alpha) = 0$.
+	\end{enumerate}
+	
+	Montrer d'abord que $m$ divise dans $\Q[X]$ tous les polynômes rationnels $f$ annulateurs de $\alpha$.
+	
+	En déduire ensuite que le polynôme minimal est unique.
+}{exe:VF10}{
+	Soit $f\in\Q[X]$ un polynôme rationnel annulateur de $\alpha$.
+	La division euclidienne de $f$ par $m$ donne, dans $\Q[X]$,
+		\[ f = mq + r, \]
+	avec $\deg(r) < \deg(m)$.
+	Or, en $x=\alpha$, nous avons $r(\alpha)=0$.
+	La minimalité du degré de $m$ implique donc que $r = 0$ et que $m$ divise $f$ dans $\Q[X]$.
+	
+	Nous concluons que $m$ est unique car deux polynômes minimaux $m$ et $m'$ unitaires et de même degré se divisent l'un l'autre.
+	Nous avons donc $m= m' q$ et $q$ est constant égal à 1 pour respecter les degrés et le coefficient dominant égal à $1$.
+}
+
+
+%\exe{}{
+%	Soit $\bigpar{A, +, \cdot}$ un anneau commutatif et $u, v\in A^\times$.
+%	Alors $u\cdot v \in A^\times$.
+%	
+%	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+%}{exe:VF8}{
+%
+%}
+
+
+
+
+%\exe{}{
+%	Le polynôme $3X^2 - 6$ est irréductible dans $\Z[X]$.
+%
+%	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+%}{exe:VF5}{
+%
+%}
+
+
+%\exe{}{
+%	%La division euclidienne existe dans $\Z[X]$.
+%	L'anneau $\Z[X]$ est un anneau principal.
+%
+%	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+%}{exe:VF3}{
+%
+%}
+
+
+%\exe{}{
+%	Soient $a, b, c\in\K[x]$ trois polynômes.
+%	Montrer que si $a|c$, $b|c$, et que $\pgcd(a, b)=1$, alors $(ab)|c$.
+%}{exe:VF3}{
+%	Notons $c = bq$ avec $q\in\K[x]$.
+%	Comme $\pgcd(a,b)=1$, il existe $u, v\in\K[x]$ tels que
+%		\[ au + bv = 1. \]
+%	En multipliant par $q$, nous obtenons que
+%		\[ aqu + cv = q \]
+%	est divisible par $a$.
+%	Par conséquent, $c = bq = ba\tilde{q}$ pour un $\tilde{q}\in\K[x]$ et $(ab)$ divise $c$.
+%}
+
+\exe{}{
+	Soit $A$ un anneau commutatif principal. Un idéal $I$ de $A$ est dit « maximal » dès que les seuls idéaux $J$ de $A$ vérifiant $I \subseteq J \subseteq A$ sont $I$ et $A$.
+	
+	Montrer l'équivalence suivante, où $a\in A$ n'est pas une unité de $A$, et $(a)$ dénote l'idéal engendré par $a$.
+	Comme vu en classe, $(a) = a\cdot A$.
+	\begin{align*}
+		\text{$(a)$ est maximal} && \iff && \text{$a$ est irréductible}
+	\end{align*}
+}{exe:VF9}{
+	\underline{Direction $\implies$.}
+	
+	Soit $a = bc$ une réduction de $a$ en éléments de $A$.
+	Il s'agit de montrer que soit $b$, soit $c$ est une unité de $A$.
+	
+	Considérons l'idéal $(b)$ engendré par $b$.
+	Alors $(a) \subseteq (b)$ car $a\in(b)$.
+	Par maximalité de $(a)$, il suit que $(b) = (a)$ ou $(b) = A$.
+	
+	Dans la première alternative, nous avons que $b\in(a)$ et donc que $b=aq = b(cq)$ et il suit que $cq = 1$ et donc que $c$ est une unité.
+	
+	Dans la seconde hypothèse, nous avons que $1\in(b)$ et donc que $bq = 1$ et il suit que $b$ est une unité.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Soit $(a) \subseteq I \subseteq A$ un idéal de $A$. 
+	Nous savons que $I = (b)$car $A$ est un anneau principal.
+	
+	Comme $a\in(b)$, il suit que $a = bq$ avec $q\in A$ et, par irréducibilité de $a$, soit $b$ est unité et $(b) = A$, soit $q$ est unité et $b=aq^{-1} \in (a)$ et donc $(a) = (b)$.
+}
+
+
+
+
+
+
+
+%\exe{}{
+%	Soient $p, q\in\K[X]$ et $(p), (q)$ les idéaux engendrés par $p$ et $q$ respectivement.
+%	Alors
+%	\begin{align*}
+%		p | q && \iff && (q) \subseteq (p)
+%		% \text{ dans $\K[x]$ }
+%	\end{align*}
+%
+%	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+%}{exe:VF4}{
+%
+%}
+
+
+%\exe{}{
+%	Soit $A$ un anneau. Alors l'anneau $A[X]$ est factoriel.
+%	
+%	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+%}{exe:VF7}{
+%	Faux. $A = \sfrac{\Z}{8\Z}$ vu en classe où $X^2 - 1 = (X+1)(X-1) = (X+3)(X-3)$.
+%}
+
+%\exe{}{
+%	Soit $A$ un anneau et $I, J$ deux idéaux de $A$. Alors $I \cap J$ est aussi un idéal de $A$.
+%	
+%	Vrai ou faux ? Si vrai, donner une preuve. Sinon, donner un contre-exemple.
+%}{exe:VF9}{
+%
+%}
+
+
+
+
+
+%\exe{3}{
+%	Soit $p\in\K[X]$.
+%	Le polynôme $p$ est dit « premier » dès qu'il est non nul et que, pour tous $a, b\in\K[x]$, 
+%		\[ p|(ab) \implies p|a \ou p|b.\]
+%	Montrer que tout polynôme premier est irréductible.
+%}{exe:prime-implies-irr}{
+%
+%}
+
+
+
+
+% bien mais utilise thm fondamental chapitre 3
+%\exe{}{
+%	Soient $a, b\in\R[x]$ deux polynômes à coefficients réels.
+%	Montrer que les trois propositions suivantes sont équivalentes.
+%	\begin{enumerate}[label=(\roman*)]
+%		\item $\pgcd(a, b) \neq 1$ dans $\R[x]$
+%		\item $\pgcd(a, b) \neq 1$ dans $\C[x]$
+%		\item $a$ et $b$ admettent au moins une racine complexe en commun
+%	\end{enumerate}
+%}{exe:gcd-roots-R-C}{
+%
+%	\underline{Implication (i) $\implies$ (ii).}
+%	
+%	Si $d\in\R[x]$ non 1 divise $a$ et $b$ dans $\R[x]$, alors $d$ divise également $a$ et $b$ dans $\C[x]$.
+%	
+%	\underline{Implication (ii) $\implies$ (iii).}
+%	
+%	Soit $d=\pgcd(a,b) \in \C[x]$. Comme $d$ est non constant par hypothèse, $d$ admet une racine complexe $z\in\C$ d'après le théorème fondamental de l'algèbre.
+%	Ainsi $d(z) = 0$ et donc $a(z) = 0$ et $b(z) = 0$ car $d$ divise $a$ et $b$.
+%	
+%	\underline{Implication (iii) $\implies$ (i).}
+%	
+%	Notons $z\in\C$ une racine complexe en commun à $a$ et $b$.
+%	Par contradiction, si $\pgcd(a, b) = 1$ dans $\R[x]$, le théorème de Bézout impliquerait l'existence de polynômes $u, v \in\R[x]$ tels que $au + bv = 1$.
+%	En plongeant cette égalité dans $\C[x]$, évaluer en $x=z$ aboutit à la contradiction $0=1$. \Lightning
+%}
+
+
+\exe{}{
+	Soit $f\in\K[X]$ un polynôme non constant de degré $n\in\N^*$.
+	\mbox{Montrer l'équivalence suivante.}
+	\begin{center}
+	\begin{tabular}{ccc}
+		$\Bigpar{ \text{ $f$ est réductible } }$ & $\iff$ & $\Bigpar{\text{ il existe $a, b\in\K[X]$ non nuls avec $\deg(a) < n, \deg(b) < n$ tels que $f|(ab)$ }}$
+	\end{tabular}
+	\end{center}
+}{exe:last}{
+	\underline{Direction $\implies$.}
+	
+	Si $f = ab$ avec $a, b$ non constants, alors $f$ divise trivialement $ab$ et $\deg(a) + \deg(b) = n$ implique que $\deg(a), \deg(b) < n$.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Considérons l'ensemble $E$ des couples $(a, b)$ de polynômes \underline{non nuls} vérifiant $\deg(a), \deg(b) < n$ et $f|(ab)$.
+	Cet ensemble n'est pas vide par hypothèse.
+	Choisissons un couple de $E$ pour lequel $\deg(a)$ est minimal et montrons que $a$ divise $f$.
+	
+	La division euclidienne de $f$ par $a$ dans $\K[x]$ s'écrit
+		\[ f = aq + r, \]
+	avec $\deg(r) < \deg(a)$.
+	
+	Comme $r = f -aq$, le polynôme $f$ divise $rb = rf - (ab)q$.
+	Si $r\neq0$, l'appartenance $(r,b) \in E$ contredit le choix de $a$.
+	Il suit donc que $r = 0$ et nous avons trouvé un diviseur propre de $f$.
+	En effet, $a$ ne peut pas être constant car $\deg(b) < n$ et $\deg(ab) \geq n$.
+}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
