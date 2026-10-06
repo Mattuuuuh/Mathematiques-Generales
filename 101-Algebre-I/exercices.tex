@@ -1604,8 +1604,6 @@
 \exe{difficulty=0}{
 	Vrai ou faux ?
 	\begin{enumerate}
-%		\item
-%		Une matrice carrée diagonale est symétrique.
 		\item
 		Une matrice symétrique est carrée.
 		\item
@@ -1618,14 +1616,65 @@
 		Si $A$ est inversible, alors $A^{-1}$ est aussi inversible.
 		\item
 		Si $A$ et $B$ sont inversibles de même taille alors $A+B$ est inversible.
-		%\item
-		%Si les lignes de $A\in\R^{2\times2}$ sont colinéaires, alors les colonnes sont également colinéaires.
 	\end{enumerate}
 }{exe:VF-matrices}{
+	\begin{enumerate}
+		\item
+		Vrai car si $A\in\R^{m\times n}$ alors $A^T \in \R^{n\times m}$.
+		Pour que $A=A^T$ ait un sens, il faut que $m=n$.
+		\item
+		Faux, la série 4 donne un contre-exemple.
+		\item
+		Faux car $0\cdot A = 0$ pour tout $A\in\R^{n\times n}$.
+		Impossible donc d'obtenir $I_n$.
+		\item
+		Vrai car $I_n \cdot I_n = I_n$.
+		Par définition, nous avons donc $I_n^{-1} = I_n$ car c'est un inverse à gauche et à droite de $I_n$.
+		\item
+		Vrai et $(A^{-1})^{-1} = A$ car $A^{-1} A = A A^{-1} = I_n$ donc $A$ est l'inverse à gauche et à droite de $A^{-1}$.
+		\item
+		Faux déjà dans les nombres réels : $1$ et $-1$ sont inversibles mais pas leur somme.
+		Dans $\R^{n\times n}$, le contre-exemple $A=I_n$ et $B=-I_n$ (inversible d'inverse $-I_n$) généralise celui de $\R$.
+	\end{enumerate}
+}
 
+\exe{}{
+	Soit $n\in\N^*$ et $A\in\R^{n\times n}$ une matrice inversible.
+	Montrer que l'inverse de $A$ est unique.
+}{exe:inverse-unique}{
+	Supposons que $X, Y$ vérifient $AX = XA = AY = YA = I_n$.
+	Alors
+		\[ X = XI_n = X(AY) = (XA)Y = I_nY = Y. \]
 }
 
 
+
+\exe{}{
+	Considérons $A = \begin{pmatrix} 1&2\\3&4 \end{pmatrix}$.
+	Montrer par le calcul que
+		\[ A^2 - 5A - 2I_2 = 0 \]
+	où $0$ désigne la matrice nulle $2\times2$.
+%	puis en déduire que 
+%		\[ A\left(\frac12A-\frac52I\right) = I \]
+%	et donc l'inverse $A^{-1}$.
+%	
+%	Vérifier que $A^{-1}$ est bien l'inverse à gauche et à droite de $A$.
+}{exe:Cayley}{
+	La calcul matriciel donne
+	\begin{align*}
+		A^2 = A\cdot A = \begin{pmatrix}7&10\\15&22\end{pmatrix} && -5A = \begin{pmatrix}-5&-10\\-15&-20\end{pmatrix} && \et && -2I_2 = \begin{pmatrix}-2&0\\0&-2\end{pmatrix}
+	\end{align*}
+	dont la somme vaut bien $\begin{pmatrix}0&0\\0&0\end{pmatrix}$.
+}
+
+
+\exe{difficulty=0}{
+	Soit $n\in\N^*$ et $v\in\R^n$ un vecteur.
+	Montrer que $v^T v = \japb{v, v}$.
+}{exe:matrix-dot-product}{
+	Le coefficient $ij$ de $AB$ est calculé en prenant le produit scalaire de la ligne $i$ de $A$ avec la colonne $j$ de $B$.
+	Ici, $v^T$ n'a qu'une seule ligne et $v$ qu'une seule colonne et nous voyons la matrice $1\times1$ résultante comme un nombre réel.
+}
 
 
 \exe{difficulty=0}{
@@ -1639,7 +1688,7 @@
 		\item
 		Démontrer la conjecture.
 		\item
-		Trouver $A^{-1}$ et montrer par le calcul que c'est bien l'inverse à gauche et à droite de $A$.
+		Trouver un candidat de matrice pour $A^{-1}$ et montrer par le calcul que c'est bien l'inverse à gauche et à droite de $A$.
 	\end{enumerate}
 }{exe:I-p-E11}{
 	\begin{enumerate}
@@ -1666,6 +1715,9 @@
 		ce qui implique que la conjecture est vraie pour $n+1$.
 		
 		Cette dernière est donc vraie pour tout $n\in\N^*$, ce qui conclut le raisonnement par récurrence.
+		\item
+		Un candidat naturel pour $A^{-1}$ est de choisir $n=-1$ dans la formule $A^{n}$, qui donne $X = \begin{pmatrix}1&-1\\0&1\end{pmatrix}$.
+		Le calcul matriciel confirme que $AX = XA = I_2$ et que $X=A^{-1}$ est bien l'inverse de $A$.
 	\end{enumerate}
 }
 
@@ -1680,37 +1732,143 @@
 	Le vecteur $v$ est donc nul.
 }
 
-\exe{}{
-	Considérons $A = \begin{pmatrix} 1&2\\3&4 \end{pmatrix}$.
-	Montrer par le calcul que
-		\[ A^2 - 5A - 2I = 0 \]
-	puis en déduire que 
-		\[ A\left(\frac12A-\frac52I\right) = I \]
-	et donc l'inverse $A^{-1}$.
+
+
+\exe{difficulty=0}{
+	Soit $A = \begin{pmatrix} a & b \\ c & d\end{pmatrix}\in\R^{2\times2}$ une matrice.
+	La quantité $\det(A) = ad-bc$ s'appelle le \emphindex{déterminant} de la matrice $A$.
+	\begin{enumerate}
+		\item
+		Montrer que si $\det(A)\neq0$, alors
+			\[ A^{-1} = \frac1{\det(A)} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.  \]
+		\item
+		Montrer que si $\det(A) = 0$, alors
+			\[ A \begin{pmatrix} b \\ -a \end{pmatrix}  = A \begin{pmatrix} d \\ -c \end{pmatrix} = 0, \]
+		puis conclure que $A$ n'est pas inversible dans ce cas.
+	\end{enumerate}
 	
-	Vérifier que $A^{-1}$ est bien l'inverse à gauche et à droite de $A$.
-}{exe:p-car-A-inv}{
-	todo
+	
+}{exe:inv-2x2}{
+	\begin{enumerate}
+		\item
+		Il suffit de vérifier que $A^{-1} A = A A^{-1} = I_2$, ce qui se fait par calcul matriciel.
+		\item
+		Les identités se démontrent par calcul matriciel.
+		Supposons, par l'absurde, que $A$ soit inversible.
+		Alors, en multipliant par $A^{-1}$, nous obtenons $\pvec{b}{-a} = \pvec{d}{-c} = \pvec00$ et donc $A=0$, la matrice nulle.
+		Or la matrice nulle n'est bien sûr pas inversible car $0 \cdot X = 0$ pour n'importe quel $X\in\R^{2\times2}$ ; impossible donc d'obtenir $I_2$.
+	\end{enumerate}
+}
+
+
+\exe{difficulty=0}{
+	Soient
+	\begin{align*}
+		A = \begin{pmatrix}-2&1&3\\1&-3&-2\\2&0&3\end{pmatrix} && \et && B = \begin{pmatrix}-2&-4\\1&3\\-4&-2\end{pmatrix}.
+	\end{align*}
+	Calculer et comparer les matrices $(AB)^T$ et $B^T A^T$.
+	Est-ce que le produit $A^TB^T$ a un sens ? Justifier.
+}{exe:AB-transpose}{
+	Nous obtenons, par produits matriciels,
+	\begin{align*}
+		AB = \begin{pmatrix}-7&5\\3&-9\\-16&-14\end{pmatrix} && (AB)^T = \begin{pmatrix}-7&3&-16\\5&-9&-14\end{pmatrix} && et && B^TA^T =  \begin{pmatrix}-7&3&-16\\5&-9&-14\end{pmatrix}.
+	\end{align*}
+	Ceci vérifie la propriété $(AB)^T = B^T A^T$ dans ce cas. 
+	
+	Le produit $A^TB^T$ n'a pas de sens car $A^T$ est une matrice $3\times3$ et que $B^T$ est une matrice $2\times3$.
+	Or, il faut que le nombre de colonnes de la matrice de gauche soit égal au nombre de lignes de la matrices de droite pour pouvoir effectuer une multiplication matricielle !
 }
 
 
 
+
+
+
+
 \exe{difficulty=0}{
-	Soit $M = \begin{pmatrix} a & b \\ c & d\end{pmatrix}\in\R^{2\times2}$ une matrice.
-	
+	Soit $M\in\R^{n\times n}$ une matrice dont les colonnes forment une base orthonormale.
+	\begin{enumerate}
+		\item 
+		Montrer que $M^T M = I_n$.
+		\item
+		À l'aide de l'identité $M M^T = I_n$ donnée par le cours, en déduire que les lignes de $M$ forment également une base orthonormale.
+	\end{enumerate}
+}{exe:ortho-matrix}{
+	\begin{enumerate}
+		\item 
+		Notons $v_1, v_2, \dots, v_n$ les colonnes de $M$.
+		Alors $v_1^T, v_2^T, \dots, v_n^T$ sont les lignes de $M^T$.
+		Comme le produit matriciel $M^TM$ calcule tous les produits scalaires entre les lignes de $M^T$ et les colonnes de $M$, nous obtenons que
+			\[ (M^T M)_{ij} = \japb{v_i, v_j} = \delta_{ij} = \begin{cases*} 1 & si $i=j$, \\ 0 & sinon. \end{cases*}. \]
+		Donc $M^T M = I_n$.
+		\item
+		Le cours nous dit que l'inverse à gauche implique l'inverse à droite et que les matrices sont égales.
+		Il suit donc que $MM^T = I_n$.
+		En prenant $u_1, \dots, u_n$ les lignes de $M$, nous obtenons de façon entièrement analogue que $\japb{u_i, u_j} = \delta_{ij}$ et donc que les lignes sont orthonormées.
+	\end{enumerate}
+}
+
+
+
+\exe{}{
+	Montrer l'identité suivante dans $\R$.
+		\[  \begin{pmatrix} x & y \end{pmatrix} \cdot \begin{pmatrix}a&b\\c&d\end{pmatrix} \cdot \pvec{x}{y} = ax^2 + (b+c)xy + dy^2 \]
+}{exe:bilinear-matrix-gen}{
+	C'est du calcul matriciel.
+	D'abord,
+		\[   \begin{pmatrix} x & y \end{pmatrix} \cdot \begin{pmatrix}a&b\\c&d\end{pmatrix} = \begin{pmatrix} ax+cy & bx+dy \end{pmatrix}. \]
+	Puis,
+		\[ \begin{pmatrix} ax+cy & bx+dy \end{pmatrix} \cdot \pvec{x}{y} = x(ax+cy) + y(bx+dy) = ax^2 + (b+c)xy + dy^2. \]
+}
+
+
+\exe{}{
+	Considérons la \emphindex{forme quadratique} $f(x, y)= 2x^2 + 3xy - y^2$.
 	\begin{enumerate}
 		\item
-		Montrer que si $ad-bc\neq0$, alors
-			\[ M^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.  \]
+		Donner la matrice $M\in\R^{2\times2}$ symétrique telle que, pour tout $x, y \in \R$,
+			\[ f(x, y) = \begin{pmatrix} x & y \end{pmatrix} \cdot M \cdot \pvec{x}{y}. \]
 		\item
-		Montrer que si $ad-bc = 0$, alors
-			\[ M \begin{pmatrix} b \\ -a \end{pmatrix}  = M \begin{pmatrix} d \\ -c \end{pmatrix} = 0, \]
-		puis conclure que $M$ n'est pas inversible dans ce cas.
+		Montrer que la matrice $P^T M P$ est diagonale, où $P = \begin{pmatrix} 1 & -0,75 \\ 0 & 1 \end{pmatrix}$.
+		\item
+		Calculer $P^{-1}$ à l'aide de la formule de l'exercice \ref{exe:inv-2x2}.
+		\item
+		Exprimer les variables $z, t\in\R$ en fonction de $x, y$ pour que $P\pvec{z}{t} = \pvec{x}y$ à l'aide de $P^{-1}$.
+		\item
+		Montrer, à l'aide des questions précédentes, que $f(x, y) = \alpha_1 z^2 + \alpha_2 t^2$ où $\alpha_1, \alpha_2 \in\R$ sont des réels à déterminer.
 	\end{enumerate}
-	
-	La quantité $ad-bc$ s'appelle le \emphindex{détérminant} de la matrice $A$.
-}{exe:inv-2x2}{
-	todo
+}{exe:bilinear-matrix}{
+	\begin{enumerate}
+		\item
+		En s'aidant de l'exercice \ref{exe:bilinear-matrix-gen}, comme $M$ doit être symétrique, il faut choisir
+			\[ M = \begin{pmatrix} 2 & 1,5 \\ 1,5 & -1 \end{pmatrix}. \]
+		\item
+		C'est du calcul matriciel, et nous trouvons
+			\[ D = P^T M P = P = \begin{pmatrix} 1 & 0 \\ -0,75 & 1 \end{pmatrix} \begin{pmatrix} 2 & 1,5 \\ 1,5 & -1 \end{pmatrix} \begin{pmatrix} 1 & -0,75 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 2&0\\0&-2,125  \end{pmatrix}. \]
+		\item
+		En utilisant la formule,
+			\[ P^{-1} = \begin{pmatrix} 1&0,75\\0&1\end{pmatrix}. \]
+		\item
+		Nous avons
+		\begin{align*}
+			P\pvec{z}{t} = \pvec{x}y && \iff && \pvec{z}t = P^{-1} \pvec{x}y =  \begin{pmatrix} 1&0,75\\0&1\end{pmatrix} \pvec{x}y = \pvec{x+0,75y}y.
+		\end{align*}
+		Donc $z=x+0,75y$ et $t = y$.
+		\item
+		Nous avons les égalités suivantes
+		\begin{align*}
+			f(x,y) &= \pvec{x}y^T M \pvec{x}y \\
+				&= \left( P\pvec{z}{t} \right)^T M \left(P\pvec{z}{t}\right) \\
+				&= \pvec{z}{t} (P^T M P) \pvec{z}{t} \\
+				&= \pvec{z}{t} D \pvec{z}{t} \\
+				&= 2z^2 - 2,125t^2 \\
+				&= 2(x+0,75y)^2 - 2,125y^2
+		\end{align*}
+		Vérification : redévelopper $2(x+0,75y)^2 - 2,125y^2$ aboutit bien à $2x^2 + 3xy - y^2 = f(x,y)$.
+	\end{enumerate}
+	Remarquons que nous avons obtenu une sorte d'équivalent de la forme canonique pour les formes quadratiques.
+	Cette manipulation se généralise en dimension $n$ et s'appelle la \emphindex{loi d'inertie de Sylvester}.
+	La relativité restreinte est un exemple d'application de cette loi en dimension $n=4$ (l'espace-temps).
 }
 
 
@@ -1721,7 +1879,10 @@
 	Montrer que
 		\[ (PD P^{-1})^n = P D^n P^{-1}. \]
 }{exe:pdpinv}{
-	todo
+	Nous utilisons ici l'associativité du produit matriciel.
+	Par exemple, pour $n=3$, 
+		\[ (PD P^{-1})^3 =  (PD P^{-1}) (PD P^{-1}) (PD P^{-1}) = PD(P^{-1}P)D(P^{-1}P)DP^{-1} = PDIDIDP^{-1} = PD^3P^{-1}. \]
+	L'identité se montre rigourement par récurrence.
 }
 
 \exe{difficulty=0}{
@@ -1732,7 +1893,7 @@
 	\begin{enumerate}
 		\item 
 		Soit $n\in\N$.
-		Trouver la matrice $A \in \R^{2 \time 2}$ telle que $X_{n+1} = A X_n$ et en déduire que $X_n = A^n X_0$.
+		Trouver la matrice $A \in \R^{2 \times 2}$ telle que $X_{n+1} = A X_n$ et donc que $X_n = A^n X_0$.
 		\item 
 		Montrer que $A = P D P^{-1}$ où 
 			\begin{align*}
@@ -1751,51 +1912,6 @@
 	Par conséquent, $X_n = A^n X_0 = PD^nP^{-1} \begin{pmatrix} 0 \\ 1 \end{pmatrix}$. 
 	Nous nous intéressons donc qu'à la première coordonnée de la deuxième colonne de $PD^n P^{-1}$, qui donne
 		\[ F_n = \frac{\phi_+^n - \phi_-^n}{\sqrt{5}}. \]
-}
-
-
-
-
-\exe{difficulty=0}{
-	Soit $M\in\R^{n\times n}$ une matrice dont les colonnes forment une base orthonormale.
-	\begin{enumerate}
-		\item 
-		Montrer que $M^T M = I$.
-		\item
-		À l'aide de l'identité $M M^T = I$ donnée par le cours, et en déduire que les lignes de $M$ forment également une base orthonormale.
-	\end{enumerate}
-}{exe:ortho-matrix}{
-	todo
-}
-
-
-
-\exe{}{
-	Montrer l'identité suivante dans $\R$.
-		\[  \begin{pmatrix} x & y \end{pmatrix} \cdot \begin{pmatrix}a&b\\c&d\end{pmatrix} \cdot \pvec{x}{y} = ax^2 + (b+c)xy + dy^2 \]
-}{exe:bilinear-matrix-gen}{
-	todo
-}
-
-
-\exe{}{
-	Considérons la \emphindex{forme quadratique} $f(x, y)= 2x^2 + 3xy - y^2$.
-	\begin{enumerate}
-		\item
-		Donner la matrice $M\in\R^{2\times2}$ symétrique telle que, pour tout $x, y \in \R$,
-			\[ f(x, y) = \begin{pmatrix} x & y \end{pmatrix} \cdot M \cdot \pvec{x}{y}. \]
-		\item
-		Montrer que la matrice $P^T M P$ est diagonale, où $P = \begin{pmatrix} 1 & -0,75 \\ 0 & 1 \end{pmatrix}$.
-		\item
-		Calculer $P^{-1}$ à l'aide de la formule
-			\[ \begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac1{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.  \]
-		\item
-		Exprimer les variables $z, t\in\R$ en fonction de $x, y$ pour que $P\pvec{z}{t} = \pvec{x}y$.
-		\item
-		Montrer que $f(x, y) = \alpha_1 z^2 + \alpha_2 t^2$ où $\alpha_1, \alpha_2 \in\R$ sont des réels à déterminer.
-	\end{enumerate}
-}{exe:bilinear-matrix}{
-	todo
 }
 
 
