@@ -1616,6 +1616,8 @@
 		Si $A$ est inversible, alors $A^{-1}$ est aussi inversible.
 		\item
 		Si $A$ et $B$ sont inversibles de même taille alors $A+B$ est inversible.
+		\item
+		Si $A, B\in\R^{m\times n}$, alors $(A+B)^T = A^T + B^T$.
 	\end{enumerate}
 }{exe:VF-matrices}{
 	\begin{enumerate}
@@ -1635,6 +1637,8 @@
 		\item
 		Faux déjà dans les nombres réels : $1$ et $-1$ sont inversibles mais pas leur somme.
 		Dans $\R^{n\times n}$, le contre-exemple $A=I_n$ et $B=-I_n$ (inversible d'inverse $-I_n$) généralise celui de $\R$.
+		\item
+		Vrai car $(A+B)^T_{ij} = (A+B)_{ji} = A_{ji} + B_{ji} = A^T_{ij} + B^T_{ij}$.
 	\end{enumerate}
 }
 
