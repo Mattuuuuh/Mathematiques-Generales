@@ -51,7 +51,7 @@
 }
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Considérons $ABC$ un triangle équilatéral dans le plan.
 	Soit $r$ la rotation centrale qui envoie $A$ sur $B$, $B$ sur $C$, et $C$ sur $A$.
 	Soit $s$ la symétrie axiale qui envoie $A$ sur $B$, $B$ sur $A$, et qui laisse $C$ invariant.
@@ -86,7 +86,7 @@
 }
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Considérons $\R[X]$, l'ensemble des polynômes à coefficients réels, comme $\R$-espace vectoriel.
 	Soit $E = \End(\R[X])$ l'ensemble des endomorphismes (applications $\R$-linéaires) de $\R[X]$ muni de l'opérateur de composition $\circ$.
 	\begin{enumerate}
@@ -122,7 +122,7 @@
 	\end{enumerate}
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soit $G$ un sous-groupe de $\bigpar{\R ,+}$.
 	L'ensemble $G$ est dit \emphindex{dense} dans $\R$ toute boule de $\R$ s'intersecte avec $G$. 
 	Autrement dit, pour tout $x\in\R$ et tout $\epsilon>0$, il existe un $g\in G$ à distance $\epsilon$ de $x$ : $|x - g| < \epsilon$.
@@ -232,7 +232,7 @@
 	Par associativité, $u^D = (u^G u) u^D = u^G (u u^D) = u^G$.
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Considérons $A = \bigset{ f : \R \rightarrow \R }$ l'ensemble des applications de  $\R$ dans $\R$.
 	Nous équipons $A$ d'un addition $+$ et d'une multiplication $\cdot$ définies par
 		\begin{align*}
@@ -282,7 +282,7 @@
 		\[ \begin{pmatrix} a & -b \\ b & a \end{pmatrix}^{-1} = \frac1{a^2 + b^2} \begin{pmatrix} a & b \\ -b & a \end{pmatrix} \]
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soit $p\in\N$ un nombre premier.
 	Montrer que $\F_p = \bigpar{ \Z/p\Z, +, \cdot }$ est un corps.
 	
@@ -295,7 +295,7 @@
 	En prenant la relation modulo $p$, nous obtenons $ku = 1 \mod p$ et donc $k$ est inversible.
 }
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soit $(A, +, \cdot)$ un anneau commutatif unitaire et $\circ$ la loi définie par
 		\[ a \circ b = a + b - a\cdot b. \]
 	\begin{enumerate}
@@ -653,7 +653,7 @@
 }
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soit $p\in\N$ un nombre premier impair.
 	\begin{enumerate}
 		\item
@@ -700,7 +700,7 @@
 }
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soient $a, b \in\Z[i]$, $b\neq0$.
 	Montrer qu'il existe $q, r\in\Z[i]$ vérifiant $a = bq+r$ et $|r| < |b|$.
 }{exe:Zi-euclidien}{
@@ -906,6 +906,225 @@
 	\end{enumerate}
 }
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 4 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\exe{}{
+	Est-ce que $X^2 -4X + 3$ est divisible par $X+1$ dans $\Q[X]$ ?
+	
+	Est-ce que $X^3 - 2X + X -2$ est divisible par $x-2$ dans $\Z[X]$ ?
+}{exe:divisible-root}{
+	todo
+}
+
+\exe{}{
+	Soit $f\in\K[X]$.
+	\begin{enumerate}
+		\item
+		Montrer que si $a|f$ dans $\K[X]$, alors toutes les racines de $a$ sont des racines de $f$.
+		\item
+		Est-ce que, réciproquement, si toutes les racines de $a$ sont des racines de $f$, alors $a|f$ dans $\K[X]$ ?
+	\end{enumerate}
+}{exe:root-factor3}{
+	todo
+}
+
+
+\exe{}{
+	Développer et réduire le produit suivant dans $\Z[x]$.
+		\[ f(x) = 3(x+1)(x+4)(x-1)(x-2). \]
+}{exe:dev-red}{
+	$f(x) = 3x^4 + 6x^3 -27x^2 -6x + 24$.
+}
+
+
+\exe{}{
+	Soit $z\in\C$.
+	Montrer l'implication suivante. La réciproque est-elle vraie ?
+	\begin{center}
+	\begin{tabular}{ccc}
+		$\Bigpar{ \exists n\in\N^* \tq z\in\U_n }$ &  $\implies$ & $\Bigpar{ |z| = 1}$
+	\end{tabular}
+	\end{center}
+}{exe:root-is-unit}{
+	todo
+}
+
+
+
+\exe{}{
+	Soit $n, k\in\N$ deux entiers avec $k\leq n$. 
+	Rappelons la notation ${n \choose k}$, lue « $k$ parmi $n$ », donnant le nombre de façons de choisir $k$ objets parmi $n$ objets indistinguables.
+	
+	Montrer que
+		\[ (1+x)^n = \sum_{k=0}^n {n \choose k} x^k. \]
+}{exe:binom-Newton}{
+	todo
+}
+
+\exe{difficulty=0}{
+	Soit $n\in\N$. En comparant les termes en $x^n$ de l'identité
+		$(1+x)^{2n} = (1+x)^n \cdot (1+x)^n, $
+	montrer que
+		\[ \sum_{k=0}^{n} {n \choose k} {n \choose n-k} = {2n \choose n}. \]
+}{exe:id-Newton}{
+	todo
+}
+
+
+
+\exe{difficulty=0}{
+	Soit $n\in\N^*$.
+	En étudiant $(1+x)^n + (1-x)^n$, montrer que
+		\[ \sum_{\substack{k=0 \\ \text{$k$ pair}}}^n {n \choose k} =  \sum_{\substack{k=0 \\ \text{$k$ impair}}}^n {n \choose k} =  2^{n-1}. \]
+	Quelle partie du raisonnement échoue lorsque $n=0$ ?
+}{exe:Newton-even-odd}{
+	Les termes pairs sont doublés et les termes impairs disparaissent.
+	Évaluer en $x=1$ conclut pour la première somme.
+	La deuxième somme est déduite de la première en utilisant que $2^n - 2^{n-1} = 2^{n-1}$.
+
+	Lorsque $n=0$, l'identité $(1-x)^0 = 1$ semble vraie mais elle ne l'est pas précisément en $x=1$.
+}
+
+
+
+
+
+
+\exe{}{
+	Résoudre le système suivant pour $a, b, c \in\C$.
+	\[\begin{cases*}
+		abc = 1,  \\
+		a+b+c = 0, \\
+		ab+ac+bc = 0. \\
+	\end{cases*}\]
+}{exe:systeme-units}{
+
+}
+
+
+\exe{difficulty=0}{
+	Écrire les premiers termes du produit de sommes suivant, où $s\in\C$.
+		\[ \zeta_{11}(s) = \prod_{p \in \{ 2 ; 3; 5; 7 ; 11\}} \left( 1 + \frac1{p^s} + \frac1{p^{2s}} + \frac1{p^{3s}} + \frac1{p^{4s}} \right). \]
+}{exe:zeta-fini}{
+	Soit $S$ l'ensemble des entiers naturels dont la décomposition en facteurs premiers est composée uniquement de premiers dans $\{2;3;5;7;11\}$ à puissance inférieure ou égal à 4.
+	Alors, comme la décomposition en facteurs premiers est unique, chaque terme de la forme développée est unique, et
+		\[ \zeta_{11}(s) = \sum_{n \in S} \frac1{n^s} = 1 + \frac1{2^s} + \frac1{3^s} + \frac1{4^s}+\frac1{5^s}+\frac1{6^s} + \dots. \]
+	Le premier terme qui n'apparait pas dans $f$ est $\frac1{13^s}$.
+	Lorsque l'ensemble des premiers grandit et que les puissances aussi, nous obtenons la forme suivante de la \emphindex{fonction zêta de Riemann}, appelée \emphindex{produit eulérien}.
+		\[ \zeta(s) = \prod_{p \text{ premier}} \left(1-\frac1{p^s}\right)^{-1}. \]
+}
+
+
+
+\exe{difficulty=0}{
+	Soit $n\in\N$ impair et $\zeta = e^{\frac{2 \pi i}n}$.
+	Montrer l'identité suivante dans $\C[x,y]$.
+		\[ x^n + y^n = \prod_{k=0}^{n-1} \bigpar{x + \zeta^k y} \]
+	Est-elle vraie pour $n\in\N^*$ pair ?
+}{exe:split-xn-p-yn}{
+	todo
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 5 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\exe{difficulty=0}{
+	Résoudre le système suivant pour $a, b, c \in\C$.
+	\[\begin{cases*}
+		abc = 3,  \\
+		a+b+c = 4, \\
+		ab+ac+bc = 6. \\
+	\end{cases*}\]
+}{exe:systeme-units2}{
+	$(x-a)(x-b)(x-c) = x^3 - (a+b+c)x^2 + (ab+ac+bc)x - abc = x^3 -4x^2 + 6x -3 = (x-1)(x^2 - 3x+3) = (x-1)\left(x-\frac32 + \frac{\sqrt3}2i\right)\left(x-\frac32 - \frac{\sqrt3}2i\right)$.
+}
+
+
+
+\exe{}{
+	Vrai ou faux ?
+	\begin{enumerate}[itemsep=10pt]
+		\item
+		Si $f\in\R[x]$ n'admet aucune racine dans $\R$, alors $\deg(f)$ est pair.
+		\item
+		Si $\deg(f)$ est pair, alors $f\in\R[x], f\neq0$ n'admet aucune racine dans $\R$.
+		\item
+		Si $f\in\R[x]$ vérifie $f(z) \neq 0$ pour un $z\in\C$, alors il existe un $a\in\R$ tel que $f(a) \neq 0$.
+		\item
+		Si $\xi$ et $\zeta$ sont deux racines de l'unité, il existe un $n\in\N^*$ tel que $\xi^n = \zeta^n = 1$.
+		\item
+		Si $\zeta$ est une $n$-ième racine de l'unité ($n\in\N^*$), alors pour tout $m\in\N^*$, $\zeta^m = 1 \implies n|m$.
+		\item
+		Si $\xi$ et $\zeta$ sont deux une racine $m$-ième et une racine $n$-ième de l'unité respectivement ($m, n\in\N^*$), alors $\xi \zeta$ est une racine $mn$-ième de l'unité.
+		\item
+		Si $\pgcd(f, g) = 1$ dans $\K[x]$, alors $f$ et $g$ n'ont pas de racine commune.
+		\item
+		Deux polynômes $f, g\in\R[x]$ sans racine commune sont premiers entre eux.
+		\item
+		La somme des racines complexes (comptées avec multiplicités) de $x^{42} + 13 x^{41} - 1$ est $13$.
+		\item
+		Le produit des racines complexes (comptées avec multiplicités) de $x^{5} + 1312 x^{2} + 12$ est $-12$.
+	\end{enumerate}
+}{exe:TF-racines}{
+	\begin{enumerate}
+		\item
+		Vrai. La décomposition en facteurs irréductibles de $f$ sur $\R[x]$ admet au moins un terme linéaire.
+		\item
+		Faux. Prendre $f(x) = x^2$.
+		\item
+		Vrai. En plongeant $f$ dans $\C$, nous voyons qu'il n'est pas le polynôme nul car il ne s'annule pas en $z$.
+		Dès lors, il ne s'annule pas partout sur $\R$.
+		\item
+		Vrai : prendre le produit (ou le PPCM) des ordres des racines.
+		\item
+		Faux : $-1$ est une racine $2$-ième de l'unité, mais aussi une racine $4$-ième, ou une racine $6$-ième de l'unité !
+		Bien sûr, 6 ne divise pas 2.
+		\item
+		Vrai car $(\xi \zeta)^{mn} = \left(\xi^{m}\right)^n \left(\zeta^n\right)^m = 1$.
+		\item
+		Vrai car, dans le cas contraire, évaluer $fu + gv = 1$ en cette racine aboutit à une contradiction.
+		\item
+		Faux, prendre $f = g = x^2 + 1$ qui n'ont pas de racine du tout dans $\R$.
+		\item
+		Faux, la somme vaut $-a_{41} = -13$.
+		\item
+		Vrai, le produit vaut $(-1)^5 a_0 = -12$.
+	\end{enumerate}
+	
+}
+
+
+
+\exe{difficulty=0}{
+	Soit $f\in\K[x]$ et $f'$ sa dérivée formelle.
+	Montrer que $\pgcd(f,f') = 1$ si et seulement si $f$ n'admet que des racines simples.
+}{exe:gcd-simple-roots}{
+	todo
+}
+
+\exe{}{
+	L'objectif de l'exercice est de démontrer le \emphindex{théorème de Wilson} qui énonce que $(n-1)! = -1 \mod n$ si et seulement si $n$ est premier.
+	\begin{enumerate}
+		\item
+		Montrer que si $n$ n'est pas premier, alors $(n-1)! = 0 \mod n$.
+		\item
+		Supposons $n$ premier.
+		Montrer que le polynôme $x^n - x$ admet $n$ racines distinctes dans $\F_n[x]$.
+		\item
+		Conclure en étudiant le coefficient constant de $x^{n-1} - 1$.
+	\end{enumerate}
+}{exe:Wilson}{
+	todo
+}
 
 
 
