@@ -916,9 +916,28 @@
 \exe{}{
 	Est-ce que $X^2 -4X + 3$ est divisible par $X+1$ dans $\Q[X]$ ?
 	
-	Est-ce que $X^3 - 2X + X -2$ est divisible par $x-2$ dans $\Z[X]$ ?
+	Est-ce que $X^3 - 2X^2 + X -2$ est divisible par $X-2$ dans $\Z[X]$ ?
 }{exe:divisible-root}{
-	todo
+	D'après le lemme d'Hamza, il suffit de vérifier si $f(a) = 0$ pour que $X-a$ divise $f$ dans $\K[X]$.
+
+	Posons $p(X) = X^2 - 4X+3$.
+	Comme $p(-1) = 1+4+3 = 8$, $X+1$ ne divise pas $p$ dans $\Q[X]$.
+	
+	Posons $q(X) = X^3 - 2X^2 + X - 2$.
+	Comme $q(2) = 2^3 - 2^3 + 2 -2 = 0$, $X-2$ divise $q$ dans $\Q[X]$.
+	Il s'agit désormais de justifier que $X-2$ divise $q$ dans $\Z[X]$ également.
+	Ceci n'est pas clair car, \apriori, $q(X) = (X-2)f(X)$, avec $f\in\Q[X]$ un polynôme à coefficients rationnels non necessairement entiers.
+	En effet, rappelons que l'anneau $\Z[X]$ n'est pas euclidien car la division euclidienne nécessite de pouvoir inverser les coefficients.
+	Or, $\Z$ n'est pas un corps donc $f$, le quotient de la division euclidienne, n'est pas nécessairement entier.
+	
+	Cependant, d'après le lemme de Gauss, si $f_0 \in \Z[X]$ est primitif et divise $g\in\Z[X]$ dans $\Q[X]$, alors $f_0$ divise $g$ dans $\Z[X]$.
+	En effet,
+		\[ f_0 = g q = c_gc_q g_0 q_0, \]
+	et donc $c_gc_q = 1$ par unicité du contenu et car le produit de deux polynômes primitifs est primitif.
+	Donc $f_0 = g_0 q_0$.
+	
+	Dans notre cas, $X-2$ est primitif car $\pgcd(1, -2) = 1$ et $1>0$ (le coefficient dominant).
+	Donc $X-2$ divise $q$ dans $\Z[X]$.
 }
 
 \exe{}{
@@ -930,7 +949,15 @@
 		Est-ce que, réciproquement, si toutes les racines de $a$ sont des racines de $f$, alors $a|f$ dans $\K[X]$ ?
 	\end{enumerate}
 }{exe:root-factor3}{
-	todo
+	\begin{enumerate}
+		\item
+		Soit $x_0\in\K$ une racine de $a$.
+		Alors, comme $f=aq$ dans $\K[X]$, nous avons $f(x_0) = a(x_0)q(x_0) = 0 q(x_0) = 0$.
+		Par suite, $x_0$ est une racine de $f$.
+		\item
+		La réciproque est fausse à cause de considérations de multiplicités.
+		En effet, $f(X) = X-1$ et $a(X) = (X-1)^2$ fournit un contre-exemple : toutes les racines de $a$ (c'est-à-dire 1) sont des racines de $f$, mais $a$ de divise pas $f$ car son degré est strictement supérieur.
+	\end{enumerate}
 }
 
 
@@ -951,7 +978,13 @@
 	\end{tabular}
 	\end{center}
 }{exe:root-is-unit}{
-	todo
+	Soit $n\in\N^*$ et $z\in\U_n$.
+	Alors $z^n = 1$.
+	En prenant le module,
+	$|z^n| = |z|^n = 1$.
+	Or $|z|$ est un nombre réel positif, et la fonction $f(x) = x^n$ est strictement croissante sur $\R_+$. 
+	Elle est donc injective
+	et le seul $|z|$ vérifiant $|z|^n = 1$ est alors $|z|=1$.
 }
 
 
@@ -963,7 +996,12 @@
 	Montrer que
 		\[ (1+x)^n = \sum_{k=0}^n {n \choose k} x^k. \]
 }{exe:binom-Newton}{
-	todo
+	D'après le cours, le coefficient en $x^k$ du produit
+		\[ (1+x)(1+x)(1+x)\cdots(1+x)(1+x) \]
+	est obtenu en choisissant $k$ fois la quantité $x$, et $k$ fois la quantité $1$ parmi les $n$ parenthèses.
+	Il y a, par définition, $n \choose k$ façon de faire, et chaque façon apporte un coefficient égal à $1\times1\times\cdots\times1 = 1$.
+	Donc
+		\[ (1+x)^n = \sum_{k=0}^n {n \choose k} x^k. \]
 }
 
 \exe{difficulty=0}{
@@ -972,7 +1010,14 @@
 	montrer que
 		\[ \sum_{k=0}^{n} {n \choose k} {n \choose n-k} = {2n \choose n}. \]
 }{exe:id-Newton}{
-	todo
+	À gauche,
+		\[ (1+x)^{2n} = \sum_{k=0}^2n {2n \choose k} x^k, \]
+	dont le coefficient en $x^n$ est égal à $2n \choose n$.
+	
+	À droite,
+		\[  (1+x)^n \cdot (1+x)^n = \sum_{k=0}^n {n \choose k} x^k \sum_{j=0}^n {n \choose j} x^j = \sum_{k, j =0}^n {n \choose k}{n \choose j}x^{k+j}. \]
+	Le coefficient en $x^n$ est donc obtenu pour les indices $k, j$ tels que $k+j = n \iff j = n-k$, et il est égal à
+		\[ \sum_{k=0}^{n} {n \choose k} {n\choose n-k}. \]
 }
 
 
@@ -1003,7 +1048,14 @@
 		ab+ac+bc = 0. \\
 	\end{cases*}\]
 }{exe:systeme-units}{
-
+	Considérons $p(x) = (x-a)(x-b)(x-c) \in \C[x]$ pour $(a, b, c)$ une solution du système (si elle existe).
+	
+	En développant, nous obtenons
+		\[ p(x) = x^3 - (a+b+c)x^2 + (ab+ac+bc) x - abc = x^3 - 1 \]
+	dont les trois racines complexes sont $\U_3 = \bigset{ 1 ; e^{i \frac{2\pi}3} ; e^{i \frac{4\pi}3} }$.
+	
+	Par construction, ces racines forment les solutions du systèmes.
+	Il y a 6 solutions au système correspondant au 6 permutations des racines $(a, b, c)$.
 }
 
 
@@ -1027,7 +1079,17 @@
 		\[ x^n + y^n = \prod_{k=0}^{n-1} \bigpar{x + \zeta^k y} \]
 	Est-elle vraie pour $n\in\N^*$ pair ?
 }{exe:split-xn-p-yn}{
-	todo
+	Remarquons que les $\zeta^k$ sont exactement les éléments de $\U_n$ et qu'ils vérifient donc
+		\[ \prod_{k=0}^{n-1} (x - \zeta^k) = x^n - 1. \]
+	Remplaçons $x$ par $\frac{x}y$ symboliquement dans l'identité précédente puis multiplions par $y^n$ pour obtenir
+		\[  y^n \prod_{k=0}^{n-1} \left( \frac{x}y - \zeta^k\right) = y^n \left( \left(\frac{x}y\right)^n - 1 \right), \]
+	ce qui est équivalent à
+		\[ \prod_{k=0}^{n-1} (x - y\zeta^k) = x^n - y^n. \]
+	Remplaçons désormais $y$ par $-y$ pour obtenir, en utilisant que $n$ est impair,
+		\[ \prod_{k=0}^{n-1} (x + y\zeta^k) = x^n + y^n. \]
+		
+	L'identité est fausse pour $n$ pair ; il n'y a qu'à tester $n=2$.
+		\[ (x+y)(x-y) = x^2 - y^2 \neq x^2 + y^2. \]
 }
 
 
@@ -1039,13 +1101,20 @@
 
 \exe{difficulty=0}{
 	Résoudre le système suivant pour $a, b, c \in\C$.
+	Préciser le nombre de solutions.
 	\[\begin{cases*}
 		abc = 3,  \\
 		a+b+c = 4, \\
 		ab+ac+bc = 6. \\
 	\end{cases*}\]
 }{exe:systeme-units2}{
-	$(x-a)(x-b)(x-c) = x^3 - (a+b+c)x^2 + (ab+ac+bc)x - abc = x^3 -4x^2 + 6x -3 = (x-1)(x^2 - 3x+3) = (x-1)\left(x-\frac32 + \frac{\sqrt3}2i\right)\left(x-\frac32 - \frac{\sqrt3}2i\right)$.
+	Considérons $p(x) = (x-a)(x-b)(x-c) \in \C[x]$ pour $(a, b, c)$ une solution du système (si elle existe).
+	
+	Alors
+		\[ p(x) = (x-a)(x-b)(x-c) = x^3 - (a+b+c)x^2 + (ab+ac+bc)x - abc = x^3 -4x^2 + 6x -3. \]
+	Un racine éviente étant $x=1$, nous pouvons factoriser par $x-1$ puis trouver les deux autres racines 
+		\[ p(x) = (x-1)(x^2 - 3x+3) = (x-1)\left(x-\frac32 + \frac{\sqrt3}2i\right)\left(x-\frac32 - \frac{\sqrt3}2i\right). \]
+	Ces racines forment les 6 solutions (correspondant aux 6 permutations de celles-ci) du système de départ.
 }
 
 
@@ -1103,28 +1172,99 @@
 }
 
 
+\exe{difficulty=1}{
+	Soient $a, b\in\R[x]$ deux polynômes à coefficients réels.
+	Montrer les équivalences suivantes.
+	\begin{enumerate}[label=(\roman*)]
+		\item $\pgcd(a, b) \neq 1$ dans $\R[x]$
+		\item $\pgcd(a, b) \neq 1$ dans $\C[x]$
+		\item $a$ et $b$ admettent au moins une racine complexe en commun
+	\end{enumerate}
+}{exe:gcd-roots-R-C}{
 
-\exe{difficulty=0}{
-	Soit $f\in\K[x]$ et $f'$ sa dérivée formelle.
-	Montrer que $\pgcd(f,f') = 1$ si et seulement si $f$ n'admet que des racines simples.
-}{exe:gcd-simple-roots}{
-	todo
+	\underline{Implication (i) $\implies$ (ii).}
+	
+	Si $d\in\R[x]$ non 1 divise $a$ et $b$ dans $\R[x]$, alors $d$ divise également $a$ et $b$ dans $\C[x]$.
+	
+	\underline{Implication (ii) $\implies$ (iii).}
+	
+	Soit $d=\pgcd(a,b) \in \C[x]$. Comme $d$ est non constant par hypothèse, $d$ admet une racine complexe $z\in\C$ d'après le théorème fondamental de l'algèbre.
+	Ainsi $d(z) = 0$ et donc $a(z) = 0$ et $b(z) = 0$ car $d$ divise $a$ et $b$.
+	
+	\underline{Implication (iii) $\implies$ (i).}
+	
+	Notons $z\in\C$ une racine complexe en commun à $a$ et $b$.
+	Par contradiction, si $\pgcd(a, b) = 1$ dans $\R[x]$, le théorème de Bézout impliquerait l'existence de polynômes $u, v \in\R[x]$ tels que $au + bv = 1$.
+	En plongeant cette égalité dans $\C[x]$, évaluer en $x=z$ aboutit à la contradiction $0=1$. \Lightning
 }
 
-\exe{}{
-	L'objectif de l'exercice est de démontrer le \emphindex{théorème de Wilson} qui énonce que $(n-1)! = -1 \mod n$ si et seulement si $n$ est premier.
+
+
+
+
+\exe{difficulty=1}{
+	Soit $n\in\N$ et $p\neq2$ un nombre premier.
+	Le but de cet exercice est de démontrer que le polynôme $f(x) = x^n + x + p$ est irréductible dans $\Q[x]$.
 	\begin{enumerate}
 		\item
-		Montrer que si $n$ n'est pas premier, alors $(n-1)! = 0 \mod n$.
+		Justifier qu'il suffit de démontrer que $f$ est irréductible dans $\Z[x]$.
 		\item
-		Supposons $n$ premier.
-		Montrer que le polynôme $x^n - x$ admet $n$ racines distinctes dans $\F_n[x]$.
+		En voyant $f$ comme polynôme de $\C[x]$, montrer que toutes ses racines $z\in\C$ sont de module strictement supérieur à 1.
 		\item
-		Conclure en étudiant le coefficient constant de $x^{n-1} - 1$.
+		En déduire que si $f=ab$ dans $\Z[x]$, alors $|a(0)|, |b(0)| > 1$.
+		\item
+		Conclure.
 	\end{enumerate}
-}{exe:Wilson}{
-	todo
+}{exe:xn-n-p-irr}{
+	\begin{enumerate}
+		\item
+		Montrons la contraposée.
+		Si $f$ est réductible dans $\Q[X]$, nous avons $f=gq$ dans $\Q[X]$ avec ni $g$ ni $q$ constant.
+		Alors la décomposition primitive $g=c_gg_0$ implique que $g_0$ divise $f$ dans $\Q[X]$.
+		Le lemme de Gauss implique donc que $g_0|f$ dans $\Z[X]$ et que $f$ est réductible dans $\Z[X]$.
+		\item
+		Soit $z\in\C$ tel que $f(z) = 0$.
+		Alors $z^n + z + p = 0$, et donc $2 < |p| \leq |z| + |z|^n$.
+		Il suit donc naturellement que $|z|>1$ car, dans le cas contraire, nous aurions la contradiction $2 < |z|+|z|^n \leq 2$.
+		\item
+		Le coefficient constant de $a$ vu comme polynôme de $\C[x]$, $a(0)$, est égal au produit de ses racines.
+		Or, les racines de $a$ sont exactement des racines de $f$, dont le module est strictement supérieur à 1.
+		Il suit donc que $|a(0)| > 1$.
+		Le cas pour $b$ est identitque.
+		\item
+		Supposons que $f$ se réduise comme $f=ab$ dans $\Z[x]$.
+		Alors $f(0) = p = a(0)\cdot b(0)$, égalité dans $\Z$.
+		Comme $p$ est premier, soit $a(0)$, soit $b(0)$ est une unité de $\Z$, ce qui contredit que $|a(0)|, |b(0)| > 1$.
+	\end{enumerate}
 }
+
+
+% ils n'ont pas l'extension de corps donc c'est bête je trouve
+%\exe{difficulty=0}{
+%	Soit $f\in\K[x]$ et $f'$ sa dérivée formelle.
+%	Montrer que $\pgcd(f,f') = 1$ si et seulement si $f$ n'admet que des racines simples.
+%}{exe:gcd-simple-roots}{
+%	\underline{Direction $\implies$.}
+%	
+%	Supposons, par contradiction, que $(x-a)^2$ divise $f$.
+%	Alors $f(x) = (x-a)^2 q(x)$ et donc
+%		\[ f'(x) = 2(x-a)q(x) + (x-a)^2q'(x) = (x-a) \left[ 2q(x) + (x-a)q'(x) \right] \]
+%	ce qui implique que $x-a$ divise à la fois $f$ et $f'$, et donc $\pgcd(f, f') \neq 1$.
+%	
+%	\underline{Direction $\impliedby$.}
+%	
+%	Supposons, par contradiction, que $d$ non constant divise à la fois $f$ et $f'$.
+%	Alors 
+%}
+%
+%\exe{difficulty=0}{
+%	Soit $p\in\N$ un nombre premier, et $k\in\N^*$ un entier naturel non nul.
+%	Posons $q = p^k$.
+%	
+%	Montrer que toutes les racines de $X^q - X \in \F_p[X]$ sont simples.
+%}{exe:gcd-simple-roots}{
+%	todo
+%}
 
 
 

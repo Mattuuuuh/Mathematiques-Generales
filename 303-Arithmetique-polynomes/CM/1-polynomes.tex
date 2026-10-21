@@ -1167,31 +1167,6 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 	todo
 }
 
-\exe{difficulty=1}{
-	Soient $a, b\in\R[x]$ deux polynômes à coefficients réels.
-	Montrer les équivalences suivantes.
-	\begin{enumerate}[label=(\roman*)]
-		\item $\pgcd(a, b) \neq 1$ dans $\R[x]$
-		\item $\pgcd(a, b) \neq 1$ dans $\C[x]$
-		\item $a$ et $b$ admettent au moins une racine complexe en commun
-	\end{enumerate}
-}{exe:gcd-roots-R-C}{
-
-	\underline{Implication (i) $\implies$ (ii).}
-	
-	Si $d\in\R[x]$ non 1 divise $a$ et $b$ dans $\R[x]$, alors $d$ divise également $a$ et $b$ dans $\C[x]$.
-	
-	\underline{Implication (ii) $\implies$ (iii).}
-	
-	Soit $d=\pgcd(a,b) \in \C[x]$. Comme $d$ est non constant par hypothèse, $d$ admet une racine complexe $z\in\C$ d'après le théorème fondamental de l'algèbre.
-	Ainsi $d(z) = 0$ et donc $a(z) = 0$ et $b(z) = 0$ car $d$ divise $a$ et $b$.
-	
-	\underline{Implication (iii) $\implies$ (i).}
-	
-	Notons $z\in\C$ une racine complexe en commun à $a$ et $b$.
-	Par contradiction, si $\pgcd(a, b) = 1$ dans $\R[x]$, le théorème de Bézout impliquerait l'existence de polynômes $u, v \in\R[x]$ tels que $au + bv = 1$.
-	En plongeant cette égalité dans $\C[x]$, évaluer en $x=z$ aboutit à la contradiction $0=1$. \Lightning
-}
 
 
 \exe{difficulty=1}{
@@ -1277,38 +1252,6 @@ Le \emphindex{lemme de Gauss} suivant permet de classifier les polynômes irréd
 	todo
 }
 
-\exe{difficulty=1}{
-	Soit $n\in\N$ et $p\neq2$ un nombre premier.
-	Le but de cet exercice est de démontrer que le polynôme $f(x) = x^n + x + p$ est irréductible dans $\Q[x]$.
-	\begin{enumerate}
-		\item
-		Justifier qu'il suffit de démontrer que $f$ est irréductible dans $\Z[x]$.
-		\item
-		En voyant $f$ comme polynôme de $\C[x]$, montrer que toutes ses racines $z\in\C$ sont de module strictement supérieur à 1.
-		\item
-		En déduire que si $f=ab$ dans $\Z[x]$, alors $|a(0)|, |b(0)| > 1$.
-		\item
-		Conclure.
-	\end{enumerate}
-}{exe:xn-n-p-irr}{
-	\begin{enumerate}
-		\item
-		Si $f$ est réductible dans $\Q[x]$, alors, comme $f$ est unitaire (donc primitif) de $\Z[x]$, le lemme de Gauss (polynômes) \ref{lem:Gauss} garantit que $f$ est réductible dans $\Z[x]$.
-		\item
-		Soit $z\in\C$ tel que $f(z) = 0$.
-		Alors $z^n + z + p = 0$, et donc $2 < |p| \leq |z| + |z|^n$.
-		Il suit donc naturellement que $|z|>1$ car, dans le cas contraire, nous aurions la contradiction $2 < |z|+|z|^n \leq 2$.
-		\item
-		Le coefficient constant de $a$ vu comme polynôme de $\C[x]$, $a(0)$, est égal au produit de ses racines.
-		Or, les racines de $a$ sont exactement des racines de $f$, dont le module est strictement supérieur à 1.
-		Il suit donc que $|a(0)| > 1$.
-		Le cas pour $b$ est identitque.
-		\item
-		Supposons que $f$ se réduise comme $f=ab$ dans $\Z[x]$.
-		Alors $f(0) = p = a(0)\cdot b(0)$, égalité dans $\Z$.
-		Comme $p$ est premier, soit $a(0)$, soit $b(0)$ est une unité de $\Z$, ce qui contredit que $|a(0)|, |b(0)| > 1$.
-	\end{enumerate}
-}
 
 
 \shipoutExercise
