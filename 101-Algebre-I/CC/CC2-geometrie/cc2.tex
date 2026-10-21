@@ -1,0 +1,242 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[10/10/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+
+\begin{document}
+\fancyhead[C]{\textbf{MG101 --- Contrôle Continu 2}}
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	%\item
+	%Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\hrule 
+
+\marginpar{[pts]}
+
+
+
+
+\exe{4}{
+	Considérons la famille $\mathcal{B}$ suivante, appelée  « base canonique » de $\R^4$.
+		\[ 
+		\mathcal{B} = \left\{ ~ \begin{pmatrix}1\\0\\0\\0 \end{pmatrix} ; \begin{pmatrix}0\\1\\0\\0 \end{pmatrix} ; \begin{pmatrix}0\\0\\1\\0 \end{pmatrix} ; \begin{pmatrix}0\\0\\0\\1 \end{pmatrix} ~ \right\} \subseteq\R^4
+		\]
+	\begin{enumerate}
+		\item
+		Montrer que la famille $\mathcal{B}$ est orthonormée. Les calculs répétitifs peuvent être omis.
+		\item
+		Montrer que n'importe quel vecteur $v\in\R^4$ s'écrit comme une combinaison linéaire sur $\R$ des vecteurs de $\mathcal{B}$.
+	\end{enumerate}
+}{exe:base-canonique}{
+	\begin{enumerate}
+		\item
+		Il s'agit de montrer que les vecteurs sont unitaires (norme $1$) et deux à deux orthogonaux.
+		Par exemple,
+			\[ \norm{\begin{pmatrix}1\\0\\0\\0 \end{pmatrix}} = \sqrt{1^2 + 0^2 + 0^2 + 0^2} = \sqrt1 = 1 \]
+		et
+			\[ \japb{\begin{pmatrix}1\\0\\0\\0 \end{pmatrix},  \begin{pmatrix}0\\1\\0\\0 \end{pmatrix}} = 1\times0+0\times1+0+0 = 0. \]
+		Tous les autres calculs sont identiques.
+		\item
+		Tout vecteur $v=\begin{pmatrix}v_1\\v_2\\v_3\\v_4\end{pmatrix}\in\R^4$ s'écrit comme
+			\[ v = v_1 \begin{pmatrix}1\\0\\0\\0 \end{pmatrix} + v_2\begin{pmatrix}0\\1\\0\\0 \end{pmatrix} + v_3\begin{pmatrix}0\\0\\1\\0 \end{pmatrix}+v_4\begin{pmatrix}0\\0\\0\\1 \end{pmatrix}. \]
+	\end{enumerate}
+}
+
+\fillwithlines{8cm}
+
+
+%\newpage
+%~
+%\marginpar{[pts]}
+
+\exe{4}{
+	Soient $n\in\N^*$ et $u, v  \in\R^n$ deux vecteurs.
+	Les vecteurs $u$ et $v$ sont dits « colinéaires » s'ils sont multiples l'un de l'autre : $u = kv$ ou $v = ku$ pour un certain nombre réel $k\in\R$.
+	
+	Montrer que la famille $\{ u, v \}$ est linéairement \underline{dépendante} sur $\R$ si et seulement si $u$ et $v$ sont colinéaires.
+}{exe:2-indep-colin}{
+	\underline{Direction $\implies$.}
+	
+	Par contraposition, supposons que $u$ et $v$ soient colinéaires.
+	Quitte à échanger $u$ et $v$, supposons que $u = kv$ pour $k\in\R$ un réel quelconque.
+	Alors
+		\[ u - kv = 0\]
+	est une combinaison linéaire nulle non triviale (car le coefficient devant $u$ est $1$) : la famille n'est donc pas libre.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Par contraposition, supposons que la famille $\{u, v\}$ soit liée.
+	Il existe donc $\alpha, \beta\in\R$ pas tous les nuls nuls tels que
+		\[ \alpha u + \beta v = 0. \]
+	Quitte à échanger $u$ et $v$, nous pouvons supposer $\alpha\neq0$, et écrire
+		\[ u = \frac{-\beta}{\alpha} v, \]
+	et conclure que $u$ et $v$ sont colinéaires.
+
+}
+
+\fillwithlines{7cm}
+
+\newpage 
+
+\exe{3}{
+	Vrai ou faux ? Cocher la bonne réponse \underline{sans justifier}.
+	
+	Une bonne réponse rapporte $+1$ point. Une mauvaise réponse rapporte $-1$ point. Ne pas répondre rapporte $0$ point.
+	La note minimale de l'exercice est $0$.
+	\vspace{-10pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		Les vecteurs $\begin{pmatrix}2 \\ 4 \\ -3 \end{pmatrix}$ et $\begin{pmatrix}5 \\ -1 \\ 2 \end{pmatrix}$ sont orthogonaux
+		& $\square$ & $\square$  \\[20pt]
+		La distance entre les points $P(3;4;2;-8)$ \\ et $Q(-2;2;-3;2)$ de $\R^4$ est égale à $154$
+		& $\square$ & $\square$  \\[10pt]
+		Trois vecteurs de $\R^2$ sont nécessairement \\ linéairement \underline{dépendants} sur $\R$
+		& $\square$ & $\square$  \\[10pt]
+		%L'intersection de deux plans de $\R^3$ est toujours une droite
+		%& $\square$ & $\square$ 
+	\end{tabular}
+	\end{center}
+}{exe:TF-poly}{
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		Les vecteurs $\begin{pmatrix}2 \\ 4 \\ -3 \end{pmatrix}$ et $\begin{pmatrix}5 \\ -1 \\ 2 \end{pmatrix}$ sont orthogonaux
+		& \checkmark &  \\[30pt]
+		La distance entre les points $P(3;4;2;-8)$ \\ et $Q(-2;2;-3;2)$ de $\R^4$ est égale à $154$
+		& & \checkmark  \\[10pt]
+		Trois vecteurs de $\R^2$ sont nécessairement \\ linéairement \underline{dépendants} sur $\R$
+		& \checkmark &  \\[10pt]
+		%L'intersection de deux plans de $\R^3$ est toujours une droite
+		%&  & \checkmark 
+	\end{tabular}
+	\end{center}
+}
+
+
+\exe{4}{
+	Soient $n\in\N^*$ et $u, v \in\R^n$ deux vecteurs.
+	Nous savons que $\japb{u, v} = 5$ et que $\norm{u} = 2$.
+	Calculer la valeur des produits scalaires et normes suivants à l'aide des propriétés vues en classe.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		$\japb{v, u}$
+		\item
+		$\japb{3u, v}$
+		\item
+		%$\japb{u, u}$
+		%\item
+		$\japb{u + v, u}$
+		%\item
+		%$\norm{3u}$
+		\item
+		$\norm{-\frac12u}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:prod-scal-bilin}{
+	
+	\begin{enumerate}
+		\item
+		$\japb{v, u} = \japb{u, v} = 5$ par symétrie.
+		\item
+		$\japb{3u, v} = 3\japb{u, v} = 15$ par linéarité par gauche.
+		\item
+		$\japb{u + v, u} = \japb{u, u} + \japb{v, u} = \norm{u}^2 + \japb{u, v} = 4+5 = 9$ par linéarité à gauche et symétrie.
+		\item
+		$\norm{-\frac12u} = \frac12 \norm{u} = 1$ par homogénéité de la norme.
+	\end{enumerate}
+}
+
+\fillwithlines{4cm}
+
+
+
+%\exe{2}{
+%	Soient $\{  u, v \} \in\R^n$ deux vecteurs non nuls.
+%	Montrer que $u$ et $v-\frac{\japb{u, v}}{\japb{u, u} u$ sont orthogonaux.
+%}{exe:proj-orth-droite}{
+%}
+%
+%\fillwithlines{3cm}
+
+
+%\exe{4}{
+%	Soient $n\in\N^*$, $u, v \in\R^n$ deux vecteurs orthogonaux et $P\in\R^n$ un point.
+%	Posons $E = \R u + \R v$ le plan de toutes les combinaisons linéaires de $u$ et $v$.
+%	
+%	Montrer que
+%		\[ \arg\min_{Q \in E} \norm{P-Q}^2 = \frac{\japb{P, u}}{\japb{u, u}} u + \frac{\japb{P, v}}{\japb{v, v}} v. \]
+%}{exe:proj-orth-plan}{
+%}
+
+%\newpage
+%
+%\null\vspace{-20pt}
+%Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+%
+%\hrule 
+%
+%\marginpar{[pts]}
+
+\exe{5}{
+	Soient $n\in\N^*$, $u, v \in\R^n$ deux vecteurs non nuls, et 
+		$ v^* = v - \frac{\japb{v, u}}{\japb{u, u}} u \in \R^n. $
+	\begin{enumerate}
+		\item
+		Montrer que $v^* = 0$ (le vecteur nul) si et seulement si $v = ku$ pour un certain nombre $k\in\R$ réel.
+		\item
+		Montrer que $v^*$ est orthogonal à $u$.
+		\item
+		En déduire que $\norm{v^*} \leq \norm{v}$.
+	\end{enumerate}
+}{exe:Fourier-coeff}{
+	\begin{enumerate}
+		\item		
+		\underline{Direction $\implies$.}
+		
+		Si $v^*=0$, alors $v =  \frac{\japb{v, u}}{\japb{u, u}} u = ku$ en posant $k =  \frac{\japb{v, u}}{\japb{u, u}}$.
+		
+		\underline{Direction $\impliedby$.}
+		
+		Si $v=ku$ pour un certain $k\in\R$, alors 
+			\[ v^* =  v - \frac{\japb{v, u}}{\japb{u, u}} u = ku -   \frac{\japb{ku, u}}{\japb{u, u}} u = ku - ku = 0. \]
+		
+		\item
+		Par bilinéarité du produit scalaire,
+		\begin{align*}
+			\japb{v^*, u} &= \japb{ v - \frac{\japb{v, u}}{\japb{u, u}} u, u} \\
+				&= \japb{v, u} -  \frac{\japb{v, u}}{\japb{u, u}}\japb{u, u} \\
+				&= 0
+		\end{align*}
+		\item
+		Comme $v^*$ et $u$ sont orthogonaux, le théorème de Pythagore donne, pour $k =  -\frac{\japb{v, u}}{\japb{u, u}}$,
+			\[ \norm{v}^2 = \norm{v^* + k u}^2 = \norm{v^*}^2 + k^2 \norm{u}^2 \geq \norm{v^*}^2 \]
+		ce qui conclut.
+	\end{enumerate}
+}
+
+\fillwithlines{8cm}
+
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
