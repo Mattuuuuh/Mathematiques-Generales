@@ -180,5 +180,20 @@
 % emdash in mathmode
 \newcommand{\dash}{\text{---}}
 
+% python minted
+%\usepackage{minted} required
+\newcommand{\python}[1]{
+\inputminted[
+		linenos,
+		gobble=0,
+		breaklines=true, % otherwise it breaks for no apparent reason?
+		breakafter=,,
+		fontsize=\normalsize,
+		numbersep=5pt,
+		tabsize=4, % tab ident = 4 spaces
+		fontfamily=helvetica, %important pour les signes <, >
+		breaklines=false,
+]{python}{#1.py}
+}
 
 
