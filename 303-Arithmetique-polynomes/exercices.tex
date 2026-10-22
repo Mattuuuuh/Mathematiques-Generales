@@ -1125,19 +1125,21 @@
 		\item
 		Si $f\in\R[x]$ n'admet aucune racine dans $\R$, alors $\deg(f)$ est pair.
 		\item
-		Si $\deg(f)$ est pair, alors $f\in\R[x], f\neq0$ n'admet aucune racine dans $\R$.
+		Si $f\in\R[x], f\neq0$ est de degré pair, alors $f$ n'admet aucune racine dans $\R$.
 		\item
 		Si $f\in\R[x]$ vérifie $f(z) \neq 0$ pour un $z\in\C$, alors il existe un $a\in\R$ tel que $f(a) \neq 0$.
 		\item
 		Si $\xi$ et $\zeta$ sont deux racines de l'unité, il existe un $n\in\N^*$ tel que $\xi^n = \zeta^n = 1$.
+		%\item
+		%Si $\zeta$ est une $n$-ième racine de l'unité ($n\in\N^*$), alors pour tout $m\in\N^*$, $\zeta^m = 1 \implies n|m$.
 		\item
-		Si $\zeta$ est une $n$-ième racine de l'unité ($n\in\N^*$), alors pour tout $m\in\N^*$, $\zeta^m = 1 \implies n|m$.
+		Si $\xi$ et $\zeta$ sont une racine $m$-ième et une racine $n$-ième de l'unité respectivement \mbox{($m, n\in\N^*$)}, alors $\xi \zeta$ est une racine $mn$-ième de l'unité.
 		\item
-		Si $\xi$ et $\zeta$ sont deux une racine $m$-ième et une racine $n$-ième de l'unité respectivement ($m, n\in\N^*$), alors $\xi \zeta$ est une racine $mn$-ième de l'unité.
+		Si $\pgcd(f, g) = 1$ dans $\Q[x]$, alors $f$ et $g$ n'ont pas de racine commune dans $\C$.
 		\item
-		Si $\pgcd(f, g) = 1$ dans $\K[x]$, alors $f$ et $g$ n'ont pas de racine commune.
+		Deux polynômes $f, g\in\C[x]$ sans racine commune vérifient $\pgcd(f, g) = 1$.
 		\item
-		Deux polynômes $f, g\in\R[x]$ sans racine commune sont premiers entre eux.
+		Deux polynômes $f, g\in\R[x]$ sans racine commune vérifient $\pgcd(f, g) = 1$.
 		\item
 		La somme des racines complexes (comptées avec multiplicités) de $x^{42} + 13 x^{41} - 1$ est $13$.
 		\item
@@ -1154,13 +1156,15 @@
 		Dès lors, il ne s'annule pas partout sur $\R$.
 		\item
 		Vrai : prendre le produit (ou le PPCM) des ordres des racines.
-		\item
-		Faux : $-1$ est une racine $2$-ième de l'unité, mais aussi une racine $4$-ième, ou une racine $6$-ième de l'unité !
-		Bien sûr, 6 ne divise pas 2.
+		%\item
+		%Faux : $-1$ est une racine $2$-ième de l'unité, mais aussi une racine $4$-ième, ou une racine $6$-ième de l'unité !
+		%Bien sûr, 6 ne divise pas 2.
 		\item
 		Vrai car $(\xi \zeta)^{mn} = \left(\xi^{m}\right)^n \left(\zeta^n\right)^m = 1$.
 		\item
 		Vrai car, dans le cas contraire, évaluer $fu + gv = 1$ en cette racine aboutit à une contradiction.
+		\item
+		Vrai, car si $d=\pgcd(f, g)$ est non constant, alors $d|f$ et $d|g$ et $d$ admet une racine dans $\C$, commune à la fois à $f$ et à $g$.
 		\item
 		Faux, prendre $f = g = x^2 + 1$ qui n'ont pas de racine du tout dans $\R$.
 		\item
@@ -1172,7 +1176,7 @@
 }
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soient $a, b\in\R[x]$ deux polynômes à coefficients réels.
 	Montrer les équivalences suivantes.
 	\begin{enumerate}[label=(\roman*)]
@@ -1202,7 +1206,7 @@
 
 
 
-\exe{difficulty=1}{
+\exe{difficulty=0}{
 	Soit $n\in\N$ et $p\neq2$ un nombre premier.
 	Le but de cet exercice est de démontrer que le polynôme $f(x) = x^n + x + p$ est irréductible dans $\Q[x]$.
 	\begin{enumerate}
@@ -1211,7 +1215,7 @@
 		\item
 		En voyant $f$ comme polynôme de $\C[x]$, montrer que toutes ses racines $z\in\C$ sont de module strictement supérieur à 1.
 		\item
-		En déduire que si $f=ab$ dans $\Z[x]$, alors $|a(0)|, |b(0)| > 1$.
+		En déduire que si $f=ab$ dans $\Z[x]$, alors $|a(0)| > 1$ et $|b(0)| > 1$.
 		\item
 		Conclure.
 	\end{enumerate}
