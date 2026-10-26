@@ -1,0 +1,141 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[24/10/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\fancyhead[C]{\textbf{MG105 --- Contrôle Continu 3}}
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	%\item
+	%Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\hrule 
+
+\marginpar{[pts]}
+
+\exe{5, difficulty=0}{
+	Tracer approximativement la fonction sinus $f(x) = \sin(x)$ dans le repère ci-dessous.
+	
+	Ensuite, compléter le tableau de signes et le tableau de variations.
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[xmin = -6.5, xmax=6.5, ymin=-1.1, ymax=1.1, axis x line=middle, axis y line=middle, axis line style=->, grid=both,
+	%	ytick={-30,-20,...,30},
+		xtick={-2*3.14159, -3.14159, 0, 3.14159, 2*3.14159},
+		xticklabels={$-2\pi$, $-\pi$, $0$, $\pi$, $2\pi$},
+		ytick={-1,-.5,.5,1},
+		yticklabels={$-1$,{$-0,5$},{$0,5$},$1$},
+		x=30pt,
+	    	]
+		\end{axis}
+	\end{tikzpicture}
+	
+	\hspace{-50pt}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=2, espcl=13]
+	       		{$x$ / 1 , Variation de $\sin(x)$ / 2, Signe de $\sin(x)$ / 1}
+	       		{,}%{$\minfty$,$\pinfty$}
+	\end{tikzpicture}
+	\end{center}
+}{exe:1}{
+}
+
+\exe{5, difficulty=0}{
+	Nous souhaitons étudier le domaine de définition de la fonction
+		\[ f(x) = \frac{3x-1}{\sqrt{(5x-3)(-8x+1)}}. \]
+	Remplir le tableau de signes puis décrire $\D_f$ sous forme d'union d'intervalles ci-dessous.
+	%
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 [lgt=5,espcl=4]
+	       		{$x$ / 1 , Signe de $5x-3$ / 1, Signe de $-8x+1$ / 1 , Signe de $(5x-3)(-8x+1)$ / 1}
+	       		{,,,}
+	\end{tikzpicture}
+	\end{center}
+	\[\D_f = \hspace{8cm}\]
+}{exe:2}{
+}
+
+\newpage
+
+\exe{5, difficulty=0}{
+	Considérons la fonction
+		\[ f(x) = \frac1{\sqrt{2-7x}}. \]
+	\begin{enumerate}
+		\item
+		Calculer le domaine de définition de $f$ 
+		\item
+		Décrire le signe de $f(x)$ sur son domaine.
+		\item
+		Décrire les variations de $f$ sur son domaine.
+	\end{enumerate}
+}{exe:3}{
+}
+
+\fillwithlines{10cm}
+
+
+\exe{5}{
+	Comparer les nombres suivants sans les calculer. 
+	Remplir les pointillés (...) avec les signes $<$ (strictement inférieur), $>$ (strictement supérieur), ou $=$ (égal).
+	%
+	\setlength{\columnseprule}{.1pt}
+	\begin{multicols}{3}
+	\begin{align*}
+	%e^{-1} &\quad\dots\quad 0
+	%\\[6pt]  
+	e^{-1} &\quad\dots\quad 1
+	\\[6pt]  
+	e^{-1} &\quad\dots\quad \left(e^{-1}\right)^2
+	\\[6pt]  
+	e^3 + e^3&\quad\dots\quad e^6 
+	\\[6pt]  
+	\left(e^{7}\right)^{\ln2}  &\quad\dots\quad 2^7
+	\end{align*}
+	\columnbreak
+	
+	\begin{align*}
+	\sqrt{1-\frac1{42}} &\quad\dots\quad \sqrt{1-\frac1{17}}
+	\\[10pt] 
+	 \dfrac{-1}{0,3}  &\quad\dots\quad \dfrac{-1}{4} 
+	\\[10pt] 
+	\frac{\sqrt2}2 &\quad\dots\quad \frac1{\sqrt2}
+	\end{align*}
+	\columnbreak
+	
+	\begin{align*}
+	\frac{e^3e^{-1}}{e^{-\ln2}} &\quad\dots\quad e^2
+	\\[10pt] 
+	\dfrac3{1-e}  &\quad\dots\quad \dfrac3{1-\pi} 
+	\\[10pt]  
+	\cos\left(\frac{\pi}2\right) &\quad\dots\quad \cos(1)
+	\end{align*}
+	\columnbreak
+	\end{multicols}
+	
+	\emph{Données : $e\approx2,72$ et $\pi\approx3,14$.}
+}{exe:ref1}{}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+\end{document}
