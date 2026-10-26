@@ -1,12 +1,15 @@
 %!TEX encoding = UTF8
 %!TEX root = 0-notes.tex
 
-\chapter{Forme échelonnée}
+\chapter{Forme échelonnée en lignes}
 \label{chap:forme-echelonnee}
 
-\section{Forme échelonnée}
+%\section{Forme échelonnée}
 
-\subsection{Opérations élémentaires}
+% exemple motivateur
+% def matrice échelonnée
+
+\section{Opérations élémentaires sur les lignes}
 
 % Type I 
 % 
@@ -26,7 +29,7 @@
 % G_ij(lambda)^-1 = G_ij(-lambda)
 
 
-\subsection{Méthode du pivot et forme échelonnée réduite}
+\section{Méthode du pivot et forme échelonnée réduite}
 
 % Soit A (m x n). On veut créer B inversible tq BA soit le plus simple possible
 % exemples matrices simples
@@ -34,17 +37,12 @@
 % def échelonne réduite
 % thm : existe B inversible tq BA soit échelonnée réduite
 
-\section{Espaces et sous-espaces vectoriels}
+\section{Inversibilité matricielle et lien avec l'indépendence linéaire}
 
 % corollaire : A est inversible si et seulement si elle est carrée (m=n) et sa forme échelonnée réduite est l'identité
 % corollaire-prop du chapitre 2 : si k vecteurs de Rn sont L.I., alors k<=n.
 % thm : A est inversible ssi carrée et ses colonnes sont L.I. ssi carrée et ses lignes sont L.I.
-% 
-% famille génératrice
-% expression Im(A) = { Ax }_x
-% expression Vect(v_i) = span(v_i).
-% base : génératrice + L.I.
-% base de Rn a exactement n vecteurs
+
 
 \prop{}{
 	Soit $M\in\R^{n \times n}$ une matrice où $n\in\N^*$.
@@ -56,6 +54,14 @@
 \pf{}{
 	todo
 }
+
+% LA II :
+% famille génératrice
+% expression Im(A) = { Ax }_x
+% expression Vect(v_i) = span(v_i).
+% base : génératrice + L.I.
+% base de Rn a exactement n vecteurs
+
 
 \section{Résolution de système linéaire : matrice augmentée}
 
