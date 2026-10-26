@@ -1920,4 +1920,180 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% SET 6 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\exe{}{
+	Considérons le système d'équations suivant.
+		\[ \systeme[sort={x,y,z,t}]{3x+2y-6z = 1, \\ y+2t = 2, \\ z+t=1.} \]
+	\begin{enumerate}
+		\item
+		Écrire le système sous la forme $AX = b$ avec $A\in\R^{3\times4}$, $b\in\R^3$ et $X=\begin{pmatrix}x&y&z&t\end{pmatrix}^T \in\R^4$ le vecteur d'inconnues.
+		\item
+		Donner le pivot de chaque ligne de la matrice $A$.
+		\item
+		Est-ce que la matrice $A$ est échelonnée en lignes ? Justifier.
+		\item
+		Calculer l'ensemble des solutions du système et l'interpréter géométriquement.
+	\end{enumerate}
+}{exe:systeme-echelonne1}{
+	\begin{enumerate}
+		\item
+		Par inspection, le système est équivalent à l'égalité matricielle $AX=b$, où
+		\begin{align*}
+			A = \begin{pmatrix} 3&2&-6&0 \\ 0&1&0&2\\0&0&1&1\end{pmatrix} && b=\begin{pmatrix}1\\2\\1\end{pmatrix}.
+		\end{align*}
+		\item
+		\begin{enumerate}[label=Ligne \arabic* : ]
+		 	\item le pivot est 3 (1er élément) ;
+		 	\item le pivot est 1 (2ème élément) ;
+		 	\item le pivot est 1 (3ème élément).
+		\end{enumerate}
+		\item
+		Pour qu'une matrice soit échelonnée en lignes, il faut que le nombre de zéros précédent le premier élément non nul (le pivot) augmente strictement de ligne en ligne.
+		Autrement dit, le pivot doit se décaler au moins d'une position vers la droite à chaque ligne.
+		
+		La matrice $A$ est donc échelonnée en lignes.
+		\item
+		En partant de la fin, l'équation 3 donne $z = 1-t$ avec $t$ variable libre.
+		
+		Puis, l'équation 2 donne $y = 2-2t$.
+		
+		Enfin, l'équation 1 donne $x = \frac{1-2y+6z}3 = \frac{1-2(2-2t)+6(1-t)}3 = \frac{5 -2t}3 = \frac53 - \frac23 t$.
+		
+		Il suit donc que
+			\[ \bigset{X \tq AX=b} = \left\{ \begin{pmatrix}\frac53 - \frac23 t \\ 2-2t \\ 1-t \\ t \end{pmatrix} | t\in\R \right\} = \begin{pmatrix}\frac53 \\ 2 \\ 1 \\ 0 \end{pmatrix} + \R \begin{pmatrix}\frac23 \\ -2 \\ -1 \\ 1 \end{pmatrix}, \]
+		la droite de $\R^4$ passant par $(\frac53;2;1;0)$ et dirigée par le vecteur $\begin{pmatrix}\frac23 \\ -2 \\ -1 \\ 1 \end{pmatrix}$.
+	\end{enumerate}
+}
+
+\exe{}{
+	Considérons le système d'équations suivant.
+		\[ \systeme[sort={x,y,z,t}]{-x+2y+t = 2, \\-z+t = 3.} \]
+	\begin{enumerate}
+		\item
+		Écrire le système sous la forme $AX = b$ avec $A\in\R^{2\times4}$, $b\in\R^2$ et $X=\begin{pmatrix}x&y&z&t\end{pmatrix}^T\in\R^4$ le vecteur d'inconnues.
+		\item
+		Est-ce que la matrice $A$ est échelonnée en lignes ? Justifier.
+		\item
+		Calculer l'ensemble des solutions du système et l'interpréter géométriquement.
+	\end{enumerate}
+}{exe:systeme-echelonne2}{
+	
+}
+
+\exe{}{
+	Considérons la matrice
+		\[ A = \begin{pmatrix} 0 & 0& 1 & 2 \\ 1 & 0 & 0 & 0 \\ 0 & -2 & 2 & 4 \end{pmatrix} \in \R^{3\times4}. \]
+	\begin{enumerate}
+		\item
+		Est-ce que la matrice $A$ est échelonnée en lignes ? Justifier.
+		\item
+		Soit $M\in\R^{3\times n}$ une matrice  quelconque ($n\in\N^*$).
+		Donner explicitement la matrice de permutation $P\in\R^{3\times3}$ qui, en multipliant $M$ par la gauche,
+		\begin{enumerate}
+			\item
+			envoie la ligne 1 de $M$ sur la ligne 3 de $PM$ ;
+			\item
+			envoie la ligne 2 de $M$ sur la ligne 1 de $PM$ ; et
+			\item
+			envoie la ligne 3 $M$ sur la ligne 2 de $PM$.
+		\end{enumerate}
+		\emph{Indication : prendre $M=I_3$ et utiliser que $PI_3 = P$.}
+		\item
+		Donner $PA$ sans justifier puis vérifier le résultat par produit matriciel.
+		\item
+		Est-ce que la matrice $PA$ est échelonnée par lignes ? Justifier.
+	\end{enumerate}
+}{exe:P-pi}{
+	\begin{enumerate}
+		\item
+		\begin{enumerate}[label=Ligne \arabic* : ]
+		 	\item le pivot est 1 (3ème élément) ;
+		 	\item le pivot est 1 (1er élément) ;
+		 	\item le pivot est $-2$ (2ème élément).
+		\end{enumerate}
+		Pour qu'une matrice soit échelonnée en lignes, il faut que le nombre de zéros précédent le premier élément non nul (le pivot) augmente strictement de ligne en ligne.
+		Autrement dit, le pivot doit se décaler au moins d'une position vers la droite à chaque ligne.
+		
+		La matrice $A$ n'est pas échelonnée en lignes car le pivot de la première ligne est après le pivot de la deuxième ligne.
+		\item
+			\[ P = PI_3 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}. \]
+		\item
+		En utilisant l'interprétation de $P$ comme permutation des lignes, nous avons immédiatement
+			\[ PA = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & -2 & 2 & 4 \\ 0 & 0 & 1 & 2 \end{pmatrix}. \]
+		Le calcul matriciel donne 
+			\[ PA = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0 & 0& 1 & 2 \\ 1 & 0 & 0 & 0 \\ 0 & -2 & 2 & 4 \end{pmatrix} \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & -2 & 2 & 4 \\ 0 & 0 & 1 & 2 \end{pmatrix}. \]
+		\item
+		Oui, la matrice $PA$ est échelonnée par lignes : le pivot se décale au moins d'une position vers la droite d'une ligne à l'autre.
+	\end{enumerate}
+}
+
+\exe{}{
+	Considérons la matrice
+		\[ A = \begin{pmatrix} 1 & 0& 1 & -2  \\ 0 & 1 & \frac12 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix} \in \R^{4\times4}. \]
+	\begin{enumerate}
+		\item
+		Interpréter la matrice $A$ comme produit de matrices d'opération élémentaire $G_{ij}(\lambda)$ : comment obtenir $A$ à partir de la matrice identité $I_4$ en faisant des opérations sur les lignes ?
+		\item
+		En déduire une matrice candidate pour l'inverse $A^{-1}$.
+		\item
+		Vérifier que la matrice trouvée est bien l'inverse de $A$ par calcul matriciel.
+		\item 
+		Calculer $A^{2026}$.
+	\end{enumerate}
+}{exe:G-ij-lambda-ex}{
+	\begin{enumerate}
+		\item
+		À partir de la matrice identité
+			\[ I_4 = \begin{pmatrix} 1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix}, \]
+		nous obtenons $A$ en faisant les opérations suivantes sur ses lignes :
+		\begin{enumerate}
+			\item
+			Ajouter la ligne 3 sur la ligne 1 ;
+			\item
+			Ajouter $-2$ fois la ligne 4 sur la ligne 1 ;
+			\item
+			Ajouter $\frac12$ fois la ligne 3 sur la ligne 2.
+		\end{enumerate}
+		Par conséquent, 
+			\[ A = G_{32}\left(\frac12\right) G_{41}(-2) G_{31}(1) I_4 = G_{32}\left(\frac12\right) G_{41}(-2) G_{31}(1). \]
+		Notons ici que l'ordre d'apparition des matrices n'importe pas car l'ordre des opérations n'importe pas : les lignes 3 et 4 agissent sur les lignes 1 et 2. 
+		Attention car ce n'est pas toujours le cas ; la ligne 3 pourrait s'ajouter à la ligne 2 qui s'ajouterait à la ligne 1 en cascade.
+		\item
+		Il s'agit de faire les opérations élémentaires inverses en sens inverse (de la fin vers le début).
+		L'inverse de « mettre son haut puis mettre sa veste » est « enlever sa veste puis enlever son haut ».
+		En fait, nous avons que $(ABC)^{-1} = C^{-1} B^{-1} A^{-1}$.
+			\[ A^{-1} = G_{31}(-1)G_{41}(2) G_{32}\left(-\frac12\right) = \begin{pmatrix}1&0&-1&2\\0&1&-\frac12&0\\0&0&1&0\\0&0&0&1\end{pmatrix} \]
+		\item
+		Il s'agit de vérifier que $A^{-1} A = AA^{-1} = I_4$ par calcul matriciel.
+		La première égalité est bien vraie car
+			\[ \begin{pmatrix}1&0&-1&2\\0&1&-\frac12&0\\0&0&1&0\\0&0&0&1\end{pmatrix}  \begin{pmatrix} 1 & 0& 1 & -2  \\ 0 & 1 & \frac12 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix} I_4. \]
+		L'autre égalité est analogue.
+		\item 
+		En appliquant les opérations $n$ fois,
+		nous obtenons $A^n$ en faisant les opérations suivantes sur ses lignes :
+		\begin{enumerate}
+			\item
+			Ajouter $n$ fois la ligne 3 sur la ligne 1 ;
+			\item
+			Ajouter $-2n$ fois la ligne 4 sur la ligne 1 ;
+			\item
+			Ajouter $\frac12n$ fois la ligne 3 sur la ligne 2.
+		\end{enumerate}
+		D'où 
+			\[ A^n = \begin{pmatrix} 1&0&n&-2n\\0&1&\frac12n&0\\0&0&1&0\\0&0&0&1\end{pmatrix}. \]
+		En particulier, 
+			\[ A^{2026} = \begin{pmatrix} 1&0&2026&-4052 \\0&1&1013&0\\0&0&1&0\\0&0&0&1\end{pmatrix}. \]
+	\end{enumerate}
+}
+
+
+
+
+
+
+
+
 
