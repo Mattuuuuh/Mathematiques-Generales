@@ -1272,4 +1272,83 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 6 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\exe{}{
+	Considérons la {suite de Fibonacci} $(F_n)_{n \geq 0}$ définie récursivement par 
+		\begin{align*} F_0 = 0, && F_1 = 1, && F_{n+2} = F_{n+1} + F_{n} \quad (n \geq 0). \end{align*}
+	Posons $F$ la fonction génératrice suivante.
+		\[ F(x) = \sum_{n=0}^{\infty} F_n x^n = F_0 + F_1 x + F_2 x^2 + F_3 x^3 + \dots \]
+	Nous admettons que $F$ converge absolument pour $x$ suffisamment petit.
+	
+	\begin{enumerate}
+		\item
+		Écrire les quatre premiers termes de $F$.
+		\item
+		Montrer que
+			\[ x^2 F(x) + x F(x) = F(x) - x \]
+		et en déduire que $F(x) = \frac{x}{1-x-x^2}$.
+		\item
+		Posons $\phi = \frac{1+\sqrt5}2$ le nombre d'or et $\overline{\phi} = \frac{1-\sqrt5}2$ son conjugué.
+		Montrer que
+			\[ F(x) = \frac{1}{\sqrt5} \left( \frac1{1-\phi x} - \frac1{1-\overline{\phi}x} \right). \]
+		\emph{Indication : calculer et simplifier d'abord $\phi+\overline{\phi}$ et $\phi \cdot \overline{\phi}$ comme résultats préliminaires.}
+		\item
+		En utilisant que, pour $|z|<1$,
+			\[ \frac{1}{1-z} = \sum_{n=0}^{\infty}z^n, \]
+		montrer, à l'aide de la question précédente, que
+			\[ F_n = \frac{\phi^{n} - (\overline{\phi})^{n}}{\sqrt5}. \]
+		\item
+		Conclure que $F_n$ est l'entier le plus proche de $\frac{\phi^n}{\sqrt5}$ pour tout $n$ suffisamment grand.
+	\end{enumerate}
+}{exe:1}{
+	\begin{enumerate}
+		\item
+		Nous avons $F(x) = F_0 + F_1x + F_2x^2 + F_3x^3 + \dots = x + x^2 + 2x^3 + \dots$.
+	
+		\item
+		Le membre de gauche est égal à
+		\begin{align*}
+			x^2 F(x) + x F(x) &= \sum_{n=0}^{\infty} F_n x^{n+2} + \sum_{m=0}^{\infty} F_mx^{m+1} \\
+				&= \sum_{n=0}^{\infty} F_n x^{n+2} + F_0 x + \sum_{m=0}^{\infty} F_{m+1} x^{m+2} \\
+				&= \sum_{n=0}^{\infty} (F_n + F_{n+1}) x^{n+2} \\
+				&= \sum_{n=0}^{\infty} F_{n+2}x^{n+2} \\
+				&= \sum_{n=0}^{\infty} F_n x^n - F_0 - F_1x \\
+				&= F(x) - x
+		\end{align*}
+		En regroupant les termes en $F(x)$, nous obtenons $F(x) (1 - x - x^2) = x$.
+		Diviser par $1-x-x^2$ conclut.
+		
+		\item
+		Le membre de droite est égal à
+		\begin{align*}
+			 \frac{1}{\sqrt5} \left( \frac1{1-\phi x} - \frac1{1-\overline{\phi}x} \right) &= 
+			 \frac{1}{\sqrt5} \frac{1-\overline{\phi}x - (1-\phi x)}{(1-\phi x)(1-\overline{\phi}x)}  \\
+			 &= \frac{1}{\sqrt5} \frac{(\phi-\overline{\phi})x}{1 - (\phi + \overline{\phi})x + \phi\overline{\phi} x^2}  \\
+			 &= \frac{1}{\sqrt5} \frac{\sqrt5x}{1 -x - x^2}  \\
+			 &= \frac{1}{1-x-x^2} \\
+			 &= F(x)
+		\end{align*}
+		
+		\item
+		D'après la question précédente,
+		\begin{align*}
+			F(x) &= \frac{1}{\sqrt5} \left( \frac1{1-\phi x} - \frac1{1-\overline{\phi}x} \right) \\
+			&= \frac{1}{\sqrt5} \left( \sum_{n=0}^{\infty} (\phi x)^n - (\overline{\phi} x)^n \right) \\
+			&= \frac{1}{\sqrt5} \sum_{n=0}^{\infty} \left[\phi^n - \overline{\phi}^n \right] x^n \\
+			&= \sum_{n=0}^{\infty} \frac{\phi^n - \overline{\phi}^n}{\sqrt5} x^{n}
+		\end{align*}
+		d'où $F_{n} = \frac{\phi^n - \overline{\phi}^n}{\sqrt5}$.
+	
+		\item
+		Comme $|\overline{\phi}| < 1$ par inspection, le terme $\overline{\phi}^n$ tend vers zéro lorsque $n$ tend vers l'infini.
+		Par conséquent, $F_n \approx \phi^n / \sqrt5$.
+	\end{enumerate}
+}
+
+
+
 
