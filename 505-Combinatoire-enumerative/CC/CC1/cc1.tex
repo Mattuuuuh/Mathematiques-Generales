@@ -1,0 +1,247 @@
+\input{../../../preamble-CC.tex}
+
+\usepackage{minted}
+
+\SetDate[26/10/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\fancyhead[C]{\textbf{MG505 --- Contrôle Continu 2}}
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	%\item
+	%Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\hrule 
+
+\marginpar{[pts]}
+
+\exe{7}{
+	Considérons la {suite de Fibonacci} $(F_n)_{n \geq 0}$ définie récursivement par 
+		\begin{align*} F_0 = 0, && F_1 = 1, && F_{n+2} = F_{n+1} + F_{n} \quad (n \geq 0). \end{align*}
+	Posons $F$ la fonction génératrice suivante.
+		\[ F(x) = \sum_{n=0}^{\infty} F_n x^n = F_0 + F_1 x + F_2 x^2 + F_3 x^3 + \dots \]
+	Nous admettons que $F$ converge absolument pour $x$ suffisamment petit.
+	
+	\begin{enumerate}
+		\item
+		Écrire les quatre premiers termes de $F$.
+		\item
+		Montrer que
+			\[ x^2 F(x) + x F(x) = F(x) - x \]
+		et en déduire que $F(x) = \frac{x}{1-x-x^2}$.
+		\item
+		Posons $\phi = \frac{1+\sqrt5}2$ le nombre d'or et $\overline{\phi} = \frac{1-\sqrt5}2$ son conjugué.
+		Montrer que
+			\[ F(x) = \frac{1}{\sqrt5} \left( \frac1{1-\phi x} - \frac1{1-\overline{\phi}x} \right). \]
+		\emph{Indication : calculer et simplifier d'abord $\phi+\overline{\phi}$ et $\phi \cdot \overline{\phi}$ comme résultats préliminaires.}
+		\item
+		En utilisant que, pour $|z|<1$,
+			\[ \frac{1}{1-z} = \sum_{n=0}^{\infty}z^n, \]
+		montrer, à l'aide de la question précédente, que
+			\[ F_n = \frac{\phi^{n} - (\overline{\phi})^{n}}{\sqrt5}. \]
+		\item
+		Conclure que $F_n$ est l'entier le plus proche de $\frac{\phi^n}{\sqrt5}$ pour tout $n$ suffisamment grand.
+	\end{enumerate}
+}{exe:1}{
+	\begin{enumerate}
+		\item
+		Nous avons $F(x) = F_0 + F_1x + F_2x^2 + F_3x^3 + \dots = x + x^2 + 2x^3 + \dots$.
+	
+		\item
+		Le membre de gauche est égal à
+		\begin{align*}
+			x^2 F(x) + x F(x) &= \sum_{n=0}^{\infty} F_n x^{n+2} + \sum_{m=0}^{\infty} F_mx^{m+1} \\
+				&= \sum_{n=0}^{\infty} F_n x^{n+2} + F_0 x + \sum_{m=0}^{\infty} F_{m+1} x^{m+2} \\
+				&= \sum_{n=0}^{\infty} (F_n + F_{n+1}) x^{n+2} \\
+				&= \sum_{n=0}^{\infty} F_{n+2}x^{n+2} \\
+				&= \sum_{n=0}^{\infty} F_n x^n - F_0 - F_1x \\
+				&= F(x) - x
+		\end{align*}
+		En regroupant les termes en $F(x)$, nous obtenons $F(x) (1 - x - x^2) = x$.
+		Diviser par $1-x-x^2$ conclut.
+		
+		\item
+		Le membre de droite est égal à
+		\begin{align*}
+			 \frac{1}{\sqrt5} \left( \frac1{1-\phi x} - \frac1{1-\overline{\phi}x} \right) &= 
+			 \frac{1}{\sqrt5} \frac{1-\overline{\phi}x - (1-\phi x)}{(1-\phi x)(1-\overline{\phi}x)}  \\
+			 &= \frac{1}{\sqrt5} \frac{(\phi-\overline{\phi})x}{1 - (\phi + \overline{\phi})x + \phi\overline{\phi} x^2}  \\
+			 &= \frac{1}{\sqrt5} \frac{\sqrt5x}{1 -x - x^2}  \\
+			 &= \frac{1}{1-x-x^2} \\
+			 &= F(x)
+		\end{align*}
+		
+		\item
+		D'après la question précédente,
+		\begin{align*}
+			F(x) &= \frac{1}{\sqrt5} \left( \frac1{1-\phi x} - \frac1{1-\overline{\phi}x} \right) \\
+			&= \frac{1}{\sqrt5} \left( \sum_{n=0}^{\infty} (\phi x)^n - (\overline{\phi} x)^n \right) \\
+			&= \frac{1}{\sqrt5} \sum_{n=0}^{\infty} \left[\phi^n - \overline{\phi}^n \right] x^n \\
+			&= \sum_{n=0}^{\infty} \frac{\phi^n - \overline{\phi}^n}{\sqrt5} x^{n}
+		\end{align*}
+		d'où $F_{n} = \frac{\phi^n - \overline{\phi}^n}{\sqrt5}$.
+	
+		\item
+		Comme $|\overline{\phi}| < 1$ par inspection, le terme $\overline{\phi}^n$ tend vers zéro lorsque $n$ tend vers l'infini.
+		Par conséquent, $F_n \approx \phi^n / \sqrt5$.
+	\end{enumerate}
+}
+
+%\fillwithlines{4cm}
+
+
+
+\exe{3}{
+	Cent personnes souhaitent participer à une compétition amicale de football à huit équipes.
+	
+	Justifier que, parmi ces équipes, l'une devra nécessairement contenir strictement plus de onze joueurs.
+}{exe:4}{
+	Supposons, par contradiction, qu'aucune équipe ne contienne plus de onze personnes.
+	Alors $8\times11 = 88 < 100$ et les cent personnes ne font pas toutes partie d'une équipe.
+}
+
+\newpage
+
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+	\python{incl-excl}
+\end{subfigure}
+\caption{Figure de l'exercice \ref{exe:2}.}
+\label{fig:2}
+\end{figure}
+
+
+
+\exe{6}{
+	Nous cherchons à compter $N$, le nombre d'entiers entre $1$ et $1~000$ inclus qui sont divisibles
+	\begin{itemize}	[leftmargin=50pt]
+		\item
+		par 2 ; ou
+		\item
+		par 5 ; ou
+		\item
+		par 11.
+	\end{itemize}
+	\begin{enumerate}
+		\item
+		Réécrire les lignes 7 et 9 de la fonction Python figure \ref{fig:2} permettant de répondre à cette question en complétant les espaces vides (\_\_\_\_).
+		
+		Rappel : en Python, l'expression \texttt{a\%b} calcule le reste de la division euclidienne de \texttt{a} par \texttt{b}. Par exemple, \texttt{13\%3} vaut 1 et \texttt{22\%11} vaut 0.
+		\item
+		Donner la valeur de $N$ en la calculant à la main.
+	\end{enumerate}
+}{exe:2}{
+	\begin{enumerate}
+		\item
+		
+		Ligne 7 : \texttt{if n\%2 == 0 or n\%5 == 0 or n\%11 == 0:}
+		
+		Ligne 9 : \texttt{N = N+1}
+		\item
+		Nous utilisons le principe d'inclusion-exclusion pour calculer $|M_2 \cup M_5 \cup M_{11}|$ où $M_n$ est le nombre de multiple de $n$ entre 1 et 1 000.
+		
+		Nous calculons
+		\begin{enumerate}
+			\item
+			$|M_2| = 500$
+			\item
+			$|M_5| = 200$
+			\item
+			$|M_{11}|=90$
+			\item
+			$|M_2\cap M_5| = |M_{10}| = 100$
+			\item
+			$|M_2\cap M_{11}| = |M_{22}| = 45$
+			\item
+			$|M_5\cap M_{11}| = |M_{55}| = 18$
+			\item
+			$|M_2\cap M_5\cap M_{11}| = |M_{110}| = 9$
+		\end{enumerate}
+		Par conséquent,
+			\[ |M_2 \cup M_5 \cup M_{11}| = 500+200+90 - 100 - 45 -18 + 9 = 790 - 163 + 9 = 636. \]
+	\end{enumerate}
+
+}
+
+
+\begin{figure}
+\begin{subfigure}{.5\textwidth}
+\centering
+\begin{tikzpicture}[scale=.8]
+	\foreach \i in {0, ..., 8}{
+		\draw (\i,0) -- (\i,6);
+	}
+	\foreach \j in {0, ..., 6}{
+		\draw (0,\j) -- (8,\j);
+	}
+	
+	\draw[<-] (.4,.5) arc[start angle=-90, end angle=-155, radius=.75cm] node[above left=-7pt] {Départ};
+	\draw[<-] (7.6,5.5) arc[start angle=90, end angle=25, radius=.75cm] node[below right=-6pt] {Arrivée};
+\end{tikzpicture}
+\caption{Échiquier $6\times8$.}
+\label{fig:1a}
+\end{subfigure}
+\hspace{10pt}
+\begin{subfigure}{.5\textwidth}
+\centering
+\begin{tikzpicture}[scale=.8]
+	\foreach \i in {0, ..., 8}{
+		\draw (\i,0) -- (\i,6);
+	}
+	\foreach \j in {0, ..., 6}{
+		\draw (0,\j) -- (8,\j);
+	}
+	\draw[thick] (.75,.5) -- (5.5, .5) -- (5.5, 1.5) -- (7.5, 1.5) -- (7.5, 5.25);
+	\draw[thick, dashed] (.5,.75) -- (.5, 1.5) -- (1.5, 1.5) -- (2.5, 1.5) -- (2.5, 2.5) -- (2.5 ,3.5) -- (3.5, 3.5) -- (3.5, 5.5) -- (7.25, 5.5);
+\end{tikzpicture}
+\caption{Deux façons différentes d'atteindre l'arrivée.}
+\label{fig:1b}
+\end{subfigure}
+\caption{Figure de l'exercice \ref{exe:3}.}
+\label{fig:3}
+\end{figure}
+
+
+\exe{4}{
+	On pose un pion sur la case inférieure gauche d'un plateau rectangulaire $6\times8$, comme décrit par la figure \ref{fig:3}.
+	
+	On déplace le pion de case en case afin d'atteindre la case supérieure droite.
+	Le pion peut soit se déplacer d'une case vers le haut, soit d'une case vers la droite. 
+	Un déplacement vers le bas ou vers la gauche est interdit, et
+	il est donc impossible de faire une boucle.
+	
+	En combien de façons différentes le pion a-t-il pour atteindre la case supérieure droite ?
+	%
+	Un nombre binomial de la forme $n \choose k$ est attendu.
+}{exe:3}{
+	Un chemin correspond à un unique mot de 7 « D » et 5 « H » correspondant aux mouvements (Droite ou Haut) du pion.
+	Il existe donc ${12 \choose 7} = {12 \choose 5}$ mots différents et donc chemins différents que le pion peut prendre.
+}
+
+
+
+
+
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
