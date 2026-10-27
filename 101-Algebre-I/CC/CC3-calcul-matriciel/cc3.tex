@@ -1,0 +1,116 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[27/10/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+
+\begin{document}
+\fancyhead[C]{\textbf{MG101 --- Contrôle Continu 3}}
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	%\item
+	%Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\hrule 
+
+\marginpar{[pts]}
+
+\vspace{10pt}
+
+Dans tout l'examen, nous considérons les cinq matrices à coefficients réels
+\begin{align*}
+	A = \begin{pmatrix} 1 & 0 & 2 \\ -1 & -1 & 1 \end{pmatrix}, && B = \begin{pmatrix} 2&3&2\\4&2&3\\9&6&7 \end{pmatrix}, && C = \begin{pmatrix} -4&-9&5\\-1&-4&2\\6&15&-8 \end{pmatrix}, && v = \begin{pmatrix}2\\-1\\0\end{pmatrix}, && \et && X =\begin{pmatrix}x\\y\\z\end{pmatrix}.
+\end{align*}
+
+\exe{2}{
+	Donner sans justifier
+	\begin{enumerate}
+		\item
+		la taille de la matrice $A$ ; et
+		\item
+		la valeur de $A_{21}$.
+	\end{enumerate}
+}{exe:1}{
+	\begin{enumerate}
+		\item
+		La matrice $A$ est de taille $2\times3$.
+		\item
+		Nous lisons $A_{21} = -1$.
+	\end{enumerate}
+}
+
+\fillwithlines{2cm}
+
+
+\exe{4}{
+	Calculer $AB$.
+}{exe:2}{
+	Par calcul matriciel, nous obtenons
+		\[ AB = \begin{pmatrix} 1 & 0 & 2 \\ -1 & -1 & 1 \end{pmatrix} \begin{pmatrix} 2&3&2\\4&2&3\\9&6&7 \end{pmatrix} =  \begin{pmatrix} 20&15&16\\3&1&2\end{pmatrix}. \]
+}
+
+\fillwithlines{8cm}
+
+
+\exe{2}{
+	Donner $A^T$ sans justifier.
+}{exe:3}{
+	Par définition,
+		\[ A^T =  \begin{pmatrix} 1 & 0 & 2 \\ -1 & -1 & 1 \end{pmatrix}^T =  \begin{pmatrix} 1& -1 \\ 0&-1 \\ 2&1 \end{pmatrix}. \]
+}
+
+\fillwithlines{6cm}
+
+\newpage
+
+\exe{6}{
+	Démontrer que $B^{-1} = C$.
+}{exe:4}{
+	Il s'agit de vérifier que $BC$ et $CB$ sont toutes deux égales à $I_3 = \begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}$.
+	
+	D'une part,
+		\[ BC = \begin{pmatrix} 2&3&2\\4&2&3\\9&6&7 \end{pmatrix} \begin{pmatrix} -4&-9&5\\-1&-4&2\\6&15&-8 \end{pmatrix} = \begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix} = I_3. \]
+	D'autre part,
+		\[ CB = \begin{pmatrix} -4&-9&5\\-1&-4&2\\6&15&-8 \end{pmatrix}\begin{pmatrix} 2&3&2\\4&2&3\\9&6&7 \end{pmatrix}  = \begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix} = I_3. \]
+}
+
+\fillwithlines{10cm}
+
+
+\exe{6}{
+	Écrire l'équation matricielle $BX = v$ sous forme d'un système d'équations et donner la solution $X$ du système à l'aide de la relation $B^{-1} = C$.
+}{exe:5}{
+	L'équation $BX=v$ est équivalente au système suivant.
+		\[ \systeme{2x+3y+2z=2, \\ 4x+2y+3z=-1, \\ 9x+6y+7z=0.} \]
+	Comme $C$ est la matrice inverse de $B$, nous pouvons écrire
+		\[ BX=v \iff C(BX) = Cv \iff (CB)X = Cv \iff I_3X = Cv \iff X = Cv \]
+	en utilisant l'associativité de la multiplication matricielle.
+	
+	Il suit donc que
+		\[ X = Cv = \begin{pmatrix} -4&-9&5\\-1&-4&2\\6&15&-8 \end{pmatrix} \begin{pmatrix}2\\-1\\0\end{pmatrix} =  \begin{pmatrix}1\\2\\-3\end{pmatrix}. \]
+	Autrement dit, $(x;y;z) = (1;2;-3)$ est l'unique solution du système ci-dessus.
+}
+
+\fillwithlines{12cm}
+
+
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
