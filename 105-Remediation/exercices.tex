@@ -3033,10 +3033,10 @@
 	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, y=25pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, x=55pt]
 		
 		% (g)
-		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5}  node[right] {$\C_g$};
+		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5}  node[right] {$\Ccal_g$};
 		
 		% (f)
-		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_f$};
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\Ccal_f$};
 	\end{axis}
 	\end{tikzpicture}
 	
@@ -3058,10 +3058,10 @@
 	\begin{axis}[xmin = -3, xmax=3, ymin=-2.5, ymax=3.5, y=25pt, axis x line=middle, axis y line=middle, axis line style=->, xlabel={}, ylabel={}, xtick = {-4, -3, ..., 4}, ytick = {-4, -3, ..., 4}, grid=both, x=55pt]
 		
 		% (g)
-		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5}  node[right] {$\C_g$};
+		\addplot[RED_E, very thick, domain =-3:3, samples=50] {(x+2.5)*x*(x-3)/5}  node[right] {$\Ccal_g$};
 		
 		% (f)
-		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\C_f$};
+		\addplot[BLUE_E, very thick, domain =-3:3, samples=50] {6*exp(-x^2/5)-2.7}  node[right] {$\Ccal_f$};
 	\end{axis}
 	\end{tikzpicture}
 	
@@ -3393,6 +3393,8 @@
 %%%%%%%%%% SET 10 %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%% 
 
+% TAKEN FROM SAMOYEAU
+% THANK YOU
 
 \exe{}{
 	Déterminer les limites suivantes si elles existent.
@@ -3651,6 +3653,288 @@
 }
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 11 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% exe:der{7,8} TAKEN FROM SAMOYEAU
+% THANK YOU
+
+
+\exe{}{
+	Soient $f, g$ deux fonctions dérivables sur $\R$, $n\in\Z^*$ un entier relatif non nul, et $c\in\R$ une constante.
+	Alors
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		$(c)' = $
+		\item
+		$(f+g)' =$
+		\item
+		$(c \cdot f)' = $
+		\item
+		$(f\cdot g)' = $
+		\item
+		$\left(\frac{f}{g} \right)' =$
+		\item
+		$\left( f^n \right)' =$
+		\item
+		$(f \circ g)' = $
+	\end{enumerate}
+	\end{multicols}
+}{exe:der1}{}
+
+\exe{}{
+	Donner la dérivée des fonctions suivantes sur leur ensemble de définition.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		$(1)' = $ 
+		\item
+		$(x)' = $
+		\item
+		$\left(x^2\right)' = $
+		\item
+		$\left(x^3\right)' = $
+		\item
+		$\left(x^{-1}\right)' = $
+		\item
+		$\left(x^{-2}\right)' = $
+		\item
+		$\left(x^{-3}\right)' = $
+		\item
+		$\left(x^n\right)' =$
+		\item
+		$\left(\sqrt{x}\right)' = $
+		\item
+		$\left(x^{1/3}\right)' = $
+		\item
+		$\left(x^{-1/2}\right)' = $
+		\item
+		$\left(x^{-5/4}\right)' = $
+	\end{enumerate}
+	\end{multicols}
+}{exe:der2}{}
+
+\exe{}{
+	Donner la dérivée des fonctions suivantes sur leur ensemble de définition.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		$\left(e^x\right)' = $
+		\item
+		$\left(\ln(x)\right)' = $
+		\item
+		$\left(\cos(x)\right)' = $
+		\item
+		$\left(\sin(x)\right)' = $
+	\end{enumerate}
+	\end{multicols}
+}{exe:der3}{}
+
+\exe{}{
+	Montrer que $\tan(x) = \frac{\sin(x)}{\cos(x)}$ vérifie 
+		\[ \tan'(x) = \frac1{\cos^2(x)} \]
+	et en déduire le sens de variation de $\tan$ sur $\left]\frac{-\pi}2 ; \frac{\pi}2\right[$.
+}{exe:der4}{}
+
+\exe{}{
+	Soit $f$ une fonction bijective et dérivable sur $\R$ dont la dérivée ne s'annule jamais. 
+	Notons $f^{-1}$ sa fonction inverse qui vérifie $f\circ f^{-1} = f^{-1} \circ f = \id$.
+	(À ne pas confondre avec $\frac1f$ !)
+	
+	Montrer que
+		\[ \left( f^{-1} \right)' = \frac1{f'\left(f^{-1}(x)\right)}. \]
+}{exe:der5}{}
+
+\exe{}{
+	Montrer que 
+		\[ \arctan'(x) = \frac1{x^2 + 1} \]
+	sur $\R$.
+}{exe:der6}{}
+
+\exe{}{
+	Dériver les fonctions suivantes en donnant l'ensemble de dérivabilité.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $f(x)= \cos(3x+2)$
+		\item $f(x)= \exp(-3x^3+2)$
+		\item $f(x)= \sqrt{x^4+6}$
+		\item $f(x)= \ln(x^2+1)$
+		\item $f(x)= (3x^2-4x+1)^6$
+		\item $f(x)= (\cos(x))^5$
+		\item $f(x)= \exp(\sin(x))$
+		\item $f(x)= \sqrt{\dfrac{2x}{2-x}}$
+		\item $f(x)= \dfrac{2}{\sqrt{1-x}}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:der7}{}
+
+\exe{}{
+	Considérons la fonction $f$ donnée graphiquement ci-dessous.
+	\begin{enumerate}
+		\item 
+		Quel est le signe de $f(2)$ ?
+		\item 
+		Quel est le signe de $f'(2)$ ?
+		\item 
+		Donner approximativement la valeur de $f'(3)$.
+		\item
+		La tangente à $\Ccal_f$ en $x=1$ a pour équation $y=8,3-4,4x$.
+		En déduire la valeur de $f'(1)$.
+	\end{enumerate}
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin=-1, xmax=4, ymin=-6, ymax=6, axis x line=middle, axis y line=middle, axis line style=-, grid=both, xtick distance = 1, minor tick num = 1, clip=false]
+		\addplot[BLUE_E, very thick, domain=-1:4, samples=100] {(x-.05+.75)*(x-.05-1.5)*(x-.05-4)+1}  node[right] {$\Ccal_{f}$};
+		\addplot[RED_E, <->, thick, domain=.5:1.75, samples=2, xshift=.5pt, yshift=.5pt] {8.29425-4.4425*x}  node[pos=0, right] {$y = 8,3 - 4,4x$};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:der9}{
+	\begin{enumerate}
+		\item 
+		En se plaçant en $x=2$, on lit $f(2) \approx -1,5$ et donc que
+		$f(2)$ est négatif.
+		\item 
+		En $x=2$, la courbe descend et $f$ est décroissante.
+		D'après le cours, $f'(2) < 0$.
+		\item 
+		En $x=3$, la tangente à la courbe est horizontale, son coefficient directeur est donc nul.
+		On en déduit que $f'(3) \approx 0$.
+		
+		Une autre façon d'obtenir le résultat est de la façon suivante :
+		autour de $x=3$, la fonction $f$ passe de décroissante à croissante.
+		Le signe de $f'(x)$ est donc négatif puis positif, et passe donc nécessairement par 0.
+		\item
+		$f'(1)$ est, par définition, le coefficient directeur de la tangente à $\Ccal_f$ en $x=1$.
+		Cette tangente a pour équation $y=8,3-4,4x = -4,4 \times x + 8,3 = ax+b$, avec $a=-4,4$ et $b=8,3$.
+		Seul $a=-4,4$, le coefficient directeur, nous intéresse ici :
+			\[ f'(1) = -4,4. \]
+	\end{enumerate}
+}
+
+
+\exe{}{
+	Considérons un objet de position $f(t)$ et de vitesse $f'(t)$ aux temps $t \in \D = [0;3]$.
+	La courbe représentative de $f'$ est donnée ci-dessous.
+
+	\begin{enumerate}
+		\item Compléter le tableau de signes de $f'$ de variations de $f$.
+		\item Peut-on déduire le maximum et le minimum de $f$ sur $\D$ uniquement à l'aide de ses variations ?
+	\end{enumerate}
+
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=.9]
+	\begin{axis}[xmin=-.1, xmax=3, ymin=-4, ymax=4, axis x line=middle, axis y line=middle, axis line style=-, grid=both, xtick distance = 1, minor tick num = 1]
+		
+		% (f')
+		%\addplot[myr, very thick, domain =-2:3, samples=50] {(x+1)*x*(x-2)+.5}  node[pos = .77, right=2pt] {$\C_{f'}$};
+		\addplot[RED_E, very thick, domain=0:3, samples=50] {3*(x-1.5)^2 - 3}  node[pos = .23, above=15pt] {$\Ccal_{f'}$};
+	\end{axis}
+	\end{tikzpicture}
+	\hfill
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
+	       		{,,}
+	\end{tikzpicture}
+	\end{center}
+	\vfill\null
+}{exe:der10}{
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzTabInit
+		 %[lgt=3,espcl=1.5]
+	       		{$x$ / 1 , Signe de $f'(x)$ / 1, Variation de $f(x)$ / 2}
+	       		{0,{$0,5$},{$2,5$},3}
+		\tkzTabLine
+			{,+,z,-,z,+}
+		\tkzTabVar
+			{-/,+/,-/,+/}
+	\end{tikzpicture}
+	\end{center}
+	Nous pouvons déduire que le maximum se situe en $x=0,5$ ou en $x=3$ mais pas sa valeur sans connaître l'expression algébrique de $f$.
+	Idem pour le minimum, qui se situe en $x=0$ ou en $x=2,5$, sans valeur exacte.
+}
+
+\exe{}{
+	Étudier les variations de chaque fonction suivante.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		$f(x) = x^3-x^2-x$
+		\item
+		$g(x) = e^x (3x^2-2x+1)$
+		\item
+		$h(x) = x^3-3x+1$
+		\item
+		$k(x) = \dfrac{x+1}{2x-4}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:der8}{}
+
+\exe{}{
+	Considérons la fonction $f$ du troisième degré définie sur le domaine $\D=\left[0;5\right]$ :
+		\[ f(x) = x^3 - 6x^2 + 9x-5. \]
+	%On connait $f'$, la dérivée de $f$, donnée par
+	%	\[ f'(x) = 3x^2 - 12x + 9. \]
+	
+	\begin{enumerate}
+		\item Calculer $f'(x)$.
+		\item Montrer que $f'(x) = 3(x-1)(x-3)$.
+		\item Étudier les variations de $f$.
+		\item En déduire le maximum et le minimum de $f$ sur $\D$.
+		\item Tracer approximativement la courbe représentative $\Ccal_f$ dans le repère ci-dessous.
+	\end{enumerate}
+	\begin{center}
+	\begin{tikzpicture}[scale=1]
+	\begin{axis}[
+		xmin = -.5, xmax=5.5,
+		ymin=-5.5, ymax=15.5,
+		axis x line=middle, 
+		axis y line=middle, 
+		axis line style=-,
+		grid = both, % xlabel={$x$}, ylabel={$f(x)$},
+		minor tick num = 1,
+	%xtick = {0, 0.2, ..., 1.4},
+	%ytick = {-1, -0.5, 0, .5, 1.5},
+	]
+	%\addplot[domain=.5:5, myb] {x^3 - 6*x^2 + 9*x-5};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:der11}{}
+
+\exe{}{
+	Considérons la fonction $f$ du troisième degré définie sur $\R$ :
+		\[ f(x) = 3 - 6x - 3x^2 - x^3. \]
+	%On connait $f'$, la dérivée de $f$, donnée par
+	%	\[ f'(x) = -3x^2 - 6x - 6. \]
+
+	\begin{enumerate}
+		\item Montrer que $f'(x) = -3 - 3(x+1)^2$.
+		\item Donner le minimum et le maximum de $f$ sur le domaine $[-3 ; 10]$.
+	\end{enumerate}
+
+}{exe:der12}{
+	\begin{enumerate}
+		\item
+		D'une part, $f'(x) = -6-6x-3x^2.$
+		D'autre part, 
+		 	\[ -3 - 3(x+1)^2 = -3 - 3\bigl[(x+1)(x+1)\bigr] = -3 - 3 \bigl[x^2 + x + x + 1 \bigr] = -3 - 3(x^2 + 2x + 1) = -3 -3x^2 -6x - 3 = f'(x). \]
+		\item $f'(x)$ est calculé en soustrayant un nombre au carré (nombre donc positif) à $-3$.
+		Ainsi, $f'(x)$ est toujours inférieur ou égal à $-3$ et est, en particulier, négatif.
+		$f$ est donc décroissante.
+		
+		Comme $f$ est décroissante, son maximum est $f(10) = 3-60+300-1000 = -(1060 - 303) = -757$.
+		Son minimum est $f(-3) = 3 + 18 - 27 + 27 = 21$.
+	\end{enumerate}
+}
 
 
 
