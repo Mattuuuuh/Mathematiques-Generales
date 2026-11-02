@@ -1280,31 +1280,53 @@
 \exe{}{
 	Considérons la {suite de Fibonacci} $(F_n)_{n \geq 0}$ définie récursivement par 
 		\begin{align*} F_0 = 0, && F_1 = 1, && F_{n+2} = F_{n+1} + F_{n} \quad (n \geq 0). \end{align*}
-	Posons $F$ la fonction génératrice suivante.
+	Posons $F$ la fonction génératrice suivante, où $x\in\R$.
 		\[ F(x) = \sum_{n=0}^{\infty} F_n x^n = F_0 + F_1 x + F_2 x^2 + F_3 x^3 + \dots \]
-	Nous admettons que $F$ converge absolument pour $x$ suffisamment petit.
-	
+	%Nous admettons que $F$ converge absolument pour $x$ suffisamment petit.
+	Nous étudions d'abord la suite de Fibonacci et la convergence de la série $F$.
 	\begin{enumerate}
 		\item
-		Écrire les quatre premiers termes de $F$.
+		Écrire les quatre premiers termes de la suite de Fibonacci.
+		\item
+		Combien d'opérations arithmétiques sur les nombres réels (addition, soustraction, multiplication, division) sont nécessaires pour calculer $F_{1024}$ ?
+		\item
+		Montrer que $F_n \leq 2^n$ pour tout $n\in\N$.
+		\item
+		En déduire un rayon $R>0$ tel que la série $F(x)$ converge absolument pour tout $|x|<R$.
+	\end{enumerate}
+	Les manipulations de sommes usuelles sont permises par la convergence absolue ($|x|<R$).
+	\begin{enumerate}[resume]
 		\item
 		Montrer que
 			\[ x^2 F(x) + x F(x) = F(x) - x \]
-		et en déduire que $F(x) = \frac{x}{1-x-x^2}$.
+		et en déduire que 
+			$F(x) = \frac{x}{1-x-x^2}.$
 		\item
-		Posons $\phi = \frac{1+\sqrt5}2$ le nombre d'or et $\overline{\phi} = \frac{1-\sqrt5}2$ son conjugué.
-		Montrer que
-			\[ F(x) = \frac{1}{\sqrt5} \left( \frac1{1-\phi x} - \frac1{1-\overline{\phi}x} \right). \]
-		\emph{Indication : calculer et simplifier d'abord $\phi+\overline{\phi}$ et $\phi \cdot \overline{\phi}$ comme résultats préliminaires.}
-		\item
-		En utilisant que, pour $|z|<1$,
-			\[ \frac{1}{1-z} = \sum_{n=0}^{\infty}z^n, \]
-		montrer, à l'aide de la question précédente, que
-			\[ F_n = \frac{\phi^{n} - (\overline{\phi})^{n}}{\sqrt5}. \]
-		\item
-		Conclure que $F_n$ est l'entier le plus proche de $\frac{\phi^n}{\sqrt5}$ pour tout $n$ suffisamment grand.
+		Trouver les nombres complexes $z_1, z_2, w\in\C$ tels que
+			\[ F(x) = w \left( \frac1{1-z_1 x} - \frac1{1-z_2x} \right). \]
+	%	pour tout $|x|<R$.
 	\end{enumerate}
-}{exe:1}{
+	La décomposition en éléments simples d'une fonction génératrice permet d'obtenir une expression fonctionnelle de ses coefficients grâce aux résultats classiques suivants.
+	\begin{enumerate}[resume]
+		\item
+		Démontrer que, pour $|t|<1$,
+			\[ \frac{1}{1-t} = \sum_{n=0}^{\infty}t^n. \]
+		\item
+		Montrer que l'égalité des séries absolument convergentes de rayon de convergence non nul $\sum_{n=0}^{\infty} a_k x^k = \sum_{n=0}^{\infty} b_k x^k$ implique $a_n = b_n$ pour tout $n\in\N$.
+	\end{enumerate}
+	Nous concluons à l'aide de la décomposition en éléments simples de $F(x)$.
+	\begin{enumerate}[resume]
+		\item
+		Montrer, à l'aide des questions précédentes, que le $n$-ième nombre de Fibonacci est égal à
+		\begin{align*}
+			F_n = \frac{\phi^{n} - (\overline{\phi})^{n}}{\sqrt5} && \text{où } \phi = \frac{1+\sqrt5}2 \et \overline{\phi} = \frac{1-\sqrt5}2.
+		\end{align*}
+		\item
+		En déduire que $F_n$ est l'entier le plus proche de $\frac{\phi^n}{\sqrt5}$ pour tout $n$ suffisamment grand.
+		\item
+		Combien d'opérations arithmétiques sur les nombres réels (addition, soustraction, multiplication, division) sont nécessaires pour calculer $F_{1024}$ ?
+	\end{enumerate}
+}{exe:Fibo}{
 	\begin{enumerate}
 		\item
 		Nous avons $F(x) = F_0 + F_1x + F_2x^2 + F_3x^3 + \dots = x + x^2 + 2x^3 + \dots$.
@@ -1349,6 +1371,22 @@
 	\end{enumerate}
 }
 
+\exe{}{
+	Justifier simplement qu'une suite $(G_n)_{n\geq0}$ définie récursivement par $aG_{n+2} = bG_{n+1} + cG_{n}$,
+	où $a, b, c\in\R$ sont trois nombres réels, prend une des deux formes suivantes.
+	\begin{enumerate}
+		\item 
+		Si $b^2 - 4ac \neq 0$, alors
+			\[ G_n = \alpha z_1^n + \beta z_2^n, \]
+		où $\alpha, \beta\in\C$ et $z_1, z_2\in\C$ sont les racines du polynôme $az^2 + bz + c$.
+		\item
+		Si $b^2 - 4ac = 0$, alors
+			\[ G_n = \alpha z^n + \beta n z^n, \]
+		où $\alpha, \beta\in\C$ et $z\in\C$ est l'unique racine du polynôme $az^2 + bz + c$.
+	\end{enumerate}
+}{exe:Fibo-gen}{
+
+}
 
 
 
