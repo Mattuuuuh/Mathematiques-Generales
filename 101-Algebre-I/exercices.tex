@@ -1980,7 +1980,7 @@
 		Calculer l'ensemble des solutions du système et l'interpréter géométriquement.
 	\end{enumerate}
 }{exe:systeme-echelonne2}{
-	
+	En classe.
 }
 
 \exe{}{
@@ -2089,6 +2089,164 @@
 	\end{enumerate}
 }
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SET 7 %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\exe{}{
+	Considérons $P_1, P_2, P_3 \in \R^{n\times n}$ trois opérations élémentaires inversibles.
+	Montrer que le produit 
+		\[ P_3 P_2 P_1 \]
+	est inversible en donnant son inverse.
+}{exe:el-op-comp}{
+	L'inverse est donné par $P_1^{-1}P_2^{-1}P_3^{-1}$, ce qui se vérifie en calculant
+		\[ (P_3 P_2 P_1)(P_1^{-1}P_2^{-1}P_3^{-1}) = I_n \]
+	et 
+		\[ (P_1^{-1}P_2^{-1}P_3^{-1})(P_3 P_2 P_1) = I_n \]
+	en utilisant l'associativité de la multiplication matricielle.
+	
+	\underline{Interprétation.}
+	
+	En appliquant trois opérations élémentaires inversibles les unes à la suites des autres, $P_1$ puis $P_2$ puis $P_3$, il est possible de défaire les opérations en faisant les opérations inverses dans l'ordre inverse, $P_3^{-1}$ puis $P_2^{-1}$ puis $P_1^{-1}$.
+	
+	L'opération inverse de « je mets mon t-shirt, puis je mets mon pull ; puis je mets ma veste » est bien « je retire ma veste, puis je retire mon pull, puis je retire mon t-shirt ».
+	Les opérations inverses sont bien effectuées dans le sens inverse.
+	
+	Ce même principe s'applique lorsqu'on empile des documents.
+	Pour remplir la pile, on y dépose le document 1, puis le 2, puis le 3.
+	Pour vider la pile, on retire le document 3, puis le 2, puis le 1.
+}
+
+
+\exe{}{
+	Considérons la matrice $A = \begin{pmatrix} 0 & 3 \\ 4 & -1 \end{pmatrix}$.
+	\begin{enumerate}
+		\item
+		Calculer une matrice inversible $P$ telle que $PA$ soit une forme échelonnée en lignes de $A$.
+		
+		\emph{Indication : appliquer des opérations élémentaires sur la matrice $(A | I_2)\in\R^{2\times4}$ pour lire $P$.}
+		\item
+		Continuer les opérations élémentaire sur les lignes jusqu'à obtenir la matrice identité $I_2$.
+		\item
+		Conclure que $A$ est inversible en donnant son inverse. Vérifier que c'est bien son inverse à gauche et à droite.
+	\end{enumerate}
+}{exe:forme-ech-22-inv}{
+	\begin{enumerate}
+		\item
+		Il suffit de permuter les deux lignes pour obtenir une forme échelonnée en lignes.
+			\[ (A | I_2) = \begin{pmatrix} 0 & 3 & \bigm| & 1 & 0 \\ 4 & -1 & \bigm| & 0 & 1 \end{pmatrix}
+				~ \begin{pmatrix} 4 & -1 & \bigm| & 0 & 1 \\ 0 & 3 & \bigm| & 1 & 0 \end{pmatrix} \]
+		Donc
+			\[ PA = \begin{pmatrix} 0 & 1 \\ 1&0 \end{pmatrix} \]
+		\item
+		Divisons d'abord les lignes pour obtenir des pivots égaux à 1.
+			\[ (A | I_2)
+				~ \begin{pmatrix} 1 & -\frac14 & \bigm| & 0 & \frac14 \\ 0 & 1 & \bigm| & \frac13 & 0 \end{pmatrix} \]
+		Puis annulons le coefficient au-dessus du pivot ligne 2 pour obtenir $I_2$ en ajoutant $\frac14$ fois la ligne 2 à la ligne 1.
+			\[ (A | I_2)
+				~ \begin{pmatrix} 1 & 0& \bigm| & \frac1{12} & \frac14 \\ 0 & 1 & \bigm| & \frac13 & 0 \end{pmatrix} \]
+		\item
+		Il suit donc que $A^{-1} = \begin{pmatrix} \frac1{12} & \frac14 \\ \frac13 & 0 \end{pmatrix}$, ce que l'on vérifiera en calculant
+			\[ \begin{pmatrix} 0 & 3 \\ 4 & -1 \end{pmatrix}\begin{pmatrix} \frac1{12} & \frac14 \\ \frac13 & 0 \end{pmatrix} = \begin{pmatrix} 1&0\\0&1 \end{pmatrix} = I_2, \]
+		et 
+			\[\begin{pmatrix} \frac1{12} & \frac14 \\ \frac13 & 0 \end{pmatrix} \begin{pmatrix} 0 & 3 \\ 4 & -1 \end{pmatrix} = \begin{pmatrix} 1&0\\0&1 \end{pmatrix} = I_2. \]
+	\end{enumerate}
+}
+
+
+\exe{}{
+	Considérons la matrice $A = \begin{pmatrix} 2 & 2 & -1 \\ -3 & -3 & 2 \\ -1 & -2 & 1 \end{pmatrix}$.
+	
+	Appliquer l'algorithme du pivot de Gauss sur la matrice $(A | I_3)$ pour calculer une forme échelonnée de $A$.
+	
+	Continuer la procédure, cette fois-ci de bas en haut, en annulant les coefficients au-dessus des pivots, pour calculer l'inverse de $A$.
+}{exe:forme-ech-33-inv}{
+	Prenons la troisième ligne comme premier pivot pour simplifier les résultats : un pivot égal à 1 est plus agréable -- mais non nécessaire !
+	La permutation des lignes 1 et 2 donne
+		\[ (A | I_3) = \begin{pmatrix} 2 & 2 & -1 & \bigm| & 1 & 0 & 0 \\ -3 & -3 & 2 & \bigm| & 0 & 1 & 0 \\ -1 & -2 & 1 &\bigm| & 0 & 0 & 1 \end{pmatrix} \sim\begin{pmatrix} -1 & -2 & 1 &\bigm| & 0 & 0 & 1 \\ -3 & -3 & 2 & \bigm| & 0 & 1 & 0 \\ 2 & 2 & -1 & \bigm| & 1 & 0 & 0\end{pmatrix}. \]
+	Multiplions la première ligne par $-1$ pour avoir un pivot égal à 1.
+		\[ (A | I_3)  \sim\begin{pmatrix} 1 & 2 & -1 &\bigm| & 0 & 0 & -1 \\ -3 & -3 & 2 & \bigm| & 0 & 1 & 0 \\ 2 & 2 & -1 & \bigm| & 1 & 0 & 0\end{pmatrix} \]
+	Annulons désormais les coefficients sous le pivot ligne 1.
+	Il s'agit d'ajouter 3 fois la ligne 1 à la ligne 2, et $-2$ fois la ligne 1 à la ligne 3.
+		\[ (A | I_3)  \sim\begin{pmatrix} 1 & 2 & -1 &\bigm| & 0 & 0 & -1 \\ 0 & 3 & -1 & \bigm| & 0 & 1 & -3 \\ 0 & -2 & 1 & \bigm| & 1 & 0 & 2\end{pmatrix} \]
+	Divisons immédiatement la ligne 2 par $3$ pour avoir un pivot égal à 1 et continuer l'échelonnage.
+		\[ (A | I_3)  \sim\begin{pmatrix} 1 & 2 & -1 &\bigm| & 0 & 0 & -1 \\ 0 & 1 & -\frac13 & \bigm| & 0 & \frac13 & -1 \\ 0 & -2 & 1 & \bigm| & 1 & 0 & 2\end{pmatrix} \]
+	Ajoutons 2 fois la ligne 2 à la ligne 3 pour annuler le coefficient sous le pivot ligne 2.
+		\[ (A | I_3)  \sim\begin{pmatrix} 1 & 2 & -1 &\bigm| & 0 & 0 & -1 \\ 0 & 1 & -\frac13 & \bigm| & 0 & \frac13 & -1 \\ 0 & 0 & \frac13 & \bigm| & 1 & \frac23 & 0\end{pmatrix} \]
+	Multiplions la troisième ligne par $3$ pour avoir un pivot égal à 1.
+		\[ (A | I_3)  \sim\begin{pmatrix} 1 & 2 & -1 &\bigm| & 0 & 0 & -1 \\ 0 & 1 & -\frac13 & \bigm| & 0 & \frac13 & -1 \\ 0 & 0 & 1 & \bigm| & 3 & 2 & 0\end{pmatrix} \]
+	Maintenant que la matrice est en forme échelonnée, nous pouvons partir de la dernière ligne et annuler les coefficients au-dessus de chaque pivot.
+	En ajoutant $\frac13$ fois la ligne 3 à la ligne 2 et $1$ fois la ligne 3 à la ligne 1, nous obtenons alors
+		\[ (A | I_3)  \sim\begin{pmatrix} 1 & 2 & 0 &\bigm| & 3 & 2 & -1 \\ 0 & 1 & 0 & \bigm| & 1 & 1 & -1 \\ 0 & 0 & 1 & \bigm| & 3 & 2 & 0\end{pmatrix} \]
+	Enfin, en ajoutant $-2$ fois la ligne 2 à la ligne 1, nous concluons.
+		\[ (A | I_3)  \sim\begin{pmatrix} 1 & 0 & 0 &\bigm| & 1 & 0 & 1 \\ 0 & 1 & 0 & \bigm| & 1 & 1 & -1 \\ 0 & 0 & 1 & \bigm| & 3 & 2 & 0\end{pmatrix} = \left(I_3 | A^{-1}\right) \]
+	Par conséquent,
+		\[ A^{-1} = \begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & -1 \\ 3 & 2 & 0\end{pmatrix}, \]
+	ce que l'on vérifiera bien sûr en calculant le produit avec $A$ à gauche et à droite !
+}
+
+
+\exe{}{
+	Soit $A\in\R^{n\times n}$ une matrice carrée.
+	Montrer que s'il existe un vecteur non nul $v\in\R^n-\{0\}$ tel que $Av = 0$ ou $v^T A =0^T$, alors la matrice $A$ n'est pas inversible.
+}{exe:ker-noninv}{
+	Notons d'abord que multiplier par une matrice (et donc un vecteur) nul aboutit toujours à la matrice nulle.
+	
+	Par contradiction, si $A$ était inversible, nous aurions $v = A^{-1} 0 = 0$ ou $v^T = 0^TA^{-1} = 0^T$, une contradiction du caractère non nul de $v$.
+	
+	\underline{Interprétation fonctionnelle.}
+	
+	S'il existe un $v\neq0$ tel que $Av = 0$,
+	la fonction $f(x) = Ax$ n'est pas injective car $f(v) = f(0) = 0$ et $v\neq0$.
+	
+	Il suit donc que la fonction n'est pas inversible. De manière équivalente, la matrice $A$ n'est pas inversible.
+}
+
+\exe{}{
+	Considérons la matrice $A = \begin{pmatrix} 3 & 1 \\ -6 & -2 \end{pmatrix}$.
+	
+	Calculer une matrice inversible $P$ telle que $PA$ soit une forme échelonnée en lignes de $A$.
+	
+	Conclure que $A$ n'est pas inversible en trouvant un vecteur $v\in\R^2$ non nul tel que $PAv = 0$.
+	Vérifier que $Av = 0$ également.
+}{exe:forme-ech-22-noninv}{
+	En ajoutant $2$ fois la ligne 1 à la ligne 2, nous obtenons
+		\[ PA = \begin{pmatrix}1 & 0 \\ 2 & 1 \end{pmatrix} A = \begin{pmatrix} 3 & 1 \\ 0 & 0 \end{pmatrix}. \]
+	Par suite, comme $PA\begin{pmatrix}1\\-3\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix} = 0$, en inversant $P$ nous pouvons conclure que
+		\[ A\begin{pmatrix}1\\-3\end{pmatrix} = 0, \]
+	et que $A$ n'est pas inversible.
+}
+
+
+\exe{}{
+	Considérons la matrice $A = \begin{pmatrix} 1 & -1 & 2 \\ -2 & 2 & -2 \\ 6 & -6 & 9 \end{pmatrix}$.
+	\begin{enumerate}
+		\item
+		Calculer une matrice inversible $P$ telle que $PA$ soit une forme échelonnée en lignes de $A$.
+		
+		\emph{Indication : la dernière ligne de $PA$ est nulle.}
+		\item
+		Conclure que $A$ n'est pas inversible en trouvant un vecteur $v\in\R^3$ non nul tel que $v^TA = 0$.
+		
+		\emph{Indication : trouver $u$ tel que $u^T(PA) = 0^T$ et calculer $v = u^TP$.}
+	\end{enumerate}
+}{exe:forme-ech-33-noninv}{
+	En annulant les coefficients sous le pivot ligne 1, nous obtenons
+		 \[ (A | I_3) = \begin{pmatrix} 1 & -1 & 2 & \bigm| & 1 & 0 & 0  \\ -2 & 2 & -2 &\bigm|& 0 & 1 & 0  \\ 6 & -6 & 9 &\bigm| & 0 & 0 & 1  \end{pmatrix}
+		 \sim \begin{pmatrix} 1 & -1 & 2 & \bigm| & 1 & 0 & 0  \\ 0 & 0 & 2 &\bigm|& 2 & 1 & 0  \\ 0 & 0 & -3 &\bigm| & -6 & 0 & 1  \end{pmatrix}. \]
+	Puis, en ajoutant $\frac32$ fois la ligne 2 à la ligne 3, nous concluons que
+		 \[ (A | I_3) \sim \begin{pmatrix} 1 & -1 & 2 & \bigm| & 1 & 0 & 0  \\ 0 & 0 & 4 &\bigm|& 2 & 1 & 0  \\ 0 & 0 & 0 &\bigm| & -3 & \frac32 & 1  \end{pmatrix}. \]
+	Comme la dernière ligne de $PA$ est nulle, il suit que $u^T (PA) = 0^T$ pour le vecteur canonique $u = \begin{pmatrix}0\\0\\1\end{pmatrix}$.
+	
+	En calculant
+		\[ v = u^T P = \begin{pmatrix}0&0&1\end{pmatrix}\begin{pmatrix}1&0&0\\2&1&0\\-3&\frac32&1\end{pmatrix} = \begin{pmatrix}-3&\frac32&1\end{pmatrix}, \]
+	nous obtenons un vecteur non nul vérifiant $v^T A = 0^T$.
+	
+	Vérifions que c'est bien le cas par le calcul.
+		\[ \begin{pmatrix}-3&\frac32&1\end{pmatrix}\begin{pmatrix} 1 & -1 & 2 \\ -2 & 2 & -2 \\ 6 & -6 & 9 \end{pmatrix} = \begin{pmatrix}0 & 0 & 0 \end{pmatrix} \]
+	L'exercice \ref{exe:ker-noninv} permet de conclure que $A$ n'est pas inversible.
+}
 
 
 
