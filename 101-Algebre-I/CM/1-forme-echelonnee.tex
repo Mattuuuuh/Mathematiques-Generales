@@ -11,49 +11,312 @@
 
 \section{Opérations élémentaires sur les lignes}
 
-% Type I 
-% 
-% def permutation de [n]
-% def matrice P_sigma e_i = e_sigma-1(i) 
-% donc P_sigma (lignes) = sigma(lignes)
-% inverse P_sigma = P_sigma-1 = P_sigma^T
-% 
-% Type II
-% matrices diagonales D_i(lambda) = (1, .., 1, lambda, 1, .., 1)
-% donc D_i(lambda) (lignes) = lignes avec i-ème x lambda
-% D_i(lambda)^-1 = D_i(1/lambda)
-% 
-% Type III
-% G_ij(lambda) = I + lambda en (j, i)
-% donc G_ij(lambda)(lignes) = lignes avec j-ième = j-ième + lambda x i-ème
-% G_ij(lambda)^-1 = G_ij(-lambda)
+\subsection{Permutation (type I)}
+
+\dfn{}{
+	Une permutation $\pi$ des entiers $\{ 1 ; 2 ; \dots ; m \}$ (correspondant aux indices des lignes d'une matrice $A\in\R^{m\times n}$) est une bijection 
+		\[ \pi :  \{ 1 ; 2 ; \dots ; m \} \widetilde{\rightarrow}  \{ 1 ; 2 ; \dots ; m \}. \]
+	La matrice de permutation $P_{\pi} \in \R^{m\times m}$ définie par
+		\[ \left(P_{\pi}\right)_{ij} = \begin{cases*} 1 & si $j = \pi(i)$ \\ 0 & sinon \end{cases*} \]
+	agit sur les lignes d'une matrice $A\in\R^{m\times n}$ de la façon suivante :
+		\[ P \cdot A \]
+	est la matrice $A$ avec la ligne $i$ envoyée sur la ligne $\pi(i)$ pour chaque $i=1 ; 2 ; \dots ; m$.
+}{dfn:type-I}
+
+\nt{
+	La matrice $P_\pi$ est inversible d'inverse
+		\[ P_{\pi}^{-1} = P_{\pi^{-1}}. \]
+}
+
+\subsection{Multiplication (type II)}
+
+\dfn{}{
+	La matrice de multiplication $D_i(\lambda) \in \R^{m\times m}$ définie par
+		\[ D_i(\lambda) = \begin{pmatrix} 1 &&&&&& \\ & 1 &&&&&&  \\ & & \ddots &&&& \\ & & & \lambda &&& \\ & & & & 1 && \\ & & & & & \ddots & \\ & & & & & & 1 \end{pmatrix}  \]
+	où le nombre $\lambda\neq0$ se situe en $i$-ème position diagonale,
+	agit sur les lignes d'une matrice $A\in\R^{m\times n}$ de la façon suivante :
+		\[ D_i(\lambda) \cdot A \]
+	est la matrice $A$ avec la ligne $i$ multipliée par $\lambda$.
+}{dfn:type-II}
+
+\nt{}{
+	La matrice $D_i(\lambda)$ est inversible d'inverse
+		\[ D_i(\lambda)^{-1} = D_i\left(\frac1{\lambda}\right). \]
+}
+
+
+\subsection{Combinaison (type III)}
+
+\dfn{}{
+	La matrice de combinaison $G_{ij}(\lambda) \in \R^{m\times m}$ définie par
+		\[ G_{ij}(\lambda) = \begin{pmatrix} 1 &&&&&& \\ & \ddots &&&& \\ &&\ddots &&& \\ &&& \ddots&& \\ &&\lambda&& \ddots &\\ &&&&&1 \end{pmatrix} \]
+	où le nombre $\lambda\neq0$ se situe en position $j$-ème ligne et $i$-ème colonne,
+	agit sur les lignes d'une matrice $A\in\R^{m\times n}$ de la façon suivante :
+		\[ G_{ij}(\lambda) \cdot A \]
+	est la matrice $A$ avec la ligne $j$ remplacée par la ligne $j$ plus $\lambda$ fois la ligne $i$.
+}{dfn:type-III}
+
+\nt{}{
+	La matrice $G_{ij}(\lambda)$ est inversible d'inverse
+		\[ G_{ij}(\lambda)^{-1} = G_{ij}(-\lambda). \]
+}
+
+\subsection{Astuce pour retrouver la matrice d'une opération élémentaire}
+
+\nt{}{
+	Considérons $P\in\R^{m\times m}$ une matrice d'opération élémentaire de type I, II, ou III.
+	
+	Remarquons déjà que, pour agir sur les lignes d'une matrice $A\in\R^{m\times n}$, il est impératif de multiplier par la gauche :
+		\[ P \cdot A. \]
+	Il s'avère que le produit $A\cdot P$ modifie plutôt les colonnes de $A$.
+	Ces phrases récapitulatives sont à retenir.
+	\begin{center}
+		« Multiplier à gauche agit sur les lignes. »
+		
+		« Multiplier à droite agit sur les colonnes. »
+	\end{center}
+	
+	Maintenant, en ayant une opération élémentaire en tête, il est possible de retrouver sa matrice $P$ correspondante facilement en utilisant que
+		\[ P = P \cdot I_m. \]
+	Par conséquent, effectuer l'opération élémentaire sur la matrice identité donne la matrice $P$ correspondant à cette opération élémentaire.
+	
+	Par exemple, lorsque $m=3$ lignes, la matrice $G_{13}(2)$ qui ajoute $2$ fois la ligne $1$ à la ligne $3$ est donnée par
+		\[ G_{13}(2) = G_{13}(2) \cdot I_3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 2 & 0 & 1\end{pmatrix}. \]
+	C'est bien la matrice identité avec un $2$ en ligne $3$ et colonne $1$, comme décrit par la définition \ref{dfn:type-III}.
+}
 
 
 \section{Méthode du pivot et forme échelonnée réduite}
 
-% Soit A (m x n). On veut créer B inversible tq BA soit le plus simple possible
-% exemples matrices simples
-% def échelonnée
-% def échelonne réduite
-% thm : existe B inversible tq BA soit échelonnée réduite
-
-\section{Inversibilité matricielle et lien avec l'indépendence linéaire}
-
-% corollaire : A est inversible si et seulement si elle est carrée (m=n) et sa forme échelonnée réduite est l'identité
-% corollaire-prop du chapitre 2 : si k vecteurs de Rn sont L.I., alors k<=n.
-% thm : A est inversible ssi carrée et ses colonnes sont L.I. ssi carrée et ses lignes sont L.I.
-
-
-\prop{}{
-	Soit $M\in\R^{n \times n}$ une matrice où $n\in\N^*$.
-	Supposons que $M$ admette un inverse à gauche : $M^{-G} M = I$.
+\dfn{}{
+	Une matrice $A\in\R^{m\times n}$ est dite \emph{échelonnée en lignes} dès que le nombre de zéros qui précèdent la première valeur non nulle augmente strictement d'une ligne à la suivante.
 	
-	Alors l'inverse à gauche est unique et est également un inverse à droite : $M^{-G} = M^{-D} = M^{-1}$.
-}{prop:inv2}
+	La première valeur non nulle d'une ligne est appelée le \emphindex{pivot}.
+}{dfn:echelonnee}
+
+
+\dfn{}{
+	Une matrice $A\in\R^{m\times n}$ est dite \emph{échelonnée réduite en lignes} dès que chaque pivot est égal à $1$, et que tous les coefficients au-dessus de chaque pivot est égal à $0$.
+}{dfn:echelonnee-reduite}
+
+\thm{algorithme du pivot de Gauss\footnote{Carl Friedrich Gauss (1777 - 1855), surnommé « le princpe des mathématiciens ».}}{
+	Soit $A\in\R^{m\times n}$.
+	Il existe une matrice inversible $P\in\R^{m\times m}$ telle que
+		\[ P\cdot A \]
+	soit sous forme échelonnée.
+}{thm:pivot}
 
 \pf{}{
-	todo
+	Nous décrivons l'algorithme de Gauss permettant d'obtenir une forme échelonnée en effectuant des opérations élémentaires sur les lignes.
+	\begin{enumerate}[label=\textbf{Étape \arabic*.}]
+		\item
+		Considérons la première colonne de $A$.
+		\begin{enumerate}
+			\item
+			si cette colonne est nulle, passer à l'étape 3.
+			\item
+			sinon, permuter les lignes pour obtenir un coefficient non nul en $A_{11}$ qui sera notre pivot.
+		\end{enumerate}
+		\item
+		Annuler les coefficients sous le pivot grâce aux opérations de combinaison.
+		\item
+		Continuer la procédure sur la sous-matrice dans laquelle la première ligne et la première colonne de $A$ sont exclues.
+	\end{enumerate}
+	Cette procédure s'arrête dès que la sous-matrice est vide.
 }
+
+\cor{}{
+Soit $A\in\R^{m\times n}$.
+	Il existe une matrice inversible $P\in\R^{m\times m}$ telle que
+		\[ P\cdot A \]
+	soit sous forme échelonnée réduite.
+}{cor:pivot}
+
+\pf{}{
+	Les étapes pour obtenir une forme échelonnée réduite sont les suivantes.
+	\begin{enumerate}[label=\textbf{Étape \arabic*.}]
+		\item
+		Appliquer d'abord l'algorithme du pivot à $A$.
+		\item
+		Diviser ensuite chaque ligne comportant un pivot par ce pivot.
+		Nous obtenons une forme échelonnée ou chaque pivot vaut 1.
+		\item
+		Appliquer l'algorithme du pivot à l'envers en partant de la dernière ligne et en annulant les coefficients au-dessus de chaque pivot.
+	\end{enumerate}
+}
+
+\section{Conclusion importantes}
+
+\subsection{Inversibilité matricielle}
+
+\lem{}{
+	Soit $A\in\R^{n\times n}$ une matrice carrée.
+	
+	S'il existe un vecteur non nul $v\in\R^n-\{0\}$ tel que $Av = 0$ ou $v^T A =0^T$, alors la matrice $A$ n'est pas inversible.
+}{lem:not-inv-ker-not-zero}
+
+\pf{}{
+	Notons d'abord que multiplier par une matrice (et donc un vecteur) nul aboutit toujours à la matrice nulle.
+	
+	Par contradiction, si $A$ était inversible, nous aurions $v = A^{-1} 0 = 0$ ou $v^T = 0^TA^{-1} = 0^T$, une contradiction du caractère non nul de $v$.
+	
+	\underline{Interprétation fonctionnelle.}
+	
+	S'il existe un $v\neq0$ tel que $Av = 0$,
+	la fonction $f(x) = Ax$ n'est pas injective car $f(v) = f(0) = 0$ et $v\neq0$.
+	
+	Il suit donc que la fonction n'est pas inversible. De manière équivalente, la matrice $A$ n'est pas inversible.
+}
+
+
+\lem{}{
+	Soit $M\in\R^{n \times n}$ une matrice carrée.
+	
+	S'il existe des opérations élémentaires $P_1, P_2, \dots, P_N\in\R^{n\times n}$ inversibles et telles que
+		\[ \left(P_N P_{N-1} \cdots P_2 P_1\right) A = I_n, \]
+	alors $A$ est inversible, d'inverse 
+		\[ A^{-1} = P_N P_{N-1} \cdots P_2 P_1 \]
+}{lem:inv-op-el}
+
+\pf{}{
+	%Remarquons d'abord que $P$ est inversible d'inverse
+	%	\[ P^{-1} = P_1^{-1} P_2^{-1} \cdots P_{N-1}^{-1} P_N^{-1}. \]
+	%Ceci se vérifie grâce à l'associativité du produit matriciel, en montrant que
+	%	\[ P\cdot P^{-1} = P^{-1} \cdot P = I_n. \]
+	%Enfin, 
+	En multipliant à gauche par $P_N^{-1}$, puis $P_{N-1}^{-1}$, etc... puis $P_1^{-1}$ l'identité
+		\[ \left(P_N P_{N-1} \cdots P_2 P_1\right) A = I_n, \]
+	nous obtenons que
+		\[ A = P_1^{-1} P_2^{-1} \cdots P_{N-1}^{-1} P_N^{-1}. \]
+	Enfin, en multipliant à droite cette par $P_N$, puis $P_{N-1}$, etc... puis $P_1$, nous avons
+		\[ A \left( P_N P_{N-1} \cdots P_2 P_1 \right) = I_n. \]
+	Ceci montrer que $PA = AP = I_n$ et donc que $P = A^{-1}$.
+}
+
+\thm{}{
+	Une matrice $A\in\R^{m\times n}$ est inversible si et seulement si
+	\begin{enumerate}
+		\item
+		$A$ est carrée ($m=n$) ; et
+		\item
+		la forme échelonnée réduite de $A$ est l'identité $I_n$.
+	\end{enumerate}
+}{thm:A-inv-echelons}
+
+\pf{}{
+	\underline{Direction $\implies$.}
+	
+	Si $A$ est inversible, alors elle est carrée, par définition.
+	
+	Supposons que sa forme échelonnée réduite $PA$ ne soit pas $I_n$.
+	Dans ce cas, sa forme échelonnée réduite n'a pas un pivot par ligne et par colonne.
+	Ainsi, une ligne doit manquer un pivot, et la dernière ligne est nécessairement nulle.
+		\[ PA = \begin{pmatrix} 1 & & & \\ & 1 & & \\ & & \ddots & \\ & & & 1 \\ 0 & 0 & \cdots & 0 \end{pmatrix} \]
+	Considérons $u = \begin{pmatrix} 0 & 0 & \cdots & 0 & 1 \end{pmatrix}^T \in \R^n$ le vecteur avec que des zéros, et un 1 en dernière position.
+	Notons que $u$ n'est pas le vecteur nul.
+	
+	Alors, par calcul matriciel,
+		\[ u^T (PA) = 0^T, \]
+	où $0^T$ désigne le vecteur nul couché.
+	Posons $v^T = u^T P$, un vecteur couché.
+	Comme $P$ est inversible, $v$ n'est pas nul, sinon $u^T = v^T P^{-1}$ serait aussi nul.
+	Par conséquent, $v^T A = 0^T$ avec $v\neq0$.
+	Ceci implique que $A$ n'est pas inversible d'après le lemme \ref{lem:not-inv-ker-not-zero}.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Si $A$ est carrée et que sa forme échelonnée réduite est $I_n$, alors il existe une suite d'opérations inversibles $P_1, \dots, P_N$ telles que
+		\[ \left(P_N P_{N-1} \cdots P_2 P_1\right) A = I_n. \]
+	Le lemme \ref{lem:inv-op-el} permet de conclure que $A$ est inversible.
+}
+
+\cor{}{
+	Soit $A\in\R^{m\times n}$ une matrice carrée.
+	S'il existe $X\in\R^{m\times m}$ telle que $XA = I_n$, alors les matrices $A$ et $X$ sont toutes les deux inversibles et $A^{-1} = X$.
+}{cor:inv-gauche-to-inv}
+
+
+\nt{
+	Pour calculer l'inverse d'une matrice $A$, ou montrer qu'elle n'est pas inversible, il conviendra donc de transformer $A$ en $I_n$ grâce à des opérations élémentaires sur les lignes.
+	Pour garder en mémoire la matrice $P$ correspondant à ces opérations élémentaires, il est utile d'échelonner la \emphindex{matrice augmentée}
+		\[ \left( A | I_n \right). \]
+	En effet, les opérations sur les lignes correspondent à la multiplication à gauche par une matrice $P$, et comme
+		\[ P \cdot \left( A | I_n \right) = \left( P\cdot A | P\cdot I_n  \right) = \left( PA | P \right), \]
+	nous pouvons, à tout moment, lire la matrice $P$ en construction.
+	
+	Si $PA = I_n$, nous avons la garantie que $A^{-1} = P$, que nous pouvons facilement lire dans la matrice augmentée.
+	
+	Si, au contraire, la forme échelonnée de $A$ n'a pas un pivot par ligne, alors $A$ n'est pas inversible.
+}
+
+\pf{}{
+	Justifions que la matrice $X$ est inversible. 
+	Dès que $X$ est inversible, alors nous avons nécessairement $X^{-1} = X^{-1} (XA) = (X^{-1} X)A = A$, et donc que $A^{-1} = X$.
+	Autrement dit, l'inverse est unique.
+	
+	Soit $P$ la matrice inversible telle que $PX$ soit sous forme échelonnée.
+	Supposons, par contradiction, que $X$ ne soit pas inversible et donc que $PX$ n'ait pas un pivot par ligne.
+	Alors la dernière ligne de $PX$ est entièrement nulle.
+	En reprenant la preuve du théorème \ref{thm:A-inv-echelons},
+	le vecteur $u = \begin{pmatrix} 0 & 0 & \dash & 0 & 1 \end{pmatrix}^T \in \R^n$, avec que des zéros, et un 1 en dernière position, vérifie
+		\[ u^T (PX) = 0^T, \]
+	où $0^T$ désigne le vecteur nul couché.
+	En multipliant par $A$, nous obtenons que
+		\[ u^T P (XA) = 0^T A \iff u^T P = 0^T. \]
+	Or, ceci est impossible d'après le lemme \ref{lem:not-inv-ker-not-zero}, car $P$ est inversible et que $u$ est non nul.
+}
+
+\subsection{Lien avec l'indépendence linéaire}
+
+\prop{}{
+	Si  la famille $\{ v_1 ; \dots ; v_k \} \subseteq \R^n$ est linéairement indépendante sur $\R$, alors $k\leq n$.
+}{prop:k-leq-n-new}
+
+\pf{}{
+	Considérons la matrice 
+		\[ A = \begin{pmatrix} | & | & & | \\ v_1 & v_2 &\cdots & v_k \\ | & | & & | \end{pmatrix} \in\R^{n\times k}. \]
+	Par contraposition, supposons que $k>n$.
+	Alors la matrice $A$ comprend strictement plus de colonnes que de lignes.
+	Par conséquent, la forme échelonnée réduite de $A$ doit comporter une colonne sans pivot.
+	
+	En notant $PA$ la forme échelonnée réduite de $A$, le système $(PA) X = 0$ admet au moins un degré de liberté et donc une solution $X\in\R^k$ non nulle.
+	Comme $P$ est inversible, cette solution aboutit à $AX = 0$ pour $X\neq0$, autrement dit une combinaison linéaire nulle mais non triviale des colonnes de $A$, la famille considérée.
+}
+
+\thm{}{
+	Soit $A\in\R^{n\times n}$ une matrice carrée.
+	Les trois assertions suivantes sont équivalentes.
+	\begin{enumerate}[label=(\roman*)]
+		\item
+		A est inversible.
+		\item
+		Les lignes  de $A$ sont linéairement indépendantes.
+		\item
+		Les colonnes de $A$ sont linéairement indépendantes.
+	\end{enumerate}
+}{thm:inv-indep-lin}
+
+\pf{}{
+	Montrons le résultat sur les lignes. Celui sur les colonnes est analogue en utilisant que $A$ est inversible si et seulement si $A^T$ est inversible (il s'avère que $\left(A^{-1}\right)^T = \left(A^T\right)^{-1}$).
+	
+	\underline{Direction $\implies$.}
+	
+	Si $A$ est inversible, alors toute combinaison linéaire des lignes de $A$ s'écrit $v^TA$ pour un vecteur de $v\in\R^n$ de coefficients réels.
+	Une combinaison linéaire nulle $v^TA =0^T$ implique $v^T =0^T A^{-1} = 0^T$ qu'elle est la combinaison linéaire triviale.
+	Les lignes sont donc linéairement indépendantes.
+	
+	\underline{Direction $\impliedby$.}
+	
+	Supposons, par contradiction, que $A$ n'est pas inversible.
+	Alors sa forme échelonnée $PA$ n'admet pas un pivot par ligne et sa dernière ligne est entièrement nulle.
+	En reprenant la preuve du théorème \ref{thm:A-inv-echelons},
+	le vecteur $u = \begin{pmatrix} 0 & 0 & \cdots- & 0 & 1 \end{pmatrix}^T \in \R^n$, avec que des zéros, et un 1 en dernière position, vérifie
+		\[ u^T (PA) = 0^T, \]
+	où $0^T$ désigne le vecteur nul couché.
+	En notant $v^T = u^T P$, nous avons $v^T A = 0^T$, une combinaison linéaire non triviale ($v\neq0$ car $u\neq0$ et $P$ est inversible) et nulle des lignes de $A$.
+}
+
+
 
 % LA II :
 % famille génératrice
@@ -63,7 +326,7 @@
 % base de Rn a exactement n vecteurs
 
 
-\section{Résolution de système linéaire : matrice augmentée}
+%\section{Résolution de système linéaire : matrice augmentée}
 
 % Ax = b lorsque A est inversible donne une unique solutoin <=> colonnes de A forment une base
 % mais en général peut-être que A a des colonnes redondantes ou pas assez de colonnes, et x est peut-être dans le span de A
@@ -81,6 +344,25 @@
 
 \section*{Exercices supplémentaires}
 \addcontentsline{toc}{section}{Exercices supplémentaires}
+
+
+
+\exe{}{
+	Soit $A\in\R^{n\times n}$ une matrice carrée.
+	Montrer que les assertions suivantes sont équivalentes.
+	\begin{enumerate}[label=(\roman*)]
+		\item
+		La matrice est inversible d'inverse sa transposée : $A^{-1} = A^T$.
+		\item
+		Les colonnes de $A$ forment une familles orthonormée de $\R^n$.
+		\item
+		Les lignes de $A$ forment une familles orthonormée de $\R^n$.
+	\end{enumerate}
+}{exe:col-row-orthonorm}{
+	En notant $a_1 ; a_2 ; \ldots ; a_n$ les colonnes de $A$, alors 
+		\[ \left( A^T A \right)_{ij} = \scal{a_i, a_j} = \left(I_n\right)_{ij} = \begin{cases*} 1 & si $i=j$, \\ 0 & sinon.\end{cases*}. \]
+	Le même raisonnement s'applique aux lignes et en considérant $AA^T = I_n$.
+}
 
 \shipoutExercise
 
