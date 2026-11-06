@@ -61,7 +61,7 @@
 		\[ G_{ij}(\lambda)^{-1} = G_{ij}(-\lambda). \]
 }
 
-\subsection{Astuce pour retrouver la matrice d'une opération élémentaire}
+\subsection{Une astuce utile}
 
 \nt{}{
 	Considérons $P\in\R^{m\times m}$ une matrice d'opération élémentaire de type I, II, ou III.
@@ -145,7 +145,7 @@ Soit $A\in\R^{m\times n}$.
 	\end{enumerate}
 }
 
-\section{Conclusion importantes}
+\section{Conclusions importantes}
 
 \subsection{Inversibilité matricielle}
 
@@ -236,18 +236,6 @@ Soit $A\in\R^{m\times n}$.
 }{cor:inv-gauche-to-inv}
 
 
-\nt{
-	Pour calculer l'inverse d'une matrice $A$, ou montrer qu'elle n'est pas inversible, il conviendra donc de transformer $A$ en $I_n$ grâce à des opérations élémentaires sur les lignes.
-	Pour garder en mémoire la matrice $P$ correspondant à ces opérations élémentaires, il est utile d'échelonner la \emphindex{matrice augmentée}
-		\[ \left( A | I_n \right). \]
-	En effet, les opérations sur les lignes correspondent à la multiplication à gauche par une matrice $P$, et comme
-		\[ P \cdot \left( A | I_n \right) = \left( P\cdot A | P\cdot I_n  \right) = \left( PA | P \right), \]
-	nous pouvons, à tout moment, lire la matrice $P$ en construction.
-	
-	Si $PA = I_n$, nous avons la garantie que $A^{-1} = P$, que nous pouvons facilement lire dans la matrice augmentée.
-	
-	Si, au contraire, la forme échelonnée de $A$ n'a pas un pivot par ligne, alors $A$ n'est pas inversible.
-}
 
 \pf{}{
 	Justifions que la matrice $X$ est inversible. 
@@ -264,6 +252,20 @@ Soit $A\in\R^{m\times n}$.
 	En multipliant par $A$, nous obtenons que
 		\[ u^T P (XA) = 0^T A \iff u^T P = 0^T. \]
 	Or, ceci est impossible d'après le lemme \ref{lem:not-inv-ker-not-zero}, car $P$ est inversible et que $u$ est non nul.
+}
+
+
+\nt{
+	Pour calculer l'inverse d'une matrice $A$, ou montrer qu'elle n'est pas inversible, il conviendra donc de transformer $A$ en $I_n$ grâce à des opérations élémentaires sur les lignes.
+	Pour garder en mémoire la matrice $P$ correspondant à ces opérations élémentaires, il est utile d'échelonner la \emphindex{matrice augmentée}
+		\[ \left( A | I_n \right). \]
+	En effet, les opérations sur les lignes correspondent à la multiplication à gauche par une matrice $P$, et comme
+		\[ P \cdot \left( A | I_n \right) = \left( P\cdot A | P\cdot I_n  \right) = \left( PA | P \right), \]
+	nous pouvons, à tout moment, lire la matrice $P$ en construction.
+	
+	Si $PA = I_n$, nous avons la garantie que $A^{-1} = P$, que nous pouvons facilement lire dans la matrice augmentée.
+	
+	Si, au contraire, la forme échelonnée de $A$ n'a pas un pivot par ligne, alors $A$ n'est pas inversible.
 }
 
 \subsection{Lien avec l'indépendence linéaire}
@@ -325,8 +327,30 @@ Soit $A\in\R^{m\times n}$.
 % base : génératrice + L.I.
 % base de Rn a exactement n vecteurs
 
+\subsection{Résolution de système linéaire}
 
-%\section{Résolution de système linéaire : matrice augmentée}
+\thm{}{
+	Soient $A\in\R^{m\times n}$ et $b\in\R^m$.
+	Étudions les solutions du système $AX = b$ où $X\in\R^n$ grâce à la matrice augmentée $\left( A | b \right)$.
+	L'échelonnage de la matrice augmentée aboutit à $P \cdot \left( A | b \right) = \left( A' | b' \right)$.
+	\begin{enumerate}
+		\item
+		Si la ligne $i$ de $A'$ est entièrement nulle alors que $b'_i$ n'est pas nul, alors le système $AX=b$ n'admet aucune solution.
+		\item
+		Sinon, si $A'$ admet $r$ pivots, alors le système $AX=b$ admet exactement $n-r$ degrés de liberté.
+	\end{enumerate}
+}{thm:ax-eqb}
+
+\nt{
+	Un degré de liberté correspond à une droite, deux degrés correspondent à un plan, trois à un espace, etc...
+}
+
+\pf{}{
+	Le point $1$ est clair car il correspond à la situation où une équation du système $A'X = b'$ soit $0=1$.
+	
+	Dans le point $2$, chaque variable pivot est exprimable en fonction des autres variables.
+	Les autres variables forment donc les $n-r$ degrés de liberté des solutions du système.
+}
 
 % Ax = b lorsque A est inversible donne une unique solutoin <=> colonnes de A forment une base
 % mais en général peut-être que A a des colonnes redondantes ou pas assez de colonnes, et x est peut-être dans le span de A
