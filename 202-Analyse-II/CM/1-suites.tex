@@ -1,0 +1,65 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\chapter{Suites numériques}
+\label{chap:2}
+
+\section{Comparaison asymptotiques}
+
+\subsection{Petit o}
+
+\subsection{Grand O}
+
+\subsection{Équivalence}
+
+\section{Convergence}
+
+\subsection{Suite de Cauchy}
+
+% application : série converge ssi la queue tend vers 0
+% 
+% exemple : dans Q qui sort de Q
+
+\subsection{Théorème de Bolzano-Weierstrass}
+
+\subsection{Limites sup et inf et valeur d'adhérence}
+
+\section{Suites récurrentes et points fixes}
+
+% à mettre au chapitre fonctions ?
+% ou alors ça motive la fonction k-lipschitzienne
+% THÉOREME ACCROISSEMENTS FINIS !!
+
+\section*{Exercices supplémentaires}
+\addcontentsline{toc}{section}{Exercices supplémentaires}
+
+\exe{,difficulty=0}{
+	Considérons la fonction réelle $f(x) = \frac12x + \frac1{x}$ sur $\D = [1 ; 1,5]$ ainsi que la suite récurrente
+		\[ \begin{cases*} u_0 = 1, \\ u_{n+1} = f(u_n). \end{cases*}. \]
+	\begin{enumerate}
+		\item
+		Montrer que l'ensemble $\D$ est stable par $f$.
+		\item
+		Calculer $f'$ et vérifier que $|f'(x)| \leq c < 1$ pour tout $x\in\D$ 
+		pour un certain $c$ à déterminer.
+		\item
+		Conclure à l'aide du théorème des accroissements finis que, pour tout $x, y \in \D$,
+			\[ |f(x) - f(y)| < c |x-y| \]
+		et donc que, pour tout $m<n \in\N$,
+			\[ |u_n - u_m| < c^m |u_{n-m} - u_0| \leq 3 c^m. \]
+		\item
+		Conclure que $(u_n)$ est de Cauchy et qu'elle converge vers une limite $l\in\R$.
+		\item
+		Calculer cette limite $l$.
+	\end{enumerate}
+}{exe:sqrt2-contractante}{
+	todo
+}
+
+%\section*{Solutions}
+%\addcontentsline{toc}{section}{Solutions}
+%
+%\shipoutAnswer
+
+
+

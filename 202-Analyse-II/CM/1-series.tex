@@ -1,0 +1,99 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\chapter{Séries numériques}
+\label{chap:1}
+
+\section{Préliminaires calculatoires}
+
+% inégalité triangulaire
+% manipulations d'inéquations
+% etc...
+% à compiler au fur et à mesure pour présenter au début en exos calculatoires.
+
+\section{Sommes partielles}
+
+\subsection{Somme téléscopique}
+
+\subsection{Somme géométrique}
+
+% cas particulier de téléscopique
+
+\subsection{Somme des $n^k$}
+
+% cas particulier de téléscopique
+
+\section{Série numérique : étude de convergence}
+
+% on peut ignorer un nombre fini de termes lors de l'étude de convergence
+
+\subsection{Comparaison géométrique}
+
+\subsection{Critères de Cauchy et de d'Alembert}
+
+\subsection{Critère de condensation}
+
+% motivation par la série harmonique
+
+\subsection{Comparaison intégrale}
+
+% série de Riemann 1/n^s
+% série de Bertrand 1/n / log(n)
+
+
+% motivations pour chap suites : 
+% 
+% comparaison o() O() et ~ :
+% pour l'étude de convergence
+% 
+% Cauchy : 
+% étude de la somme résiduelle pour montrer la convergence
+% 
+% Fonction et DL :
+% étudier précisément sum <-> int
+% et voir la somme téléscopique comme int d/dx pousse à étudier f(n) = u_n
+% et son intégrale. Par exemple sum 1/n = sum ln(n+1) - ln(n) + ?
+% or ln(n+1)-ln(n) = ln(1+1/n) = ln(1) + 1/n + 1/n² + ... + reste O(1/n^r).
+% donc sum 1/n = ln(n) + gamma + c/n + ... et sum 1/n - ln(n) tend vers gamma, constante d'Euler.
+
+
+\section*{Exercices supplémentaires}
+\addcontentsline{toc}{section}{Exercices supplémentaires}
+
+
+
+\exe{,difficulty=0}{
+	Vrai ou faux ? Démontrer que chaque proposition est vraie ou donner un contre-exemple.
+	\begin{enumerate}
+		\item
+		Si $u_n$ tend vers 0, alors $\sum u_n$ converge.
+	\end{enumerate}
+}{exe:VF-series}{
+	\begin{enumerate}
+		\item
+		Faux : la série harmonique $u_n = 1/n$ donne un contre-exemple.
+	\end{enumerate}
+}
+
+\exe{,difficulty=0}{
+	Montrer le critère de Leibniz\footnote{Gottfried Wilhelm Leibniz (1646 -- 1716), polymathe allemand.} suivant.
+	
+	Soit $(u_n)$ une suite vérifiant :
+	\begin{enumerate}
+		\item
+		$u_n$ est alternée, donc $u_n u_{n+1} \leq 0$ pour tout $n\in\N$ ;
+		\item
+		la série absolue $|u_n|$ est décroissante et tend vers 0.
+	\end{enumerate}
+	Alors la série $\sum u_n$ est convergente.
+}{exe:critere-leibniz}{
+	todo
+}
+
+%\section*{Solutions}
+%\addcontentsline{toc}{section}{Solutions}
+%
+%\shipoutAnswer
+
+
+
