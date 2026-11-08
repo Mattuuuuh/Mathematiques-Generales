@@ -1,6 +1,6 @@
 \input{../../../preamble-CC.tex}
 
-\SetDate[16/09/2026]
+\SetDate[01/01/2026]
 \reversemarginpar
 \setlength{\marginparsep}{.5cm}
 
@@ -12,21 +12,25 @@ Code Apprenant :  \rule{3cm}{.1pt} ou Nom : \hrulefill
 
 Consignes particulières : 
 \begin{itemize}[label=$\bullet$]
-	\item 
-	La calculatrice est {interdite}.
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
 	%\item
 	%Sauf mention du contraire, toutes les réponses doivent être justifiées.
 	%Les réponses non justifiées ne seront pas prises en compte.
+	%\item
+	%Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
 	\item
 	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
 \end{itemize}
 
 \marginpar{[pts]}
-%\hrule
+\hrule
 
 \thm{}{
 	Soit $f(x) = ax + b$ une fonction affine sur $\R$.
-	Considérons $A(x_A ; y_A)$ et $B(x_B ; y_B)$ deux points distincts appartenant à $\C_f$.
+	Considérons $A(x_A ; y_A)$ et $B(x_B ; y_B)$ deux points distincts appartenant à $\Ccal_f$.
 	
 	Alors le coefficient directeur $a$ est égal à
 		\[ a = \phantom{\frac{y_B-y_A}{x_B - x_A} \hspace{1cm}} \]
@@ -34,10 +38,12 @@ Consignes particulières :
 
 \exe{2}{
 	Compléter, sans justifier, le théorème \ref{thm:1} vu en classe.
-	\fillwithlines{2cm}
 }{exe:fa1}{
 	\[ a = \dfrac{y_B - y_A}{x_B - y_A} = \dfrac{y_A - y_B}{x_A - y_B}. \]
 }
+
+
+\fillwithlines{10cm}
 
 %%%%%%%%%%%
 
