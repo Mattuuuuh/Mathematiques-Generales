@@ -1,0 +1,121 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[12/11/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\fancyhead[C]{\textbf{MG105 --- Contrôle Continu 4}}
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	%\item
+	%Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\hrule 
+
+\marginpar{[pts]}
+
+
+\exe{5, difficulty=0}{
+	Calculer les limites suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item
+		$\lim\limits_{x\rightarrow -\infty}(x^2+2x^4)$
+		\item
+		$\lim\limits_{x\rightarrow +\infty}\dfrac{x^4+3x+5}{2-x^5}$
+		\item
+		$\lim\limits_{x\rightarrow +\infty}\dfrac{x^3}{2x^3-\cos(x)}$
+		\item
+		$\lim\limits_{x\rightarrow 2^+}\dfrac{4x}{2-x}$
+		\item
+		$\lim\limits_{x\rightarrow 1}\dfrac{-2x^2-x+3}{x-1}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:lim1}{
+}
+
+\fillwithlines{9cm}
+
+
+\exe{5, difficulty=0}{
+	Calculer les limites suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item
+		$\lim\limits_{x\rightarrow +\infty}\dfrac{e^x}{x}$
+		\item
+		$\lim\limits_{x\rightarrow +\infty}(x^5e^{-x^2})$
+		\item
+		$\lim\limits_{x\rightarrow \minfty}(x^5e^{-x^2})$
+		\item
+		 $\lim\limits_{x\rightarrow +\infty}\left(e^x-x^2\right)$
+		\item 
+		$\lim\limits_{x\rightarrow +\infty}\dfrac{\ln(1+e^x)}{\sqrt x}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:lim2}{
+}
+
+\fillwithlines{8cm}
+
+\exe{5, difficulty=0}{
+	Calculer la dérivée formelle des fonctions suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item
+		$x^7$
+		\item
+		$\sqrt{x}$
+		\item
+		$x^{-5}$
+		\item
+		$x^{-5/4}$
+		\item
+		$\dfrac1x$
+	\end{enumerate}
+	\end{multicols}
+}{exe:der1}{
+}
+
+\fillwithlines{10cm}
+
+\exe{5, difficulty=0}{
+	Calculer la dérivée formelle des fonctions suivantes.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item
+		$e^{2x+1}$
+		\item
+		$\ln(4-x)$
+		\item
+		$\cos(x)$
+		\item
+		$\cos\left(\dfrac1x\right)$
+		\item
+		$(2x+5)^{2/3}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:der2}{
+}
+
+\fillwithlines{10cm}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+\end{document}
