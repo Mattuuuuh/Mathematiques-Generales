@@ -1,0 +1,131 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[10/11/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+
+\begin{document}
+\fancyhead[C]{\textbf{MG101 --- Contrôle Continu 4}}
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	%\item
+	%Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\hrule 
+
+\marginpar{[pts]}
+
+\exe{6}{
+	Considérons le système échelonné suivant.
+		\[ \systeme[sort={x,y,z,t}]{3x + 2y - t = 1, \\ y + z = -1, \\ z+2t=0.} \]
+	\begin{enumerate}
+		\item
+		Calculer l'ensemble des solutions $\begin{pmatrix}x\\y\\z\\t\end{pmatrix}\in\R^4$ du système.
+		\item
+		Décrire géométriquement l'ensemble des solutions. Par exemple : « C'est une droite de $\R^4$ passant par $\ldots$ et dirigée par $\ldots$ ».
+	\end{enumerate}
+}{exe:1}{
+	La troisième équation a deux variables et donc une variable libre. 
+	Choisissons $t\in\R$ et exprimons toutes les autres variables en fonction de $t$.
+	
+	La troisième équation donne 
+		\[ z=-2t. \]
+	La deuxième équation donne 
+		\[ y = -1 -z = -1+2t. \]
+	La première équation donne
+		\[ x = \frac{1-2y+t}3 = \frac{1-2(-1+2t)+t}3 = \frac{3 -3t}3 = 1 -t. \]
+	Il suit donc que tout solution du système prend la forme
+		\[ \begin{pmatrix}x\\y\\z\\t\end{pmatrix} = \begin{pmatrix}1-t\\-1+2t\\-2t\\t\end{pmatrix} \]
+	où $t\in\R$ est une variable libre.
+	
+	Or, comme
+		\[ \begin{pmatrix}1-t\\-1+2t\\-2t\\t\end{pmatrix} = \begin{pmatrix}1\\-1\\0\\0\end{pmatrix}+ \begin{pmatrix}-1\\2\\-2\\1\end{pmatrix}t, \]
+	l'ensemble des solutions est une droite de $\R^4$ passant par $(1;-1;0;0)$ et dirigée par $\begin{pmatrix}-1\\2\\-2\\1\end{pmatrix}$.
+}
+
+\fillwithlines{11cm}
+
+\exe{2}{
+	Soit $P\in\R^{3\times3}$ une matrice d'opération élémentaire telle que le produit
+		$P\cdot A$
+	modifie les lignes de toute matrice $A\in\R^{3\times n}$ de la façon suivante :
+	\begin{enumerate}
+		\item
+		elle ajoute $-2$ fois la ligne $2$ à la ligne $3$ ;
+		\item
+		elle ne modifie pas les autres lignes.
+	\end{enumerate}
+	Donner la matrice $P$ explicitement sans justifier
+}{exe:2}{
+	\[ P = \begin{pmatrix}1&0&0\\0&1&0\\0&-2&1\end{pmatrix}. \]
+}
+
+\fillwithlines{3cm}
+
+\exe{6}{
+	Considérons la matrice 
+		$A = \begin{pmatrix} 1 & 1 & 2 \\ 2&3&3\\1&1&1 \end{pmatrix} \in \R^{3\times3}. $
+	Calculer l'inverse de $A$ en utilisant la méthode du pivot vue en classe et en montrant les étapes.
+	
+	\emph{Indication : l'inverse de $A$ a des coefficients entiers.}
+}{exe:3}{
+	La méthode du pivot sur la matrice augmentée $(A | I_3)$ aboutit à
+		\[ A^{-1} = \begin{pmatrix} 0&-1&3\\-1&1&-1\\1&0&-1 \end{pmatrix}. \]
+}
+
+\fillwithlines{11cm}
+
+
+
+
+\exe{6}{
+	Considérons la matrice 
+		$A = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 0 & 4 \\ 0 & 0 & 0 \end{pmatrix} \in \R^{3\times3}. $
+	\begin{enumerate}
+		\item
+		La matrice $A$ est-elle sous forme échelonnée ?
+		Justifier en donnant le pivot de chaque ligne.
+		\item
+		Donner un vecteur $v\in\R^3$ non nul tel que $v^T A = \begin{pmatrix}0&0&0\end{pmatrix}$.
+		\item
+		Démontrer que $A$ n'est pas inversible à l'aide de la question précédente.
+	\end{enumerate}
+}{exe:4}{
+	\begin{enumerate}
+		\item
+		Oui, la matrice est échelonnée en lignes.
+		Le pivot ligne 1 est égal à 1.
+		Le pivot ligne 2 est égal à 4.
+		Il n'y a pas de pivot ligne 3.
+		\item
+		Le vecteur $v = \begin{pmatrix}0&0&1\end{pmatrix}^T$ fonctionne, comme vu en classe.
+		\item
+		Supposons, par contradiction, que $A$ est inversible.
+		Alors $v^T A = 0^T$ implique $v^T = 0^T A^{-1} = 0^T$, ce qui contredit le fait que $v\neq0$.
+		Donc $A$ n'est pas inversible.
+	\end{enumerate}
+}
+
+\fillwithlines{8cm}
+
+
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
