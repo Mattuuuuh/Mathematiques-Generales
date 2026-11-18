@@ -2261,9 +2261,14 @@
 	\end{align*}
 	Calculer la forme échelonnée de la matrice augmentée $(A | b)$ et en déduire l'ensemble des solutions du système.
 }{exe:8-1}{
+	Après deux opérations d'échelonnage, nous obtenons
 	\begin{align*}
-		A = \begin{pmatrix}5&2&4&-3\\7&5&3&-1\\0&0&0&0\end{pmatrix} && \et && b = \begin{pmatrix}-1\\2\\-5\end{pmatrix}.
+		(A|b) \sim \begin{pmatrix}5&2&4&-3&\bigm|&-1\\7&5&3&-1&\bigm|&2\\0&0&0&0&\bigm|&-5\end{pmatrix}.
 	\end{align*}
+	La troisième équation est donc $0=-5$, qui n'est jamais vraie : il n'existe donc aucune solution au système.
+	
+	Un équation du type $0=1$ correspond à une situation dans laquelle une ou plusieurs équations sont contradictoires.
+	Par exemple, les équations $x=2$ et $2x=8$ sont contradictoires car $x$ ne peut pas valoir à la fois $2$ et $4$.
 }
 
 
@@ -2285,6 +2290,42 @@
 		Calculer trois solutions différentes du système.
 	\end{enumerate}
 }{exe:8-2}{
+	\begin{enumerate}
+		\item
+		Le système a 5 inconnues qu'on range dans un vecteur $X\in\R^5$.
+		\item
+		La matrice admet 3 pivots sur les colonnes $1 ; 2 ; 4$.
+		
+		Nommons $(x ; y ; z ; t ; m)$ le vecteur inconnue de $\R^5$.
+		Les colonnes à pivots sont alors associées aux inconnues $x ; y ; t$.
+		\item
+		En reprenant chaque équation une à une, il est possible d'exprimer chaque inconnue pivot en fonction des autres (les variables libres $z$ et $m$).
+		\begin{enumerate}[label=Équation \arabic* :]
+			\item
+			L'équation $x-2z-m=2$ est équivalente à $x=2+2z+m$.
+			\item
+			L'équation $y-z+3m = -1$ est équivalente à $y = -1+z-3m$.
+			\item
+			L'équation $t+m = 3$ est équivalente à $t=3-m$.
+		\end{enumerate}
+		Notons que, pour tout choix de $z$ et $m$, les équations ci-dessus permettent de déduire immédiatement la valeur de $x ; y ; t$ de telle sorte à trouver une solution du système.
+		\item
+		Il s'agit ici de réécrire le vecteur inconnue $X$ en remplaçant les variables pivots grâce aux équations trouvée à la question précédente.
+		Un solution $X\in\R^5$ du système prend alors la forme, pour $z$ et $m$ réels libres,
+			\[ X = \begin{pmatrix}x\\y\\z\\t\\m\end{pmatrix} = \begin{pmatrix}2+2z+m\\-1+z-3m\\z\\3-m\\m\end{pmatrix}. \]
+		Il s'agit désormais de scinder le vecteurs en trois partie : la partie constante ; la partie multiple de $z$ ; et la partie multiple de $m$.
+			\[ X =\begin{pmatrix}2+2z+m\\-1+z-3m\\z\\3-m\\m\end{pmatrix} = \begin{pmatrix}2\\-1\\0\\3\\0\end{pmatrix} + \begin{pmatrix}2\\1\\1\\0\\0\end{pmatrix}z + \begin{pmatrix}1\\-3\\0\\-1\\1\end{pmatrix}m. \]
+		Finalement, l'ensemble des solutions est un plan de $\R^5$ passant par le point $(2;-1;0;3;0)$ et dirigé par les vecteurs $\begin{pmatrix}2\\1\\1\\0\\0\end{pmatrix}$ et $\begin{pmatrix}1\\-3\\0\\-1\\1\end{pmatrix}$.
+		\item
+		Nous savons que l'ensemble des solutions $X$ prennent la forme $X = P + zu + mv$ avec $P, u, v\in\R^5$ trouvés ci-dessus, et $z, m\in\R$ deux variables libres.
+		Il suffit donc de choisir des valeurs de $z$ et $m$ pour calculer des solutions particulières.
+		
+		Pour $(z;m) = (0;0)$, nous obtenons $X = (2;-1;0;3;0)$.
+		
+		Pour $(z;m) = (1;0)$, nous obtenons $X=(4;0;1;3;0)$.
+		
+		Pour $(z;m) = (0,1)$, nous obtenons $X=(3;-4;0;2;1)$.
+	\end{enumerate}
 }
 
 % 3x3 rank 2. b = A@(2,-1,3)
@@ -2303,9 +2344,35 @@
 		Calculer trois solutions différentes du système.
 	\end{enumerate}
 }{exe:8-3}{
-	\begin{align*}
-		A = \begin{pmatrix}1&-2&0\\0&0&1\\0&0&0\end{pmatrix} && \et && b = \begin{pmatrix}2\\-1\\0\end{pmatrix}.
-	\end{align*}
+
+	\begin{enumerate}
+		\item
+		L'échelonnage aboutit à la matrice échelonnée réduite suivante.
+		\begin{align*}
+			(A | b) \sim \begin{pmatrix}1&-2&0&\bigm|&2 \\ 0&0&1&\bigm|&-1 \\ 0&0&0&\bigm|&0\end{pmatrix}.
+		\end{align*}
+		\item
+		Le système échelonnée réduit est équivalent aux équations
+			\[ \systeme{x-2y = 2, \\ z = -1, \\ 0=0}. \]
+		où $X=(x;y;z)\in\R^3$ est le vecteur inconnu.
+		
+		L'équation $0=0$ signifie qu'une équation du système est redondante : elle est combinaison des autres.
+		Cette équation étant toujours vraie, elle ne donne aucune information et peut être ignorée (à l'inverse de $0=1$ qui est toujours fausse et donc implique que le système est contradictoire et n'admet aucune solution).
+		
+		Nous obtenons donc que tout solution de $AX=b$ prend la forme
+			\[ X = \begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}2+2y\\y\\-1\end{pmatrix} = \begin{pmatrix}2\\0\\-1\end{pmatrix}+\begin{pmatrix}2\\1\\0\end{pmatrix}y, \]
+		où $y\in\R$ est variable libre.
+		
+		L'ensemble des solution est donc une droite passant par $(2;0;-1)$ et dirigée par $\begin{pmatrix}2\\1\\0\end{pmatrix}$.
+		\item
+		Il suffit de choisir des valeurs de $y$.
+		
+		Pour $y=0$, nous obtenons $X=(2;0;-1)$.
+		
+		Pour $y=1$, nous obtenons $X=(4;1;-1)$.
+		
+		Pour $y=-1$, nous obtenons $X=(0;-1;-1)$.
+	\end{enumerate}
 }
 
 
@@ -2323,6 +2390,13 @@
 		Calculer l'unique solution du système.
 	\end{enumerate}
 }{exe:8-4}{
+	\begin{enumerate}
+		\item
+		Il s'agit de vérifier que $A^{-1} A = I_4$ par calcul matriciel.
+		Il est désormais inutile de vérifier que $AA^{-1} = I_4$ également, car cela est garanti par un théorème du cours.
+		\item
+		Nous calculons $X = A^{-1} b = \left(-16 ; -\frac{29}2 ; -\frac12 ; -\frac{23}2 \right)$.
+	\end{enumerate}
 }
 
 
@@ -2352,6 +2426,37 @@
 		\emph{Remarque : la solution du système est en fait un plan.}
 	\end{enumerate}
 }{exe:8-5}{
+	\begin{enumerate}
+		\item
+		Calcul matriciel.
+		\item
+		Calcul matriciel.
+		\item
+		En conclure que $x_0 + tv$ est une solution du système pour tout nombre réel $t\in\R$.
+		Pour tout $t\in\R$, nous avons
+			\[ A\left(x_0 + tv\right) = Ax_0 + A(tv) = Ax_0 + tAv = b + t0 = b. \]
+		\item
+		En $t=0$, $X = x_0$ fonctionne.
+		
+		En $t=1$, nous obtenons $X=(4;0;1;4)$.
+		
+		En $t=-1$, nous obtenons $X=(-2;-2;1;-6)$.
+		\item
+		L'ensemble trouvé est une droite passant par $(1;-1;1;-1)$ et dirigée par $\begin{pmatrix}3\\1\\0\\5\end{pmatrix}$.
+		\item
+		Le calcul matriciel $u =\begin{pmatrix}-3\\-4\\6\\-1\end{pmatrix}$ est solution du système en montrant que $Au = b$.
+		
+		Supposons que $u$ prenne la forme $x_0 + tv$ pour un réel $t\in\R$.
+		Alors 
+		\begin{align*}
+			u = x_0 + tv && \iff && u-x_0 = tv && \iff && \begin{pmatrix}-4\\-3\\5\\0\end{pmatrix} = t\begin{pmatrix}3\\1\\0\\5\end{pmatrix}.
+		\end{align*}
+		Or, par inspection, il n'existe pas de $t\in\R$ vérifiant cette égalité (autrement dit : les deux vecteurs ne sont pas colinéaires).
+		En effet, la première coordonnée donne $-4 = 3t$ donc $t=-\frac43$, et la deuxième $-3 = t$, qui contredit la première.
+		
+		De façon plus immédiate, la troisième coordonnée donne $5=0$ ce qui, bien sûr, n'est pas possible.
+	\end{enumerate}
+	
 }
 
 
@@ -2382,6 +2487,34 @@
 		La fonction $f$ est-elle inversible ? Justifier.
 	\end{enumerate}
 }{exe:9-1}{
+	\begin{enumerate}
+		\item
+		Comme $\pvec12 = e_1 + 2e_2$, la linéarité de $f$ donne
+			\[ f\left( \pvec12 \right) = f(e_1 + 2e_2) = f(e_1) + 2f(e_2) = \begin{pmatrix}1\\-2\\1\end{pmatrix} + 2\begin{pmatrix}3\\1\\1\end{pmatrix} = \begin{pmatrix}7\\0\\3\end{pmatrix}. \]
+		\item
+		D'après le cours, la matrice $A$ est $3\times2$ et ses colonnes sont exactement $f(e_1)$ et $f(e_2)$. 
+		Ainsi,
+			\[ A = \begin{pmatrix} 1&3 \\ -2&1 \\ 1&1 \end{pmatrix}. \]
+		Nous pouvons vérifier que $A\cdot \pvec12$ donne bien l'image calculée ci-dessus :
+			\[  \begin{pmatrix} 1&3 \\ -2&1 \\ 1&1 \end{pmatrix} \cdot \pvec12 = \begin{pmatrix}7\\0\\3\end{pmatrix}. \]
+		\item
+		Il s'agit de trouver un $X\in\R^2$ tel que $AX = b = \begin{pmatrix}-1\\-5\\1\end{pmatrix}$.
+		L'échelonnage de la matrice augmentée $(A|b)$ (voir série 8) permet, par exemple, de résoudre de système à 3 équations et 2 inconnues.
+		Nous obtenons $X = (2;-1)$.
+		\item
+		Il s'agit de trouver un $X\in\R^2$ tel que $AX = b = \begin{pmatrix}3\\-1\\2\end{pmatrix}$.
+		L'échelonnage de la matrice augmentée $(A|b)$ (voir série 8) permet, par exemple, de résoudre de système à 3 équations et 2 inconnues.
+		Nous obtenons finalement une équation du type $0=1$ qui implique qu'aucune solution n'existe.
+		\item
+		La fonction $f$ est-elle inversible ? Justifier.
+		La fonction $f$ n'est pas inversible car elle n'est pas sujective, d'après la question précédente.
+		En effet, une image n'admet aucun antécédent.
+		
+		Rappelons pourquoi une fonction non surjective n'est pas inversible.
+		Supposons que $f$ soit inversible et montrons qu'elle est surjective.
+		Pour tout $y$ dans l'espace d'arrivée, l'élément $x = f^{-1}(y)$ est un antécédent de $y$.
+		Il suit donc que $f$ est surjective.
+	\end{enumerate}
 }
 
 %\exe{}{
@@ -2407,7 +2540,9 @@
 		\[ \proj_u(v) = Av, \]
 	où $A= \frac{1}{\scal{u, u}}uu^T$.
 }{exe:9-2}{
-
+	Nous avons la suite d'égalités
+		\[ \proj_u(v) = \frac{\scal{u, v}}{\scal{u, u}} u = u \frac{\scal{u, v}}{\scal{u, u}} = \frac1{\scal{u,u}} u (u^T v) = \frac1{\scal{u,u}} (uu^T) v, \]
+	où nous avons utilisé que $\scal{u,v} = u^T v$.
 }
 
 
@@ -2424,7 +2559,20 @@
 		La matrice de projection est-elle inversible ?
 	\end{enumerate}
 }{exe:9-3}{
-
+	\begin{enumerate}
+		\item
+		Nous utilisons $A= \frac{1}{\scal{u, u}}uu^T$ pour calculer
+			\[ A = \frac1{1+4} \begin{pmatrix}-1\\2\end{pmatrix}\cdot\begin{pmatrix}-1&2\end{pmatrix} = \frac15\begin{pmatrix}1&-2\\-2&4\end{pmatrix}. \]
+		\item
+		Il suffit de calculer le produit $y = Av$ pour obtenir
+			\[ y = \frac15\begin{pmatrix}1&-2\\-2&4\end{pmatrix}\pvec23 = \frac15\pvec{-4}{8}. \]
+		\item
+		Nous avons $y = \frac45 \pvec{-1}2 = \frac45 u$, il est donc bien multiple de $u$.
+		\item
+		Chaque image $f(x) = Ax$ appartient à la droite $\R u$ et est donc un multiple de $u$.
+		Ainsi, tout vecteur qui n'appartient pas à cette droite n'admet aucun antécédent.
+		La fonction $f(x) = Ax$ n'est donc pas surjective et la matrice $A$ n'est ainsi pas inversible.
+	\end{enumerate}
 }
 
 
@@ -2442,7 +2590,20 @@
 		La matrice de projection est-elle inversible ?
 	\end{enumerate}
 }{exe:9-4}{
-
+	\begin{enumerate}
+		\item
+		Nous utilisons $A= \frac{1}{\scal{u, u}}uu^T$ pour calculer
+			\[ A = \frac1{1+4+9} \begin{pmatrix}1\\-2\\3\end{pmatrix}\cdot\begin{pmatrix}1&-2&3\end{pmatrix} = \frac1{14}\begin{pmatrix}1&-2&3\\-2&4&-6\\3&-6&9\end{pmatrix}. \]
+		\item
+		Il suffit de calculer le produit $y = Av$ pour obtenir
+			\[ y = \frac1{14}\begin{pmatrix}1&-2&3\\-2&4&-6\\3&-6&9\end{pmatrix} \begin{pmatrix}4\\-1\\3\end{pmatrix}= \frac1{14}\begin{pmatrix}15\\-30\\45\end{pmatrix}. \]
+		\item
+		Nous avons $y = \frac1{14}\begin{pmatrix}15\\-30\\45\end{pmatrix} = \frac{15}{14}\begin{pmatrix}1\\-2\\3\end{pmatrix} = \frac{15}{14} u$, il est donc bien multiple de $u$.
+		\item
+		Chaque image $f(x) = Ax$ appartient à la droite $\R u$ et est donc un multiple de $u$.
+		Ainsi, tout vecteur qui n'appartient pas à cette droite n'admet aucun antécédent.
+		La fonction $f(x) = Ax$ n'est donc pas surjective et la matrice $A$ n'est ainsi pas inversible.
+	\end{enumerate}
 }
 
 
@@ -2471,9 +2632,9 @@
 	
 	Le vecteur canonique $v = \begin{pmatrix}0&0&\cdots&0&1\end{pmatrix}^T \in \R^n$ vérifie donc
 		\[ v^T (PA^T) = 0^T. \]
-	Ainsi, $u^T = v^T P \neq 0$ car $P$ est inversible, vérifie
+	Ainsi, $u^T = v^T P \neq 0^T$ car $P$ est inversible, vérifie
 		\[ u^T A^T = 0^T. \]
-	Par conséquentm $Au = 0$ et donc $f(u) = 0$ où $u\neq0$.
+	Par conséquent, $Au = 0$ et donc $f(u) = 0$ où $u\neq0$.
 	
 }
 
