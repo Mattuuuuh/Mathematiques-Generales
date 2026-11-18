@@ -1,0 +1,100 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[18/11/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\fancyhead[C]{\textbf{MG105 --- Contrôle Continu 5}}
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	%\item
+	%Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+\end{itemize}
+
+\hrule 
+
+\marginpar{[pts]}
+
+\exe{10}{
+	Calculer une primitive de chaque fonction $f$ suivante.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item
+		$f(x) = 7$
+		\item
+		$f(x) = x^5$
+		\item
+		$f(x) = x^{-2}$
+		\item
+		$f(x) = \dfrac1{x^3}$
+		\item
+		$f(x) = x^{-3/2}$
+		\item
+		$f(x) = \dfrac1x$
+		\item
+		$f(x) = e^{3x}$
+		\item
+		$f(x) = xe^{2x^2 + 5}$
+		\item
+		$f(x) = \sin(x)$
+		\item
+		$f(x) = \dfrac1{(2x+1)^2}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:int23}{
+}
+
+
+\fillwithlines{\fill}
+
+\newpage
+
+\exe{10}{
+	Calculer chaque intégrale suivante.
+	\begin{multicols}{3}
+	\begin{enumerate}
+		\item
+		$I_1 = \int_0^1 x dx$
+		\item
+		$I_2 = \int_0^1 e^{x} dx$
+		\item
+		$I_3 = \int_0^{\pi} \cos(x) - 6x dx$
+		\item
+		$I_4 = \int_1^{e^2} \frac1x dx$
+		\item
+		$I_5 = \int_0^1 \int_0^1 t^2s^3 ds dt$
+		\item
+		$I_6 = \int_0^{\pi} sin(t) dt$
+		\item
+		$I_7 = \int_0^1 t e^t dt$
+		\item
+		$I_8 = \int_0^{\pi} \cos^2(t)dt$
+		\item
+		$I_9 = \int_0^1 \cos(t)e^t dt$
+		\item
+		$I_{10} = \int_0^{\pi} \sin(x)\cos(x) dx$
+	\end{enumerate}
+	\end{multicols}
+}{exe:int57}{
+}
+
+\fillwithlines{\fill}
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+\end{document}
