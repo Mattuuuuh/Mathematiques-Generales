@@ -1,0 +1,287 @@
+\input{../../../preamble-CC.tex}
+
+\SetDate[24/11/2026]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\fancyhead[C]{\textbf{MG303 --- Contrôle Terminal}}
+
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
+
+\begin{itemize}[label=$\bullet$]
+	\item
+	Matériel autorisé : aucun (pas de polycopié, pas de calculatrice).
+	\item
+	Les résultats du cours peuvent être utilisés sans les redémontrer.
+	%Néanmoins, il n'est pas possible de faire référence aux exercices vus en classe :
+	%si un problème ressemble à un exercice déjà vu, il faut le refaire.
+	\item
+	L'évaluation fait \pageref{lastpage} page\ifnum\getpagerefnumber{lastpage}>1 s\fi. La somme des points est \total{points}.
+	\item
+	Il est toujours possible d'admettre les résultats des questions précédentes, utiles aux questions suivantes.
+\end{itemize}
+
+\hrule 
+
+\marginpar{[pts]}
+
+
+
+%\exe{1}{
+%	Considérons le \emphindex{symbole de Pochhammer} défini par
+%		\begin{align*}
+%			(x)_0 = 1, && \et && (x)_n = x(x-1)(x-2)\cdots(x-n+1) \text{ pour $n\in\N^*$, }
+%		\end{align*}
+%	ainsi que l'opérateur de différence $\Delta$ qui associe à chaque $f\in\Z[x]$ le polynôme $f(x+1)-f(x)$.
+%	
+%	Montrer que, pour tout $n\in\N^*$, l'identité suivante est vraie dans $\Z[x]$.
+%		\[ \Delta(x)_n = n(x)_{n-1} \]
+%}{exe:Pochhammer}{
+%
+%}
+%
+%\exe{1}{
+%	Soit $f, g\in\Q[X]$ deux polynômes à coefficients rationnels.
+%	
+%	Montrer que si $f$ divise $g$ dans $\C[X]$, alors $f$ divise $g$ dans $\Q[X]$.
+%}{exe:div-C-div-Q}{
+%	
+%}
+
+%\vspace{20pt}
+
+\section*{Objectif du devoir}
+
+Dans ce devoir, nous nous intéressons au polynôme $X^{12} - 1$ de $\Z[X]$ afin d'obtenir sa décomposition en facteurs irréductibles, qui est
+	\begin{align}
+	X^{12} - 1 = \left(X-1\right)\left(X+1\right)\left(X^2 + X + 1\right)\left(X^2 + 1\right)\left(X^2 - X + 1\right)\left(X^4 - X^2 +1\right). \tag{équation 1} \label{eq:1}
+	\end{align}
+Pour cela, il sera utile de voir $X^{12}-1$ d'abord comme un polynôme à coefficients complexes, et d'étudier les ensembles suivants.
+\begin{enumerate}
+	\item
+	L'ensemble $\U_{12}$ des racines 12-ièmes de l'unité.
+	\item
+	L'ensemble $\D_{12}$ des diviseurs de 12.
+		\[ \D_{12} = \bigset{ d \in \N \tq d | 12 } \]
+	Tout le long du devoir, nous noterons $d|12$ pour signifier $d\in\D_{12}$.
+	\item
+	Pour chaque $d|12$, l'ensemble $\mu_d$ des entiers entre 1 et $d$ inclus qui sont premiers avec $d$.
+		\[ \mu_d = \bigset{ 1 \leq k \leq d \tq \pgcd(k, d) = 1 } \]
+\end{enumerate}
+
+\section{Préliminaires}
+
+
+\exe{5}{
+	Compréhension des ensembles considérés.
+	\begin{enumerate}
+		\item
+		Donner la définition de l'ensemble $\U_{12}$.
+		\item
+		Décrire explicitement tous les éléments de $\U_{12}$ en utilisant l'exponentielle complexe.
+		\item
+		Énumérer les éléments de $\D_{12}$.
+		\item
+		Énumérer les éléments de $\mu_d$ pour chaque élément $d$ de $\D_{12}$.
+		\item
+		Vérifier que 
+			\[ \sum_{d|12} |\mu_d| = 12. \]
+	\end{enumerate}
+}{exe:phi12-1}{
+	\begin{enumerate}
+		\item
+		 $\U_{12} = \bigset{ z\in\C \tq z^n = 1 }$.
+		\item
+		$\U_{12} = \bigset{ e^{2\pi i \frac{k}{n}} ~|~ 1 \leq k \leq n }$.
+		\item
+		$\D_{12} = \bigset{ 1 ; 2 ; 3; 4; 6 ; 12}$.
+		\item
+		\begin{enumerate}
+			\item[$d=1$]
+			Nous avons $\mu_1 = \{ 1 \}$.
+			\item[$d=2$]
+			Nous avons $\mu_2 = \{ 1 \}$.
+			\item[$d=3$]
+			Nous avons $\mu_3 = \{ 1 ; 2 \}$.
+			\item[$d=4$]
+			Nous avons $\mu_4 = \{ 1 ; 3 \}$.
+			\item[$d=6$]
+			Nous avons $\mu_6 = \{ 1 ; 5 \}$.
+			\item[$d=12$]
+			Nous avons $\mu_{12} = \{ 1 ; 5 ; 7 ; 11 \}$.
+		\end{enumerate}
+		\item
+		Nous avons bien $\sum_{d|12} |\mu_d| = 1 + 1+ 2 + 2 + 2 + 4 = 12$.
+	\end{enumerate}
+}
+
+
+\section{Décompositions dans $\C$}
+
+\exe{3}{
+	Décompositions polynomiales classiques.
+	\begin{enumerate}
+		\item
+		Décomposer explicitement le polynôme $X^{12}-1$ dans $\C[X]$.
+		\item
+		Décomposer explicitement le polynôme $X^{11} + X^{10} + \dots + X + 1$ dans $\C[X]$.
+	\end{enumerate}
+}{exe:phi12-2}{
+	\begin{enumerate}
+		\item
+		$X^{12}-1 = \prod_{k=1}^{12} \left( X - e^{2\pi i \frac{k}{12}} \right)$.
+		\item
+		Comme $X^{11} + X^{10} + \dots + X + 1 = \frac{X^{12}-1}{X-1}$, nous avons
+			\[ X^{12}-1 = \prod_{k=1}^{11} \left( X - e^{2\pi i \frac{k}{12}} \right). \]
+	\end{enumerate}
+}
+
+\newpage
+
+\section{Partitionnement des racines de l'unité}
+
+\exe{3}{
+	Nous cherchons désormais à faire le lien entre $\U_{12}$ et les ensembles $\mu_d$ où $d$ divise $12$.
+	\begin{enumerate}
+		\item
+		Écrire les fractions 
+		\begin{align*}
+			\frac1{12} && \frac2{12} && \frac3{12} && \dots && \frac{11}{12} && \frac{12}{12}
+		\end{align*}
+		sous forme irréductible.
+		\item
+		Quel lien avec les ensembles $\mu_d$ peut-on faire ?
+	\end{enumerate}
+}{exe:phi12-3}{
+	\begin{enumerate}
+		\item
+		Nous obtenons
+		\begin{align*}
+			\frac1{12} && \frac1{6} && \frac1{4} && \frac13 && \frac5{12} && \frac12 && \frac7{12} && \frac23 && \frac34 && \frac56 && \frac{11}{12} && \frac11
+		\end{align*}
+		\item
+		Nous remarquons que les fractions sont toutes sur un dénominateur $d$ diviseur de 12.
+		De plus, pour chaque dénominateur $d|12$, les numérateurs sont exactement les éléments de $\mu_d$, c'est-à-dire les entiers $k$ entre 1 et $d$ qui sont premiers avec $d$.
+	\end{enumerate}
+}
+
+
+\exe{3}{
+	Nous allons désormais partitionner les racines 12-ièmes de l'unités en sous-ensembles associés à chaque diviseur de 12.
+	
+	Pour chaque $d|12$, posons le polynôme à coefficients \apriori~complexes
+	\begin{align}
+		\phi_d(X) = \prod_{k\in\mu_d} \left(X-e^{2\pi i \frac{k}{d}}\right). \tag{définition 2} \label{eq:2}
+	\end{align}
+	\begin{enumerate}
+		\item
+		Donner le degré de $\phi_d$ pour chaque $d\in\D_{12}$.
+		\item
+		Montrer que
+			\[ \U_{12} = \bigcup_{d|12} \bigset{ e^{2\pi i \frac{k}{d}} ~|~ k\in\mu_d }. \]
+		\item
+		En conclure que
+			\[ X^{12} - 1 = \prod_{d|12} \phi_d(X). \]
+	\end{enumerate}
+}{exe:phi12-4}{
+	\begin{enumerate}
+		\item
+		$\deg(\phi_d) = |\mu_d|$, dont la valeur peut être lue à l'exercice \ref{exe:phi12-1}.
+		\item
+		Les racines 12-ièmes de l'unité s'écrivent toutes $e^{2\pi i \frac{k}{12}}$, dont la fraction $\frac{k}{12}$ se réduit en $\frac{k'}{d}$ avec $d|12$  et $k'$ premier avec $d$, comme listé à l'exercice \ref{exe:phi12-3}.
+		\item
+		La conclusion suit de la partition des racines selon le dénominateur de la fraction irréductible associée.
+	\end{enumerate}
+}
+
+\section{Conclusion}
+
+\exe{6}{
+	Vérifions désormais que les polynômes $\phi_d$, définis par la \ref{eq:2} de l'exercice \ref{exe:phi12-4}, forment la décomposition en irréductibles de $X^{12}-1$ dans $\Z[X]$, donnée par l'\ref{eq:1} du début du devoir.
+
+	\begin{enumerate}
+		\item
+		Développer et réduire chaque polynôme $\phi_d$ pour retrouver les six facteurs de la décomposition de l'\ref{eq:1} du début du devoir.
+		
+		\emph{Il est possible d'admettre que les $\phi_d$ sont les facteurs de l'\ref{eq:1} et de passer aux questions suivantes.}
+		\item
+		Justifier que chaque polynôme $\phi_d$ est polynôme primitif de $\Z[X]$.
+		\item
+		Montrer que chaque polynôme $\phi_d$ est irréductible sur $\Q[X]$.
+		\item
+		Conclure que l'\ref{eq:1} est une décomposition en facteurs irréductibles dans $\Z[X]$.
+	\end{enumerate}
+}{exe:phi12-5}{
+	\begin{enumerate}
+		\item
+		Nous calculons les polynômes suivants.
+		\begin{enumerate}
+			\item[$d=1$]
+			Nous avons $\phi_1(X) = X-1$.
+			\item[$d=2$]
+			Nous avons $\phi_2(X) = X-e^{2\pi i \frac12} = X+1$.
+			\item[$d=3$]
+			Nous avons $\phi_3(X) = (X-e^{2\pi i \frac23})(X-e^{2\pi i \frac23}) = X^2 + X + 1$.
+			\item[$d=4$]
+			Nous avons $\phi_4(X) = (X-e^{2\pi i \frac14})(X-e^{2\pi i \frac34}) = X^2 + 1$.
+			\item[$d=6$]
+			Nous avons $\phi_6(X) = (X-e^{2\pi i \frac16})(X-e^{2\pi i \frac56}) = X^2 - X + 1$.
+			\item[$d=12$]
+			Nous avons $\phi_12(X) = (X-e^{2\pi i \frac{1}{12}})(X-e^{2\pi i \frac{5}{12}})(X-e^{2\pi i \frac{7}{12}})(X-e^{2\pi i \frac{11}{12}}) = X^4 - X^2 + 1$.
+		\end{enumerate}
+		\item
+		Les polynômes sont tous primitifs de $\Z[X]$ car unitaires.
+		\item
+		Tout polynôme de degré 1 est irréductible sur $\Q[X]$.
+		
+		Les polynômes de degrés 2 sont irréductibles sur $\Q[X]$ car leurs racines sont complexes.
+		
+		Seul $\mu_{12}(X)$ est à étudier.
+		Par contradiction, si $\mu_{12}$ se scinde dans $\Q[X]$, ses facteurs sont nécessairement de degré 2 car ses racines n'appartiennent pas à $\Q$.
+		De plus, pour obtenir un facteur à coefficients réel, ses racines sont nécessairement conjuguées complexes l'une de l'autre.
+		Un des facteurs doit donc être
+			\[ \left(X-e^{2\pi i \frac{1}{12}}\right)  \left(X-e^{-2\pi i \frac{1}{12}}\right) = X^2 - \sqrt3 X + 1, \]
+		qui n'est pas un polynôme de $\Q[X]$.
+		\item
+		D'après le lemme de Gauss, les polynômes primitifs de $\Z[X]$ irréductible dans $\Q[X]$ sont les irréductibles de $\Z[X]$.
+		Nous avons donc obtenu la décomposition de $X^{12} - 1$.
+	\end{enumerate}
+}
+
+\section*{Bonus}
+
+Le résultat suivant permet de déduire que $\phi_n$ est un polynôme à coefficient entiers relatifs pour tout $n\in\N^*$ en utilisant que
+	\[ \phi_n(X) = \frac{X^n - 1}{\prod\limits_{d|n, d\neq n} \phi_d(X)}. \]
+
+\exe{2}{
+	Soit $f_0\in\Z[X]$ et $g_0\in\Z[X]$ deux polynômes primitifs.
+	Montrer que si $f_0|g_0$ dans $\C[X]$, alors $f_0|g_0$ dans $\Q[X]$ et puis $f_0|g_0$ dans $\Z[X]$.
+}{exe:divCdivQdivZ}{
+	Nous avons $g_0 = qf_0$ avec $q\in\C[X]$.
+	Notons $g_0 = q' f_0 + r$ avec $q', r \in\Q[X]$ et $\deg(r)<\deg(f_0)$ la division euclidienne de $g_0$ par $f_0$ dans $\Q[X]$.
+	
+	Alors, en voyant la division dans $\C[X]$, nous avons
+		\[ qf_0 = q'f_0 + r, \]
+	et donc $r = f_0(q-q')$.
+	Or, comme $\deg(r) < \deg(f_0)$, l'égalité n'est possible que lorsque $q-q' = 0$ et donc $r=0$.
+	Il suit alors que $f_0$ divise $g_0$ dans $\Q[X]$.
+	
+	Enfin, le lemme de Gauss permet de dire que $f_0$ divise $g_0$ dans $\Z[X]$ car $f_0$ et $g_0$ sont primitifs.
+	Ceci a été vu en cours mais peut être redémontré comme suit.
+	À partir de $g_0 = qf_0$ avec $q\in\Q[X]$ cette fois, nous avons $g_0 = c_q q_0 f_0$ en décomposant $q=c_q q_0$ comme produit de son contenu et d'un polynôme primitif.
+	Or $q_0f_0$ est primitif d'après le lemme de Gauss, et donc, par unicité du contenu, $c_q=1$ et $g_0 = q_0f_0$ dans $\Z[X]$.
+}
+
+
+
+
+%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
