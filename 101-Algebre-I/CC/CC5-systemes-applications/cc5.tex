@@ -26,30 +26,212 @@ Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
 
 \marginpar{[pts]}
 
-\exe{6}{
-}{exe:1}{
+
+\exe{5}{
+	Vrai ou faux ? Cocher la bonne réponse \underline{sans justifier}.
+	
+	Une bonne réponse rapporte $+1$ point. Une mauvaise réponse rapporte $-1$ point. Ne pas répondre rapporte $0$ point.
+	La note minimale de l'exercice est $0$.
+	\vspace{-10pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		Une matrice non carrée n'est jamais inversible.
+		& $\square$ & $\square$  \\[10pt]
+		Une matrice carrée est toujours inversible.
+		& $\square$ & $\square$  \\[10pt]
+		Si la première ligne d'une matrice est égale au double \\ de la deuxième, alors cette matrice n'est pas inversible.
+		& $\square$ & $\square$  \\[10pt]
+%		La première colonne du produit matriciel $AB$ est égal à \\  au produit $Ab$, où $b$ est la première colonne de $B$.
+%		& $\square$ & $\square$  \\[10pt]
+		Le produit matrice-vecteur $AX$ est toujours \\ une combinaison linéaire des colonnes de $A$.
+		& $\square$ & $\square$  \\[10pt]
+		S'il existe un vecteur $v\neq0$ tel que $Av = 0$,  \\ alors la matrice $A$ n'est pas inversible.
+		& $\square$ & $\square$  \\[10pt]
+	\end{tabular}
+	\end{center}
+}{exe:TF-systemes}{
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		Une matrice non carrée n'est jamais inversible.
+		& $\checkmark$ & $\square$  \\[10pt]
+		Une matrice carrée est toujours inversible.
+		& $\square$ & $\checkmark$  \\[10pt]
+		Si la première ligne d'une matrice est égale au double \\ de la deuxième, alors cette matrice n'est pas inversible.
+		& $\checkmark$ & $\square$  \\[10pt]
+%		La première colonne du produit matriciel $AB$ est égal à \\  au produit $Ab$, où $b$ est la première colonne de $B$.
+%		& $\square$ & $\square$  \\[10pt]
+		Le produit matrice-vecteur $AX$ est toujours \\ une combinaison linéaire des colonnes de $A$.
+		& $\checkmark$ & $\square$  \\[10pt]
+		S'il existe un vecteur $v\neq0$ tel que $Av = 0$,  \\ alors la matrice $A$ n'est pas inversible.
+		& $\checkmark$ & $\square$  \\[10pt]
+	\end{tabular}
+	\end{center}
 }
 
-\fillwithlines{11cm}
 
-\exe{2}{
-}{exe:2}{
+% to make this easier : give kernel element immediately, Makes them use f(0) = 0, too.
+
+\exe{5}{
+	Notons $\bigset{e_1 ; e_2 ; e_3}$ la base canonique de $\R^3$ vue en classe.
+	
+	Soit $f:\R^3\rightarrow\R^3$ une application linéaire telle que
+	\begin{align*}
+		f(e_1) = \begin{pmatrix}14\\6\\26\end{pmatrix},
+		&&
+		f(e_2) = \begin{pmatrix}-4\\13\\22\end{pmatrix},
+		&& \et &&
+		f(e_3) = \begin{pmatrix}15\\-3\\9\end{pmatrix}.
+	\end{align*}
+	\begin{enumerate}
+		\item
+		Exprimer le vecteur $\begin{pmatrix}1\\2\\-1\end{pmatrix}$ comme combinaison linéaire des vecteurs canoniques $e_1 ; e_2 ; e_3$.
+		\item
+		Calculer l'image de $\begin{pmatrix}1\\2\\-1\end{pmatrix}$ par $f$ uniquement à l'aide de la question précédente et du fait que $f$ soit linéaire.
+		\item
+		Donner la matrice $A\in\R^{3\times3}$ telle que $f(X) = AX$ à l'aide du cours sans justifier.
+		\item
+		La fonction $f$ est-elle injective ? Justifier.
+	\end{enumerate}
+}{exe:9-1}{
+	\begin{enumerate}
+		\item
+		$\begin{pmatrix}1\\2\\-1\end{pmatrix} = e_1 + 2e_2 - e_3$.
+		\item
+		Comme $f(e_1 + 2e_2 - e_3) = f(e_1) + 2f(e_2) - f(e_3)$ par linéarité de $f$, nous obtenons
+			\[ f( \begin{pmatrix}1\\2\\-1\end{pmatrix} ) =  \begin{pmatrix}14\\6\\26\end{pmatrix} + 2 \begin{pmatrix}-4\\13\\22\end{pmatrix} - \begin{pmatrix}15\\-3\\9\end{pmatrix} =  \begin{pmatrix}-9\\35\\61\end{pmatrix}. \]
+		\item
+		D'après le cours,
+			\[ A = \begin{pmatrix} 14 & -4 & 15 \\ 6 & 13 & -3 \\ 26 & 22 & 9 \end{pmatrix}. \]
+		\item
+		Échelonnons la matrice $(A | I_3)$ pour essayer de trouver soit l'inverse de $A$, soit un vecteur $v\neq0$ tel que $Av = 0$.
+		La première alternative nous dira que $A$ est inversible et donc que $f$ est injective (et même bijective), et la deuxième alternative nous dira que $f$ n'est pas injective car $0$ admet deux antécédents distincts : $v$ et $0$.
+		
+		Nous avons alors, en soustrayant la ligne 1 à la ligne 3, puis 2 fois la ligne 2 à la ligne 3,
+		\begin{align*}
+			(A|I_3) = \begin{pmatrix} 14 & -4 & 15 & \bigm| & 1 & 0 & 0 \\ 6 & 13 & -3 & \bigm| & 0 & 1 & 0 \\ 26 & 22 & 8 & \bigm| & 0 & 0 & 1 \end{pmatrix}
+			&\sim
+			\begin{pmatrix} 14 & -4 & 15 & \bigm| & 1 & 0 & 0 \\ 6 & 13 & -3 & \bigm| & 0 & 1 & 0 \\ 12 & 26 & -6 & \bigm| & -1 & 0 & 1 \end{pmatrix}
+			\\
+			&\sim
+			\begin{pmatrix} 14 & -4 & 15 & \bigm| & 1 & 0 & 0 \\ 6 & 13 & -3 & \bigm| & 0 & 1 & 0 \\ 0 & 0 & 0 & \bigm| & -1 & -2 & 1 \end{pmatrix}
+		\end{align*}
+		Comme la forme échelonnée de $A$ n'a pas trois pivot, $A$ n'est pas inversible d'après le cours.
+		Étudions donc plutôt l'équation $AX=0$ pour trouver une autre solution (toute autre équation $AX=b$ fait également l'affaire, mais avoir 0 à droite facilite les calculs).
+		
+		En réalité, nous pouvons déjà nous arrêter, car l'équation $AX=0$ admet trois variables pour deux équations et donc au moins un degré de liberté.
+		En effet, il n'y a pas de possibilité d'avoir une équation du type $0=1$ qui aboutirait à une contradiction.
+		Nous allons donc nécessairement trouver une solution $X\neq0$ non nulle.
+		
+		Si nous voulons nous rassurer en trouvant une solution concrète, multiplier la ligne 2 par 3 et la ligne 3 par 7, nous obtenons
+		\begin{align*}
+			A = \begin{pmatrix} 14 & -4 & 15 \\ 6 & 13 & -3  \\ 26 & 22 & 8 \end{pmatrix}
+			&\sim
+			\begin{pmatrix} 14 & -4 & 15 \\ 6 & 13 & -3 \\ 0 & 0 & 0 \end{pmatrix}
+			\\
+			&\sim
+			\begin{pmatrix} 42 & -12 & 45 \\ 42 & 91 & -21 \\ 0 & 0 & 0 \end{pmatrix}.
+		\end{align*}
+		Soustraire la ligne 2 à la ligne 3 donne alors
+		\begin{align*}
+			\begin{pmatrix} 42 & -12 & 45 \\ 42 & 91 & -21 \\ 0 & 0 & 0 \end{pmatrix}
+			&\sim
+			\begin{pmatrix} 42 & -12 & 45 \\ 0 & 103 & -66 \\ 0 & 0 & 0 \end{pmatrix}.
+		\end{align*}
+		Nous voyons que l'équation $AX=0$ admet bien une solution non nulle.
+		Par exemple, 
+			\[ v = \begin{pmatrix} -\frac{183}2 \\ 66 \\ 103 \end{pmatrix} \]
+		vérifie $Av = 0$.
+		
+		Finalement $f$ n'est pas injective car $f(v) = f(0) = 0$ alors que $v\neq0$.
+	\end{enumerate}
 }
 
-\fillwithlines{3cm}
+\fillwithlines{\fill}
 
-\exe{6}{
-}{exe:3}{
+\newpage
+
+
+\fillwithlines{\fill}
+
+
+
+\exe{10}{
+	Considérons l'application linéaire $g:\R^5 \rightarrow \R^3$ suivante.
+		\[ g(X) = \begin{pmatrix}3&0&-6&0&9\\-6&2&14&0&-10\\3&2&-4&1&16\end{pmatrix} \cdot X \]
+	\begin{enumerate}
+		\item
+		Calculer l'image de $\begin{pmatrix} 3 \\ -1 \\ 0 \\ 0 \\ 0 \end{pmatrix}$ par $g$.
+		\item
+		Calculer l'image de $\begin{pmatrix} 8 \\ 2 \\ 1 \\ -1 \\ -1 \end{pmatrix}$ par $g$.
+		\item
+		Calculer l'ensemble des antécédents de $\begin{pmatrix} 9 \\ -20 \\ 7 \end{pmatrix}$ par $g$.
+		\item
+		Décrire géométriquement l'ensemble trouvé à la question précédente.
+		\item
+		Donner un antécédent de $\begin{pmatrix} 9 \\ -20 \\ 7 \end{pmatrix}$ par $g$ qui est différent des deux vecteurs déjà cités.
+		\item
+		La fonction $g$ est-elle injective ? Justifier.
+	\end{enumerate}
+}{exe:8-4}{
+	\begin{enumerate}
+		\item
+		Par calcul matriciel, $g(\begin{pmatrix} 3 \\ -1 \\ 0 \\ 0 \\ 0 \end{pmatrix}) = \begin{pmatrix} 9 \\ -20 \\ 7 \end{pmatrix}$.
+		\item
+		Par calcul matriciel, $g(\begin{pmatrix} 8 \\ 2 \\ 1 \\ -1 \\ -1 \end{pmatrix}) = \begin{pmatrix} 9 \\ -20 \\ 7 \end{pmatrix}$.
+		\item
+		Il s'agit de résoudre $AX = b$ où $A = \begin{pmatrix}3&0&-6&0&9\\-6&2&14&0&-10\\3&2&-4&1&16\end{pmatrix}$ est la matrice de la fonction $g$ et $b =  \begin{pmatrix} 9 \\ -20 \\ 7 \end{pmatrix}$.
+		Pour cela, l'échelonnage de la matrice augmentée $(A|b)$ donne
+		\begin{align*}
+			\begin{pmatrix}3&0&-6&0&9 & \bigm| & 9\\-6&2&14&0&-10 & \bigm| & -20\\3&2&-4&1&16 & \bigm| & 7\end{pmatrix} 
+			&\sim
+			\begin{pmatrix}3&0&-6&0&9 & \bigm| & 9\\0&2&2&0&8 & \bigm| & -2\\0&2&2&1&7& \bigm| & -2\end{pmatrix} 
+			\\
+			&\sim
+			\begin{pmatrix}3&0&-6&0&9 & \bigm| & 9 \\ 0&2&2&0&8 & \bigm| & -2 \\ 0&0&0&1&-1& \bigm| & 0\end{pmatrix} 
+			\\
+			&\sim
+			\begin{pmatrix}1&0&-2&0&3 & \bigm| & 3 \\ 0&1&1&0&4 & \bigm| & -1 \\ 0&0&0&1&-1& \bigm| & 0\end{pmatrix} 
+		\end{align*}
+		Par conséquent, en notant $X = \begin{pmatrix}x\\y\\z\\t\\s\end{pmatrix}\in\R^5$ le vecteur inconnu, nous pouvons identifier trois pivots, associés aux variables $x$, $y$ et $t$, et donc deux variables libres, $z$ et $s$.
+		Le système échelonné est équivalent à
+			\[ \systeme[sort={x,y,z,t,s}]{x - 2z + 3s = 3, \\ y + z + 4s = -1, \\ t - s = 0.} \iff \systeme[sort={x,y,z,t,s}]{x = 3+2z-3s, \\ y = -1-z-4s, \\ t = s.}. \]
+		Une solution $X$ du système prend donc la forme
+			\[  \begin{pmatrix}x\\y\\z\\t\\s\end{pmatrix} =  \begin{pmatrix}3+2z-3s\\-1-z-4s\\z\\s\\s\end{pmatrix}, \]
+		où $z, s\in\R$ sont libres.
+		\item
+		Nous avons
+			\[ \left\{X\in\R^5 \tq AX = \begin{pmatrix}9\\-20\\7\end{pmatrix} \right\} = \begin{pmatrix}3\\-1\\0\\0\\0\end{pmatrix} + \R \begin{pmatrix}2\\-1\\1\\0\\0\end{pmatrix} + \R\begin{pmatrix}-3\\-4\\0\\1\\1\end{pmatrix}. \]
+		C'est un plan passant par le point $(3;-1;0;0;0)$ et dirigé par les vecteurs $\begin{pmatrix}2\\-1\\1\\0\\0\end{pmatrix}$ et $\begin{pmatrix}-3\\-4\\0\\1\\1\end{pmatrix}$.
+		\item
+		Choisir $z = s = 0$ aboutit au vecteur de la question $1$.
+		
+		Choisir $z=1, s=-1$ aboutit au vecteur de la question $2$.
+		
+		Tout autre choix aboutira à un troisième vecteur pas encore cité.
+		Par exemple, $z=1, s=0$ donne
+			\[  \begin{pmatrix}3+2z-3s\\-1-z-4s\\z\\s\\s\end{pmatrix} =  \begin{pmatrix}5\\-2\\1\\0\\0\end{pmatrix}. \]
+		\item
+		Non, $g$ n'est pas injective, car une image adment plusieurs antécédents, d'après les questions 1 et 2.
+	\end{enumerate}
 }
 
-\fillwithlines{11cm}
+
+\newpage
 
 
-\exe{6}{
-}{exe:4}{
-}
+\null\vspace{-20pt}
+Nom : \hrulefill ~ou Code Apprenant :  \rule{3cm}{.1pt}
 
-\fillwithlines{8cm}
+
+
+\fillwithlines{\fill}
+
+\newpage
+
+\fillwithlines{\fill}
+
 
 
 
